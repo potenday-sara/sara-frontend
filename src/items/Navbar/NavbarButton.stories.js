@@ -37,3 +37,11 @@ export const Test = {
     label: "로그인",
   },
 };
+
+export const Test2 = {
+  args: {
+    $primary: false,
+    size: "small",
+    label: "로그인",
+  },
+};
