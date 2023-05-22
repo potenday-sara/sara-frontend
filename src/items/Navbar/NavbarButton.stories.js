@@ -29,3 +29,11 @@ export const Login = {
     label: "로그인",
   },
 };
+
+export const Test = {
+  args: {
+    $primary: true,
+    size: "small",
+    label: "로그인",
+  },
+};
