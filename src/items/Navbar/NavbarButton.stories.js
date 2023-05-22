@@ -32,7 +32,7 @@ export const Login = {
 
 export const Test = {
   args: {
-    $primary: true,
+    $primary: false,
     size: "small",
     label: "로그인",
   },
