@@ -7,6 +7,7 @@ function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<MainPage />} />
+        <Route path="/page" element={<>안녕</>} />
       </Route>
     </Routes>
   );

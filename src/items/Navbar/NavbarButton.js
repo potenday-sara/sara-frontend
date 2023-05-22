@@ -43,9 +43,15 @@ const StyledNavbarButton = styled.button`
   ${(props) => getSizeStyles(props)}
 `;
 
-export const NavbarButton = ({ label, ...rest }) => {
-  console.log(rest);
-  return <StyledNavbarButton {...rest}>{label}</StyledNavbarButton>;
+export const NavbarButton = ({ label, ...rest }) => (
+  <StyledNavbarButton {...rest}>{label}</StyledNavbarButton>
+);
+
+NavbarButton.propTypes = {
+  $primary: PropTypes.bool,
+  size: PropTypes.oneOf(["small", "medium"]),
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
 };
 
 NavbarButton.defaultProps = {

@@ -1,7 +1,7 @@
 import React from "react";
 import { styled } from "styled-components";
 import { NavbarButton } from "../../items/Navbar/NavbarButton";
-import { useLocation } from "react-router-dom";
+import { useLocation, redirect, useNavigate } from "react-router-dom";
 
 const StyledNavbar = styled.div`
   display: flex;
@@ -23,6 +23,8 @@ const StyledNavbar = styled.div`
 
 export default function Navbar() {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+
   return (
     <StyledNavbar>
       <div className="flex">
@@ -32,8 +34,14 @@ export default function Navbar() {
             $primary={pathname === "/"}
             size="medium"
             label="Sara"
+            onClick={() => navigate("/")}
           />
-          <NavbarButton size="medium" label="페이지" />
+          <NavbarButton
+            $primary={pathname === "/page"}
+            size="medium"
+            label="페이지"
+            onClick={() => navigate("/page")}
+          />
         </div>
         <div className="flex-right">
           <NavbarButton size="small" label="로그인" />
