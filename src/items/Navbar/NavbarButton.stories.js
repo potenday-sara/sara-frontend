@@ -45,3 +45,10 @@ export const Test2 = {
     label: "로그인",
   },
 };
+export const Test3 = {
+  args: {
+    $primary: false,
+    size: "small",
+    label: "로그인",
+  },
+};
