@@ -37,9 +37,9 @@ const getButtonSize = ({ size }) =>
   size === "large"
     ? css`
         height: 153px;
-        width: 292px;
+        width: 295px;
         border-radius: 16px;
-        padding: 32px;
+        padding: 20px;
       `
     : css`
         height: 74px;
@@ -48,7 +48,7 @@ const getButtonSize = ({ size }) =>
         padding: 12px;
       `;
 
-const StyledChoiceButton = styled.button`
+export const StyledChoiceButton = styled.button`
   ${(props) => getBackgroundColor(props)}
   ${(props) => getButtonSize(props)}
   ${() => getBasicButton()}

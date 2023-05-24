@@ -44,9 +44,8 @@ const StyledH1Text = styled.h1`
 const StyledH2Text = styled.h2`
   ${(props) => basicTextStyle(props)}
   ${(props) => textColor(props)}
-  font-family: Pretendard;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 19px;
 `;
 
