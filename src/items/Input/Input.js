@@ -88,6 +88,7 @@ TextareaInput.propTypes = {
 };
 
 TextareaInput.defaultProps = {
+  size: "small",
   value: "",
   onChange: undefined,
 };
