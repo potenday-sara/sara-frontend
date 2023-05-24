@@ -11,7 +11,6 @@ const StyledNavbar = styled.div`
   justify-content: center;
   width: 100%;
   height: 100px;
-  background-color: #487eb0;
 
   // flex는 글로벌 스타일로 설정
   .flex {

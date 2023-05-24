@@ -5,9 +5,19 @@ export default {
   title: "Input",
   tags: ["autodocs"],
   component: TextInput,
+  argTypes: {
+    value: {
+      control: false,
+    },
+  },
 };
 
-export const BasicTextInput = () => {
+export const BasicTextInput = (args) => {
   const [value, setValue] = useInput("블루투스 이어폰");
-  return <TextInput size="small" value={value} onChange={setValue} />;
+  return <TextInput size={args.size} value={value} onChange={setValue} />;
 };
+
+// export const BasicTextInput = BasicTextInputComp.bind({});
+// BasicTextInput.args = {
+//   size: "small",
+// };

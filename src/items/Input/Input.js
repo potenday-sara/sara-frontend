@@ -75,12 +75,14 @@ TextInput.propTypes = {
 
 TextInput.defaultProps = {
   value: "",
+  size: "small",
   onChange: undefined,
 };
 
 export const TextareaInput = ({ ...rest }) => <StyledTextAreaInput {...rest} />;
 
 TextareaInput.propTypes = {
+  size: PropTypes.oneOf(["small", "medium"]).isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func,
 };
