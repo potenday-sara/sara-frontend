@@ -1,15 +1,19 @@
 import { Route, Routes } from "react-router-dom";
-import Layout from "./layout/Layout";
+
 import MainPage from "./pages/main";
+import { GlobalStyles } from "./Styles";
+import Navbar from "./componentes/Navbar/Navbar";
 
 function App() {
   return (
-    <Routes>
-      <Route element={<Layout />}>
+    <>
+      <GlobalStyles />
+      <Navbar />
+      <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/page" element={<>안녕</>} />
-      </Route>
-    </Routes>
+      </Routes>
+    </>
   );
 }
 
