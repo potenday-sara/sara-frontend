@@ -1,8 +1,9 @@
 import React from "react";
 import { TextareaInput, TextInput } from "../items/Input/Input";
 import { useInput } from "../hooks/hooks";
-import { MainButton } from "../items/Button/MainButton";
+import { BasicButton, ChoiceButton } from "../items/Button/MainButton";
 import { MainText } from "../items/Text/Text";
+import saralogo1 from "../images/logos/saralogo1.svg";
 
 export default function MainPage() {
   const [hiInput, setHiInput] = useInput("");
@@ -14,9 +15,19 @@ export default function MainPage() {
       <br />
       <TextareaInput size="small" value={areaInput} onChange={setAreaInput} />
       <br />
-      <MainButton color="red" label={"에게 물어보기"} />
-
-      <MainText type={"h1"} color={"red"} label={"폰트확인"} />
+      <ChoiceButton
+        size="large"
+        type={"sara"}
+        $backgroundColor="blue"
+        label={`에게 물어보기`}
+      />
+      <ChoiceButton
+        size="large"
+        type={"mara"}
+        $backgroundColor="red"
+        label={`에게 물어보기`}
+      />
+      <BasicButton label={"나이키 덩크 레트로 흰검"} />
     </div>
   );
 }

@@ -59,18 +59,14 @@ const StyledPText = styled.p`
 `;
 
 export const MainText = ({ type, label, ...rest }) => {
-  console.log(type);
   switch (type) {
     case "h1":
-      console.log("hi");
       return <StyledH1Text {...rest}>{label}</StyledH1Text>;
 
     case "h2":
-      console.log("hi");
       return <StyledH2Text {...rest}>{label}</StyledH2Text>;
 
     default:
-      console.log("hi");
       return <StyledPText {...rest}>{label}</StyledPText>;
   }
 };
