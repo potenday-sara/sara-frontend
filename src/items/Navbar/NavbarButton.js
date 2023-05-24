@@ -1,16 +1,15 @@
 import React from "react";
 import { css, styled } from "styled-components";
 import PropTypes from "prop-types";
+import { device } from "../../Styles";
 
 const getVariantStyles = ({ $primary = false }) =>
   $primary
     ? css`
         color: red;
-        font-size: 24px;
       `
     : css`
         color: black;
-        font-size: 20px;
       `;
 
 const getSizeStyles = ({ size = "medium" }) => {

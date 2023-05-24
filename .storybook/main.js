@@ -4,8 +4,10 @@ const config = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
+    "@storybook/addon-styling",
     "@storybook/preset-create-react-app",
     "@storybook/addon-interactions",
+    "@storybook/addon-viewport/register",
     "storybook-addon-react-router-v6",
   ],
   framework: {
