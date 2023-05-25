@@ -4,6 +4,12 @@ import { styled } from "styled-components";
 import GridLayout from "../componentes/GridLayout/GridLayout";
 // import SelectLayout from "../componentes/GridLayout/GridLayout";
 
+const temp = [
+  "에어팟 맥스",
+  "나이키 에어포스 미드 07`",
+  "삼성 더 프리스타일",
+  // "삼성 더 프리스타일",
+];
 const SelectLayout = styled.div`
   display: flex;
   width: 100%;
@@ -31,10 +37,10 @@ export default function MainPage() {
   return (
     <SelectLayout>
       <section className="sara select">
-        <GridLayout type={"sara"} />
+        <GridLayout $type={"sara"} texts={temp} />
       </section>
       <section className="mara select">
-        <GridLayout />
+        <GridLayout $type={"mara"} />
       </section>
     </SelectLayout>
   );

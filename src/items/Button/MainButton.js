@@ -122,3 +122,27 @@ BasicButton.defaultProps = {
   size: "medium",
   onClick: undefined,
 };
+
+const StyledTextButton = styled.button`
+  background-color: ${(props) => props.$backgroundColor};
+  ${() => getBasicButton()}
+  padding: 10px 20px;
+`;
+
+export const TextButton = ({ label, ...rest }) => {
+  return (
+    <StyledTextButton {...rest}>
+      <MainText type={"h2"} label={label} color={"black"}></MainText>
+    </StyledTextButton>
+  );
+};
+
+TextButton.propTypes = {
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+};
+
+TextButton.defaultProps = {
+  $backgroundColor: "white",
+  onClick: undefined,
+};
