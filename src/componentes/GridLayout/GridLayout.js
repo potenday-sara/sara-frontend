@@ -14,6 +14,8 @@ import { ArticleButton } from "../../items/Button/ArticleButton";
 const getGridCSS = ({ type }) => {
   if (type === "sara") {
     return css`
+      grid-template-rows: minmax(auto, 300px) minmax(250px, auto);
+      grid-template-columns: minmax(auto, 800px) minmax(180px, 300px);
       .realtime {
         text-align: right;
         .texts button {
@@ -27,10 +29,34 @@ const getGridCSS = ({ type }) => {
         width: 100%;
         height: 100%;
       }
+
+      .choiceButton {
+        justify-content: end;
+      }
+    `;
+  } else {
+    return css`
+      grid-template-rows: minmax(auto, 300px) minmax(250px, auto);
+      grid-template-columns: minmax(180px, 300px) minmax(auto, 800px);
+      .realtime {
+        text-align: left;
+        grid-area: 1 / 2 / 2 / 3;
+        .texts button {
+          margin-right: auto;
+        }
+      }
+      .logobox {
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        width: 100%;
+        height: 100%;
+      }
       .article {
       }
       .choiceButton {
-        justify-content: end;
+        grid-area: 2 / 1 / 3 / 2;
+        justify-content: start;
       }
     `;
   }
@@ -38,11 +64,9 @@ const getGridCSS = ({ type }) => {
 
 const StyledGridayout = styled.main`
   ${(props) => getGridCSS(props)}
-  margin-left: auto;
   display: grid;
   grid-gap: 15px;
-  grid-template-rows: minmax(auto, 300px) minmax(250px, auto);
-  grid-template-columns: minmax(auto, 800px) minmax(180px, 300px);
+
   width: 100%;
   max-width: 1000px;
   aspect-ratio: 16 / 9;
@@ -56,12 +80,9 @@ const StyledGridayout = styled.main`
     }
   }
   .logobox {
-    display: flex;
-    align-items: end;
-    justify-content: end;
     width: 100%;
     height: 100%;
-
+    overflow: hidden;
     svg {
       max-width: 300px;
       max-height: 300px;
@@ -71,7 +92,6 @@ const StyledGridayout = styled.main`
   }
   .article {
     overflow: hidden;
-    
   }
   .choiceButton {
     display: flex;

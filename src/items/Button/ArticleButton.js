@@ -9,6 +9,7 @@ const StyledArticleButton = styled.div`
   grid-template-columns: auto 1fr;
 
   width: 100%;
+  max-width: 685px;
   height: 130px;
   background: #ffffff;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.05);
@@ -64,5 +65,5 @@ ArticleButton.defaultProps = {
   onClick: undefined,
   title: "에어팟 맥스",
   contents:
-    "에어팟 맥스에어팟 맥스에어팟 맥스에어팟 맥에어팟 에어팟 에어팟 맥스에어팟 맥스에어팟 맥스맥스맥스팟 맥스에어팟 맥스에어팟 맥스에어팟 맥스에어팟 맥스",
+    "에어팟 맥스에어팟 맥스에어팟맥스에어팟맥스에어팟맥스에어팟맥스에어팟맥스에어팟 맥스에어팟맥스에어팟맥스에어팟맥스에어팟 맥스에어팟 맥에어팟 에어팟 에어팟 맥스에어팟 맥스에어팟 맥스맥스맥스팟 맥스에어팟 맥스에어팟 맥스에어팟 맥스에어팟 맥스",
 };

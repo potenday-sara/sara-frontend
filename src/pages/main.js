@@ -24,11 +24,15 @@ const SelectLayout = styled.div`
     min-width: 700px;
     padding: 20px;
     height: 100%;
-    background-color: red;
+    justify-content: flex-start;
   }
   .sara {
     justify-content: end;
     background: rgba(0, 115, 221, 0.07);
+  }
+
+  .mara {
+    background: #f4f4f4;
   }
 `;
 export default function MainPage() {
@@ -40,7 +44,7 @@ export default function MainPage() {
         <GridLayout $type={"sara"} texts={temp} />
       </section>
       <section className="mara select">
-        <GridLayout $type={"mara"} />
+        <GridLayout $type={"mara"} texts={temp} />
       </section>
     </SelectLayout>
   );
