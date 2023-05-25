@@ -8,6 +8,8 @@ import {
 import { ReactComponent as Sara } from "../../images/logos/sara.svg";
 import { ReactComponent as Mara } from "../../images/logos/mara.svg";
 import { MainText } from "../../items/Text/Text";
+import { useNavigate } from "react-router-dom";
+import { ArticleButton } from "../../items/Button/ArticleButton";
 
 const getGridCSS = ({ type }) => {
   if (type === "sara") {
@@ -36,11 +38,13 @@ const getGridCSS = ({ type }) => {
 
 const StyledGridayout = styled.main`
   ${(props) => getGridCSS(props)}
+  margin-left: auto;
   display: grid;
   grid-gap: 15px;
   grid-template-rows: minmax(auto, 300px) minmax(250px, auto);
-  grid-template-columns: 1.2fr minmax(200px, 300px);
+  grid-template-columns: minmax(auto, 800px) minmax(180px, 300px);
   width: 100%;
+  max-width: 1000px;
   aspect-ratio: 16 / 9;
 
   .realtime {
@@ -66,6 +70,8 @@ const StyledGridayout = styled.main`
     }
   }
   .article {
+    overflow: hidden;
+    
   }
   .choiceButton {
     display: flex;
@@ -74,6 +80,7 @@ const StyledGridayout = styled.main`
 `;
 
 export default function GridLayout({ $type, texts }) {
+  const navigate = useNavigate();
   return (
     <StyledGridayout type={$type}>
       <div className="realtime">
@@ -85,12 +92,26 @@ export default function GridLayout({ $type, texts }) {
         </div>
       </div>
       <div className="logobox">{$type === "sara" ? <Sara /> : <Mara />}</div>
-      <article className="article"></article>
+      <article className="article">
+        <ArticleButton></ArticleButton>
+        <ArticleButton></ArticleButton>
+        <ArticleButton></ArticleButton>
+      </article>
       <div className="choiceButton">
         {$type === "sara" ? (
-          <ChoiceButton type={$type} size="large" $backgroundColor={"blue"} />
+          <ChoiceButton
+            type={$type}
+            size="large"
+            $backgroundColor={"blue"}
+            onClick={() => navigate("/sara")}
+          />
         ) : (
-          <ChoiceButton type={$type} size="large" $backgroundColor={"red"} />
+          <ChoiceButton
+            type={$type}
+            size="large"
+            $backgroundColor={"red"}
+            onClick={() => navigate("/mara")}
+          />
         )}
       </div>
     </StyledGridayout>

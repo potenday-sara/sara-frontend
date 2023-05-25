@@ -39,6 +39,7 @@ const StyledH1Text = styled.h1`
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
+  margin-bottom: 0px;
 `;
 
 const StyledH2Text = styled.h2`
@@ -47,6 +48,7 @@ const StyledH2Text = styled.h2`
   font-size: 16px;
   font-weight: 600;
   line-height: 19px;
+  margin-bottom: 5px;
 `;
 
 const StyledPText = styled.p`
@@ -55,6 +57,8 @@ const StyledPText = styled.p`
   font-size: 16px;
   font-weight: 500;
   line-height: 22px;
+  /* overflow: hidden; */
+  /* text-overflow: ellipsis; */
 `;
 
 export const MainText = ({ type, label, ...rest }) => {

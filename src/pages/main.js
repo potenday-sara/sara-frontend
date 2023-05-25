@@ -19,7 +19,6 @@ const SelectLayout = styled.div`
   .select {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: center;
     width: 50%;
     min-width: 700px;
@@ -28,6 +27,7 @@ const SelectLayout = styled.div`
     background-color: red;
   }
   .sara {
+    justify-content: end;
     background: rgba(0, 115, 221, 0.07);
   }
 `;
