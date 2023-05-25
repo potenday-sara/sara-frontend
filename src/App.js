@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <GlobalStyles />
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/page" element={<>안녕</>} />
