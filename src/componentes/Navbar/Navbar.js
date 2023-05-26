@@ -1,7 +1,7 @@
 import React from "react";
 import { styled } from "styled-components";
 import { NavbarButton } from "../../items/Navbar/NavbarButton";
-import { useLocation, redirect, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { device } from "../../Styles";
 import Swal from "sweetalert2";
 

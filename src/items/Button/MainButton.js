@@ -33,20 +33,38 @@ const getBasicButton = () => css`
   box-shadow: 4px 4px 24px rgba(0, 0, 0, 0.05);
 `;
 
-const getButtonSize = ({ size }) =>
-  size === "large"
-    ? css`
+const getButtonSize = ({ size }) => {
+  switch (size) {
+    case "large": {
+      return css`
+        max-height: 376px;
+        height: 100%;
+        max-width: 340px;
+        width: 100%;
+
+        border-radius: 32px;
+        padding: 10px;
+      `;
+    }
+
+    case "medium": {
+      return css`
         height: 153px;
         width: 295px;
         border-radius: 16px;
         padding: 20px;
-      `
-    : css`
+      `;
+    }
+    default: {
+      return css`
         height: 74px;
         width: 295px;
         border-radius: 12px;
         padding: 12px;
       `;
+    }
+  }
+};
 
 export const StyledChoiceButton = styled.button`
   ${(props) => getBackgroundColor(props)}
@@ -58,7 +76,7 @@ export const StyledChoiceButton = styled.button`
 export const ChoiceButton = ({ label, type, ...rest }) => {
   return (
     <StyledChoiceButton {...rest}>
-      {type === "sara" ? <Sara /> : <Mara />}
+      {type === "sara" ? <Sara /> : <Mara stroke="white" />}
       <MainText type={"h1"} color={"white"} label={label} />
     </StyledChoiceButton>
   );
@@ -68,12 +86,13 @@ ChoiceButton.propTypes = {
   type: PropTypes.oneOf(["sara", "mara"]),
   $backgroundColor: PropTypes.oneOf(["blue", "red"]),
   label: PropTypes.string.isRequired,
-  size: PropTypes.oneOf(["large", "medium"]),
+  size: PropTypes.oneOf(["large", "medium", "small"]),
   onClick: PropTypes.func,
 };
 
 ChoiceButton.defaultProps = {
   onClick: undefined,
+  label: "에게 물어봐",
 };
 
 const StyledBasicButton = styled.button`
@@ -94,12 +113,36 @@ export const BasicButton = ({ label, type, ...rest }) => {
 BasicButton.propTypes = {
   $backgroundColor: PropTypes.oneOf(["blue", "red", "white"]),
   label: PropTypes.string.isRequired,
-  size: PropTypes.oneOf(["large", "medium"]),
+  size: PropTypes.oneOf(["large", "medium", "small"]),
   onClick: PropTypes.func,
 };
 
 BasicButton.defaultProps = {
   $backgroundColor: "white",
   size: "medium",
+  onClick: undefined,
+};
+
+const StyledTextButton = styled.button`
+  background-color: ${(props) => props.$backgroundColor};
+  ${() => getBasicButton()}
+  padding: 10px 20px;
+`;
+
+export const TextButton = ({ label, ...rest }) => {
+  return (
+    <StyledTextButton {...rest}>
+      <MainText type={"h2"} label={label} color={"black"}></MainText>
+    </StyledTextButton>
+  );
+};
+
+TextButton.propTypes = {
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+};
+
+TextButton.defaultProps = {
+  $backgroundColor: "white",
   onClick: undefined,
 };
