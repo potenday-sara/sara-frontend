@@ -76,7 +76,7 @@ export const StyledChoiceButton = styled.button`
 export const ChoiceButton = ({ label, type, ...rest }) => {
   return (
     <StyledChoiceButton {...rest}>
-      {type === "sara" ? <Sara /> : <Mara />}
+      {type === "sara" ? <Sara /> : <Mara stroke="white" />}
       <MainText type={"h1"} color={"white"} label={label} />
     </StyledChoiceButton>
   );

@@ -4,6 +4,8 @@ import { styled } from "styled-components";
 import GridLayout from "../componentes/GridLayout/GridLayout";
 // import SelectLayout from "../componentes/GridLayout/GridLayout";
 
+import { ReactComponent as MainLogo } from "../images/logos/miainlogo.svg";
+
 const temp = [
   "에어팟 맥스",
   "나이키 에어포스 미드 07`",
@@ -12,23 +14,25 @@ const temp = [
 ];
 const SelectLayout = styled.div`
   display: flex;
-  width: 100%;
-  // 풋터추가시 calc로 크기 조정
+  position: relative;
+  width: auto;
+  overflow: auto;
+
   height: 100vh;
+  /* align-items: center; */
+  /* justify-content: center; */
 
   .select {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
     width: 50%;
     min-width: 700px;
     padding: 20px;
     height: 100%;
-    justify-content: flex-start;
   }
   .sara {
-    justify-content: end;
     background: rgba(0, 115, 221, 0.07);
+    justify-content: end;
   }
 
   .mara {
@@ -39,13 +43,14 @@ export default function MainPage() {
   // const [hiInput, setHiInput] = useInput("");
   // const [areaInput, setAreaInput] = useInput("");
   return (
-    <SelectLayout>
-      <section className="sara select">
+    <SelectLayout className="check">
+      {/* <img src={mainLogo} alt="" /> */}
+      <div className="sara select">
         <GridLayout $type={"sara"} texts={temp} />
-      </section>
-      <section className="mara select">
+      </div>
+      <div className="mara select">
         <GridLayout $type={"mara"} texts={temp} />
-      </section>
+      </div>
     </SelectLayout>
   );
 }
