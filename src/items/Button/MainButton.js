@@ -57,8 +57,8 @@ const getButtonSize = ({ size }) => {
     }
     default: {
       return css`
-        height: 74px;
-        width: 295px;
+        height: 60px;
+        width: 100%;
         border-radius: 12px;
         padding: 12px;
       `;
@@ -102,10 +102,10 @@ const StyledBasicButton = styled.button`
   gap : 10px;
 `;
 
-export const BasicButton = ({ label, type, ...rest }) => {
+export const BasicButton = ({ label, color, type, ...rest }) => {
   return (
     <StyledBasicButton {...rest}>
-      <MainText type={"h2"} color={"black"} label={label} />
+      <MainText type={"h2"} color={color ? color : "black"} label={label} />
     </StyledBasicButton>
   );
 };

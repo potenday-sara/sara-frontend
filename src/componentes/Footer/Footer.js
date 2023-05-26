@@ -1,7 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
 import { ReactComponent as FotterLogo } from "../../images/logos/footerlogo.svg";
-import { MainText } from "../../items/Text/Text";
 
 const StyledFooter = styled.div`
   position: absolute;
