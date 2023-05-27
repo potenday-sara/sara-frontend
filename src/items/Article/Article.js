@@ -35,22 +35,16 @@ const StyledArticle = styled.div`
   }
 `;
 
-export default function Article({ type, ...rest }) {
+export default function Article({ type, label, text, ...rest }) {
   return (
     <StyledArticle {...rest}>
       <div className="contents">
         <MainText
-          label={"맥북 에어"}
+          label={label}
           type={"h1"}
           color={type === "/sara" ? "blue" : "red"}
         />
-        <MainText
-          label={
-            "벌써 세 번 잃어버렸는데,이번에 사면 또 잃어버릴 것 같아서 못 사겠어..."
-          }
-          type={"p"}
-          color={"#999999"}
-        />
+        <MainText label={text} type={"p"} color={"#999999"} />
       </div>
       <div className="black"></div>
     </StyledArticle>

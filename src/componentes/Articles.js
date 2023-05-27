@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { styled } from "styled-components";
 import { MainText } from "../items/Text/Text";
@@ -12,6 +12,8 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Pagination, Autoplay, Navigation } from "swiper";
+import { useQuery } from "react-query";
+import { getQuestions, getRangking } from "../apis";
 
 const StyledArticles = styled.div`
   display: grid;
@@ -61,6 +63,14 @@ const StyledArticles = styled.div`
 `;
 
 export default function Articles({ type }) {
+  const { isLoading, data } = useQuery([type, "RankQuestions"], () =>
+    getQuestions(type)
+  );
+  const [datas, setDatas] = useState([]);
+  useEffect(() => {
+    setDatas(data?.data?.data);
+  }, [isLoading]);
+
   return (
     <StyledArticles>
       <MainText
@@ -88,21 +98,15 @@ export default function Articles({ type }) {
           },
         }}
       >
-        <SwiperSlide>
-          <Article type={type} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Article type={type} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Article type={type} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Article type={type} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Article type={type} />
-        </SwiperSlide>
+        {datas?.length > 0
+          ? datas?.map((i, idx) => {
+              return (
+                <SwiperSlide key={`slider${type}${idx}`}>
+                  <Article type={type} label={i.object} text={i.solution} />
+                </SwiperSlide>
+              );
+            })
+          : null}
       </Swiper>
     </StyledArticles>
   );

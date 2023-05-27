@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { styled } from "styled-components";
 import GridLayout from "../componentes/GridLayout/GridLayout";
 // import SelectLayout from "../componentes/GridLayout/GridLayout";
 
 import { ReactComponent as MainLogo } from "../images/logos/miainlogo.svg";
+import { useQuery } from "react-query";
+import { getRangking } from "../apis";
 
 const temp = [
   "에어팟 맥스",

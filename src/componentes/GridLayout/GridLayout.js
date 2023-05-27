@@ -14,6 +14,8 @@ import { ArticleButton } from "../../items/Button/ArticleButton";
 import { ReactComponent as SaraText } from "../../images/logos/textbox.svg";
 import { ReactComponent as MaraText } from "../../images/logos/textboxmara.svg";
 import { ReactComponent as MainLogo } from "../../images/logos/miainlogo.svg";
+import { useQuery } from "react-query";
+import { getRangking } from "../../apis";
 
 const getGridCSS = ({ type }) => {
   if (type === "sara") {
@@ -129,11 +131,27 @@ const StyledGridayout = styled.main`
   .choiceButton {
     display: flex;
     padding-bottom: 0px;
+
+    button {
+      box-shadow: 0px 5px 0px 0px
+        ${(props) => (props.type === "mara" ? "#BD2200" : "#0158a8")};
+      transition: all 0.2s;
+      &:hover {
+        box-shadow: 0px 0px 0px 0px
+          ${(props) => (props.type === "sara" ? "#BD2200" : "#0158a8")};
+        margin-top: 7px;
+        margin-bottom: 5px;
+      }
+    }
   }
 `;
 
 export default function GridLayout({ $type, texts }) {
   const navigate = useNavigate();
+  const { isLoading, data } = useQuery([$type, "ranking"], () =>
+    getRangking($type)
+  );
+
   return (
     <StyledGridayout type={$type}>
       {$type === "sara" ? (
@@ -141,12 +159,18 @@ export default function GridLayout({ $type, texts }) {
       ) : null}
       {/* <MainLogo className="mainlogo" /> */}
       <div className="realtime">
-        <MainText label={"실시간 사라"} type="h2" color="black" />
-        <div className="texts">
-          {texts.map((i) => (
-            <TextButton label={i} size="small" />
-          ))}
-        </div>
+        <MainText
+          label={$type === "sara" ? "실시간 사라" : "실시간 마라"}
+          type="h2"
+          color="black"
+        />
+        {isLoading === false ? (
+          <div className="texts">
+            {data.data.data.slice(0, 3).map((i, idx) => (
+              <TextButton key={idx} label={i.object} size="small" />
+            ))}
+          </div>
+        ) : null}
       </div>
       <div className="logobox">
         {$type === "sara" ? (
@@ -165,8 +189,8 @@ export default function GridLayout({ $type, texts }) {
       </div>
 
       <article className="article">
-        <ArticleButton></ArticleButton>
-        <ArticleButton></ArticleButton>
+        <ArticleButton $type={$type}></ArticleButton>
+        <ArticleButton $type={$type}></ArticleButton>
       </article>
       <div className="choiceButton">
         {$type === "sara" ? (
