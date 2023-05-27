@@ -120,11 +120,15 @@ const StyledGridayout = styled.main`
     }
   }
   .article {
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+    width: 100%;
   }
   .choiceButton {
     display: flex;
-    padding-bottom: 50px;
+    padding-bottom: 0px;
   }
 `;
 
@@ -161,7 +165,6 @@ export default function GridLayout({ $type, texts }) {
       </div>
 
       <article className="article">
-        <ArticleButton></ArticleButton>
         <ArticleButton></ArticleButton>
         <ArticleButton></ArticleButton>
       </article>
