@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import { styled } from "styled-components";
 import { MainText } from "../items/Text/Text";
@@ -61,6 +61,16 @@ const StyledArticles = styled.div`
 `;
 
 export default function Articles() {
+  const swiper = useRef("");
+
+  const handleMouseEnter = (e) => {
+    // console.log(e);
+    // swiper.current.swiper.autoplay.stop();
+  };
+  const handleMouseLeave = () => {
+    // swiper?.current?.swiper?.autoplay.start();
+  };
+
   return (
     <StyledArticles>
       <MainText
@@ -69,12 +79,14 @@ export default function Articles() {
         color="black"
       />
       <Swiper
+        ref={swiper}
         slidesPerView={2}
         autoplay={{
-          delay: 1,
+          delay: 0,
+          pauseOnMouseEnter: true,
           disableOnInteraction: false,
         }}
-        spaceBetween={50}
+        spaceBetween={80}
         loop={true}
         speed={3000}
         direction={"vertical"}
@@ -83,26 +95,33 @@ export default function Articles() {
         breakpoints={{
           1800: {
             slidesPerView: 3,
+            spaceBetween: 150,
           },
         }}
       >
         <SwiperSlide>
-          <Article />
+          <Article
+            onMouseOver={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <Article />
+          <Article
+            onMouseOver={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <Article />
+          <Article
+            onMouseOver={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <Article />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Article />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Article />
+          <Article
+            onMouseOver={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          />
         </SwiperSlide>
       </Swiper>
     </StyledArticles>

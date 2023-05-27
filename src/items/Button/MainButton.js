@@ -21,6 +21,24 @@ const getBackgroundColor = ({ $backgroundColor }) => {
       `;
   }
 };
+const getBorderColor = ({ color }) => {
+  switch (color) {
+    case "red":
+      return css`
+        border: 1px solid #ef2b00;
+        border-radius: 12px;
+      `;
+    case "blue":
+      return css`
+        border: 1px solid #007bed;
+        border-radius: 12px;
+      `;
+    default:
+      return css`
+        background-color: ${color};
+      `;
+  }
+};
 
 const getBasicButton = () => css`
   border-radius: 16px;
@@ -143,6 +161,40 @@ TextButton.propTypes = {
 };
 
 TextButton.defaultProps = {
+  $backgroundColor: "white",
+  onClick: undefined,
+};
+
+const StyledTrendButton = styled.button`
+  ${() => getBasicButton()}
+  ${(props) => getBackgroundColor(props)}
+  ${(props) => getBorderColor(props)}
+  /* background-color: red; */
+  width: auto;
+  display: inline-block;
+  height: auto;
+  gap: 10px;
+  margin: 2px;
+  padding: 10px 10px;
+
+  h2 {
+    font-size: 14px;
+  }
+`;
+
+export const TrendButton = ({ label, ...rest }) => (
+  <StyledTrendButton {...rest}>
+    <MainText type={"h2"} label={label} color={"blakc"} />
+  </StyledTrendButton>
+);
+TrendButton.propTypes = {
+  $backgroundColor: PropTypes.oneOf(["blue", "red", "white"]),
+  color: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+};
+
+TrendButton.defaultProps = {
   $backgroundColor: "white",
   onClick: undefined,
 };

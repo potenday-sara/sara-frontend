@@ -57,7 +57,7 @@ const StyledPText = styled.p`
   font-size: 16px;
   font-weight: 500;
   line-height: 22px;
-  margin-top: 5px;
+  /* margin-top: 5px; */
   /* overflow: hidden; */
   /* text-overflow: ellipsis; */
 `;

@@ -2,23 +2,26 @@ import React from "react";
 
 import { styled } from "styled-components";
 import { MainText } from "../Text/Text";
+import PropTypes from "prop-types";
 
 const StyledArticle = styled.div`
   display: grid;
+  align-items: center;
   grid-template-columns: 1.2fr 1fr;
   grid-template-rows: 1fr;
   background-color: white;
   width: calc(300px + 10vw);
-  height: 100px;
+  height: 120px;
   /* background-color: red; */
-  padding: 15px 20px;
+  padding: 20px 20px;
   bottom: 5px;
   background: #ffffff;
   border-radius: 16px;
+  /* z-index: 999; */
 
   .contents {
-    h2 {
-      margin-bottom: 3px;
+    h1 {
+      margin-bottom: 10px;
     }
     /* p {
       line-height: 14px;
@@ -32,11 +35,11 @@ const StyledArticle = styled.div`
   }
 `;
 
-export default function Article() {
+export default function Article({ ...rest }) {
   return (
-    <StyledArticle>
+    <StyledArticle {...rest}>
       <div className="contents">
-        <MainText label={"맥북 에어"} type={"h2"} color={"blue"} />
+        <MainText label={"맥북 에어"} type={"h1"} color={"blue"} />
         <MainText
           label={
             "벌써 세 번 잃어버렸는데,이번에 사면 또 잃어버릴 것 같아서 못 사겠어..."
@@ -49,3 +52,13 @@ export default function Article() {
     </StyledArticle>
   );
 }
+
+Article.propTypes = {
+  onMouseOver: PropTypes.func,
+  onMouseLeave: PropTypes.func,
+};
+
+Article.defaultProps = {
+  onMouseOver: undefined,
+  onMouseLeave: undefined,
+};
