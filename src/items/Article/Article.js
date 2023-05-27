@@ -35,11 +35,15 @@ const StyledArticle = styled.div`
   }
 `;
 
-export default function Article({ ...rest }) {
+export default function Article({ type, ...rest }) {
   return (
     <StyledArticle {...rest}>
       <div className="contents">
-        <MainText label={"맥북 에어"} type={"h1"} color={"blue"} />
+        <MainText
+          label={"맥북 에어"}
+          type={"h1"}
+          color={type === "/sara" ? "blue" : "red"}
+        />
         <MainText
           label={
             "벌써 세 번 잃어버렸는데,이번에 사면 또 잃어버릴 것 같아서 못 사겠어..."

@@ -7,17 +7,17 @@ import PropTypes from "prop-types";
 const StyledArticleButton = styled.div`
   display: grid;
   grid-template-columns: auto 1fr;
-
+  /* padding: 20px; */
+  overflow: hidden;
   width: 100%;
   max-width: 685px;
-  height: 130px;
+  height: 48%;
   background: #ffffff;
+
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.05);
   border-radius: 16px;
-  margin: 0px 0px 10px 0px;
   cursor: pointer;
-  overflow: hidden;
-
+  position: relative;
   .image {
     width: 130px;
     height: 100%;
@@ -34,8 +34,12 @@ const StyledArticleButton = styled.div`
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 4;
+    /* white-space: nowrap; */
     -webkit-box-orient: vertical;
     overflow: hidden;
+    h2 {
+      margin-bottom: 5px;
+    }
   }
 `;
 

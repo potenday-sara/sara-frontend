@@ -42,7 +42,7 @@ const getTextAreaInputSizeStyles = ({ size }) => {
   if (size === "small") {
     return css`
       width: 100%;
-      height: 70px;
+      height: 100px;
       font-size: 16px;
     `;
   } else {
@@ -71,6 +71,7 @@ const StyledTextAreaInput = styled.textarea`
   resize: none;
   ${() => getBasicInputStyles()}
   ${(props) => getTextAreaInputSizeStyles(props)}
+  height: calc(30px + 10vh);
 `;
 export const TextInput = ({ placeholder, label, id, ...rest }) => (
   <StyledInputBox>

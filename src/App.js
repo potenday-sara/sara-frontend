@@ -4,7 +4,7 @@ import MainPage from "./pages/main";
 import { GlobalStyles } from "./Styles";
 import Navbar from "./componentes/Navbar/Navbar";
 import Footer from "./componentes/Footer/Footer";
-import SaraPage from "./pages/questionpage";
+import Question from "./pages/questionpage";
 
 function App() {
   return (
@@ -13,7 +13,8 @@ function App() {
       {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/sara" element={<SaraPage />} />
+        <Route path="/sara" element={<Question />} />
+        <Route path="/mara" element={<Question />} />
       </Routes>
       <Footer />
     </>

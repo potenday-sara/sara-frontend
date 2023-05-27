@@ -13,11 +13,11 @@ const StyledSection = styled.div`
   gap: 40px;
   grid-template-columns: 1fr;
 `;
-export default function Section() {
+export default function Section({ type }) {
   return (
     <StyledSection>
-      <Articles />
-      <Trends />
+      <Articles type={type} />
+      <Trends type={type} />
     </StyledSection>
   );
 }

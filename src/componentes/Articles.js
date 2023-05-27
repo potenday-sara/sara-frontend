@@ -60,17 +60,7 @@ const StyledArticles = styled.div`
   }
 `;
 
-export default function Articles() {
-  const swiper = useRef("");
-
-  const handleMouseEnter = (e) => {
-    // console.log(e);
-    // swiper.current.swiper.autoplay.stop();
-  };
-  const handleMouseLeave = () => {
-    // swiper?.current?.swiper?.autoplay.start();
-  };
-
+export default function Articles({ type }) {
   return (
     <StyledArticles>
       <MainText
@@ -79,12 +69,10 @@ export default function Articles() {
         color="black"
       />
       <Swiper
-        ref={swiper}
         slidesPerView={2}
         autoplay={{
           delay: 0,
-          pauseOnMouseEnter: true,
-          disableOnInteraction: false,
+          disableOnInteraction: true,
         }}
         spaceBetween={80}
         loop={true}
@@ -96,32 +84,24 @@ export default function Articles() {
           1800: {
             slidesPerView: 3,
             spaceBetween: 150,
+            disableOnInteraction: true,
           },
         }}
       >
         <SwiperSlide>
-          <Article
-            onMouseOver={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          />
+          <Article type={type} />
         </SwiperSlide>
         <SwiperSlide>
-          <Article
-            onMouseOver={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          />
+          <Article type={type} />
         </SwiperSlide>
         <SwiperSlide>
-          <Article
-            onMouseOver={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          />
+          <Article type={type} />
         </SwiperSlide>
         <SwiperSlide>
-          <Article
-            onMouseOver={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          />
+          <Article type={type} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Article type={type} />
         </SwiperSlide>
       </Swiper>
     </StyledArticles>

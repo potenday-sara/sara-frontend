@@ -10,9 +10,10 @@ const StyledQuestion = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  height: calc(220px + 10vh);
 `;
 
-export default function Question() {
+export default function Question({ type, tempChange }) {
   const [item, setItem] = useInput();
   const [explanation, setExplanation] = useInput();
   return (
@@ -40,7 +41,8 @@ export default function Question() {
         size={"small"}
         label={"사야할까?"}
         color={"white"}
-        $backgroundColor={"blue"}
+        onClick={tempChange}
+        $backgroundColor={type === "/sara" ? "blue" : "red"}
       />
     </StyledQuestion>
   );

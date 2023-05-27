@@ -14,14 +14,23 @@ const StyledTredns = styled.div`
   }
 `;
 
-export default function Trends() {
+export default function Trends({ type }) {
   return (
     <StyledTredns>
       <MainText label={"요즘 트렌드"} type={"h2"} color="black" />
       <div className="trends">
-        <TrendButton label={"🎧 에어팟 맥스"} color={"blue"} />
-        <TrendButton label={"🎧 에어팟 맥스"} color={"blue"} />
-        <TrendButton label={"🎧 에어팟 맥스"} color={"blue"} />
+        <TrendButton
+          label={"🎧 에어팟 맥스"}
+          color={type === "/sara" ? "blue" : "red"}
+        />
+        <TrendButton
+          label={"🎧 에어팟 맥스"}
+          color={type === "/sara" ? "blue" : "red"}
+        />
+        <TrendButton
+          label={"🎧 에어팟 맥스"}
+          color={type === "/sara" ? "blue" : "red"}
+        />
       </div>
     </StyledTredns>
   );

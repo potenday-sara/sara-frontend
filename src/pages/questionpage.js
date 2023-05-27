@@ -6,6 +6,8 @@ import { ReactComponent as MainLogo } from "../images/logos/miainlogo.svg";
 import BubbleChartLayout from "../componentes/BubbleChart/BubbleChartLayout";
 import ChatBox from "../componentes/ChatBox/ChatBox";
 import Section from "../componentes/Sections/Section";
+import { useLocation } from "react-router-dom";
+import Navbar from "../componentes/Navbar/Navbar";
 
 const StyledQuestionPage = styled.div`
   display: grid;
@@ -13,12 +15,12 @@ const StyledQuestionPage = styled.div`
   align-items: center;
   gap: 5px;
   width: 100%;
-  /* gap: 20px; */
   height: 100vh;
   min-width: 1400px;
   /* min-height: 500px; */
   position: relative;
-  background-color: #edf5fd;
+  background-color: ${(props) =>
+    props.$pathname === "/sara" ? "#edf5fd" : "#F4F4F4"};
 
   /* align-items: center; */
   /* justify-content: center; */
@@ -38,6 +40,20 @@ const StyledQuestionPage = styled.div`
     align-items: center;
     justify-content: center;
     padding: 0px 10px;
+    ::-webkit-scrollbar {
+      width: 20px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: ${(props) =>
+        props.$type === "/sara" ? "#b4d9fc" : "#F9B4A5"};
+      border-radius: 32px;
+      background-clip: padding-box;
+      border: 7px solid transparent;
+    }
+    ::-webkit-scrollbar-track {
+      /* border: 7px solid #fff; */
+      background: transparent;
+    }
   }
 
   .section {
@@ -51,18 +67,24 @@ const StyledQuestionPage = styled.div`
 export default function QuestionPage() {
   // const [hiInput, setHiInput] = useInput("");
   // const [areaInput, setAreaInput] = useInput("");
+  const { pathname } = useLocation();
+
+  console.log(pathname);
   return (
-    <StyledQuestionPage>
-      <div className="chart">
-        <BubbleChartLayout></BubbleChartLayout>
-      </div>
-      <div className="chat-box">
-        <ChatBox></ChatBox>
-      </div>
-      <section className="section">
-        <Section />
-      </section>
-      {/* <img src={mainLogo} alt="" /> */}
-    </StyledQuestionPage>
+    <>
+      <Navbar type={pathname} />
+      <StyledQuestionPage $pathname={pathname} $type={pathname}>
+        <div className="chart">
+          <BubbleChartLayout type={pathname}></BubbleChartLayout>
+        </div>
+        <div className="chat-box">
+          <ChatBox type={pathname}></ChatBox>
+        </div>
+        <section className="section">
+          <Section type={pathname} />
+        </section>
+        {/* <img src={mainLogo} alt="" /> */}
+      </StyledQuestionPage>
+    </>
   );
 }
