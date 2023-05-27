@@ -43,7 +43,14 @@ const StyledArticleButton = styled.div`
   }
 `;
 
-export const ArticleButton = ({ $image, title, contents, color, ...rest }) => {
+export const ArticleButton = ({
+  $type,
+  $image,
+  title,
+  contents,
+  color,
+  ...rest
+}) => {
   return (
     <StyledArticleButton>
       <div className="image">
@@ -51,7 +58,11 @@ export const ArticleButton = ({ $image, title, contents, color, ...rest }) => {
       </div>
 
       <div className="article">
-        <MainText label={title} type={"h2"} />
+        <MainText
+          label={title}
+          type={"h2"}
+          color={$type === "sara" ? "blue" : "red"}
+        />
         <MainText label={contents} type={"p"} color={"black"} />
       </div>
     </StyledArticleButton>
@@ -68,6 +79,5 @@ ArticleButton.propTypes = {
 ArticleButton.defaultProps = {
   onClick: undefined,
   title: "에어팟 맥스",
-  contents:
-    "에어팟 맥스에어팟 맥스에어팟맥스에어팟맥스에어팟맥스에어팟맥스에어팟맥스에어팟 맥스에어팟맥스에어팟맥스에어팟맥스에어팟 맥스에어팟 맥에어팟 에어팟 에어팟 맥스에어팟 맥스에어팟 맥스맥스맥스팟 맥스에어팟 맥스에어팟 맥스에어팟 맥스에어팟 맥스",
+  contents: "에어팟 맥스",
 };

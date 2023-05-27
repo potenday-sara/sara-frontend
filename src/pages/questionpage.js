@@ -69,7 +69,6 @@ export default function QuestionPage() {
   // const [areaInput, setAreaInput] = useInput("");
   const { pathname } = useLocation();
 
-  console.log(pathname);
   return (
     <>
       <Navbar type={pathname} />

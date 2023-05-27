@@ -9,6 +9,9 @@ import Question from "./Qustion";
 import Section from "../Sections/Section";
 import Spinner from "../../items/Spinner/Spinner";
 import Answer from "./Answer";
+import { useMutation } from "react-query";
+import { postQuestion } from "../../apis";
+import { useInput } from "../../hooks/hooks";
 
 const StyledChatBox = styled.div`
   /* overflow-y: scroll; */
@@ -70,10 +73,13 @@ const StyledChatBox = styled.div`
 `;
 
 export default function ChatBox({ type, stage }) {
-  const [temp, setTemp] = useState(0);
-  const tempChange = () => {
-    setTemp(1);
-  };
+  const [data, setData] = useState(null);
+  const [item, setItem] = useInput();
+  const [explanation, setExplanation] = useInput();
+  const { mutate, isLoading, isError, error, isSuccess } = useMutation(() =>
+    postQuestion(item, explanation, type.slice(1))
+  );
+  console.log(isLoading, mutate);
   return (
     <StyledChatBox type>
       <div className="main-logo">
@@ -87,12 +93,20 @@ export default function ChatBox({ type, stage }) {
         )}
       </div>
       <div className="contents">
-        {temp === 0 ? (
-          <Question type={type} tempChange={tempChange} />
+        {data === null ? (
+          <Question
+            type={type}
+            item={item}
+            explanation={explanation}
+            mutate={mutate}
+            setItem={setItem}
+            setExplanation={setExplanation}
+          />
+        ) : isLoading === true ? (
+          <Spinner type={type} />
         ) : (
           <Answer type={type} />
         )}
-        {/* <Spinner type={type} /> */}
       </div>
     </StyledChatBox>
   );
