@@ -171,11 +171,12 @@ const StyledTrendButton = styled.button`
   ${(props) => getBorderColor(props)}
   /* background-color: red; */
   width: auto;
-  display: inline-block;
+  display: block;
   height: auto;
   gap: 10px;
   margin: 2px;
   padding: 10px 10px;
+  transition: all 0.2s;
 
   h2 {
     font-size: 14px;

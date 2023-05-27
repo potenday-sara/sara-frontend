@@ -29,29 +29,5 @@ export const Login = {
     label: "로그인",
   },
 };
-<<<<<<< HEAD
 
-export const Test = {
-  args: {
-    $primary: false,
-    size: "small",
-    label: "로그인",
-  },
-};
 
-export const Test2 = {
-  args: {
-    $primary: false,
-    size: "small",
-    label: "로그인",
-  },
-};
-export const Test3 = {
-  args: {
-    $primary: false,
-    size: "small",
-    label: "로그인",
-  },
-};
-=======
->>>>>>> 4437597d570cf0b8dc7414feda0063efcc44f7e6

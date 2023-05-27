@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import { MainText } from "../../items/Text/Text";
 import BubbleChart from "@testboxlab/react-bubble-chart-d3";
 import { useWindowSize } from "../../hooks/hooks";
 import { PropTypes } from "prop-types";
+import { useQuery } from "react-query";
+import { getQuestions, getRangking } from "../../apis";
 
 const StyledBubbleChartLayout = styled.div`
   display: flex;
@@ -25,12 +27,18 @@ const StyledBubbleChartLayout = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .node {
+      transition: all 0.2s ease-in;
+      :hover {
+        scale: 1.1;
+      }
+    }
   }
 `;
 
 export default function BubbleChartLayout({ type }) {
   const getColor = (value, type) => {
-    console.log(type);
     if (type === "/sara") {
       if (value >= 20) return "#007BED";
       else if (value >= 10) return "#4D9DE6";
@@ -43,26 +51,24 @@ export default function BubbleChartLayout({ type }) {
       else return "#F5907A";
     }
   };
-
-  const data = [
-    {
-      label: "삼성 비스포크 냉장고",
-      value: 15,
-      color: getColor(15, type),
-    },
-    {
-      label: "삼성 비스포크 냉장고",
-      value: 25,
-      color: getColor(20, type),
-    },
-    {
-      label: "삼성 비스포크 냉장고",
-      value: 5,
-      color: getColor(5, type),
-    },
-  ];
   const width = useWindowSize();
+  const { isLoading, data } = useQuery([type, "questions"], () =>
+    getRangking(type.slice(1))
+  );
+  const [datas, setDatas] = useState([]);
 
+  useEffect(() => {
+    const newData = data?.data?.data?.slice(0, 20).map((i) => {
+      return {
+        label: i.object,
+        value: parseInt(i.total, type),
+        color: getColor(i.total, type),
+      };
+    });
+    setDatas(newData);
+  }, [isLoading]);
+
+  // console.log(data?.data);
   return (
     <StyledBubbleChartLayout>
       <MainText
@@ -71,27 +77,29 @@ export default function BubbleChartLayout({ type }) {
         color="black"
       />
       <div className="chart-box">
-        <BubbleChart
-          graph={{
-            zoom: 1,
-            offsetX: 0,
-            offsetY: 0,
-          }}
-          width={width}
-          height={width}
-          padding={10}
-          showLegend={false} // optional value, pass false to disable the legend.
-          labelFont={{
-            family: "Pretendard",
-            size: 15,
-            color: "#fff",
-            weight: "normal",
-          }}
-          data={data}
-          //Custom bubble/legend click functions such as searching using the label, redirecting to other page
-          // bubbleClickFunc={bubbleClick}
-          // legendClickFun={legendClick}
-        />
+        {datas?.length ? (
+          <BubbleChart
+            graph={{
+              zoom: 1,
+              offsetX: 0,
+              offsetY: 0,
+            }}
+            width={width}
+            height={width}
+            padding={10}
+            showLegend={false} // optional value, pass false to disable the legend.
+            labelFont={{
+              family: "Pretendard",
+              size: 15,
+              color: "#fff",
+              weight: "normal",
+            }}
+            data={datas}
+            //Custom bubble/legend click functions such as searching using the label, redirecting to other page
+            // bubbleClickFunc={bubbleClick}
+            // legendClickFun={legendClick}
+          />
+        ) : null}
       </div>
     </StyledBubbleChartLayout>
   );
