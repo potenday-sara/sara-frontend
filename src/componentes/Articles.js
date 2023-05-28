@@ -62,14 +62,14 @@ const StyledArticles = styled.div`
   }
 `;
 
-export default function Articles({ type }) {
-  const { isLoading, data } = useQuery([type, "RankQuestions"], () =>
-    getQuestions(type)
+export default function Articles({ $type }) {
+  const { isLoading, data } = useQuery([$type, "RankQuestions"], () =>
+    getQuestions($type)
   );
   const [datas, setDatas] = useState([]);
   useEffect(() => {
     setDatas(data?.data?.data);
-  }, [isLoading]);
+  }, [isLoading, data]);
 
   return (
     <StyledArticles>
@@ -82,28 +82,32 @@ export default function Articles({ type }) {
         slidesPerView={2}
         autoplay={{
           delay: 0,
-          disableOnInteraction: true,
+          disableOnInteraction: false,
         }}
         spaceBetween={80}
         loop={true}
         speed={3000}
         direction={"vertical"}
-        modules={[Autoplay]}
+        modules={[Autoplay, Navigation]}
+        // observer={true}
+        // observeParents={true}
         className="mySwiper"
         breakpoints={{
           1800: {
             slidesPerView: 3,
             spaceBetween: 150,
-            disableOnInteraction: true,
           },
         }}
       >
-        {datas?.length > 0
-          ? datas?.map((i, idx) => {
+        {isLoading === false
+          ? data.data.data.map((i, idx) => {
               return (
-                <SwiperSlide key={`slider${type}${idx}`}>
-                  <Article type={type} label={i.object} text={i.solution} />
-                </SwiperSlide>
+                <>
+                  <SwiperSlide key={`slider${$type}${idx}`}>
+                    {/* <div></div> */}
+                    <Article type={$type} label={i.object} text={i.solution} />
+                  </SwiperSlide>
+                </>
               );
             })
           : null}

@@ -7,6 +7,7 @@ import { useInput } from "../../hooks/hooks";
 import { BasicButton } from "../../items/Button/MainButton";
 import { postQuestion } from "../../apis";
 import { useMutation } from "react-query";
+import Swal from "sweetalert2";
 
 const StyledQuestion = styled.div`
   display: flex;
@@ -16,11 +17,11 @@ const StyledQuestion = styled.div`
 
   button {
     box-shadow: 0px 5px 0px 0px
-      ${(props) => (props.type === "/mara" ? "#BD2200" : "#0158a8")};
+      ${(props) => (props.$type === "/mara" ? "#BD2200" : "#0158a8")};
     transition: all 0.2s;
     &:hover {
       box-shadow: 0px 0px 0px 0px
-        ${(props) => (props.type === "/sara" ? "#BD2200" : "#0158a8")};
+        ${(props) => (props.$type === "/sara" ? "#BD2200" : "#0158a8")};
       margin-top: 7px;
       margin-bottom: 5px;
     }
@@ -30,17 +31,23 @@ const StyledQuestion = styled.div`
 export default function Question({
   item,
   explanation,
-  type,
+  $type,
   setItem,
   setExplanation,
   mutate,
 }) {
-  const subMitQuestion = () => {
-    mutate();
-    console.log("hi");
+  const submit = () => {
+    if (item && explanation) {
+      mutate();
+    } else {
+      Swal.fire({
+        icon: "error",
+        text: "무엇을 고민하는지 적어주세요!",
+      });
+    }
   };
   return (
-    <StyledQuestion type={type}>
+    <StyledQuestion $type={$type}>
       {/* <MainLogo className="main-logo" /> */}
       <TextInput
         label={"어떤 걸 사고싶어?"}
@@ -64,8 +71,8 @@ export default function Question({
         size={"small"}
         label={"사야할까?"}
         color={"white"}
-        onClick={mutate}
-        $backgroundColor={type === "/sara" ? "blue" : "red"}
+        onClick={submit}
+        $backgroundColor={$type === "/sara" ? "blue" : "red"}
       />
     </StyledQuestion>
   );

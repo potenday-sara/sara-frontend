@@ -71,16 +71,16 @@ export default function QuestionPage() {
 
   return (
     <>
-      <Navbar type={pathname} />
+      <Navbar $type={pathname} />
       <StyledQuestionPage $pathname={pathname} $type={pathname}>
         <div className="chart">
           <BubbleChartLayout type={pathname}></BubbleChartLayout>
         </div>
         <div className="chat-box">
-          <ChatBox type={pathname}></ChatBox>
+          <ChatBox $type={pathname}></ChatBox>
         </div>
         <section className="section">
-          <Section type={pathname} />
+          <Section $type={pathname} />
         </section>
         {/* <img src={mainLogo} alt="" /> */}
       </StyledQuestionPage>

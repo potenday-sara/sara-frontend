@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import { MainText } from "../../items/Text/Text";
 import { ReactComponent as MainTextLogo } from "../../images/logos/miainlogo.svg";
@@ -12,6 +12,7 @@ import Answer from "./Answer";
 import { useMutation } from "react-query";
 import { postQuestion } from "../../apis";
 import { useInput } from "../../hooks/hooks";
+import { useNavigate } from "react-router-dom";
 
 const StyledChatBox = styled.div`
   /* overflow-y: scroll; */
@@ -72,41 +73,60 @@ const StyledChatBox = styled.div`
   /* background-color: red; */
 `;
 
-export default function ChatBox({ type, stage }) {
-  const [data, setData] = useState(null);
+export default function ChatBox({ $type, stage }) {
+  const [data, setData] = useState({});
   const [item, setItem] = useInput();
   const [explanation, setExplanation] = useInput();
-  const { mutate, isLoading, isError, error, isSuccess } = useMutation(() =>
-    postQuestion(item, explanation, type.slice(1))
+  const Mutate = useMutation(() =>
+    postQuestion(item, explanation, $type.slice(1))
   );
-  console.log(isLoading, mutate);
+
+  const navigate = useNavigate();
+
+  const dataResetNaviget = (route) => {
+    Mutate.reset();
+    setItem();
+    setExplanation();
+    navigate(route);
+  };
+  useEffect(() => {
+    setData({
+      id: Mutate.data?.data.data.id,
+      object: Mutate.data?.data.data.object,
+      solution: Mutate.data?.data.data.solution,
+    });
+    console.log(Mutate);
+  }, [Mutate.isSuccess]);
+
   return (
-    <StyledChatBox type>
+    <StyledChatBox $type>
       <div className="main-logo">
-        {type === "/sara" ? <MainTextLogo /> : <MainMaraTextLogo />}
+        {$type === "/sara" ? <MainTextLogo /> : <MainMaraTextLogo />}
       </div>
       <div className="character-logo-box">
-        {type === "/sara" ? (
+        {$type === "/sara" ? (
           <MainSaraLogo viewBox="0 0 210 180" />
         ) : (
           <MainMaraLogo viewBox="-5 0 195 180" />
         )}
       </div>
       <div className="contents">
-        {data === null ? (
+        {Mutate.isIdle === true ? (
           <Question
-            type={type}
+            $type={$type}
             item={item}
             explanation={explanation}
-            mutate={mutate}
+            mutate={Mutate.mutate}
             setItem={setItem}
             setExplanation={setExplanation}
           />
-        ) : isLoading === true ? (
-          <Spinner type={type} />
+        ) : Mutate.isSuccess === true ? (
+          <Answer $type={$type} data={data} navigate={dataResetNaviget} />
         ) : (
-          <Answer type={type} />
+          <Spinner $type={$type} />
         )}
+        {/* <Spinner $type={$type} /> */}
+        {/* <Answer $type={$type} /> */}
       </div>
     </StyledChatBox>
   );

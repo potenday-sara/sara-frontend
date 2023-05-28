@@ -88,7 +88,18 @@ export const StyledChoiceButton = styled.button`
   ${(props) => getBackgroundColor(props)}
   ${(props) => getButtonSize(props)}
   ${() => getBasicButton()}
-  gap : 10px;
+
+  box-shadow: 0px 5px 0px 0px ${(props) =>
+    props.color === "red" ? "#BD2200" : "#0158a8"};
+  transition: all 0.2s;
+  &:hover {
+    box-shadow: 0px 0px 0px 0px
+      ${(props) => (props.color === "red" ? "#BD2200" : "#0158a8")};
+    margin-top: 7px;
+    margin-bottom: 5px;
+  }
+
+  gap: 10px;
 `;
 
 export const ChoiceButton = ({ label, type, ...rest }) => {
@@ -101,7 +112,7 @@ export const ChoiceButton = ({ label, type, ...rest }) => {
 };
 
 ChoiceButton.propTypes = {
-  type: PropTypes.oneOf(["sara", "mara"]),
+  // type: PropTypes.oneOf(["sara", "mara"]),
   $backgroundColor: PropTypes.oneOf(["blue", "red"]),
   label: PropTypes.string.isRequired,
   size: PropTypes.oneOf(["large", "medium", "small"]),
