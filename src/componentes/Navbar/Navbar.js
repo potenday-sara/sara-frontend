@@ -32,7 +32,7 @@ const StyledNavbar = styled.div`
   }
 `;
 
-export default function Navbar({ type }) {
+export default function Navbar({ $type }) {
   const navigate = useNavigate();
   const goHome = () => {
     navigate("/");
@@ -40,7 +40,7 @@ export default function Navbar({ type }) {
   return (
     <StyledNavbar>
       <div className="logobox">
-        {type === "/sara" ? (
+        {$type === "/sara" ? (
           <Sara onClick={goHome} />
         ) : (
           <Mara onClick={goHome} />
