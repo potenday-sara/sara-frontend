@@ -8,7 +8,9 @@ import { BasicButton } from "../../items/Button/MainButton";
 import { postQuestion } from "../../apis";
 import { useMutation } from "react-query";
 
+
 import Swal from "sweetalert2";
+
 
 
 const StyledQuestion = styled.div`
@@ -20,11 +22,13 @@ const StyledQuestion = styled.div`
   button {
     box-shadow: 0px 5px 0px 0px
 
+
       ${(props) => (props.$type === "/mara" ? "#BD2200" : "#0158a8")};
     transition: all 0.2s;
     &:hover {
       box-shadow: 0px 0px 0px 0px
         ${(props) => (props.$type === "/sara" ? "#BD2200" : "#0158a8")};
+
 
       margin-top: 7px;
       margin-bottom: 5px;
@@ -36,12 +40,14 @@ export default function Question({
   item,
   explanation,
 
+
   $type,
 
   setItem,
   setExplanation,
   mutate,
 }) {
+
 
   const submit = () => {
     if (item && explanation) {
@@ -55,6 +61,7 @@ export default function Question({
   };
   return (
     <StyledQuestion $type={$type}>
+
 
       {/* <MainLogo className="main-logo" /> */}
       <TextInput
@@ -80,8 +87,10 @@ export default function Question({
         label={"사야할까?"}
         color={"white"}
 
+
         onClick={submit}
         $backgroundColor={$type === "/sara" ? "blue" : "red"}
+
 
       />
     </StyledQuestion>

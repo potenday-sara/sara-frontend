@@ -12,7 +12,9 @@ import Answer from "./Answer";
 import { useMutation } from "react-query";
 import { postQuestion } from "../../apis";
 import { useInput } from "../../hooks/hooks";
+
 import { useNavigate } from "react-router-dom";
+
 
 
 const StyledChatBox = styled.div`
@@ -75,6 +77,7 @@ const StyledChatBox = styled.div`
 `;
 
 
+
 export default function ChatBox({ $type, stage }) {
   const [data, setData] = useState({});
   const [item, setItem] = useInput();
@@ -101,6 +104,7 @@ export default function ChatBox({ $type, stage }) {
   }, [Mutate.isSuccess]);
 
 
+
   return (
     <StyledChatBox $type>
       <div className="main-logo">
@@ -115,6 +119,7 @@ export default function ChatBox({ $type, stage }) {
       </div>
       <div className="contents">
 
+
         {Mutate.isIdle === true ? (
           <Question
             $type={$type}
@@ -127,12 +132,15 @@ export default function ChatBox({ $type, stage }) {
         ) : Mutate.isSuccess === true ? (
           <Answer $type={$type} data={data} navigate={dataResetNaviget} />
 
+
         ) : (
           <Spinner $type={$type} />
         )}
 
+
         {/* <Spinner $type={$type} /> */}
         {/* <Answer $type={$type} /> */}
+
 
       </div>
     </StyledChatBox>

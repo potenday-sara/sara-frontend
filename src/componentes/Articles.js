@@ -63,9 +63,11 @@ const StyledArticles = styled.div`
 `;
 
 
+
 export default function Articles({ $type }) {
   const { isLoading, data } = useQuery([$type, "RankQuestions"], () =>
     getQuestions($type)
+
 
   );
   const [datas, setDatas] = useState([]);
@@ -73,6 +75,7 @@ export default function Articles({ $type }) {
     setDatas(data?.data?.data);
 
   }, [isLoading, data]);
+
 
 
   return (
@@ -113,6 +116,7 @@ export default function Articles({ $type }) {
                     <Article type={$type} label={i.object} text={i.solution} />
                   </SwiperSlide>
                 </>
+
 
               );
             })

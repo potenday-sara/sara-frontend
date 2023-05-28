@@ -21,7 +21,9 @@ export const getQuestions = ($type) => {
 };
 
 export const postQuestion = (value, question, type) => {
+
   const data = {
+
     object: {
       value: value,
     },
@@ -30,4 +32,5 @@ export const postQuestion = (value, question, type) => {
   };
 
   return axios({ method: "post", url: `${BASE_URL}`, data: data });
+
 };
