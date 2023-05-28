@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 const BASE_URL = "http://115.85.181.180:8080/api/question";
 
 export const getRangking = ($type) => {
@@ -22,9 +21,7 @@ export const getQuestions = ($type) => {
 };
 
 export const postQuestion = (value, question, type) => {
-
-  const body = {
-
+  const data = {
     object: {
       value: value,
     },
@@ -33,5 +30,4 @@ export const postQuestion = (value, question, type) => {
   };
 
   return axios({ method: "post", url: `${BASE_URL}`, data: data });
-
 };
