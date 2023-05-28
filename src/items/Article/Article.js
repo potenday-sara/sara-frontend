@@ -11,7 +11,8 @@ const StyledArticle = styled.div`
   grid-template-rows: 1fr;
   background-color: white;
   width: calc(300px + 10vw);
-  height: 120px;
+  height: 120px !important;
+  overflow: hidden;
   /* background-color: red; */
   padding: 20px 20px;
   bottom: 5px;
