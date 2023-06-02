@@ -15,42 +15,49 @@ const temp = [
   // "삼성 더 프리스타일",
 ];
 const SelectLayout = styled.div`
-  display: flex;
   position: relative;
-  width: auto;
-  overflow: auto;
-
-  height: 100vh;
-  /* align-items: center; */
-  /* justify-content: center; */
-
-  .select {
-    display: flex;
-    align-items: flex-end;
-    width: 50%;
-    min-width: 700px;
-    padding: 20px;
-    height: 100%;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: calc(100vh - 64px);
+  min-width: 1200px;
   .sara {
+    left: 0%;
+    position: absolute;
+    width: 50%;
+    height: 100%;
     background: rgba(0, 115, 221, 0.07);
-    justify-content: end;
   }
 
   .mara {
-    background: #f4f4f4;
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 50%;
+    /* background: #f4f4f4; */
+    background-color: orange;
+  }
+
+  .grid {
+    width: 90%;
+    max-width: 2000px;
+    aspect-ratio: 3 / 1;
+    /* height: 500px; */
+    gap: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin-bottom: 20px;
   }
 `;
 export default function MainPage() {
-  // const [hiInput, setHiInput] = useInput("");
-  // const [areaInput, setAreaInput] = useInput("");
   return (
     <SelectLayout className="check">
-      {/* <img src={mainLogo} alt="" /> */}
-      <div className="sara select">
+      <div className="sara"></div>
+      <div className="mara"></div>
+      <div className="grid">
         <GridLayout $type={"sara"} texts={temp} />
-      </div>
-      <div className="mara select">
         <GridLayout $type={"mara"} texts={temp} />
       </div>
     </SelectLayout>
