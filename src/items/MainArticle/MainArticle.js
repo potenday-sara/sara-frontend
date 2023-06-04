@@ -10,9 +10,8 @@ const StyledMainArticle = styled.div`
   grid-template-rows: 1fr 2fr;
   overflow: hidden;
   width: 100%;
-  height: 140px;
+  height: 120px;
   background: #ffffff;
-
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.05);
   border-radius: 16px;
 
@@ -36,7 +35,6 @@ const StyledMainArticle = styled.div`
 `;
 
 export const MainArticle = ({ data, ...rest }) => {
-  console.log(rest);
   return (
     <StyledMainArticle {...rest}>
       <img className="article-image" src={data.image} alt="아티클이미지" />

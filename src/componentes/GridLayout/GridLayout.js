@@ -9,12 +9,13 @@ import { useQuery } from "react-query";
 import { getRangking } from "../../apis";
 import CharacterLogo from "../../items/Logo/CharacterLogo";
 import MainArticles from "../MainArticles/MainArticles";
+import RealtimeTrends from "../RealtimeTrends/RealtimeTrends";
 
 const getGridCSS = ({ type }) => {
   if (type === "sara") {
     return css`
       position: relative;
-      grid-template-columns: 2fr 1.2fr;
+      grid-template-columns: 2fr minmax(250px, 1.2fr);
       .mainlogo {
         position: absolute;
         width: 150px;
@@ -45,7 +46,7 @@ const getGridCSS = ({ type }) => {
     `;
   } else {
     return css`
-      grid-template-columns: 1.2fr 2fr;
+      grid-template-columns: minmax(250px, 1.25fr) 2fr;
       .realtime {
         text-align: left;
         grid-area: 1 / 2 / 2 / 3;
@@ -73,8 +74,8 @@ const getGridCSS = ({ type }) => {
 const StyledGridayout = styled.main`
   ${(props) => getGridCSS(props)}
   display: grid;
-  grid-column-gap: 30px;
-  grid-row-gap: 15px;
+  grid-column-gap: 60px;
+  grid-row-gap: 30px;
   grid-template-rows: 1fr 1.5fr;
   width: 100%;
   z-index: 1;
@@ -91,22 +92,18 @@ const StyledGridayout = styled.main`
   }
   .article {
     position: relative;
-    width: 100%;
-    height: 100%;
-
     overflow: auto;
   }
 `;
 
 export default function GridLayout({ $type, texts }) {
-  const navigate = useNavigate();
   const { isLoading, data } = useQuery([$type, "ranking"], () =>
     getRangking($type)
   );
 
   return (
     <StyledGridayout type={$type}>
-      <div className="realtime"></div>
+      <RealtimeTrends $type={$type} />
 
       <CharacterLogo $type={$type} />
       <div className="article">

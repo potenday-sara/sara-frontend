@@ -42,13 +42,14 @@ const SelectLayout = styled.div`
   .grid {
     width: 90%;
     max-width: 2000px;
-    aspect-ratio: 3 / 1;
+    min-width: 1200px;
+    aspect-ratio: 2.5 / 1;
     /* height: 500px; */
     gap: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-    margin-bottom: 20px;
+    margin-top: 100px;
   }
 `;
 export default function MainPage() {
@@ -57,8 +58,8 @@ export default function MainPage() {
       <div className="sara"></div>
       <div className="mara"></div>
       <div className="grid">
-        <GridLayout $type={"sara"} texts={temp} />
-        <GridLayout $type={"mara"} texts={temp} />
+        <GridLayout $type={"sara"} />
+        <GridLayout $type={"mara"} />
       </div>
     </SelectLayout>
   );

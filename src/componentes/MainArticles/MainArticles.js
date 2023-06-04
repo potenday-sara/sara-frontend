@@ -5,10 +5,8 @@ import Image from "../../images/temp/tempImage.jpg";
 const StyledMainArticles = styled.article`
   position: absolute;
   width: 100%;
-  height: 100%;
-
   display: grid;
-
+  grid-template-rows: auto;
   gap: 20px;
   grid-auto-rows: auto;
   grid-auto-flow: row;

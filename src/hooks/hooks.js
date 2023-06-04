@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export const useInput = (initailValue) => {
   const [value, setValue] = useState(initailValue);
@@ -20,11 +20,28 @@ export function useWindowSize() {
 
       setWindowSize(width);
     }
-    // Add event listener
     window.addEventListener("resize", handleResize);
 
     handleResize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   return windowSize;
+}
+
+export function useResizeObserver() {
+  const [size, setSize] = useState([0, 0]);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    const resizeObserver = new ResizeObserver(([obs]) => {
+      setSize([obs.contentRect.width, obs.contentRect.height]);
+    });
+
+    resizeObserver.observe(ref.current);
+
+    return () => resizeObserver.disconnect();
+  }, [ref]);
+
+  return [size, ref];
 }
