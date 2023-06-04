@@ -27,7 +27,7 @@ export const getTextColor = ({ $type }) => {
       `;
     case "sara":
       return css`
-        color: 1px solid #007bed;
+        color: #007bed;
       `;
     default:
       return css`
@@ -72,20 +72,22 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   h1 {
+    font-family: Pretendard;
     font-weight: 700;
     font-size: 22px;
-  
     line-height: 24px;
-
+    
   }
-
+  
   h2 {
+    font-family: Pretendard;
     font-size: 20px;
     font-weight: 600;
     line-height: 22px;
   }
-
+  
   p {
+    font-family: Pretendard;
     font-size: 18px;
   font-weight: 500;
   line-height: 20px;
