@@ -11,6 +11,7 @@ const StyledMainArticle = styled.div`
   overflow: hidden;
   width: 100%;
   height: 120px;
+
   background: #ffffff;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.05);
   border-radius: 16px;
@@ -56,4 +57,7 @@ MainArticle.propTypes = {
 
 MainArticle.defaultProps = {
   onClick: undefined,
+  data: {
+    image: Image,
+  },
 };

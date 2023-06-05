@@ -9,7 +9,7 @@ const StyledChoiceButton = styled.button`
   ${(props) => getBackgroundColor(props)}
   ${(props) => getTextColor({ $type: "white" })}
   ${(props) => getBasicButton()}
-
+  white-space: nowrap;
   padding: 10px;
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -29,7 +29,7 @@ const StyledChoiceButton = styled.button`
 
 export const ChoiceButton = ({ $type, ...rest }) => {
   return (
-    <StyledChoiceButton $type={$type}>
+    <StyledChoiceButton $type={$type} {...rest}>
       {$type === "sara" ? <Sara /> : <Mara stroke="white" />}
       <h2>에게 물어봐</h2>
     </StyledChoiceButton>

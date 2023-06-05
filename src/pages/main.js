@@ -1,19 +1,7 @@
-import React, { useEffect } from "react";
-
+import React from "react";
 import { styled } from "styled-components";
 import GridLayout from "../componentes/GridLayout/GridLayout";
-// import SelectLayout from "../componentes/GridLayout/GridLayout";
 
-import { ReactComponent as MainLogo } from "../images/logos/miainlogo.svg";
-import { useQuery } from "react-query";
-import { getRangking } from "../apis";
-
-const temp = [
-  "에어팟 맥스",
-  "나이키 에어포스 미드 07`",
-  "삼성 더 프리스타일",
-  // "삼성 더 프리스타일",
-];
 const SelectLayout = styled.div`
   position: relative;
   display: flex;
@@ -35,21 +23,20 @@ const SelectLayout = styled.div`
     width: 50%;
     height: 100%;
     left: 50%;
-    /* background: #f4f4f4; */
-    background-color: orange;
+    background: #f4f4f4;
   }
 
   .grid {
+    padding: 0px 10px;
     width: 90%;
     max-width: 2000px;
     min-width: 1200px;
     aspect-ratio: 2.5 / 1;
-    /* height: 500px; */
     gap: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-    margin-top: 100px;
+    margin-top: 80px;
   }
 `;
 export default function MainPage() {

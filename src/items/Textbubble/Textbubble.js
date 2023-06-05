@@ -23,7 +23,7 @@ const getBubbleType = ({ $type }) => {
 
 const StyledTextbubble = styled.div`
   position: absolute;
-  top: 0px;
+  top: -40px;
   white-space: nowrap;
   ${(props) => getTextColor(props)}
   .speech-bubble {
@@ -38,6 +38,10 @@ const StyledTextbubble = styled.div`
     border-radius: 12px;
     svg {
       width: 80px;
+    }
+    h1 {
+      font-size: 18px;
+      font-weight: 1000;
     }
   }
 
@@ -62,12 +66,12 @@ export default function Textbubble({ $type }) {
       <div className="speech-bubble">
         {$type === "sara" ? (
           <>
-            <h2>살까말까 할땐</h2>
+            <h1>살까말까 할땐</h1>
             <SaraText />
           </>
         ) : (
           <>
-            <h2>사지</h2>
+            <h1>사지</h1>
             <MaraText />
           </>
         )}

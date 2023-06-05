@@ -1,6 +1,5 @@
 import { styled } from "styled-components";
 import { getTextColor } from "../../Styles";
-import { useRef } from "react";
 import { useQuery } from "react-query";
 import { getRangking } from "../../apis";
 import RealtimeTrend from "../../items/RealtimeTrend/RealtimeTrend";
@@ -13,11 +12,12 @@ const StyledRealtimeTrends = styled.div`
   color: ${() => getTextColor({ $type: "black" })};
   display: grid;
   grid-template-rows: auto 1fr;
-  gap: 15px;
+  gap: 8px;
   grid-template-columns: 1fr;
   grid-auto-rows: auto;
   h2 {
     display: block;
+    font-size: 18px;
   }
 
   .realtime-trends {

@@ -1,10 +1,8 @@
-// import { within, userEvent } from '@storybook/testing-library';
-
 import { MemoryRouter } from "react-router-dom";
-import MainPage from "./main";
+import MainPage from "../../pages/main";
 
 export default {
-  title: "MainPage",
+  title: "Develop System/Pages/MainPage",
   component: MainPage,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
