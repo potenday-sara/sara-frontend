@@ -11,11 +11,10 @@ const StyledBubbleChartLayout = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0px 0px 0px 40px;
+  padding: 0px 0px 0px auto;
   gap: 15px;
-  max-width: 700px;
-  min-width: 450px;
-  width: 80%;
+  width: 100%;
+  max-width: 600px;
   /* min-width: 560px; */
   /* background-color: red; */
   .chart-box {
@@ -37,50 +36,18 @@ const StyledBubbleChartLayout = styled.div`
   }
 `;
 
-export default function BubbleChartLayout({ type }) {
-  const getColor = (value, type) => {
-    if (type === "/sara") {
-      if (value >= 20) return "#007BED";
-      else if (value >= 10) return "#4D9DE6";
-      else return "#A2CBF1";
-    }
-
-    if (type === "/mara") {
-      if (value >= 20) return "#EF2B00";
-      else if (value >= 10) return "#F46242";
-      else return "#F5907A";
-    }
-  };
+export default function BubbleChartLayout({ $type, isLoading, data }) {
   const width = useWindowSize();
-  const { isLoading, data } = useQuery([type, "questions"], () =>
-    getRangking(type.slice(1))
-  );
-  const [datas, setDatas] = useState([]);
-
-  useEffect(() => {
-    const newData = data?.data?.data?.slice(0, 20).map((i) => {
-      return {
-        label: i.object,
-        value: parseInt(i.total, type),
-        color: getColor(i.total, type),
-      };
-    });
-    setDatas(newData);
-  }, [isLoading]);
 
   // console.log(data?.data);
   return (
     <StyledBubbleChartLayout>
-      <MainText
-        label={"다른사람들이 사고싶은 물건"}
-        type={"h1"}
-        color="black"
-      />
+      <h2>다른 사람들이 사고싶은 물건</h2>
       <div className="chart-box">
-        {datas?.length ? (
+        {data?.length ? (
           <BubbleChart
             graph={{
-              zoom: 1,
+              zoom: 1.1,
               offsetX: 0,
               offsetY: 0,
             }}
@@ -90,14 +57,11 @@ export default function BubbleChartLayout({ type }) {
             showLegend={false} // optional value, pass false to disable the legend.
             labelFont={{
               family: "Pretendard",
-              size: 15,
+              size: 12,
               color: "#fff",
-              weight: "normal",
+              weight: 600,
             }}
-            data={datas}
-            //Custom bubble/legend click functions such as searching using the label, redirecting to other page
-            // bubbleClickFunc={bubbleClick}
-            // legendClickFun={legendClick}
+            data={data}
           />
         ) : null}
       </div>
