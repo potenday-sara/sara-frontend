@@ -1,11 +1,11 @@
 import React from "react";
 import { css, styled } from "styled-components";
-import PropTypes from "prop-types";
 import { MainText } from "../Text/Text";
+import PropTypes from "prop-types";
 import { ReactComponent as Sara } from "../../images/logos/saralogo1.svg";
 import { ReactComponent as Mara } from "../../images/logos/maralogo1.svg";
 
-const getBackgroundColor = ({ $backgroundColor }) => {
+export const getBackgroundColor = ({ $backgroundColor }) => {
   switch ($backgroundColor) {
     case "red":
       return css`
@@ -21,7 +21,7 @@ const getBackgroundColor = ({ $backgroundColor }) => {
       `;
   }
 };
-const getBorderColor = ({ color }) => {
+export const getBorderColor = ({ color }) => {
   switch (color) {
     case "red":
       return css`
@@ -40,7 +40,7 @@ const getBorderColor = ({ color }) => {
   }
 };
 
-const getBasicButton = () => css`
+export const getBasicButton = () => css`
   border-radius: 16px;
   display: flex;
   flex-direction: row;
@@ -51,7 +51,7 @@ const getBasicButton = () => css`
   box-shadow: 4px 4px 24px rgba(0, 0, 0, 0.05);
 `;
 
-const getButtonSize = ({ size }) => {
+export const getButtonSize = ({ size }) => {
   switch (size) {
     case "large": {
       return css`
@@ -101,28 +101,6 @@ export const StyledChoiceButton = styled.button`
 
   gap: 10px;
 `;
-
-export const ChoiceButton = ({ label, type, ...rest }) => {
-  return (
-    <StyledChoiceButton {...rest}>
-      {type === "sara" ? <Sara /> : <Mara stroke="white" />}
-      <MainText type={"h1"} color={"white"} label={label} />
-    </StyledChoiceButton>
-  );
-};
-
-ChoiceButton.propTypes = {
-  // type: PropTypes.oneOf(["sara", "mara"]),
-  $backgroundColor: PropTypes.oneOf(["blue", "red"]),
-  label: PropTypes.string.isRequired,
-  size: PropTypes.oneOf(["large", "medium", "small"]),
-  onClick: PropTypes.func,
-};
-
-ChoiceButton.defaultProps = {
-  onClick: undefined,
-  label: "에게 물어봐",
-};
 
 const StyledBasicButton = styled.button`
   ${(props) => getBackgroundColor(props)}
@@ -209,4 +187,26 @@ TrendButton.propTypes = {
 TrendButton.defaultProps = {
   $backgroundColor: "white",
   onClick: undefined,
+};
+
+export const ChoiceButton = ({ label, type, ...rest }) => {
+  return (
+    <StyledChoiceButton {...rest}>
+      {type === "sara" ? <Sara /> : <Mara stroke="white" />}
+      <MainText type={"h1"} color={"white"} label={label} />
+    </StyledChoiceButton>
+  );
+};
+
+ChoiceButton.propTypes = {
+  // type: PropTypes.oneOf(["sara", "mara"]),
+  $backgroundColor: PropTypes.oneOf(["blue", "red"]),
+  label: PropTypes.string.isRequired,
+  size: PropTypes.oneOf(["large", "medium", "small"]),
+  onClick: PropTypes.func,
+};
+
+ChoiceButton.defaultProps = {
+  onClick: undefined,
+  label: "에게 물어봐",
 };

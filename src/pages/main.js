@@ -1,57 +1,52 @@
-import React, { useEffect } from "react";
-
+import React from "react";
 import { styled } from "styled-components";
 import GridLayout from "../componentes/GridLayout/GridLayout";
-// import SelectLayout from "../componentes/GridLayout/GridLayout";
 
-import { ReactComponent as MainLogo } from "../images/logos/miainlogo.svg";
-import { useQuery } from "react-query";
-import { getRangking } from "../apis";
-
-const temp = [
-  "에어팟 맥스",
-  "나이키 에어포스 미드 07`",
-  "삼성 더 프리스타일",
-  // "삼성 더 프리스타일",
-];
 const SelectLayout = styled.div`
-  display: flex;
   position: relative;
-  width: auto;
-  overflow: auto;
-
-  height: 100vh;
-  /* align-items: center; */
-  /* justify-content: center; */
-
-  .select {
-    display: flex;
-    align-items: flex-end;
-    width: 50%;
-    min-width: 700px;
-    padding: 20px;
-    height: 100%;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: calc(100vh - 64px);
+  min-width: 1200px;
   .sara {
+    left: 0%;
+    position: absolute;
+    width: 50%;
+    height: 100%;
     background: rgba(0, 115, 221, 0.07);
-    justify-content: end;
   }
 
   .mara {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 50%;
     background: #f4f4f4;
+  }
+
+  .grid {
+    padding: 0px 10px;
+    width: 90%;
+    max-width: 2000px;
+    min-width: 1200px;
+    aspect-ratio: 2.5 / 1;
+    gap: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin-top: 80px;
   }
 `;
 export default function MainPage() {
-  // const [hiInput, setHiInput] = useInput("");
-  // const [areaInput, setAreaInput] = useInput("");
   return (
     <SelectLayout className="check">
-      {/* <img src={mainLogo} alt="" /> */}
-      <div className="sara select">
-        <GridLayout $type={"sara"} texts={temp} />
-      </div>
-      <div className="mara select">
-        <GridLayout $type={"mara"} texts={temp} />
+      <div className="sara"></div>
+      <div className="mara"></div>
+      <div className="grid">
+        <GridLayout $type={"sara"} />
+        <GridLayout $type={"mara"} />
       </div>
     </SelectLayout>
   );

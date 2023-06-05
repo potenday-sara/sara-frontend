@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 import { ReactComponent as FotterLogo } from "../../images/logos/footerlogo.svg";
 
 const StyledFooter = styled.div`
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   background-color: transparent;
   height: 64px;
