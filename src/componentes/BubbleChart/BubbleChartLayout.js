@@ -59,7 +59,7 @@ export default function BubbleChartLayout({ $type, isLoading, data }) {
               family: "Pretendard",
               size: 12,
               color: "#fff",
-              weight: 600,
+              weight: "800",
             }}
             data={data}
           />

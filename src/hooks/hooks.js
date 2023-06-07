@@ -10,7 +10,7 @@ export const useInput = (initailValue) => {
 
 // Hook
 export function useWindowSize() {
-  const [windowSize, setWindowSize] = useState(250);
+  const [size, setSize] = useState(250);
   useEffect(() => {
     function handleResize() {
       let width = 130 + window.innerWidth * 0.15;
@@ -18,14 +18,15 @@ export function useWindowSize() {
       width = Math.max(width, 250);
       width = Math.min(width, 700);
 
-      setWindowSize(width);
+      setSize(width);
+      console.log(width);
     }
     window.addEventListener("resize", handleResize);
 
     handleResize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  return windowSize;
+  return size;
 }
 
 export function useResizeObserver() {

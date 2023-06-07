@@ -5,19 +5,21 @@ import { useQuery } from "react-query";
 import { getRangking } from "../apis";
 import { useEffect } from "react";
 import { useState } from "react";
-import ChatBox from "../componentes/ChatBox/ChatBox";
+import ChatBoxLayout from "./ChatBoxLayout";
+import SectionLayout from "./Sections/SectionLayout";
 
 const StyledQuestionLayout = styled.main`
   position: relative;
   width: 90%;
-  align-items: center;
   min-width: 1200px;
-  height: 100%;
+  max-width: 2000px;
+  /* aspect-ratio: 2.5/1; */
   gap: 20px;
-  margin: auto;
-
+  margin: 100px auto;
   display: grid;
-  grid-template-columns: 1fr 1.2fr 1fr;
+  grid-template-columns: 1.2fr 540px 1.2fr;
+  grid-template-rows: 1fr;
+  align-items: center;
 `;
 
 const getColor = (value, type) => {
@@ -54,7 +56,8 @@ export default function QuestionLayout({ $type }) {
   return (
     <StyledQuestionLayout>
       <BubbleChartLayout $type={$type} data={BubbleData} />
-      <ChatBox $type={$type.slice(1)} />
+      <ChatBoxLayout $type={$type} />
+      <SectionLayout $type={$type} />
     </StyledQuestionLayout>
   );
 }

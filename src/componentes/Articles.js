@@ -62,21 +62,14 @@ const StyledArticles = styled.div`
   }
 `;
 
-
-
 export default function Articles({ $type }) {
   const { isLoading, data } = useQuery([$type, "RankQuestions"], () =>
     getQuestions($type)
-
-
   );
   const [datas, setDatas] = useState([]);
   useEffect(() => {
     setDatas(data?.data?.data);
-
   }, [isLoading, data]);
-
-
 
   return (
     <StyledArticles>
@@ -86,7 +79,7 @@ export default function Articles({ $type }) {
         color="black"
       />
       <Swiper
-        slidesPerView={2}
+        slidesPerView={3}
         autoplay={{
           delay: 0,
           disableOnInteraction: false,
@@ -95,18 +88,11 @@ export default function Articles({ $type }) {
         loop={true}
         speed={3000}
         direction={"vertical"}
-        modules={[Autoplay, Navigation]}
+        modules={[Autoplay, Pagination]}
         // observer={true}
         // observeParents={true}
         className="mySwiper"
-        breakpoints={{
-          1800: {
-            slidesPerView: 3,
-            spaceBetween: 150,
-          },
-        }}
       >
-
         {isLoading === false
           ? data.data.data.map((i, idx) => {
               return (
@@ -116,8 +102,6 @@ export default function Articles({ $type }) {
                     <Article type={$type} label={i.object} text={i.solution} />
                   </SwiperSlide>
                 </>
-
-
               );
             })
           : null}

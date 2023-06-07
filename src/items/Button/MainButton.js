@@ -10,10 +10,24 @@ export const getBackgroundColor = ({ $backgroundColor }) => {
     case "red":
       return css`
         background-color: #ef2b00;
+        box-shadow: 0px 5px 0px 0px #bd2200;
+        transition: all 0.2s;
+        &:hover {
+          box-shadow: 0px 0px 0px 0px #bd2200;
+          margin-top: 7px;
+          margin-bottom: 5px;
+        }
       `;
     case "blue":
       return css`
         background-color: #007bed;
+        box-shadow: 0px 5px 0px 0px #0158a8;
+        transition: all 0.2s;
+        &:hover {
+          box-shadow: 0px 0px 0px 0px #0158a8;
+          margin-top: 7px;
+          margin-bottom: 5px;
+        }
       `;
     default:
       return css`
@@ -48,7 +62,6 @@ export const getBasicButton = () => css`
   align-items: center;
   cursor: pointer;
   border: 0px;
-  box-shadow: 4px 4px 24px rgba(0, 0, 0, 0.05);
 `;
 
 export const getButtonSize = ({ size }) => {
@@ -75,7 +88,7 @@ export const getButtonSize = ({ size }) => {
     }
     default: {
       return css`
-        height: 60px;
+        height: 50px;
         width: 100%;
         border-radius: 12px;
         padding: 12px;
@@ -85,31 +98,19 @@ export const getButtonSize = ({ size }) => {
 };
 
 export const StyledChoiceButton = styled.button`
+  ${() => getBasicButton()}
   ${(props) => getBackgroundColor(props)}
   ${(props) => getButtonSize(props)}
-  ${() => getBasicButton()}
-
-  box-shadow: 0px 5px 0px 0px ${(props) =>
-    props.color === "red" ? "#BD2200" : "#0158a8"};
-  transition: all 0.2s;
-  &:hover {
-    box-shadow: 0px 0px 0px 0px
-      ${(props) => (props.color === "red" ? "#BD2200" : "#0158a8")};
-    margin-top: 7px;
-    margin-bottom: 5px;
-  }
-
-  gap: 10px;
 `;
 
 const StyledBasicButton = styled.button`
   ${(props) => getBackgroundColor(props)}
   ${(props) => getButtonSize(props)}
-  ${() => getBasicButton()}
-  gap : 10px;
+  ${(props) => getBasicButton(props)}
+  gap: 10px;
 `;
 
-export const BasicButton = ({ label, color, type, ...rest }) => {
+export const BasicButton = ({ label, color, $type, ...rest }) => {
   return (
     <StyledBasicButton {...rest}>
       <MainText type={"h2"} color={color ? color : "black"} label={label} />

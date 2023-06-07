@@ -8,9 +8,7 @@ import { ReactComponent as Sara } from "../../images/logos/miainlogo.svg";
 import { ReactComponent as Mara } from "../../images/logos/maramainlogo.svg";
 
 const StyledNavbar = styled.div`
-  position: fixed;
-  top: 0px;
-  /* background-color: red; */
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -18,7 +16,7 @@ const StyledNavbar = styled.div`
   height: 100px;
   display: flex;
   padding-left: 50px;
-  z-index: 2;
+  /* z-index: 2; */
   // flex는 글로벌 스타일로 설정
   .logobox {
     width: 100px;

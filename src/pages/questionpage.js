@@ -5,34 +5,22 @@ import { styled } from "styled-components";
 import { ReactComponent as MainLogo } from "../images/logos/miainlogo.svg";
 import BubbleChartLayout from "../componentes/BubbleChart/BubbleChartLayout";
 import ChatBox from "../componentes/ChatBox/ChatBox";
-import Section from "../componentes/Sections/Section";
+import Section from "../layout/Sections/SectionLayout";
 import { useLocation } from "react-router-dom";
 import Navbar from "../componentes/Navbar/Navbar";
 import QuestionLayout from "../layout/QuestionLayout";
 
 const StyledQuestionPage = styled.div`
-  width: 100%;
-  height: calc(100vh - 64px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  min-height: calc(100vh - 64px);
   background-color: ${(props) =>
     props.$pathname === "/sara" ? "#edf5fd" : "#F4F4F4"};
 
   /* align-items: center; */
   /* justify-content: center; */
-  .chart {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-
-  .section {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
 `;
 export default function QuestionPage() {
   // const [hiInput, setHiInput] = useInput("");

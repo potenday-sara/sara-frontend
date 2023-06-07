@@ -8,15 +8,14 @@ import { ReactComponent as Soso } from "../../images/feedback/soso.svg";
 import { useNavigate } from "react-router-dom";
 
 const StyledAnswer = styled.div`
-  height: calc(220px + 10vh);
+  /* height: calc(220px + 10vh); */
   flex-direction: column;
   display: flex;
-  gap: 3vh;
+  gap: 20px;
 
   .answer {
     padding: 20px;
     font-weight: 400;
-    overflow: auto;
     font-size: 16px;
     line-height: 25px;
     font-family: "Pretendard";
@@ -79,10 +78,8 @@ const StyledAnswer = styled.div`
       resize: none;
       /* height: auto !important; */
     }
-    button {
-      width: 100px;
-      height: 50px;
-      margin-bottom: 20px;
+    .button {
+      height: 60px;
     }
   }
 `;
@@ -123,12 +120,14 @@ export default function Answer({ $type, data, navigate }) {
       </div>
       <div className="feedbacks">
         <textarea placeholder="" cols="30" rows="5"></textarea>
-        <BasicButton
-          label={"제출하기"}
-          $backgroundColor={$type === "/sara" ? "blue" : "red"}
-          color={"white"}
-          size="small"
-        />
+        <div className="button">
+          <BasicButton
+            label={"제출하기"}
+            $backgroundColor={$type === "sara" ? "blue" : "red"}
+            color={"white"}
+            size="small"
+          />
+        </div>
       </div>
     </StyledAnswer>
   );

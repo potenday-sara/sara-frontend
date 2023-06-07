@@ -6,7 +6,7 @@ import { ReactComponent as MainMaraTextLogo } from "../../images/logos/maratextl
 import { ReactComponent as MainSaraLogo } from "../../images/logos/sara.svg";
 import { ReactComponent as MainMaraLogo } from "../../images/logos/mara.svg";
 import Question from "./Qustion";
-import Section from "../Sections/Section";
+import Section from "../../layout/Sections/SectionLayout";
 import Spinner from "../../items/Spinner/Spinner";
 import Answer from "./Answer";
 import { useMutation } from "react-query";
@@ -15,31 +15,13 @@ import { useInput } from "../../hooks/hooks";
 
 import { useNavigate } from "react-router-dom";
 
-
-
 const StyledChatBox = styled.div`
-  /* overflow-y: scroll; */
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  padding: 0px 20px;
-  min-width: 400px;
-  max-width: 650px;
-  /* background-color: red; */
-  /* padding: 0px 40px; */
-  /* gap: 20px; */
+  display: grid;
+  padding: 20px 20px;
   width: 100%;
-  height: 85%;
   background-color: #fff;
   border-radius: 32px;
-  /* max-height: 700px; */
-  /* aspect-ratio: 1 / 1.2; */
-  max-height: 900px;
-
   box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
-  /* border-radius: 32px; */
   overflow-y: auto;
 
   .main-logo {
@@ -76,8 +58,6 @@ const StyledChatBox = styled.div`
   /* background-color: red; */
 `;
 
-
-
 export default function ChatBox({ $type, stage }) {
   const [data, setData] = useState({});
   const [item, setItem] = useInput();
@@ -103,46 +83,41 @@ export default function ChatBox({ $type, stage }) {
     console.log(Mutate);
   }, [Mutate.isSuccess]);
 
+  return <StyledChatBox $type></StyledChatBox>;
+}
 
+{
+  /* <div className="main-logo">
+{$type === "sara" ? <MainTextLogo /> : <MainMaraTextLogo />}
+</div>
+<div className="character-logo-box">
+{$type === "sara" ? (
+  <MainSaraLogo viewBox="0 0 210 180" />
+) : (
+  <MainMaraLogo viewBox="-5 0 195 180" />
+)}
+</div>
+<div className="contents">
+{Mutate.isIdle === true ? (
+  <Question
+    $type={$type}
+    item={item}
+    explanation={explanation}
+    mutate={Mutate.mutate}
+    setItem={setItem}
+    setExplanation={setExplanation}
+  />
+) : Mutate.isSuccess === true ? (
+  <Answer $type={$type} data={data} navigate={dataResetNaviget} />
+) : (
+  <Spinner $type={$type} />
+)}
 
-  return (
-    <StyledChatBox $type>
-      <div className="main-logo">
-        {$type === "/sara" ? <MainTextLogo /> : <MainMaraTextLogo />}
-      </div>
-      <div className="character-logo-box">
-        {$type === "/sara" ? (
-          <MainSaraLogo viewBox="0 0 210 180" />
-        ) : (
-          <MainMaraLogo viewBox="-5 0 195 180" />
-        )}
-      </div>
-      <div className="contents">
-
-
-        {Mutate.isIdle === true ? (
-          <Question
-            $type={$type}
-            item={item}
-            explanation={explanation}
-            mutate={Mutate.mutate}
-            setItem={setItem}
-            setExplanation={setExplanation}
-          />
-        ) : Mutate.isSuccess === true ? (
-          <Answer $type={$type} data={data} navigate={dataResetNaviget} />
-
-
-        ) : (
-          <Spinner $type={$type} />
-        )}
-
-
-        {/* <Spinner $type={$type} /> */}
-        {/* <Answer $type={$type} /> */}
-
-
-      </div>
-    </StyledChatBox>
-  );
+{/* <Spinner $type={$type} /> */
+}
+{
+  /* <Answer $type={$type} /> */
+}
+{
+  /*</div> */
 }

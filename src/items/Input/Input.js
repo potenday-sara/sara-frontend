@@ -71,7 +71,7 @@ const StyledTextAreaInput = styled.textarea`
   resize: none;
   ${() => getBasicInputStyles()}
   ${(props) => getTextAreaInputSizeStyles(props)}
-  height: calc(30px + 10vh);
+  height: 200px;
 `;
 export const TextInput = ({ placeholder, label, id, ...rest }) => (
   <StyledInputBox>
