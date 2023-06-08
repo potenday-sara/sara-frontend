@@ -162,8 +162,8 @@ const StyledTrendButton = styled.button`
   /* background-color: red; */
   width: auto;
   display: block;
-  height: auto;
-  gap: 10px;
+  height: 50px;
+  /* gap: 10px; */
   margin: 2px;
   padding: 10px 10px;
   transition: all 0.2s;

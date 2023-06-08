@@ -13,7 +13,7 @@ export function useWindowSize() {
   const [size, setSize] = useState(250);
   useEffect(() => {
     function handleResize() {
-      let width = 130 + window.innerWidth * 0.15;
+      let width = 50 + window.innerWidth * 0.15;
 
       width = Math.max(width, 250);
       width = Math.min(width, 700);

@@ -5,15 +5,13 @@ import { MainText } from "../items/Text/Text";
 import Article from "../items/Article/Article";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay, Navigation } from "swiper";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/pagination";
+// import "swiper/css/pagination";
 
 // import required modules
-import { Pagination, Autoplay, Navigation } from "swiper";
-import { useQuery } from "react-query";
-import { getQuestions, getRangking } from "../apis";
 
 const StyledArticles = styled.div`
   display: grid;
@@ -24,87 +22,56 @@ const StyledArticles = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
+  position: relative;
   /* background-color: red; */
 
   .h2 {
     margin-bottom: 5px;
   }
 
-  .div {
-  }
   .swiper {
     * {
       margin: 0;
     }
     width: 100%;
   }
-  .swiper-slide {
-    /* height: 150px !important; */
-  }
-  .swiper-slide {
-    width: auto;
-    /* height: auto !important; */
 
-    /* Center slide text vertically */
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
   .swiper-wrapper {
     transition-timing-function: linear;
   }
 `;
 
-export default function Articles({ $type }) {
-  const { isLoading, data } = useQuery([$type, "RankQuestions"], () =>
-    getQuestions($type)
-  );
-  const [datas, setDatas] = useState([]);
+export default function Articles({ $type, articles }) {
+  let ref = useRef(null);
   useEffect(() => {
-    setDatas(data?.data?.data);
-  }, [isLoading, data]);
-
+    ref?.current?.swiper.autoplay.pause();
+    ref?.current?.swiper.autoplay.start();
+  }, [ref]);
   return (
     <StyledArticles>
-      <MainText
-        label={"다른 사람들은 어떤 고민이 있을까?"}
-        type={"h2"}
-        color="black"
-      />
+      <h2>다른 사람들은 어떤 고민이 있을까?</h2>
       <Swiper
+        ref={ref}
+        speed={3000}
         slidesPerView={3}
         autoplay={{
-          delay: 0,
+          delay: 10,
           disableOnInteraction: false,
         }}
-        spaceBetween={80}
         loop={true}
-        speed={3000}
+        spaceBetween={30}
         direction={"vertical"}
-        modules={[Autoplay, Pagination]}
-        // observer={true}
-        // observeParents={true}
+        modules={[Autoplay]}
         className="mySwiper"
       >
-        {isLoading === false
-          ? data.data.data.map((i, idx) => {
-              return (
-                <>
-                  <SwiperSlide key={`slider${$type}${idx}`}>
-                    {/* <div></div> */}
-                    <Article type={$type} label={i.object} text={i.solution} />
-                  </SwiperSlide>
-                </>
-              );
-            })
-          : null}
+        {articles?.map((i, idx) => {
+          return (
+            <SwiperSlide key={idx}>
+              {/* <h1>안녕</h1> */}
+              <Article type={$type} label={i.object} text={i.solution} />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </StyledArticles>
   );

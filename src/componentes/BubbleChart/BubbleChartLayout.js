@@ -14,7 +14,8 @@ const StyledBubbleChartLayout = styled.div`
   padding: 0px 0px 0px auto;
   gap: 15px;
   width: 100%;
-  max-width: 600px;
+  max-width: 540px;
+  margin: auto;
   /* min-width: 560px; */
   /* background-color: red; */
   .chart-box {
@@ -53,7 +54,7 @@ export default function BubbleChartLayout({ $type, isLoading, data }) {
             }}
             width={width}
             height={width}
-            padding={10}
+            padding={20}
             showLegend={false} // optional value, pass false to disable the legend.
             labelFont={{
               family: "Pretendard",

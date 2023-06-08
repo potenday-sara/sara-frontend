@@ -11,13 +11,14 @@ import SectionLayout from "./Sections/SectionLayout";
 const StyledQuestionLayout = styled.main`
   position: relative;
   width: 90%;
+  gap: 50px;
   min-width: 1200px;
-  max-width: 2000px;
+  max-width: 1920px;
   /* aspect-ratio: 2.5/1; */
-  gap: 20px;
+  /* gap: ; */
   margin: 100px auto;
   display: grid;
-  grid-template-columns: 1.2fr 540px 1.2fr;
+  grid-template-columns: 1fr minmax(auto, 1fr) 1fr;
   grid-template-rows: 1fr;
   align-items: center;
 `;

@@ -17,9 +17,10 @@ const StyledChatBoxLayout = styled.div`
   grid-template-rows: 100px 180px auto;
   height: auto;
   gap: 40px;
-
+  margin: auto;
   padding: 40px;
   width: 100%;
+  max-width: 540px;
   background-color: #fff;
   border-radius: 32px;
   box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
