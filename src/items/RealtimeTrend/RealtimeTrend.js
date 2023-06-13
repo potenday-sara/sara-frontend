@@ -12,11 +12,9 @@ const StyledRealtimeTrend = styled.h2`
 `;
 
 export default function RealtimeTrend({ trend }) {
-  return <StyledRealtimeTrend>{trend.object}</StyledRealtimeTrend>;
+  return <StyledRealtimeTrend>{trend}</StyledRealtimeTrend>;
 }
 
 RealtimeTrend.propTypes = {
-  trend: PropTypes.shape({
-    object: PropTypes.string.isRequired,
-  }),
+  trend: PropTypes.string.isRequired,
 };

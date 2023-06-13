@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { styled } from "styled-components";
 import Articles from "../../componentes/Articles";
 import Trends from "../../componentes/Trend/Trend";
@@ -28,9 +28,12 @@ export default function SectionLayout({ $type }) {
     setArticleDatas(articles?.data?.data);
   }, [articleLoading, articles]);
 
+  const LazySliders = lazy(() => import("../../componentes/Articles"));
   return (
     <StyledSectionLayout>
-      <Articles $type={$type} articles={articleDatas} />
+      {articleLoading ? null : (
+        <Articles $type={$type} articles={articleDatas} />
+      )}
       <Trends type={$type} />
     </StyledSectionLayout>
   );

@@ -4,13 +4,11 @@ export default {
   title: "Develop System/Items/Trend",
   tags: ["autodocs"],
   component: RealtimeTrend,
-  argTypes: {},
 };
 
-export const BasicRealtimeTrend = {
-  args: {
-    trend: {
-      object: "비스포크 냉장고",
-    },
-  },
+const Template = (args) => <RealtimeTrend {...args} />;
+
+export const Default = Template.bind({});
+Default.args = {
+  trend: "비스포크냉장고",
 };

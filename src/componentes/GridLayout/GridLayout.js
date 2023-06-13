@@ -8,6 +8,8 @@ import MainArticles from "../MainArticles/MainArticles";
 import RealtimeTrends from "../RealtimeTrends/RealtimeTrends";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const getGridCSS = ({ type }) => {
   if (type === "sara") {
@@ -74,10 +76,19 @@ const StyledGridayout = styled.main`
 `;
 
 export default function GridLayout({ $type }) {
+  const [trendData, setTrendData] = useState([]);
+  const { isLoading: trendLoading, data: trendApiData } = useQuery(
+    [$type, "ranking"],
+    () => getRangking($type)
+  );
+  useEffect(() => {
+    setTrendData(trendApiData?.data?.data);
+  }, [trendApiData]);
   const navigate = useNavigate();
+  console.log(trendData);
   return (
     <StyledGridayout type={$type}>
-      <RealtimeTrends $type={$type} />
+      <RealtimeTrends $type={$type} isLoading={trendLoading} data={trendData} />
       <CharacterLogo $type={$type} />
       <div className="article">
         <MainArticles $type={$type} />

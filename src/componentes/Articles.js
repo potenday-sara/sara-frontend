@@ -42,16 +42,11 @@ const StyledArticles = styled.div`
 `;
 
 export default function Articles({ $type, articles }) {
-  let ref = useRef(null);
-  useEffect(() => {
-    ref?.current?.swiper.autoplay.pause();
-    ref?.current?.swiper.autoplay.start();
-  }, [ref]);
   return (
     <StyledArticles>
       <h2>다른 사람들은 어떤 고민이 있을까?</h2>
       <Swiper
-        ref={ref}
+        // ref={ref}
         speed={3000}
         slidesPerView={3}
         autoplay={{

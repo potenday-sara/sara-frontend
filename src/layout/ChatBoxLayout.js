@@ -18,15 +18,12 @@ const StyledChatBoxLayout = styled.div`
   height: auto;
   gap: 40px;
   margin: auto;
-  padding: 40px;
+  padding: 40px 20px;
   width: 100%;
   max-width: 540px;
   background-color: #fff;
   border-radius: 32px;
   box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
-
-  /* min-width: 560px; */
-  /* background-color: red; */
 `;
 
 export default function ChatBoxLayout({ $type, stage }) {

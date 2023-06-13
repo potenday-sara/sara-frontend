@@ -18,6 +18,7 @@ const StyledRealtimeTrends = styled.div`
   h2 {
     display: block;
     font-size: 18px;
+    text-align: ${(props) => (props.$type === "sara" ? "right" : "left")};
   }
 
   .realtime-trends {
@@ -29,35 +30,37 @@ const StyledRealtimeTrends = styled.div`
   }
 `;
 
-export default function RealtimeTrends({ $type }) {
+export default function RealtimeTrends({ $type, data, defaultCnt }) {
   const title = $type === "sara" ? "실시간 Sara" : "실시간 Mara";
   const [trendCnt, setTrendCnt] = useState(0);
   const [[_, height], ref] = useResizeObserver();
+  const dataInOrder = [
+    ...data.slice(0, trendCnt || defaultCnt).map((i) => i.object),
+  ];
 
   useEffect(() => {
     setTrendCnt(Math.floor(height / 50));
   }, [height]);
 
-  const { isLoading, data } = useQuery([$type, "ranking"], () =>
-    getRangking($type)
-  );
-
   return (
     <StyledRealtimeTrends $type={$type} className="realtime" ref={ref}>
       <h2>{title}</h2>
       <div className="realtime-trends">
-        {isLoading
-          ? null
-          : data.data.data
-              .slice(0, trendCnt)
-              .map((trend, idx) => (
-                <RealtimeTrend key={["trend", idx]} trend={trend} />
-              ))}
+        {dataInOrder.map((trend, idx) => (
+          <RealtimeTrend key={["trend", idx]} trend={trend} />
+        ))}
       </div>
     </StyledRealtimeTrends>
   );
 }
 
-RealtimeTrend.propTypes = {
+RealtimeTrends.propTypes = {
   $type: PropTypes.oneOf(["sara", "mara"]),
+  data: PropTypes.array,
+  defaultCnt: PropTypes.number,
+};
+
+RealtimeTrends.defaultProps = {
+  data: [],
+  defaultCnt: 3,
 };

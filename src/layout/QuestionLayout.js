@@ -18,7 +18,7 @@ const StyledQuestionLayout = styled.main`
   /* gap: ; */
   margin: 100px auto;
   display: grid;
-  grid-template-columns: 1fr minmax(auto, 1fr) 1fr;
+  grid-template-columns: 1fr 450px 1fr;
   grid-template-rows: 1fr;
   align-items: center;
 `;
