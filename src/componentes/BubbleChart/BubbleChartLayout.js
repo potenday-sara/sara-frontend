@@ -40,7 +40,7 @@ const StyledBubbleChartLayout = styled.div`
 export default function BubbleChartLayout({ $type, isLoading, data }) {
   const width = useWindowSize();
 
-  // console.log(data?.data);
+  console.log(data);
   return (
     <StyledBubbleChartLayout>
       <h2>다른 사람들이 사고싶은 물건</h2>
@@ -52,8 +52,8 @@ export default function BubbleChartLayout({ $type, isLoading, data }) {
               offsetX: 0,
               offsetY: 0,
             }}
-            width={width}
-            height={width}
+            width={width || "200px"}
+            height={width || "200px"}
             padding={20}
             showLegend={false} // optional value, pass false to disable the legend.
             labelFont={{

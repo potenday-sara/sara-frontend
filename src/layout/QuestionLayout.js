@@ -23,7 +23,7 @@ const StyledQuestionLayout = styled.main`
   align-items: center;
 `;
 
-const getColor = (value, type) => {
+export const getColor = (value, type) => {
   if (type === "sara") {
     if (value >= 5) return "#007BED";
     else if (value >= 3) return "#4D9DE6";

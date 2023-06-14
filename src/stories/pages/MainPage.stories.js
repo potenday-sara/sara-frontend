@@ -9,4 +9,4 @@ export default {
   ],
 };
 
-export const BasicMainPage = {};
+export const BasicMainPage = (args) => <MainPage {...args} />;
