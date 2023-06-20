@@ -1,12 +1,9 @@
 import React from "react";
 import { styled } from "styled-components";
-import { MainText } from "../../items/Text/Text";
-import { ReactComponent as MainLogo } from "../../images/logos/miainlogo.svg";
 import { TextInput, TextareaInput } from "../../items/Input/Input";
-import { useInput } from "../../hooks/hooks";
 import { BasicButton } from "../../items/Button/MainButton";
-import { postQuestion } from "../../apis";
-import { useMutation } from "react-query";
+
+import PropTypes from "prop-types";
 
 import Swal from "sweetalert2";
 
@@ -68,3 +65,25 @@ export default function Question({
     </StyledQuestion>
   );
 }
+
+// item,
+// explanation,
+// $type,
+// setItem,
+// setExplanation,
+// mutate,
+
+Question.propTypes = {
+  item: PropTypes.string,
+  explanation: PropTypes.string,
+  $type: PropTypes.oneOf(["sara", "mara"]).isRequired,
+  setItem: PropTypes.func,
+  setExplanation: PropTypes.func,
+  mutate: PropTypes.func,
+};
+
+Question.defaultProps = {
+  setItem: undefined,
+  setExplanation: undefined,
+  mutate: () => Swal.fire(),
+};

@@ -26,7 +26,7 @@ const StyledChatBoxLayout = styled.div`
   box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
 `;
 
-export default function ChatBoxLayout({ $type, stage }) {
+export default function ChatBoxLayout({ $type }) {
   const [data, setData] = useState({});
   const [item, setItem] = useInput();
   const [explanation, setExplanation] = useInput();

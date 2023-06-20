@@ -37,10 +37,9 @@ const StyledBubbleChartLayout = styled.div`
   }
 `;
 
-export default function BubbleChartLayout({ $type, isLoading, data }) {
+export default function BubbleChartLayout({ data }) {
   const width = useWindowSize();
 
-  console.log(data);
   return (
     <StyledBubbleChartLayout>
       <h2>다른 사람들이 사고싶은 물건</h2>
@@ -69,3 +68,7 @@ export default function BubbleChartLayout({ $type, isLoading, data }) {
     </StyledBubbleChartLayout>
   );
 }
+
+BubbleChartLayout.propTypes = {
+  data: PropTypes.array.isRequired,
+};

@@ -68,12 +68,12 @@ export default function ChatBox({ $type, stage }) {
 
   const navigate = useNavigate();
 
-  const dataResetNaviget = (route) => {
-    Mutate.reset();
-    setItem();
-    setExplanation();
-    navigate(route);
-  };
+  // const dataResetNaviget = (route) => {
+  //   Mutate.reset();
+  //   setItem();
+  //   setExplanation();
+  //   navigate(route);
+  // };
   useEffect(() => {
     setData({
       id: Mutate.data?.data.data.id,

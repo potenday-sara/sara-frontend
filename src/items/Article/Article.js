@@ -52,6 +52,7 @@ export default function Article({ type, label, text, ...rest }) {
 }
 
 Article.propTypes = {
+  type: PropTypes.oneOf(["sara", "mara"]).isRequired,
   label: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
 };
