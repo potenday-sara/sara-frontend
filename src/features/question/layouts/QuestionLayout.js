@@ -1,12 +1,13 @@
 import React from "react";
 import { styled } from "styled-components";
-import BubbleChartLayout from "../BubbleChart/BubbleChartLayout";
+import BubbleChartLayout from "./BubbleChartLayout";
 import { useQuery } from "react-query";
-import { getRangking } from "../../apis";
+import { getRangking } from "../../../apis";
 import { useEffect } from "react";
 import { useState } from "react";
-import ChatBoxLayout from "../../layout/ChatBoxLayout";
-import SectionLayout from "../../layout/Sections/SectionLayout";
+import ChatBoxLayout from "./ChatboxLayout";
+import SectionLayout from "./SectionLayout";
+import { getChartColor } from "../utils/getStyles";
 
 const StyledQuestionLayout = styled.main`
   position: relative;
@@ -21,20 +22,6 @@ const StyledQuestionLayout = styled.main`
   align-items: center;
 `;
 
-export const getColor = (value, type) => {
-  if (type === "sara") {
-    if (value >= 5) return "#007BED";
-    else if (value >= 3) return "#4D9DE6";
-    else return "#A2CBF1";
-  }
-
-  if (type === "mara") {
-    if (value >= 5) return "#EF2B00";
-    else if (value >= 3) return "#F46242";
-    else return "#F5907A";
-  }
-};
-
 export default function QuestionLayout({ $type }) {
   const [BubbleData, setBubbleData] = useState();
   const { isLoading: questionLoading, data: questionData } = useQuery(
@@ -47,7 +34,7 @@ export default function QuestionLayout({ $type }) {
       return {
         label: i.object,
         value: parseInt(i.total, $type),
-        color: getColor(i.total, $type),
+        color: getChartColor(i.total, $type),
       };
     });
     setBubbleData(newData);

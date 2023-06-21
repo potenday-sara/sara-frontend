@@ -1,7 +1,7 @@
 import React from "react";
 
 import { styled } from "styled-components";
-import { MainText } from "../Text/Text";
+import { MainText } from "../../../items/Text/Text";
 import PropTypes from "prop-types";
 
 const StyledArticle = styled.div`
@@ -36,7 +36,7 @@ const StyledArticle = styled.div`
   }
 `;
 
-export default function Article({ type, label, text, ...rest }) {
+export default function OtherQuestion({ type, label, text, ...rest }) {
   return (
     <StyledArticle {...rest}>
       <div className="contents">
@@ -51,7 +51,7 @@ export default function Article({ type, label, text, ...rest }) {
   );
 }
 
-Article.propTypes = {
+OtherQuestion.propTypes = {
   type: PropTypes.oneOf(["sara", "mara"]).isRequired,
   label: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,

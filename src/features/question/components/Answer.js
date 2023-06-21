@@ -1,10 +1,10 @@
 import { func } from "prop-types";
 import React from "react";
 import { styled } from "styled-components";
-import { BasicButton, ChoiceButton } from "../../items/Button/MainButton";
-import { ReactComponent as Good } from "../../images/feedback/good.svg";
-import { ReactComponent as Bad } from "../../images/feedback/bad.svg";
-import { ReactComponent as Soso } from "../../images/feedback/soso.svg";
+import { BasicButton, ChoiceButton } from "../../../items/Button/MainButton";
+import { ReactComponent as Good } from "../../../images/feedback/good.svg";
+import { ReactComponent as Bad } from "../../../images/feedback/bad.svg";
+import { ReactComponent as Soso } from "../../../images/feedback/soso.svg";
 import { useNavigate } from "react-router-dom";
 
 const StyledAnswer = styled.div`

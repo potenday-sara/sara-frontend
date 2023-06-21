@@ -1,29 +1,22 @@
 import React, { useEffect, useRef, useState } from "react";
-
 import { styled } from "styled-components";
-import { MainText } from "../items/Text/Text";
-import Article from "../items/Article/Article";
+import OtherQuestion from "./OtherQuestion";
+import PropTypes from "prop-types";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay, Navigation } from "swiper";
+import { Autoplay } from "swiper";
 
-// Import Swiper styles
 import "swiper/css";
-// import "swiper/css/pagination";
-
-// import required modules
 
 const StyledArticles = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
-  /* flex-direction: column; */
   gap: 20px;
   width: 100%;
   height: 100%;
   overflow: hidden;
   position: relative;
-  /* background-color: red; */
 
   .h2 {
     margin-bottom: 5px;
@@ -41,7 +34,7 @@ const StyledArticles = styled.div`
   }
 `;
 
-export default function Articles({ $type, articles }) {
+export default function OtherQuestions({ $type, articles }) {
   return (
     <StyledArticles>
       <h2>다른 사람들은 어떤 고민이 있을까?</h2>
@@ -63,7 +56,7 @@ export default function Articles({ $type, articles }) {
           return (
             <SwiperSlide key={idx}>
               {/* <h1>안녕</h1> */}
-              <Article type={$type} label={i.object} text={i.solution} />
+              <OtherQuestion type={$type} label={i.object} text={i.solution} />
             </SwiperSlide>
           );
         })}
@@ -71,3 +64,7 @@ export default function Articles({ $type, articles }) {
     </StyledArticles>
   );
 }
+
+OtherQuestions.propTypes = {
+  $type: PropTypes.oneOf(["sara", "mara"]).isRequired,
+};

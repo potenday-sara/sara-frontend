@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import { useMutation } from "react-query";
-
 import { useNavigate } from "react-router-dom";
-import { useInput } from "../hooks/hooks";
-import { postQuestion } from "../apis";
-import Character from "../items/Logo/Character";
-import TextLogo from "../items/Logo/TextLogo";
-import Question from "../componentes/ChatBox/Qustion";
-import Spinner from "../items/Spinner/Spinner";
-import Answer from "../componentes/ChatBox/Answer";
+import { useInput } from "../../../hooks/hooks";
+import { postQuestion } from "../../../apis";
+import Character from "../../../items/Logo/Character";
+import TextLogo from "../../../items/Logo/TextLogo";
+import SaraMaraForm from "../components/SaraMaraForm";
+import Spinner from "../components/Spinner";
+import Answer from "../components/Answer";
+import PropTypes from "prop-types";
 
-const StyledChatBoxLayout = styled.div`
+const StyledChatboxLayout = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 100px 180px auto;
@@ -26,7 +26,7 @@ const StyledChatBoxLayout = styled.div`
   box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
 `;
 
-export default function ChatBoxLayout({ $type }) {
+export default function ChatboxLayout({ $type }) {
   const [data, setData] = useState({});
   const [item, setItem] = useInput();
   const [explanation, setExplanation] = useInput();
@@ -50,11 +50,11 @@ export default function ChatBoxLayout({ $type }) {
   }, [Mutate.isSuccess]);
 
   return (
-    <StyledChatBoxLayout $type>
+    <StyledChatboxLayout $type>
       <TextLogo $type={$type} />
       <Character $type={$type} />
       {Mutate.isIdle === true ? (
-        <Question
+        <SaraMaraForm
           $type={$type}
           item={item}
           explanation={explanation}
@@ -67,29 +67,10 @@ export default function ChatBoxLayout({ $type }) {
       ) : (
         <Spinner $type={$type} />
       )}
-    </StyledChatBoxLayout>
+    </StyledChatboxLayout>
   );
 }
 
-{
-  /* <div className="main-logo">
-{$type === "sara" ? <MainTextLogo /> : <MainMaraTextLogo />}
-</div>
-<div className="character-logo-box">
-{$type === "sara" ? (
-  <MainSaraLogo viewBox="0 0 210 180" />
-) : (
-  <MainMaraLogo viewBox="-5 0 195 180" />
-)}
-</div>
-<div className="contents">
-
-
-{/* <Spinner $type={$type} /> */
-}
-{
-  /* <Answer $type={$type} /> */
-}
-{
-  /*</div> */
-}
+ChatboxLayout.propTypes = {
+  $type: PropTypes.oneOf(["sara", "mara"]).isRequired,
+};

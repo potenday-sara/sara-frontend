@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import QuestionLayout from "../../../componentes/sara-mara/QuestionLayout";
+import QuestionLayout from "../layouts/QuestionLayout";
 import Navbar from "../../../componentes/Navbar/Navbar";
 import { styled } from "styled-components";
 import PropTypes from "prop-types";
@@ -23,3 +23,7 @@ export default function Question({ $type }) {
     </>
   );
 }
+
+Question.propTypes = {
+  $type: PropTypes.oneOf(["sara", "mara"]).isRequired,
+};

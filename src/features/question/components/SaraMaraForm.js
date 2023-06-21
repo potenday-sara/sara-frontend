@@ -1,21 +1,17 @@
 import React from "react";
 import { styled } from "styled-components";
-import { TextInput, TextareaInput } from "../../items/Input/Input";
-import { BasicButton } from "../../items/Button/MainButton";
-
+import { TextInput, TextareaInput } from "../../../items/Input/Input";
+import { BasicButton } from "../../../items/Button/MainButton";
 import PropTypes from "prop-types";
-
 import Swal from "sweetalert2";
 
 const StyledQuestion = styled.div`
   display: grid;
   grid-template-rows: auto auto 60px;
-  /* overflow: hidden; */
-  /* flex-direction: column; */
   gap: 40px;
 `;
 
-export default function Question({
+export default function SaraMaraForm({
   item,
   explanation,
   $type,
@@ -66,14 +62,7 @@ export default function Question({
   );
 }
 
-// item,
-// explanation,
-// $type,
-// setItem,
-// setExplanation,
-// mutate,
-
-Question.propTypes = {
+SaraMaraForm.propTypes = {
   item: PropTypes.string,
   explanation: PropTypes.string,
   $type: PropTypes.oneOf(["sara", "mara"]).isRequired,
@@ -82,7 +71,7 @@ Question.propTypes = {
   mutate: PropTypes.func,
 };
 
-Question.defaultProps = {
+SaraMaraForm.defaultProps = {
   setItem: undefined,
   setExplanation: undefined,
   mutate: () => Swal.fire(),

@@ -58,7 +58,7 @@ const StyledChatBox = styled.div`
   /* background-color: red; */
 `;
 
-export default function ChatBox({ $type, stage }) {
+export default function Chatbox({ $type, stage }) {
   const [data, setData] = useState({});
   const [item, setItem] = useInput();
   const [explanation, setExplanation] = useInput();
