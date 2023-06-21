@@ -3,7 +3,6 @@ import { styled } from "styled-components";
 import { ReactComponent as FotterLogo } from "../../images/logos/footerlogo.svg";
 
 const StyledFooter = styled.div`
-  /* position: absolute; */
   width: 100%;
   background-color: transparent;
   height: 64px;
@@ -20,7 +19,6 @@ const StyledFooter = styled.div`
     line-height: 10px;
     color: #0000004d;
   }
-  // flex는 글로벌 스타일로 설정
 `;
 
 export default function Footer() {

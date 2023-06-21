@@ -1,14 +1,12 @@
 import { styled } from "styled-components";
-import { getTextColor } from "../../Styles";
-import { useQuery } from "react-query";
-import { getRangking } from "../../apis";
-import RealtimeTrend from "../../items/RealtimeTrend/RealtimeTrend";
+import { getTextColor } from "../../../Styles";
+import RealtimeKeyword from "./RealtimeKeyword";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useResizeObserver } from "../../hooks/hooks";
+import { useResizeObserver } from "../../../hooks/hooks";
 import PropTypes from "prop-types";
 
-const StyledRealtimeTrends = styled.div`
+const StyledRealtimeKeywords = styled.div`
   color: ${() => getTextColor({ $type: "black" })};
   display: grid;
   grid-template-rows: auto 1fr;
@@ -30,7 +28,7 @@ const StyledRealtimeTrends = styled.div`
   }
 `;
 
-export default function RealtimeTrends({ $type, data, defaultCnt }) {
+export default function RealtimeKeywords({ $type, data, defaultCnt }) {
   const title = $type === "sara" ? "실시간 Sara" : "실시간 Mara";
   const [trendCnt, setTrendCnt] = useState(0);
   const [[_, height], ref] = useResizeObserver();
@@ -43,24 +41,24 @@ export default function RealtimeTrends({ $type, data, defaultCnt }) {
   }, [height]);
 
   return (
-    <StyledRealtimeTrends $type={$type} className="realtime" ref={ref}>
+    <StyledRealtimeKeywords $type={$type} className="realtime" ref={ref}>
       <h2>{title}</h2>
       <div className="realtime-trends">
         {dataInOrder.map((trend, idx) => (
-          <RealtimeTrend key={["trend", idx]} trend={trend} />
+          <RealtimeKeyword key={["trend", idx]} trend={trend} />
         ))}
       </div>
-    </StyledRealtimeTrends>
+    </StyledRealtimeKeywords>
   );
 }
 
-RealtimeTrends.propTypes = {
+RealtimeKeywords.propTypes = {
   $type: PropTypes.oneOf(["sara", "mara"]),
   data: PropTypes.array,
   defaultCnt: PropTypes.number,
 };
 
-RealtimeTrends.defaultProps = {
+RealtimeKeywords.defaultProps = {
   data: [],
   defaultCnt: 3,
 };

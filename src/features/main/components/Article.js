@@ -1,10 +1,10 @@
 import React from "react";
 import { styled } from "styled-components";
-import Image from "../../images/temp/tempImage.jpg";
+import Image from "../../../images/temp/tempImage.jpg";
 import PropTypes from "prop-types";
-import { getTextColor } from "../../Styles";
+import { getTextColor } from "../../../Styles";
 
-const StyledMainArticle = styled.div`
+const StyledArticle = styled.div`
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: 1fr 2fr;
@@ -35,17 +35,17 @@ const StyledMainArticle = styled.div`
   }
 `;
 
-export const MainArticle = ({ data, ...rest }) => {
+export default function Article({ data, ...rest }) {
   return (
-    <StyledMainArticle {...rest}>
+    <StyledArticle {...rest}>
       <img className="article-image" src={data.image} alt="아티클이미지" />
       <h2 className="article-title">{data.title}</h2>
       <p className="article-contents">{data.contents}</p>
-    </StyledMainArticle>
+    </StyledArticle>
   );
-};
+}
 
-MainArticle.propTypes = {
+Article.propTypes = {
   $type: PropTypes.oneOf(["sara", "mara"]),
   data: PropTypes.shape({
     title: PropTypes.string,
@@ -55,7 +55,7 @@ MainArticle.propTypes = {
   onClick: PropTypes.func,
 };
 
-MainArticle.defaultProps = {
+Article.defaultProps = {
   onClick: undefined,
   data: {
     image: Image,

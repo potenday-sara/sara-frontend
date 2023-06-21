@@ -4,7 +4,6 @@ import { ReactComponent as Main } from "../../images/logos/miainlogo.svg";
 import { styled } from "styled-components";
 import PropTypes from "prop-types";
 import Textbubble from "../Textbubble/Textbubble";
-import { useNavigate } from "react-router-dom";
 
 const StyledLogoBox = styled.div`
   position: relative;

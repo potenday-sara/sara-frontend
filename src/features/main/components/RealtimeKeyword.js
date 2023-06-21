@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { styled } from "styled-components";
 
-const StyledRealtimeTrend = styled.h2`
+const StyledRealtimeKeyword = styled.h2`
   font-size: 16px !important;
   display: inline-block;
   border-radius: 12px;
@@ -11,10 +11,10 @@ const StyledRealtimeTrend = styled.h2`
   padding: 10px;
 `;
 
-export default function RealtimeTrend({ trend }) {
-  return <StyledRealtimeTrend>{trend}</StyledRealtimeTrend>;
+export default function RealtimeKeyword({ trend }) {
+  return <StyledRealtimeKeyword>{trend}</StyledRealtimeKeyword>;
 }
 
-RealtimeTrend.propTypes = {
+RealtimeKeyword.propTypes = {
   trend: PropTypes.string.isRequired,
 };

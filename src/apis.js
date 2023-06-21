@@ -13,7 +13,6 @@ export const getRangking = ($type) => {
 
 export const getQuestions = ($type) => {
   let type = $type === "/sara" ? "SARA" : "MARA";
-
   return axios({
     method: "get",
     url: `${BASE_URL}/${type}/questions`,
@@ -21,9 +20,7 @@ export const getQuestions = ($type) => {
 };
 
 export const postQuestion = (value, question, type) => {
-
   const data = {
-
     object: {
       value: value,
     },
@@ -32,5 +29,4 @@ export const postQuestion = (value, question, type) => {
   };
 
   return axios({ method: "post", url: `${BASE_URL}`, data: data });
-
 };

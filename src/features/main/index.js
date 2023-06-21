@@ -1,6 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
-import GridLayout from "../componentes/GridLayout/GridLayout";
+import GridLayout from "./components/MainLayout";
 
 const SelectLayout = styled.div`
   position: relative;
@@ -39,7 +39,8 @@ const SelectLayout = styled.div`
     margin-top: 80px;
   }
 `;
-export default function MainPage() {
+
+export default function Main() {
   return (
     <SelectLayout className="check">
       <div className="sara"></div>

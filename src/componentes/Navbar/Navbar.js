@@ -1,7 +1,7 @@
 import React from "react";
 import { styled } from "styled-components";
 import { NavbarButton } from "../../items/Navbar/NavbarButton";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useRoutes } from "react-router-dom";
 import { device } from "../../Styles";
 import Swal from "sweetalert2";
 import { ReactComponent as Sara } from "../../images/logos/miainlogo.svg";
@@ -30,15 +30,17 @@ const StyledNavbar = styled.div`
   }
 `;
 
-export default function Navbar({ $type }) {
+export default function Navbar() {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+
   const goHome = () => {
     navigate("/");
   };
   return (
     <StyledNavbar>
       <div className="logobox">
-        {$type === "/sara" ? (
+        {pathname === "/question/sara" ? (
           <Sara onClick={goHome} />
         ) : (
           <Mara onClick={goHome} />

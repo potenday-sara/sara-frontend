@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { styled } from "styled-components";
-import { MainText } from "../../items/Text/Text";
 import BubbleChart from "@testboxlab/react-bubble-chart-d3";
 import { useWindowSize } from "../../hooks/hooks";
 import { PropTypes } from "prop-types";
-import { useQuery } from "react-query";
-import { getQuestions, getRangking } from "../../apis";
 
 const StyledBubbleChartLayout = styled.div`
   display: flex;
@@ -16,8 +13,7 @@ const StyledBubbleChartLayout = styled.div`
   width: 100%;
   max-width: 540px;
   margin: auto;
-  /* min-width: 560px; */
-  /* background-color: red; */
+
   .chart-box {
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -27,7 +23,6 @@ const StyledBubbleChartLayout = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-
     .node {
       transition: all 0.2s ease-in;
       :hover {
@@ -71,4 +66,8 @@ export default function BubbleChartLayout({ data }) {
 
 BubbleChartLayout.propTypes = {
   data: PropTypes.array.isRequired,
+};
+
+BubbleChartLayout.defaultProps = {
+  data: [],
 };

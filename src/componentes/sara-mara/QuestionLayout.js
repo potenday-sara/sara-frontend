@@ -1,12 +1,12 @@
 import React from "react";
 import { styled } from "styled-components";
-import BubbleChartLayout from "../componentes/BubbleChart/BubbleChartLayout";
+import BubbleChartLayout from "../BubbleChart/BubbleChartLayout";
 import { useQuery } from "react-query";
-import { getRangking } from "../apis";
+import { getRangking } from "../../apis";
 import { useEffect } from "react";
 import { useState } from "react";
-import ChatBoxLayout from "./ChatBoxLayout";
-import SectionLayout from "./Sections/SectionLayout";
+import ChatBoxLayout from "../../layout/ChatBoxLayout";
+import SectionLayout from "../../layout/Sections/SectionLayout";
 
 const StyledQuestionLayout = styled.main`
   position: relative;
@@ -14,8 +14,6 @@ const StyledQuestionLayout = styled.main`
   gap: 50px;
   min-width: 1200px;
   max-width: 1920px;
-  /* aspect-ratio: 2.5/1; */
-  /* gap: ; */
   margin: 100px auto;
   display: grid;
   grid-template-columns: 1fr 450px 1fr;
@@ -54,6 +52,7 @@ export default function QuestionLayout({ $type }) {
     });
     setBubbleData(newData);
   }, [questionData]);
+
   return (
     <StyledQuestionLayout>
       <BubbleChartLayout $type={$type} data={BubbleData} />
