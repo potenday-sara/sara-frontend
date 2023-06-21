@@ -1,20 +1,17 @@
 import { Route, Routes } from "react-router-dom";
 
-import MainPage from "./pages/main";
 import { GlobalStyles } from "./Styles";
-import Navbar from "./componentes/Navbar/Navbar";
-import Footer from "./componentes/Footer/Footer";
-import Question from "./pages/questionpage";
+import Main from "./features/main";
+import { QuestionRoutes } from "./features/question";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <>
       <GlobalStyles />
-      {/* <Navbar /> */}
       <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/sara" element={<Question />} />
-        <Route path="/mara" element={<Question />} />
+        <Route path="/" element={<Main />} />
+        <Route path="/question/*" element={<QuestionRoutes />} />
       </Routes>
       <Footer />
     </>

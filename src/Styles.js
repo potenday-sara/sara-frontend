@@ -92,6 +92,14 @@ export const GlobalStyles = createGlobalStyle`
   font-weight: 500;
   line-height: 20px;
   }
+
+  .flex {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const device = {
