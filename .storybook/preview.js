@@ -2,6 +2,7 @@
 
 import { withThemeFromJSXProvider } from "@storybook/addon-styling";
 import { GlobalStyles } from "../src/Styles";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const customViewports = {
   small: {
@@ -15,8 +16,8 @@ const customViewports = {
   big: {
     name: "big",
     styles: {
-      width: "1024px",
-      height: "900px",
+      width: "1200px",
+      height: "700px",
     },
   },
 };
@@ -35,10 +36,16 @@ const preview = {
   },
 };
 
+const queryClient = new QueryClient();
 export const decorators = [
   withThemeFromJSXProvider({
     GlobalStyles,
   }),
+  (Story) => (
+    <QueryClientProvider client={queryClient}>
+      <Story />
+    </QueryClientProvider>
+  ),
 ];
 
 export default preview;
