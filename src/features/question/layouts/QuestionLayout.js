@@ -2,12 +2,12 @@ import React from "react";
 import { styled } from "styled-components";
 import BubbleChartLayout from "./BubbleChartLayout";
 import { useQuery } from "react-query";
-import { getRangking } from "../../../apis";
 import { useEffect } from "react";
 import { useState } from "react";
 import ChatBoxLayout from "./ChatboxLayout";
 import SectionLayout from "./SectionLayout";
 import { getChartColor } from "../utils/getStyles";
+import { getRangking } from "../../main/apis/getRanking";
 
 const StyledQuestionLayout = styled.main`
   position: relative;

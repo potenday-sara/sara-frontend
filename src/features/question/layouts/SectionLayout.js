@@ -3,10 +3,10 @@ import { styled } from "styled-components";
 import OtherQuestions from "../components/OtherQuestions";
 import Trends from "../components/Trend";
 import { useQuery } from "react-query";
-import { getQuestions } from "../../../apis";
 import { useState } from "react";
 import { useEffect } from "react";
 import PropTypes from "prop-types";
+import { getQuestions } from "../apis/getQuestions";
 
 const StyledSectionLayout = styled.div`
   width: 100%;

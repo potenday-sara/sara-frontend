@@ -1,9 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
-import { ChoiceButton } from "../../../items/Button/ChoiceButton";
 import { useQuery } from "react-query";
-import { getRangking } from "../../../apis";
-import CharacterLogo from "../../../items/Logo/CharacterLogo";
 import Articles from "../components/Articles";
 import RealtimeKeywords from "../components/RealtimeKeywords";
 import PropTypes from "prop-types";
@@ -11,6 +8,9 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import { getGridStyles } from "../utils/getStyles";
+import { getRangking } from "../apis/getRanking";
+import CharacterLogo from "../../../components/Logo/CharacterLogo";
+import { ChoiceButton } from "../../../components/Button/ChoiceButton";
 
 const StyledGridayout = styled.main`
   ${(props) => getGridStyles(props)}

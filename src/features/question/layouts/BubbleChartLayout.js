@@ -1,8 +1,8 @@
 import React from "react";
 import { styled } from "styled-components";
 import BubbleChart from "@testboxlab/react-bubble-chart-d3";
-import { useWindowSize } from "../../../hooks/hooks";
 import { PropTypes } from "prop-types";
+import useWindowSize from "../hooks/useWindowSize";
 
 const StyledBubbleChartLayout = styled.div`
   display: flex;

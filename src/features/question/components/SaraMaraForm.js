@@ -1,9 +1,9 @@
 import React from "react";
 import { styled } from "styled-components";
-import { TextInput, TextareaInput } from "../../../items/Input/Input";
-import { BasicButton } from "../../../items/Button/MainButton";
 import PropTypes from "prop-types";
 import Swal from "sweetalert2";
+import { BasicButton } from "../../../components/Button/MainButton";
+import { TextInput, TextareaInput } from "../../../components/Form/Form";
 
 const StyledQuestion = styled.div`
   display: grid;

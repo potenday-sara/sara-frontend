@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Question from "./Question";
-import Navbar from "../../../componentes/Navbar/Navbar";
+import Navbar from "../../../components/Navbar/Navbar";
 
 export const QuestionRoutes = () => {
   return (

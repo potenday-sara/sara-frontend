@@ -1,8 +1,8 @@
 import React from "react";
 
 import { styled } from "styled-components";
-import { MainText } from "../../../items/Text/Text";
 import PropTypes from "prop-types";
+import { MainText } from "../../../components/Text/Text";
 
 const StyledArticle = styled.div`
   display: grid;

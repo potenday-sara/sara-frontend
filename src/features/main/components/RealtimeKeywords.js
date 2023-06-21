@@ -3,8 +3,8 @@ import { getTextColor } from "../../../Styles";
 import RealtimeKeyword from "./RealtimeKeyword";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useResizeObserver } from "../../../hooks/hooks";
 import PropTypes from "prop-types";
+import useResizeObserver from "../hooks/useResizeObserver";
 
 const StyledRealtimeKeywords = styled.div`
   color: ${() => getTextColor({ $type: "black" })};

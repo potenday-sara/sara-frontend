@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 
 import { GlobalStyles } from "./Styles";
-import Footer from "./componentes/Footer/Footer";
 import Main from "./features/main";
 import { QuestionRoutes } from "./features/question";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (

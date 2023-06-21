@@ -1,7 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
-import { MainText } from "../../../items/Text/Text";
-import { TrendButton } from "../../../items/Button/MainButton";
+import { TrendButton } from "../../../components/Button/MainButton";
 
 const StyledTredns = styled.div`
   display: grid;
