@@ -61,6 +61,7 @@ export default function MainLayout({ $type }) {
       </div>
       <div className="choiceButton">
         <ChoiceButton
+          size={"medium"}
           $type={$type}
           onClick={() =>
             $type === "sara"
