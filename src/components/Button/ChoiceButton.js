@@ -54,6 +54,15 @@ const getStyledButtonSize = ({ size }) => {
   }
 };
 
+
+/**
+ * 
+ * $type : sara, mara 
+ * size : small, medium, big (default : 100%) 
+ * onClick : click event
+ * @returns 
+ */
+
 export const ChoiceButton = ({ $type, ...rest }) => {
   return (
     <StyledChoiceButton $type={$type} {...rest}>
@@ -62,6 +71,7 @@ export const ChoiceButton = ({ $type, ...rest }) => {
     </StyledChoiceButton>
   );
 };
+
 
 ChoiceButton.propTypes = {
   $type: PropTypes.oneOf(["sara", "mara"]).isRequired,
