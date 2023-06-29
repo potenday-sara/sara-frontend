@@ -25,9 +25,6 @@ const StyledBubbleChartLayout = styled.div`
     align-items: center;
     .node {
       transition: all 0.2s ease-in;
-      :hover {
-        scale: 1.1;
-      }
     }
   }
 `;
@@ -48,7 +45,7 @@ export default function BubbleChartLayout({ data }) {
             }}
             width={width || "200px"}
             height={width || "200px"}
-            padding={20}
+            padding={5}
             showLegend={false} // optional value, pass false to disable the legend.
             labelFont={{
               family: "Pretendard",

@@ -52,7 +52,9 @@ export default function ChatboxLayout({ $type }) {
     <StyledChatboxLayout $type>
       <TextLogo $type={$type} />
       <Character $type={$type} />
-      {Mutate.isIdle === true ? (
+      <Answer $type={$type} data={data} navigate={dataResetNaviget} />
+
+      {/* {Mutate.isIdle === true ? (
         <SaraMaraForm
           $type={$type}
           item={item}
@@ -65,7 +67,7 @@ export default function ChatboxLayout({ $type }) {
         <Answer $type={$type} data={data} navigate={dataResetNaviget} />
       ) : (
         <Spinner $type={$type} />
-      )}
+      )} */}
     </StyledChatboxLayout>
   );
 }
