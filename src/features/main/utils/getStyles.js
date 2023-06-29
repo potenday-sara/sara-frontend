@@ -16,6 +16,12 @@ export const getGridStyles = ({ type }) => {
         align-items: end;
         justify-content: flex-end;
       }
+      .choiceButton {
+        display: flex;
+        align-items: start;
+        justify-content: flex-end;
+        padding-left: auto;
+      }
     `;
   } else {
     return css`
@@ -33,6 +39,10 @@ export const getGridStyles = ({ type }) => {
       }
 
       .choiceButton {
+        display: flex;
+        align-items: start;
+        justify-content: flex-start;
+        padding-left: auto;
         grid-area: 2 / 1 / 3 / 2;
       }
     `;

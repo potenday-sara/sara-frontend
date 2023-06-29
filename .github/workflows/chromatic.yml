@@ -3,7 +3,7 @@ name: "Chromatic Deployment"
 
 # Event for the workflow
 on:
-  push:
+  pull_request:
     branches:
       - develop
 # List of jobs
@@ -22,3 +22,9 @@ jobs:
           #👇 Chromatic projectToken, see https://storybook.js.org/tutorials/intro-to-storybook/react/ko/deploy/ to obtain it
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      # PR comment
+      - name: comment PR
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: "🚀storybook: ${{ steps.chromatic.outputs.storybookUrl }}"
