@@ -28,4 +28,4 @@ jobs:
       - name: comment PR
         uses: thollander/actions-comment-pull-request@v2
         with:
-          message: ":로켓:storybook: ${{ steps.chromatic.outputs.storybookUrl }}"
+          message: "🚀storybook: ${{ steps.chromatic.outputs.storybookUrl }}"
