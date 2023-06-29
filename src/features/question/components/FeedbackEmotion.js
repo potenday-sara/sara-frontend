@@ -49,11 +49,14 @@ export default function FeedbackEmotion({
   $type,
   emotion,
   feedbackValue,
-  setFeedbackValue,
+  handleFeedbackValue,
   ...rest
 }) {
   return (
-    <StyledFeedbackEmotion isNow={emotion === feedbackValue ? true : false}>
+    <StyledFeedbackEmotion
+      isNow={emotion === feedbackValue ? true : false}
+      onClick={() => handleFeedbackValue(emotion)}
+    >
       {getEmotionSVG($type, emotion)}
     </StyledFeedbackEmotion>
   );

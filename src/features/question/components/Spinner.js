@@ -13,7 +13,7 @@ const StyledSpinner = styled.div`
     font-family: "Pretendard";
     border-radius: 16px;
     background-color: #f4f4f4;
-    color: ${(props) => (props.$type === "/sara" ? "#007BED" : "#EF2B00")};
+    color: ${(props) => (props.$type === "sara" ? "#007BED" : "#EF2B00")};
   }
   p {
     margin-top: 3px;

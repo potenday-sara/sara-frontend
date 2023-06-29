@@ -48,13 +48,14 @@ export default function ChatboxLayout({ $type }) {
     console.log(Mutate);
   }, [Mutate.isSuccess]);
 
+  console.log(data);
   return (
     <StyledChatboxLayout $type>
       <TextLogo $type={$type} />
       <Character $type={$type} />
-      <Answer $type={$type} data={data} navigate={dataResetNaviget} />
+      {/* <Answer $type={$type} data={data} navigate={dataResetNaviget} /> */}
 
-      {/* {Mutate.isIdle === true ? (
+      {Mutate.isIdle === true ? (
         <SaraMaraForm
           $type={$type}
           item={item}
@@ -67,7 +68,7 @@ export default function ChatboxLayout({ $type }) {
         <Answer $type={$type} data={data} navigate={dataResetNaviget} />
       ) : (
         <Spinner $type={$type} />
-      )} */}
+      )}
     </StyledChatboxLayout>
   );
 }

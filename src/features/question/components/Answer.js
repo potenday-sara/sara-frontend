@@ -74,7 +74,7 @@ export default function Answer({ $type, data, navigate }) {
           $backgroundColor="red"
         />
       </div>
-      <FeedbackLayout $type={$type} />
+      <FeedbackLayout $type={$type} questionId={data.id} />
     </StyledAnswer>
   );
 }
