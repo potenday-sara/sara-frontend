@@ -1,9 +1,8 @@
 # Workflow name
 name: "Chromatic Deployment"
-
 # Event for the workflow
 on:
-  push:
+  pull_request:
     branches:
       - develop
 # List of jobs
@@ -13,12 +12,20 @@ jobs:
     runs-on: ubuntu-latest
     # Job steps
     steps:
+      ## id 추가하기
       - uses: actions/checkout@v1
       - run: yarn
-        #👇 Adds Chromatic as a step in the workflow
+        #:아래를_가리키는_손_모양: Adds Chromatic as a step in the workflow
+      - name: publish to chromatic
+      - id: chromatic
       - uses: chromaui/action@v1
         # Options required for Chromatic's GitHub Action
         with:
-          #👇 Chromatic projectToken, see https://storybook.js.org/tutorials/intro-to-storybook/react/ko/deploy/ to obtain it
+          #:아래를_가리키는_손_모양: Chromatic projectToken, see https://storybook.js.org/tutorials/intro-to-storybook/react/ko/deploy/ to obtain it
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
+      # PR comment
+      - name: comment PR
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: ":로켓:storybook: ${{ steps.chromatic.outputs.storybookUrl }}"
