@@ -65,6 +65,7 @@ export const getBasicButton = () => css`
 `;
 
 export const getButtonSize = ({ size }) => {
+  console.log(size);
   switch (size) {
     case "large": {
       return css`
@@ -127,7 +128,6 @@ BasicButton.propTypes = {
 
 BasicButton.defaultProps = {
   $backgroundColor: "white",
-  size: "medium",
   onClick: undefined,
 };
 

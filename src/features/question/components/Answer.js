@@ -9,6 +9,7 @@ import {
   BasicButton,
   ChoiceButton,
 } from "../../../components/Button/MainButton";
+import FeedbackLayout from "../layouts/FeedbackLayout";
 
 const StyledAnswer = styled.div`
   /* height: calc(220px + 10vh); */
@@ -28,12 +29,6 @@ const StyledAnswer = styled.div`
     color: black;
     background-color: #f4f4f4;
     color: #666666;
-  }
-  p {
-    margin-top: 3px;
-    color: #999999;
-    font-family: "Pretendard";
-    font-size: 12px;
   }
 
   .fq {
@@ -55,34 +50,6 @@ const StyledAnswer = styled.div`
     h1 {
       white-space: nowrap;
       font-size: 14px;
-    }
-  }
-  .feedbacksvgs {
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-    gap: 30px;
-  }
-
-  .feedbacks {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    textarea {
-      background-color: #f4f4f4;
-      border: 0px;
-      border-radius: 12px;
-      padding: 12px;
-      font-size: 12px;
-      font-family: "Pretendard";
-      color: #666666;
-      resize: none;
-      /* height: auto !important; */
-    }
-    .button {
-      height: 60px;
     }
   }
 `;
@@ -107,31 +74,7 @@ export default function Answer({ $type, data, navigate }) {
           $backgroundColor="red"
         />
       </div>
-      <div className="feedback">
-        <div className="fq">도움이 되셨나요?</div>
-      </div>
-      <div className="feedbacksvgs">
-        <div className="svg">
-          <Good />
-        </div>
-        <div className="svg">
-          <Bad />
-        </div>
-        <div className="svg">
-          <Soso />
-        </div>
-      </div>
-      <div className="feedbacks">
-        <textarea placeholder="" cols="30" rows="5"></textarea>
-        <div className="button">
-          <BasicButton
-            label={"제출하기"}
-            $backgroundColor={$type === "sara" ? "blue" : "red"}
-            color={"white"}
-            size="small"
-          />
-        </div>
-      </div>
+      <FeedbackLayout $type={$type} questionId={data.id} />
     </StyledAnswer>
   );
 }

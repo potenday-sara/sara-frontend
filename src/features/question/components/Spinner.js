@@ -13,7 +13,7 @@ const StyledSpinner = styled.div`
     font-family: "Pretendard";
     border-radius: 16px;
     background-color: #f4f4f4;
-    color: ${(props) => (props.$type === "/sara" ? "#007BED" : "#EF2B00")};
+    color: ${(props) => (props.$type === "sara" ? "#007BED" : "#EF2B00")};
   }
   p {
     margin-top: 3px;
@@ -27,7 +27,7 @@ export default function Spinner({ $type }) {
   return (
     <StyledSpinner $type={$type}>
       <div className="main-text">
-        {$type === "/sara" ? "사라" : "마라"}가 대신 고민하고 있어요
+        {$type === "sara" ? "사라" : "마라"}가 대신 고민하고 있어요
       </div>
       <p>페이지를 벗어나지 마세요. 요청이 취소 될 수 있습니다...!</p>
     </StyledSpinner>

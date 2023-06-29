@@ -22,22 +22,32 @@ const StyledSectionLayout = styled.div`
 
 const datas = [
   {
-    label: "🎧 에어팟 맥스",
+    label: "에어팟 맥스",
+    url: "https://www.coupang.com/vp/products/4584075863?itemId=5623805740",
   },
   {
-    label: "📺 삼성 비스포크 냉장고",
+    label: "캡슐머신",
+    url: "https://www.coupang.com/vp/products/5498706730?itemId=3514317960",
   },
   {
-    label: "🛋️ 이케아 비스뵈르",
+    label: "크록스 샌들",
+    url: "https://www.coupang.com/vp/products/5772504897?itemId=9811525460",
   },
   {
-    label: "🥤 밀키스 제로",
+    label: "무선 핸디 청소기",
+    url: "https://www.coupang.com/vp/products/5234137115?itemId=7375667237",
   },
   {
-    label: "🧸 서핑 춘식이 인형",
+    label: "2L 생수 *6",
+    url: "https://www.coupang.com/vp/products/1248989722?itemId=2247394025",
   },
   {
-    label: "👞 헌터 레인부츠",
+    label: "미니 탁상용 선풍기",
+    url: "https://www.coupang.com/vp/products/6624925333?itemId=18422020750",
+  },
+  {
+    label: "3단 트롤리",
+    url: "https://www.coupang.com/vp/products/1648550719?itemId=2809041456",
   },
 ];
 

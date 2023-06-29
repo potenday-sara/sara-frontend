@@ -27,6 +27,7 @@ export default function Trends({ type, datas }) {
               key={`trends${idx}`}
               label={i.label}
               color={type === "sara" ? "blue" : "red"}
+              onClick={() => window.open(i.url)}
             />
           );
         })}
