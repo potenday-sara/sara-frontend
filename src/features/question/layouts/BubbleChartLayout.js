@@ -8,11 +8,10 @@ const StyledBubbleChartLayout = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0px 0px 0px auto;
+  margin-left: auto;
   gap: 15px;
   width: 100%;
   max-width: 540px;
-  margin: auto;
 
   .chart-box {
     width: 100%;
@@ -34,7 +33,7 @@ export default function BubbleChartLayout({ data }) {
 
   return (
     <StyledBubbleChartLayout>
-      <h2>다른 사람들이 사고싶은 물건</h2>
+      <h2>다른 사람들이 사고 싶은 물건</h2>
       <div className="chart-box">
         {data?.length ? (
           <BubbleChart

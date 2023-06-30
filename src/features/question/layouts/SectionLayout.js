@@ -10,7 +10,7 @@ import { getQuestions } from "../apis/getQuestions";
 
 const StyledSectionLayout = styled.div`
   width: 100%;
-  margin: auto;
+  margin-right: auto;
   max-width: 480px;
   height: 700px;
 
