@@ -2,9 +2,9 @@ import { axios } from "../../../lib/axios";
 
 export const postScore = (id, score) => {
   const data = {
+    score: score,
     questionId: id,
-    score,
   };
 
-  return axios({ method: "post", url: "/assess/score", data: data });
+  return axios({ method: "post", url: "/assess/score", data });
 };

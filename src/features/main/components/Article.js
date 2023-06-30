@@ -68,7 +68,6 @@ const StyledArticle = styled.div`
 `;
 
 export default function Article({ data, ...rest }) {
-  console.log(data.image);
   return (
     <StyledArticle {...rest}>
       <div

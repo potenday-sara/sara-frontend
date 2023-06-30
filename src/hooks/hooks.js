@@ -1,13 +1,5 @@
 import { useEffect, useState } from "react";
 
-export const useInput = (initailValue) => {
-  const [value, setValue] = useState(initailValue);
-  const onChange = (event) => {
-    setValue(event?.target.value);
-  };
-  return [value, onChange];
-};
-
 // Hook
 export function useWindowSize() {
   const [windowSize, setWindowSize] = useState(250);

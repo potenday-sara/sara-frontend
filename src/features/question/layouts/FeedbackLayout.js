@@ -9,6 +9,8 @@ import FeedbackEmotion from "../components/FeedbackEmotion";
 import { postScore } from "../apis/postScore";
 import { postFeedback } from "../apis/postFeedback";
 import Swal from "sweetalert2";
+import useAddScore from "../hooks/useAddScore";
+import useAddContents from "../hooks/useAddContents";
 
 const StyledFeedbackLayout = styled.div`
   display: flex;
@@ -58,28 +60,18 @@ const StyledFeedbackLayout = styled.div`
 
 export default function FeedbackLayout({ $type, questionId }) {
   const [feedbackValue, setFeedbackValue] = useState(0);
-  const [content, setContent] = useInput("");
+  const [content, setContent, setTextValue] = useInput("");
+  const { mutate: addScore } = useAddScore();
+  const { mutate: addContents } = useAddContents($type);
   const handleFeedbackValue = (now) => {
     setFeedbackValue(now);
-    const Scores = [0, 1, 3, 5];
-    postScore(questionId, Scores[now]);
+    const Scores = [0, 5, 3, 1];
+    addScore({ id: questionId, score: 2, $type });
   };
 
   const submitFeedbackContent = (questionId, content) => {
-    if (content.length > 0) {
-      postFeedback(questionId, content);
-      setFeedbackValue(0);
-      setContent("");
-      Swal.fire({
-        icon: "info",
-        text: `${$type === "sara" ? "Sara" : "Mara"}에게 의견을 전달했습니다.`,
-      });
-    } else {
-      Swal.fire({
-        icon: "error",
-        text: "의견을 작성해주세요",
-      });
-    }
+    addContents({ id: questionId, content });
+    setTextValue("");
   };
 
   return (

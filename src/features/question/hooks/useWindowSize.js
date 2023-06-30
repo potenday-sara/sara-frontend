@@ -10,7 +10,6 @@ export default function useWindowSize() {
       width = Math.min(width, 500);
 
       setSize(width);
-      console.log(width);
     }
     window.addEventListener("resize", handleResize);
 

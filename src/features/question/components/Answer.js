@@ -61,14 +61,14 @@ export default function Answer({ $type, data, navigate }) {
       <div className="buttons">
         <ChoiceButton
           color="blue"
-          onClick={() => navigate("/sara")}
+          onClick={() => navigate("/question/sara")}
           label={$type === "/sara" ? "에게 다른것 묻기" : "에게 물어보기"}
           type={"sara"}
           $backgroundColor="blue"
         />
         <ChoiceButton
           color="red"
-          onClick={() => navigate("/mara")}
+          onClick={() => navigate("/question/mara")}
           label={$type === "/mara" ? "에게 다른것 묻기" : "에게 물어보기"}
           type={"mara"}
           $backgroundColor="red"

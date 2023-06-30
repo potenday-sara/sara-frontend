@@ -65,7 +65,6 @@ export const getBasicButton = () => css`
 `;
 
 export const getButtonSize = ({ size }) => {
-  console.log(size);
   switch (size) {
     case "large": {
       return css`
