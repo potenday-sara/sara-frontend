@@ -8,11 +8,10 @@ const StyledBubbleChartLayout = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0px 0px 0px auto;
+  margin-left: auto;
   gap: 15px;
   width: 100%;
   max-width: 540px;
-  margin: auto;
 
   .chart-box {
     width: 100%;
@@ -25,9 +24,6 @@ const StyledBubbleChartLayout = styled.div`
     align-items: center;
     .node {
       transition: all 0.2s ease-in;
-      :hover {
-        scale: 1.1;
-      }
     }
   }
 `;
@@ -37,7 +33,7 @@ export default function BubbleChartLayout({ data }) {
 
   return (
     <StyledBubbleChartLayout>
-      <h2>다른 사람들이 사고싶은 물건</h2>
+      <h2>다른 사람들이 사고 싶은 물건</h2>
       <div className="chart-box">
         {data?.length ? (
           <BubbleChart
@@ -48,7 +44,7 @@ export default function BubbleChartLayout({ data }) {
             }}
             width={width || "200px"}
             height={width || "200px"}
-            padding={20}
+            padding={5}
             showLegend={false} // optional value, pass false to disable the legend.
             labelFont={{
               family: "Pretendard",

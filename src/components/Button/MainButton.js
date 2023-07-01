@@ -127,7 +127,6 @@ BasicButton.propTypes = {
 
 BasicButton.defaultProps = {
   $backgroundColor: "white",
-  size: "medium",
   onClick: undefined,
 };
 

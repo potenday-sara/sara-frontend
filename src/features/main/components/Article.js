@@ -1,15 +1,33 @@
 import React from "react";
-import { styled } from "styled-components";
-import Image from "../../../images/temp/tempImage.jpg";
+import { css, styled } from "styled-components";
 import PropTypes from "prop-types";
 import { getTextColor } from "../../../Styles";
 
+const getArticleSize = ({ size }) => {
+  switch (size) {
+    case "samll":
+      break;
+
+    case "medium":
+      return css`
+        width: 500px;
+      `;
+
+    case "big":
+      return css``;
+    default:
+      return css`
+        width: 100%;
+      `;
+  }
+};
+
 const StyledArticle = styled.div`
+  ${(props) => getArticleSize(props)}
+  cursor: pointer;
   display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: 1fr 2fr;
+  grid-template-columns: 120px 1fr;
   overflow: hidden;
-  width: 100%;
   height: 120px;
 
   background: #ffffff;
@@ -18,35 +36,55 @@ const StyledArticle = styled.div`
 
   .article-image {
     grid-row: 1 / 3;
-    display: block;
     height: 100%;
-    aspect-ratio: 1 / 1;
-  }
-
-  .article-title {
-    padding: 20px 10px 20px;
-    ${(props) => getTextColor(props)};
+    background-position: center center;
+    background-size: cover;
   }
 
   .article-contents {
-    ${(props) => getTextColor({ $type: "gray" })}
+    h2 {
+      color: gray;
+      margin-bottom: 5px;
+      font-size: 16px;
+      word-break: keep-all;
+    }
+    p {
+      font-size: 14px;
+      line-height: 16px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: box;
+      margin-top: 1px;
+      overflow: hidden;
+      vertical-align: top;
+      text-overflow: ellipsis;
+      word-break: break-all;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
     display: inline;
-    padding-left: 12px;
+    padding: 12px;
   }
 `;
 
 export default function Article({ data, ...rest }) {
   return (
     <StyledArticle {...rest}>
-      <img className="article-image" src={data.image} alt="아티클이미지" />
-      <h2 className="article-title">{data.title}</h2>
-      <p className="article-contents">{data.contents}</p>
+      <div
+        className="article-image"
+        style={{ backgroundImage: `url(${data.image})` }}
+      />
+      <div className="article-contents">
+        <h2>{data.title}</h2>
+        <p>{data.contents}</p>
+      </div>
     </StyledArticle>
   );
 }
 
 Article.propTypes = {
   $type: PropTypes.oneOf(["sara", "mara"]),
+  size: PropTypes.oneOf(["small", "medium", "big"]),
   data: PropTypes.shape({
     title: PropTypes.string,
     contents: PropTypes.string,
@@ -57,7 +95,4 @@ Article.propTypes = {
 
 Article.defaultProps = {
   onClick: undefined,
-  data: {
-    image: Image,
-  },
 };

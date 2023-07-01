@@ -13,6 +13,7 @@ const StyledRealtimeKeywords = styled.div`
   gap: 8px;
   grid-template-columns: 1fr;
   grid-auto-rows: auto;
+
   h2 {
     display: block;
     font-size: 18px;

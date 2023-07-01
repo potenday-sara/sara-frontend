@@ -26,7 +26,7 @@ export default function Footer() {
     <StyledFooter>
       <FotterLogo />
       <p>Copyright 2023 SARA. All rights reserved</p>
-      <p>Team SARA Contact. sara.potenday@gmail.com</p>
+      <p>Team SARA Contact. potenday.sara@gmail.com</p>
     </StyledFooter>
   );
 }
