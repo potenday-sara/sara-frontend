@@ -39,11 +39,11 @@ const datas = [
   },
   {
     label: "2L 생수 *6",
-    url: "https://www.coupang.com/vp/products/1248989722?itemId=2247394025",
+    url: "https://www.coupang.com/vp/products/6830320694?itemId=16212148847",
   },
   {
     label: "미니 탁상용 선풍기",
-    url: "https://www.coupang.com/vp/products/6624925333?itemId=18422020750",
+    url: "https://www.coupang.com/vp/products/1248989722?itemId=2247394025",
   },
   {
     label: "3단 트롤리",
