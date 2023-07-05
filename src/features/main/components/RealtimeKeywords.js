@@ -42,7 +42,7 @@ export default function RealtimeKeywords({ $type, data, defaultCnt }) {
   }, [height]);
 
   return (
-    <StyledRealtimeKeywords $type={$type} className="realtime" ref={ref}>
+    <StyledRealtimeKeywords $type={$type} ref={ref}>
       <h2>{title}</h2>
       <div className="realtime-trends">
         {dataInOrder.map((trend, idx) => (
