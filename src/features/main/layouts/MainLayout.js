@@ -53,6 +53,7 @@ export default function MainLayout({ $type }) {
 
   return (
     <StyledGridayout type={$type}>
+
       <Suspense fallback={null}>
         <div className="realtime">
           <RealtimeKeywords
@@ -77,6 +78,7 @@ export default function MainLayout({ $type }) {
           />
         </div>
       </Suspense>
+
     </StyledGridayout>
   );
 }

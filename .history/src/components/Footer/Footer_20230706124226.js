@@ -4,7 +4,8 @@ import { ReactComponent as FotterLogo } from "../../images/logos/footerlogo.svg"
 
 const StyledFooter = styled.div`
   width: 100%;
-  background: linear-gradient(90deg, rgba(0, 115, 221, 0.07) 50%,  #f4f4f4 50%);; 
+  background-color: transparent;
+  opacity: 1;
   height: 64px;
   left: 0px;
   bottom: 0px;
