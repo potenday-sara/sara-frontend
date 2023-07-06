@@ -1,8 +1,6 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { styled } from "styled-components";
 import { useQuery } from "react-query";
-import Articles from "../components/Articles";
-import RealtimeKeywords from "../components/RealtimeKeywords";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -11,6 +9,11 @@ import { getGridStyles } from "../utils/getStyles";
 import { getRangking } from "../apis/getRanking";
 import CharacterLogo from "../../../components/Logo/CharacterLogo";
 import { ChoiceButton } from "../../../components/Button/ChoiceButton";
+
+const Articles = React.lazy(() => import("../components/Articles"));
+const RealtimeKeywords = React.lazy(() =>
+  import("../components/RealtimeKeywords")
+);
 
 const StyledGridayout = styled.main`
   ${(props) => getGridStyles(props)}
@@ -50,26 +53,32 @@ export default function MainLayout({ $type }) {
 
   return (
     <StyledGridayout type={$type}>
-      <RealtimeKeywords
-        $type={$type}
-        isLoading={trendLoading}
-        data={trendData}
-      />
-      <CharacterLogo $type={$type} />
-      <div className="article">
-        <Articles $type={$type} />
-      </div>
-      <div className="choiceButton">
-        <ChoiceButton
-          size={"medium"}
-          $type={$type}
-          onClick={() =>
-            $type === "sara"
-              ? navigate("/question/sara")
-              : navigate("/question/mara")
-          }
-        />
-      </div>
+
+      <Suspense fallback={null}>
+        <div className="realtime">
+          <RealtimeKeywords
+            $type={$type}
+            isLoading={trendLoading}
+            data={trendData}
+          />
+        </div>
+        <CharacterLogo $type={$type} />
+        <div className="article">
+          <Articles $type={$type} />
+        </div>
+        <div className="choiceButton">
+          <ChoiceButton
+            size={"medium"}
+            $type={$type}
+            onClick={() =>
+              $type === "sara"
+                ? navigate("/question/sara")
+                : navigate("/question/mara")
+            }
+          />
+        </div>
+      </Suspense>
+
     </StyledGridayout>
   );
 }

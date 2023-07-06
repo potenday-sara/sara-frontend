@@ -3,7 +3,7 @@ import { ReactComponent as Mara } from "../../images/logos/mara.svg";
 import { ReactComponent as Main } from "../../images/logos/miainlogo.svg";
 import { styled } from "styled-components";
 import PropTypes from "prop-types";
-import Textbubble from "../Textbubble/Textbubble";
+import Textbubble from "../../features/main/components/Textbubble";
 
 const StyledLogoBox = styled.div`
   position: relative;

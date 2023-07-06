@@ -15,7 +15,6 @@ jobs:
       ## id 추가하기
       - uses: actions/checkout@v1
       - run: yarn
-        #:아래를_가리키는_손_모양: Adds Chromatic as a step in the workflow
       - name: publish to chromatic
         id: chromatic
         uses: chromaui/action@v1
