@@ -8,6 +8,7 @@ import useResizeObserver from "../hooks/useResizeObserver";
 
 const StyledRealtimeKeywords = styled.div`
   color: ${() => getTextColor({ $type: "black" })};
+  height: 100%;
   display: grid;
   grid-template-rows: auto 1fr;
   gap: 8px;

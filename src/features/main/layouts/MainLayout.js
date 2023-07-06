@@ -53,32 +53,30 @@ export default function MainLayout({ $type }) {
 
   return (
     <StyledGridayout type={$type}>
-      <div className="realtime">
-        <Suspense fallback={null}>
+      <Suspense fallback={null}>
+        <div className="realtime">
           <RealtimeKeywords
             $type={$type}
             isLoading={trendLoading}
             data={trendData}
           />
-        </Suspense>
-      </div>
-      <CharacterLogo $type={$type} />
-      <div className="article">
-        <Suspense fallback={null}>
+        </div>
+        <CharacterLogo $type={$type} />
+        <div className="article">
           <Articles $type={$type} />
-        </Suspense>
-      </div>
-      <div className="choiceButton">
-        <ChoiceButton
-          size={"medium"}
-          $type={$type}
-          onClick={() =>
-            $type === "sara"
-              ? navigate("/question/sara")
-              : navigate("/question/mara")
-          }
-        />
-      </div>
+        </div>
+        <div className="choiceButton">
+          <ChoiceButton
+            size={"medium"}
+            $type={$type}
+            onClick={() =>
+              $type === "sara"
+                ? navigate("/question/sara")
+                : navigate("/question/mara")
+            }
+          />
+        </div>
+      </Suspense>
     </StyledGridayout>
   );
 }

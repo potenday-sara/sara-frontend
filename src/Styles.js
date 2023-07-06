@@ -67,13 +67,13 @@ export const getBasicButton = () => css`
 export const GlobalStyles = createGlobalStyle`
   *, *::before, *::after {
     box-sizing: border-box;
+    font-weight: 700;
     margin: 0;
     padding: 0;
   }
 
   h1 {
     font-family: Pretendard;
-    font-weight: 700;
     font-size: 22px;
     line-height: 24px;
     
@@ -82,14 +82,12 @@ export const GlobalStyles = createGlobalStyle`
   h2 {
     font-family: Pretendard;
     font-size: 20px;
-    font-weight: 600;
     line-height: 22px;
   }
   
   p {
     font-family: Pretendard;
     font-size: 18px;
-  font-weight: 500;
   line-height: 20px;
   }
 
