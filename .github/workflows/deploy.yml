@@ -1,0 +1,16 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - 27-feature-ci-구축
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Dependencies
+        run: npm install --force
+
+      - name: build
+        run: npm run build
