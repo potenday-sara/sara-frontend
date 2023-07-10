@@ -9,9 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Install Dependency
       - uses: actions/checkout@v3
-      - run: npm install --force
+
+      - name: Istall modules
+        run: npm install --force
 
       - name: Build
-      - run: npm run build
+        run: npm run build
