@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Dependencies
-        run: npm install --force
+        run: npm install
 
       - name: build
         run: npm run build
