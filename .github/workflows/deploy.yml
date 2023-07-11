@@ -12,8 +12,8 @@ jobs:
       - name: SSH-deploy
         uses: appleboy/ssh-action@master
         with:
-          host: ${{secrets.REMOTE_IP}}
-          username: ${{secrets.SSH_ID}}
+          host: ${{secrets.REMOTE_ID}}
+          username: ${{secrets.SSH_IP}}
           password: ${{secrets.REMOTE_SSH_KEY}}
           port: ${{secrets.REMOTE_SSH_PORT}}
           script: |
