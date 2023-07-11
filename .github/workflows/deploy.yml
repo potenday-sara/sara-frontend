@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: SSH-deploy
         uses: appleboy/ssh-action@v0.1.10
-      - with:
+        with:
           host: ${{secrets.REMOTE_IP}}
           username: ${{screts.SSH_ID}}
           password: ${{secrets.REMOTE_SSH_KEY}}
