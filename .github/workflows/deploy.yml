@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - 27-feature-ci-구축
-
+# build
 jobs:
   build:
     runs-on: ubuntu-latest
