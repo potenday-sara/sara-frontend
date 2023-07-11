@@ -17,9 +17,9 @@ jobs:
           password: ${{secrets.REMOTE_SSH_KEY}}
           port: ${{secrets.REMOTE_SSH_PORT}}
           script: |
-          whoami
-          cd /app/sara-frontend
-          git pull origin main
-          npm install --force
-          npm run build
-          nginx -s reload
+            whoami
+            cd /app/sara-frontend
+            git pull origin main
+            npm install --force
+            npm run build
+            nginx -s reload
