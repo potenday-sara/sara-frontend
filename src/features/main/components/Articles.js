@@ -3,6 +3,7 @@ import Article from "./Article";
 import Image from "../../../images/temp/tempImage.jpg";
 // import Mara1 from "../../assets/images/mara1.jpg";
 // import Mara2 from "../../assets/images/mara2.jpg";
+
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 
@@ -22,7 +23,9 @@ const saraTempDatas = [
     contents:
       "정치적, 사회적 신념 등을 소비행위를 통해 적극적으로 표출하는 '미닝아웃' 심리적 만족감을 중요시하는...'가심비'",
     url: "http://www.casenews.co.kr/news/articleView.html?idxno=10672",
+
     image: `${process.env.PUBLIC_URL}/sara1.jpg`,
+
   },
   {
     title: "‘무지출 챌린지’에 빠진 MZ_돈쓸신잡 #56",
@@ -30,6 +33,7 @@ const saraTempDatas = [
       "MZ세대의 불확실한 미래 대비와 긴축 경제 전략: 무지출 챌린지. 하지만 넘지 말아야 할 선은 있다.",
     url: "https://www.elle.co.kr/article/68402",
     image: `${process.env.PUBLIC_URL}/sara2.jpg`,
+
   },
 ];
 

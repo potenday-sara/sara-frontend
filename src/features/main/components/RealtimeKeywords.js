@@ -8,6 +8,7 @@ import useResizeObserver from "../hooks/useResizeObserver";
 
 const StyledRealtimeKeywords = styled.div`
   color: ${() => getTextColor({ $type: "black" })};
+  height: 100%;
   display: grid;
   grid-template-rows: auto 1fr;
   gap: 8px;
@@ -42,7 +43,7 @@ export default function RealtimeKeywords({ $type, data, defaultCnt }) {
   }, [height]);
 
   return (
-    <StyledRealtimeKeywords $type={$type} className="realtime" ref={ref}>
+    <StyledRealtimeKeywords $type={$type} ref={ref}>
       <h2>{title}</h2>
       <div className="realtime-trends">
         {dataInOrder.map((trend, idx) => (
