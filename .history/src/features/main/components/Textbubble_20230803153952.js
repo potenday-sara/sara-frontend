@@ -39,12 +39,10 @@ const StyledTextbubble = styled.div`
     background: white;
     border-radius: 12px;
     svg {
-      width: 92.797px;
-      height: 40px;
-      transform: (-1%,-3%);
+      width: 80px;
     }
     h1 {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
     }
   }

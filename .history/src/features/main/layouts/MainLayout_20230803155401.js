@@ -70,9 +70,9 @@ export default function MainLayout({ $type }) {
           />
         </div>
         <CharacterLogo $type={$type} />
-        /* <div className="article">
+        {/* <div className="article">
           <Articles $type={$type} />
-        </div> */
+        </div> */}
         <div className="choiceButton">
           <ChoiceButton
             size={"medium"}

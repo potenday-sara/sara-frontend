@@ -25,20 +25,13 @@ const StyledGridayout = styled.main`
   z-index: 1;
 
   .realtime {
-    height: 60%;
+    height: 80%;
     margin-top: auto;
-    position: relative;
-  }
     .texts {
       margin-top: 12px;
     }
     .texts button {
-      // margin-bottom: 8px;
-      display:flex;
-      padding: 16px;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
+      margin-bottom: 8px;
     }
   }
   .article {
@@ -70,9 +63,9 @@ export default function MainLayout({ $type }) {
           />
         </div>
         <CharacterLogo $type={$type} />
-        /* <div className="article">
+        <div className="article">
           <Articles $type={$type} />
-        </div> */
+        </div>
         <div className="choiceButton">
           <ChoiceButton
             size={"medium"}

@@ -100,11 +100,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 `;
 
-// export const device = {
-//   mobile: "min-width: 0px",
-//   laptop: "min-width: 1024px",
-// };
-
-export const windowSize = {
-  base: "max-width: 1920px",
+export const device = {
+  mobile: "min-width: 0px",
+  laptop: "min-width: 1024px",
 };
