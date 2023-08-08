@@ -6,27 +6,25 @@ import { ReactComponent as MaraText } from "../../../images/logos/maralogored.sv
 const getBubbleType = ({ $type }) => {
   return $type === "sara"
     ? css`
-        right: 50%;
+        right: 30%;
         .speech-bubble:after {
           right: 0%;
           border-right: 0px;
         }
       `
     : css`
-         width: 243px;
-         height:72px;    
-         .speech-bubble:after {
-         left: 0%;
-         border-left: 0;
+        left: 30%;
+        .speech-bubble:after {
+          left: 0%;
+          border-left: 0;
         }
       `;
 };
 
 const StyledTextbubble = styled.div`
   position: absolute;
-  left: 60%;
-  top: 3px;
-
+  top: -40px;
+  white-space: nowrap;
   ${(props) => getTextColor(props)}
   .speech-bubble {
     display: flex;
@@ -39,12 +37,10 @@ const StyledTextbubble = styled.div`
     background: white;
     border-radius: 12px;
     svg {
-      width: 92.797px;
-      height: 40px;
-      transform: (-1%,-3%);
+      width: 80px;
     }
     h1 {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
     }
   }

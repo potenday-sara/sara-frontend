@@ -14,7 +14,6 @@ const StyledRealtimeKeywords = styled.div`
   gap: 8px;
   grid-template-columns: 1fr;
   grid-auto-rows: auto;
-  left: ${(props) => (props.$type === "mara" ? "15%" : "-15%")};
 
   h2 {
     display: block;

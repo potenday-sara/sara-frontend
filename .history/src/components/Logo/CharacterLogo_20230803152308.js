@@ -15,12 +15,11 @@ const StyledLogoBox = styled.div`
   }
   .mainlogo {
     position: absolute;
-    width: 221.508px;
-    height: 120px;
-    top: 2px;
-    // left: 100%;
-    // transform: translate(calc(-50% + 20px), -50%);
-    // cursor: pointer;
+    width: 150px;
+    top: -10px;
+    left: 100%;
+    transform: translate(calc(-50% + 20px), -50%);
+    cursor: pointer;
   }
 `;
 
