@@ -50,9 +50,6 @@ const StyledArticle = styled.div`
     }
     p {
       font-size: 14px;
-      color: #333333;
-      font-weight: 500;
-
       line-height: 16px;
       display: -webkit-box;
       display: -ms-flexbox;
