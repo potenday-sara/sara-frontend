@@ -14,12 +14,6 @@ const StyledChoiceButton = styled.button`
   padding: 10px;
   aspect-ratio: 1 / 1;
   font-weight: 600;
-  width:340px;
-  height:336px;
-  top: 30px;
-    ${({ $type }) => ($type === "mara" ? "left:20px" : "left:55%")};
-  position: relative;
-  display: flex;
   box-shadow: 0px 5px 0px 0px
     ${({ $type }) => ($type === "mara" ? "#BD2200" : "#0158a8")};
   transition: all 0.2s;

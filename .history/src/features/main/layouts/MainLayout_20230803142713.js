@@ -25,20 +25,13 @@ const StyledGridayout = styled.main`
   z-index: 1;
 
   .realtime {
-    height: 60%;
+    height: 80%;
     margin-top: auto;
-    position: relative;
-  }
     .texts {
       margin-top: 12px;
     }
     .texts button {
-      // margin-bottom: 8px;
-      display:flex;
-      padding: 16px;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
+      margin-bottom: 8px;
     }
   }
   .article {
@@ -60,26 +53,31 @@ export default function MainLayout({ $type }) {
 
   return (
     <StyledGridayout type={$type}>
-      <RealtimeKeywords
-        $type={$type}
-        isLoading={trendLoading}
-        data={trendData}
-      />
-      <CharacterLogo $type={$type} />
-      <div className="article">
-        <Articles $type={$type} />
-      </div>
-      <div className="choiceButton">
-        <ChoiceButton
-          size={"medium"}
-          $type={$type}
-          onClick={() =>
-            $type === "sara"
-              ? navigate("/question/sara")
-              : navigate("/question/mara")
-          }
-        />
-      </div>
+
+      <Suspense fallback={null}>
+        <div className="realtime">
+          <RealtimeKeywords
+            $type={$type}
+            isLoading={trendLoading}
+            data={trendData}
+          />
+        </div>
+        <CharacterLogo $type={$type} />
+        <div className="article">
+          <Articles $type={$type} />
+        </div>
+        <div className="choiceButton">
+          <ChoiceButton
+            size={"medium"}
+            $type={$type}
+            onClick={() =>
+              $type === "sara"
+                ? navigate("/question/sara")
+                : navigate("/question/mara")
+            }
+          />
+        </div>
+      </Suspense>
 
     </StyledGridayout>
   );

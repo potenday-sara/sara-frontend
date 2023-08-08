@@ -1,7 +1,7 @@
 import { css, styled } from "styled-components";
-import { getTextColor } from "../../Styles";
-import { ReactComponent as SaraText } from "../../images/logos/saralogoblue.svg";
-import { ReactComponent as MaraText } from "../../images/logos/maralogored.svg";
+import { getTextColor } from "../../../Styles";
+import { ReactComponent as SaraText } from "../../../images/logos/saralogoblue.svg";
+import { ReactComponent as MaraText } from "../../../images/logos/maralogored.svg";
 
 const getBubbleType = ({ $type }) => {
   return $type === "sara"
@@ -41,7 +41,7 @@ const StyledTextbubble = styled.div`
     }
     h1 {
       font-size: 18px;
-      font-weight: 1000;
+      font-weight: 700;
     }
   }
 

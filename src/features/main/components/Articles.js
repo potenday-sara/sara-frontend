@@ -22,6 +22,7 @@ const saraTempDatas = [
     contents:
       "정치적, 사회적 신념 등을 소비행위를 통해 적극적으로 표출하는 '미닝아웃' 심리적 만족감을 중요시하는...'가심비'",
     url: "http://www.casenews.co.kr/news/articleView.html?idxno=10672",
+
     image: `${process.env.PUBLIC_URL}/sara1.jpg`,
   },
   {
