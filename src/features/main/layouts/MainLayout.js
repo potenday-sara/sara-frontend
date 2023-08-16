@@ -40,7 +40,7 @@ const StyledGridayout = styled.main`
       align-items: center;
       gap: 8px;
     }
-  }
+  
   .article {
     position: relative;
     overflow: auto;

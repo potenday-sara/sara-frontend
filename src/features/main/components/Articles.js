@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import Article from "./Article";
-import Image from "../../../images/temp/tempImage.jpg";
+
 // import Mara1 from "../../assets/images/mara1.jpg";
 // import Mara2 from "../../assets/images/mara2.jpg";
 import PropTypes from "prop-types";
