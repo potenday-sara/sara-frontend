@@ -64,7 +64,7 @@ const StyledPText = styled.p`
   /* text-overflow: ellipsis; */
 `;
 const StyledBasicText = styled.p`
-  color : ${({ $color }) => getColorCode($color)};
+  color : ${({ customColor, $color }) => customColor ? customColor : getColorCode($color)};
   font-weight: ${({ $bold }) => getBoldCode($bold)};
   font-size: ${({ $size }) => getTextSizeCode($size)};
   font-family: Pretendard;
@@ -72,6 +72,8 @@ const StyledBasicText = styled.p`
 
 /**
  * 
+ * 기본 프린텐다드 텍스트를 제공하는 함수입니다. 대표 색상 다섯가지 이외의 색상을 사용하고 싶은 경우 
+ * customColor를 활용해 주세요
  * @param {['sm', 'md', 'lg']} bold 텍스트 굵기 설정 (default : md)
  * @param {['xs', 'sm', 'md', 'lg, xl']} size 텍스트 사이즈 설정 (default : md)
  * @param {color} color 희망하는 색깔 설정
@@ -84,8 +86,9 @@ export const BasicText = ({ label, ...rest }) => {
 }
 BasicText.propTypes = {
   $bold: PropTypes.oneOf(['sm', 'md', 'lg']).isRequired,
-  $size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg, xl']).isRequired,
-  $color: PropTypes.string.isRequired,
+  $size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']).isRequired,
+  $color: PropTypes.oneOf(['blue', 'red', 'gray', 'white', 'black']).isRequired,
+  customColor: PropTypes.string,
   label: PropTypes.string,
   onClick: PropTypes.func,
 };
@@ -94,6 +97,7 @@ BasicText.defaultProps = {
   $bold: 'md',
   $size: 'md',
   $color: 'black',
+  customColor: '',
   onClick: undefined,
 };
 
