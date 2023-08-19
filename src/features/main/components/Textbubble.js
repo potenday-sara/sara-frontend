@@ -51,7 +51,7 @@ const StyledTextbubble = styled.div`
 
   .speech-bubble:after {
     content: "";
-    z-index: 1;
+    z-index: 2;
     position: absolute;
     bottom: 0;
     width: 0;
@@ -71,12 +71,12 @@ export default function Textbubble({ $type }) {
         {$type === "sara" ? (
           <>
             <h1>살까말까 할땐</h1>
-            <SaraText />
+
           </>
         ) : (
           <>
             <h1>사지</h1>
-            <MaraText />
+
           </>
         )}
       </div>

@@ -5,21 +5,14 @@ import { GlobalStyles } from "../src/Styles";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 const customViewports = {
-  small: {
-    name: "small",
+  default: {
+    name: "default",
     styles: {
-      width: "533px",
-      height: "801px",
+      width: "1250",
+      height: "832px",
     },
   },
 
-  big: {
-    name: "big",
-    styles: {
-      width: "1200px",
-      height: "700px",
-    },
-  },
 };
 
 const preview = {

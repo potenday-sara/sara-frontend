@@ -57,6 +57,7 @@ export default function Articles({ $type }) {
     $type === "sara" ? setDatas(saraTempDatas) : setDatas(maraTempDatas);
   }, []);
   return (
+
     <StyledArticles>
       {datas.map((data, idx) => (
         <Article data={data} key={idx} onClick={() => window.open(data.url)} />
