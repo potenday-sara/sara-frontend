@@ -1,5 +1,56 @@
 import { createGlobalStyle, css } from "styled-components";
 
+/**
+ * 프로젝트에서 사용하는 컬러 코드를 반환하는 코드입니다.
+ * @param {string} color 'blue', 'red', 'gray', 'white', 'black' 값 중 하나를 가집니다
+ * @returns {string} 컬러 코드 반환
+ */
+export const getColorCode = ($color) => {
+  switch ($color) {
+    case 'blue':
+      return '#007bed'
+    case 'red':
+      return '#ef2b00'
+    case 'gray':
+      return '#0000004d'
+    case 'white':
+      return '#ffffff'
+    case 'black':
+      return '#333333'
+  }
+}
+
+export const getBoldCode = ($bold) => {
+  switch ($bold) {
+    case 'sm':
+      return 300
+    case 'md':
+      return 500
+    case 'lg':
+      return 700
+  }
+}
+
+export const getTextSizeCode = ($size) => {
+  switch ($size) {
+    case 'xs':
+      return '12px'
+    case 'sm':
+      return '16px'
+    case 'md':
+      return '20px'
+    case 'lg':
+      return '24px'
+    case 'xl':
+      return '28px'
+    default:
+      return $size
+  }
+}
+
+
+
+
 export const getBorderColor = ({ $type }) => {
   switch ($type) {
     case "mara":
@@ -83,12 +134,6 @@ export const GlobalStyles = createGlobalStyle`
     font-family: Pretendard;
     font-size: 20px;
     line-height: 22px;
-  }
-  
-  p {
-    font-family: Pretendard;
-    font-size: 18px;
-  line-height: 20px;
   }
 
   .flex {

@@ -1,6 +1,8 @@
 import React from "react";
 import { css, styled } from "styled-components";
 import PropTypes from "prop-types";
+import { ReactComponentElement } from "react";
+import { getBoldCode, getColorCode, getTextSizeCode } from "../../Styles";
 
 const textColor = ({ color = "black" }) => {
   switch (color) {
@@ -61,6 +63,40 @@ const StyledPText = styled.p`
   /* overflow: hidden; */
   /* text-overflow: ellipsis; */
 `;
+const StyledBasicText = styled.p`
+  color : ${({ $color }) => getColorCode($color)};
+  font-weight: ${({ $bold }) => getBoldCode($bold)};
+  font-size: ${({ $size }) => getTextSizeCode($size)};
+  font-family: Pretendard;
+`
+
+/**
+ * 
+ * @param {['sm', 'md', 'lg']} bold 텍스트 굵기 설정 (default : md)
+ * @param {['xs', 'sm', 'md', 'lg, xl']} size 텍스트 사이즈 설정 (default : md)
+ * @param {color} color 희망하는 색깔 설정
+ * @param {String} label 텍스트 입력 값 (Required)
+ * @returns {ReactComponentElement} React Text Component
+ */
+
+export const BasicText = ({ label, ...rest }) => {
+  return <StyledBasicText {...rest}>{label}</StyledBasicText>
+}
+BasicText.propTypes = {
+  $bold: PropTypes.oneOf(['sm', 'md', 'lg']).isRequired,
+  $size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg, xl']).isRequired,
+  $color: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  onClick: PropTypes.func,
+};
+
+BasicText.defaultProps = {
+  $bold: 'md',
+  $size: 'md',
+  $color: 'black',
+  onClick: undefined,
+};
+
 
 export const MainText = ({ type, label, ...rest }) => {
   switch (type) {
@@ -75,14 +111,4 @@ export const MainText = ({ type, label, ...rest }) => {
   }
 };
 
-MainText.propTypes = {
-  type: PropTypes.oneOf(["h1", "h2", "p"]),
-  color: PropTypes.string,
-  label: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
-};
 
-MainText.defaultProps = {
-  color: "red",
-  onClick: undefined,
-};
