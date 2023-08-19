@@ -11,10 +11,10 @@ const StyledRealtimeKeyword = styled.h2`
   width: 100%;
   gap: 8px;
   background-color: ${() => getColorCode('white')};
-  border-radius: 18px;
+  border-radius: 12px;
 `;
 
-export default function RealtimeKeyword({ $type, idx, trend }) {
+export default function RealtimeTrend({ $type, idx, trend }) {
   const color = getColorByType($type)
   return <StyledRealtimeKeyword>
     <BasicText
@@ -30,7 +30,7 @@ export default function RealtimeKeyword({ $type, idx, trend }) {
   </StyledRealtimeKeyword>;
 }
 
-RealtimeKeyword.propTypes = {
+RealtimeTrend.propTypes = {
   $type: PropTypes.oneOf(['sara', 'mara']).isRequired,
   idx: PropTypes.number.isRequired,
   trend: PropTypes.string.isRequired,

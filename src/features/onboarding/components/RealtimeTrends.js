@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import { getColorByType, getColorCode, getTextColor } from "../../../Styles";
-import RealtimeKeyword from "./RealtimeKeyword";
+import RealtimeKeyword from "./RealtimeTrend";
 import { useEffect } from "react";
 import { useState } from "react";
 import PropTypes from "prop-types";
@@ -36,7 +36,7 @@ const StyledRealtimeKeywords = styled.div`
 
 
 
-export default function RealtimeKeywords({ $type, data }) {
+export default function RealtimeTrends({ $type, data }) {
   const color = getColorByType($type)
   const dataInOrder = data.map((i) => i.object)
 
@@ -59,12 +59,11 @@ export default function RealtimeKeywords({ $type, data }) {
   );
 }
 
-RealtimeKeywords.propTypes = {
-  $type: PropTypes.oneOf(["sara", "mara"]),
-  data: PropTypes.array,
+RealtimeTrends.propTypes = {
+  $type: PropTypes.oneOf(["sara", "mara"]).isRequired,
+  data: PropTypes.array.isRequired,
 };
 
-RealtimeKeywords.defaultProps = {
+RealtimeTrends.defaultProps = {
   data: [],
-  defaultCnt: 3,
 };
