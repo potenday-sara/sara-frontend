@@ -153,3 +153,13 @@ export const GlobalStyles = createGlobalStyle`
 export const windowSize = {
   base: "max-width: 1920px",
 };
+
+
+/**
+ * type을 기준으로 색깔을 정해주는 함수입니다
+ * @param {['sara', 'mara']} $type sara, mara 둘 중 하나의 값을 받습니다
+ * @return {String} sara 일 경우 blue, mara일 경우 red를 리턴합니다
+ */
+export const getColorByType = ($type) => {
+  return $type === 'sara' ? 'blue' : 'red'
+}
