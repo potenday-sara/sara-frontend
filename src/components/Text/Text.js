@@ -64,10 +64,12 @@ const StyledPText = styled.p`
   /* text-overflow: ellipsis; */
 `;
 const StyledBasicText = styled.p`
-  color : ${({ customColor, $color }) => customColor ? customColor : getColorCode($color)};
+  color : ${({ $customColor, $color }) => $customColor ? $customColor : getColorCode($color)};
   font-weight: ${({ $bold }) => getBoldCode($bold)};
   font-size: ${({ $size }) => getTextSizeCode($size)};
   font-family: Pretendard;
+  white-space: pre-line;
+
 `
 
 /**
@@ -88,7 +90,7 @@ BasicText.propTypes = {
   $bold: PropTypes.oneOf(['sm', 'md', 'lg']).isRequired,
   $size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']).isRequired,
   $color: PropTypes.oneOf(['blue', 'red', 'gray', 'white', 'black']).isRequired,
-  customColor: PropTypes.string,
+  $customColor: PropTypes.string,
   label: PropTypes.string,
   onClick: PropTypes.func,
 };
@@ -97,7 +99,7 @@ BasicText.defaultProps = {
   $bold: 'md',
   $size: 'md',
   $color: 'black',
-  customColor: '',
+  $customColor: '',
   onClick: undefined,
 };
 

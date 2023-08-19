@@ -34,15 +34,15 @@ export const getBoldCode = ($bold) => {
 export const getTextSizeCode = ($size) => {
   switch ($size) {
     case 'xs':
-      return '12px'
+      return '14px'
     case 'sm':
       return '16px'
     case 'md':
-      return '20px'
+      return '18px'
     case 'lg':
-      return '24px'
+      return '20px'
     case 'xl':
-      return '28px'
+      return '22px'
     default:
       return $size
   }
