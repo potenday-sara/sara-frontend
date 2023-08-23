@@ -11,13 +11,11 @@ import { getRangking } from "../../main/apis/getRanking";
 
 const StyledQuestionLayout = styled.main`
   position: relative;
-  width: 90%;
-  gap: 50px;
-  min-width: 1200px;
-  max-width: 1920px;
-  margin: 100px auto;
+  width: 100%;
+  gap: 64px;
+
   display: grid;
-  grid-template-columns: 1fr 450px 1fr;
+  grid-template-columns: 1fr 368px 1fr;
   grid-template-rows: 1fr;
   align-items: center;
 `;

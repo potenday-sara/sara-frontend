@@ -10,18 +10,19 @@ import PropTypes from "prop-types";
 import { postQuestion } from "../apis/postQuestion";
 import TextLogo from "../../../components/Logo/TextLogo";
 import Character from "../../../components/Logo/Character";
+import { getColorCode } from "../../../Styles";
 const StyledChatboxLayout = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 100px 180px auto;
-  height: auto;
-  gap: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 684px;
+  gap: 16px;
   margin: auto;
-  padding: 40px 20px;
-  width: 100%;
+  padding: 48px 20px;
+  width: 368px;
   max-width: 540px;
-  background-color: #fff;
-  border-radius: 32px;
+  background-color: ${(props) => getColorCode('white')};
+  border-radius: 24px;
   box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
 `;
 
@@ -51,7 +52,6 @@ export default function ChatboxLayout({ $type }) {
     <StyledChatboxLayout $type>
       <TextLogo $type={$type} />
       <Character $type={$type} />
-      {/* <Answer $type={$type} data={data} navigate={dataResetNaviget} /> */}
 
       {Mutate.isIdle === true ? (
         <SaraMaraForm
