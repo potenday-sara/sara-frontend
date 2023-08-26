@@ -2,6 +2,7 @@ import React from "react";
 import { ReactComponent as NameSara } from '../assets/SaraNameText.svg'
 import { ReactComponent as NameMara } from '../assets/MaraNameText.svg'
 import { css, styled } from "styled-components";
+import { getSelectedCss } from "../styles/getSelectedStyle";
 
 /**
  * $type을 바탕으로 css를 결정하는 함수입니다
@@ -22,9 +23,8 @@ const getCharacterNameCss = ($type) => {
   }
 }
 
-
 const StyledCharacterName = styled.div`
-  margin-top: 32px;
+  margin-top: 40px;
   ${({ $type }) => getCharacterNameCss($type)}
 `
 

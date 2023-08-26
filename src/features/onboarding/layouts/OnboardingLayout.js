@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
 import OnboardingSectionLayout from "./OnboardingSectionLayout";
 
@@ -13,15 +13,14 @@ display: flex;
  * 온보딩페에지의 기본 레이아웃입니다.
  */
 export default function OnboardingLayout() {
+  const [isSelected, setIsSelected] = useState('none');
+  const setSelectedType = ($type) => {
+    setIsSelected($type)
+  }
   return (
     <StyledOnboardingLayout>
-      <OnboardingSectionLayout $type='sara' >
-
-      </OnboardingSectionLayout>
-
-      <OnboardingSectionLayout $type='mara'>
-
-      </OnboardingSectionLayout>
+      <OnboardingSectionLayout $type='sara' isSelected={isSelected} setSelectedType={setSelectedType} />
+      <OnboardingSectionLayout $type='mara' isSelected={isSelected} setSelectedType={setSelectedType} />
     </StyledOnboardingLayout>
   )
 }
