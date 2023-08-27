@@ -30,7 +30,7 @@ export const MaraArticle = {
     $type: "mara",
     data: {
       image: "https://picsum.photos/200",
-      title: "에어팟맥스",
+      title: "에어팟맥스.",
       contents: "에어팟맥스",
     },
   },

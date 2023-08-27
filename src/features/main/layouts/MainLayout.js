@@ -40,7 +40,7 @@ const StyledGridayout = styled.main`
       align-items: center;
       gap: 8px;
     }
-  }
+  
   .article {
     position: relative;
     overflow: auto;
@@ -66,9 +66,6 @@ export default function MainLayout({ $type }) {
         data={trendData}
       />
       <CharacterLogo $type={$type} />
-      <div className="article">
-        <Articles $type={$type} />
-      </div>
       <div className="choiceButton">
         <ChoiceButton
           size={"medium"}
