@@ -9,9 +9,21 @@ export const getSelectedCss = (isSeleted) => {
   if (isSeleted) return css`
     opacity: 1.0;
     scale: 1.2;
+    .back-sara {
+      left: -43%;
+      width: 380px;
+      height: 180px;
+    }
+
+    .back-mara {
+      left: -65%;
+      width: 420px;
+      height: 180px;
+    }
     `
 
   else return css`
     opacity: 0.5;
+
   `
 }
