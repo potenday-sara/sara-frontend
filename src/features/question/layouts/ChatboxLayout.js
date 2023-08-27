@@ -8,7 +8,7 @@ import Spinner from "../components/Spinner";
 import Answer from "../components/Answer";
 import PropTypes from "prop-types";
 import { postQuestion } from "../apis/postQuestion";
-import TextLogo from "../../../components/Logo/TextLogo";
+import TextLogo from "../../../components/Logo/MainTextLogo";
 import Character from "../../../components/Logo/Character";
 const StyledChatboxLayout = styled.div`
   display: grid;

@@ -23,7 +23,7 @@ export const getColorCode = ($color) => {
 export const getBoldCode = ($bold) => {
   switch ($bold) {
     case 'sm':
-      return 300
+      return 400
     case 'md':
       return 500
     case 'lg':

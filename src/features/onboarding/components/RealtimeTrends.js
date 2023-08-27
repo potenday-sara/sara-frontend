@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 import { getColorByType, getColorCode, getTextColor } from "../../../Styles";
 import RealtimeKeyword from "./RealtimeTrend";
 import { useEffect } from "react";
@@ -7,10 +7,11 @@ import PropTypes from "prop-types";
 import { BasicText } from "../../../components/Text/Text";
 import { ReactComponent as SaraText } from "../../../images/logos/SaraText.svg"
 import { ReactComponent as MaraText } from "../../../images/logos/MaraText.svg"
+import TextLogo from "../../../components/Logo/TextLogo";
 
 
 const StyledRealtimeKeywords = styled.div`
-  width: 240px;
+  width: 100%;
 
   .realtime-title {
     box-shadow: 4px 4px 24px 0px rgba(0, 0, 0, 0.05);
@@ -31,9 +32,14 @@ const StyledRealtimeKeywords = styled.div`
     align-items: center;
     padding: 8px;
     gap : 4px;
+    background-color: #eee;
   }
 `;
 
+const $getTextLogoStyles = css`
+  width: 63px;
+  height: 16px;
+`
 
 
 export default function RealtimeTrends({ $type, data }) {
@@ -43,7 +49,7 @@ export default function RealtimeTrends({ $type, data }) {
   return (
     <StyledRealtimeKeywords $type={$type} $color={color}>
       <div className="realtime-title">
-        {$type === 'sara' ? <SaraText /> : <MaraText />}
+        {$type === 'sara' ? <TextLogo $getTextLogoStyles={$getTextLogoStyles} $fill={'white'} $type={$type} /> : <TextLogo $fill={'white'} $type={$type} $getTextLogoStyles={$getTextLogoStyles} />}
         <BasicText
           label={'실시간 트렌드'}
           $color="white"

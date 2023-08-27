@@ -86,10 +86,11 @@ const StyledBasicText = styled.p`
 export const BasicText = ({ label, ...rest }) => {
   return <StyledBasicText {...rest}>{label}</StyledBasicText>
 }
+
 BasicText.propTypes = {
-  $bold: PropTypes.oneOf(['sm', 'md', 'lg']).isRequired,
-  $size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']).isRequired,
-  $color: PropTypes.oneOf(['blue', 'red', 'gray', 'white', 'black']).isRequired,
+  $bold: PropTypes.oneOf(['sm', 'md', 'lg']),
+  $size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  $color: PropTypes.oneOf(['blue', 'red', 'gray', 'white', 'black']),
   $customColor: PropTypes.string,
   label: PropTypes.string,
   onClick: PropTypes.func,

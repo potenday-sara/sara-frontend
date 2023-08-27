@@ -13,8 +13,8 @@ const getBubbleTypeStyle = ({ $type }) => {
           border-radius: 48px;
         }
         .speech-bubble:after {
-          right: 20%;
-          border-right: 0px;
+          right: 10%;
+          border-left: 0px;
         }
       `
     : css`
@@ -23,8 +23,8 @@ const getBubbleTypeStyle = ({ $type }) => {
           padding : 32px 24px;
         }
          .speech-bubble:after {
-         left: 20%;
-         border-left: 0;
+         left: 10%;
+         border-right: 0;
         }
       `;
 };
@@ -55,7 +55,7 @@ const StyledTextbubble = styled.div`
     border: 30px solid transparent;
     border-top-color: rgba(255, 255, 255, 0.65);
     border-bottom: 0;
-    margin-bottom: -30px;
+    margin-bottom: -28px;
   }
   ${(props) => getBubbleTypeStyle(props)}
 `;
@@ -76,7 +76,7 @@ const GetTitleContents = ({ $type }) => {
             $size="xs"
             $bold="sm"
             $color="blue"
-            label='Sara가 긍정적인 정보와 효과를 알려주고,\n구매 결정을 내리는 데 도움을 줄 거예요!'
+            label={'Sara가 긍정적인 정보와 효과를 알려주고,\n구매 결정을 내리는 데 도움을 줄 거예요!'}
           />
         </>
         :
@@ -108,15 +108,15 @@ const GetTitleContents = ({ $type }) => {
     * @param {$type} sara, mara로 타입을 결정합니다
     * @returns {React.ReactComponentElement}
     */
-export default function TitleBubble({ $type }){
+export default function TitleBubble({ $type }) {
   return <StyledTextbubble $type={$type}>
-      <div className="speech-bubble">
-        <TitleLines $type={$type} />
-        <GetTitleContents $type={$type} />
-      </div>     
-    </StyledTextbubble>
+    <div className="speech-bubble">
+      <TitleLines $type={$type} />
+      <GetTitleContents $type={$type} />
+    </div>
+  </StyledTextbubble>
 }
 
 TitleBubble.propTypes = {
-  $type : PropTypes.oneOf(['sara', 'mara']).isRequired,
+  $type: PropTypes.oneOf(['sara', 'mara']).isRequired,
 }
