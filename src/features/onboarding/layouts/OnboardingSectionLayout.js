@@ -8,37 +8,47 @@ import CharacterName from "../components/CharacterName";
 import TextLabel from "../../../components/TextLabel/TextLabel";
 
 /**
- * $type(sara, mara) 값을 받아 배경화면 css를 리턴하는 함수입니다
+ * $type(sara, mara) 값을 받아 css를 리턴하는 함수입니다
  */
-const getSectionBackgroundCss = ($type) => {
+const getSectionCssByType = ($type) => {
   if ($type === 'sara') return css`
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.85) 100%), #007BED;
+    .section-box {
+      margin: auto 0px auto auto;
+    }
+
   `
   else return css`
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.85) 100%), #EF2B00;
-  
+    .section-box {
+      margin: auto auto auto 0px;
+    }
   `
 }
 
 
-const StyledOnboardingSectionLayout = styled.div`
+const StyledOnboardingSectionLayout = styled.section`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 512px;
   height: 100%;
-  ${({ $type }) => getSectionBackgroundCss($type)}
+  ${({ $type }) => getSectionCssByType($type)}
   padding: 101px 85px 140px;
-
+  .section-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const textLabelStyles = css`
   display: flex;
+  flex-direction: row;
   width: 256px;
   padding: 24px;
   margin-top: 40px;
   gap: 8px;
 `
+
 
 
 /**
@@ -48,11 +58,13 @@ const textLabelStyles = css`
 export default function OnboardingSectionLayout({ $type, isSelected, setSelectedType, ...rest }) {
   return (
     <StyledOnboardingSectionLayout {...rest} $type={$type}>
-      <TitleBubble $type={$type} />
-      <CharacterLogo $type={$type} $isSelected={$type === isSelected} />
-      <CharacterName $type={$type} />
-      <TextLabel $isBtn $bgColor={"white"} $textLabelStyles={textLabelStyles} $type={$type} $color={$type === 'sara' ? 'blue' : 'red'} $size={'md'} label={'에게 물어보기'} textLogo={true} onClick=
-        {() => setSelectedType($type)} />
+      <div className="section-box">
+        <TitleBubble $type={$type} />
+        <CharacterLogo $type={$type} $isSelected={$type === isSelected} />
+        <CharacterName $type={$type} />
+        <TextLabel $isBtn $bgColor={"white"} $textLabelStyles={textLabelStyles} $type={$type} $color={$type === 'sara' ? 'blue' : 'red'} $size={'md'} label={'에게 물어보기'} textLogo={true} onClick=
+          {() => setSelectedType($type)} />
+      </div>
     </StyledOnboardingSectionLayout>
   )
 }

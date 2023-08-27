@@ -41,7 +41,7 @@ const StyledTextLabel = styled.div`
  */
 export default function TextLabel({ label, $bold, $color, textLogo, $type, $customColor, $size, ...rest }) {
   return <StyledTextLabel {...rest}>
-    {textLogo && $type ? <TextLogo $type={$type} /> : null}
+    {textLogo && $type ? <TextLogo $type={$type} $fill={$color} /> : null}
     <BasicText $bold={$bold} $color={$color} $customColor={$customColor} $size={$size} label={label} />
   </StyledTextLabel>
 }

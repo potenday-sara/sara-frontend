@@ -55,7 +55,7 @@ const StyledTextbubble = styled.div`
     border: 30px solid transparent;
     border-top-color: rgba(255, 255, 255, 0.65);
     border-bottom: 0;
-    margin-bottom: -30px;
+    margin-bottom: -28px;
   }
   ${(props) => getBubbleTypeStyle(props)}
 `;
