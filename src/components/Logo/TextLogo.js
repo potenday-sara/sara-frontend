@@ -26,7 +26,7 @@ const getTextLogoCss = ($type) => {
 const StyledTextLogo = styled.div`
   display: flex;
   ${({ $type }) => getTextLogoCss($type)}
-  ${({ getTextLogoStyles }) => getTextLogoStyles} 
+  ${({ $getTextLogoStyles }) => $getTextLogoStyles} 
 `
 
 

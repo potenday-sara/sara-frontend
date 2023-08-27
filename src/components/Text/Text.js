@@ -89,8 +89,8 @@ export const BasicText = ({ label, ...rest }) => {
 
 BasicText.propTypes = {
   $bold: PropTypes.oneOf(['sm', 'md', 'lg']),
-  $size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']).isRequired,
-  $color: PropTypes.oneOf(['blue', 'red', 'gray', 'white', 'black']).isRequired,
+  $size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  $color: PropTypes.oneOf(['blue', 'red', 'gray', 'white', 'black']),
   $customColor: PropTypes.string,
   label: PropTypes.string,
   onClick: PropTypes.func,

@@ -11,7 +11,7 @@ const StyledMainTextLogo = styled.div`
   width: 147.8px;
   height: 80px;
 
-  ${({ getMainTextLogoStyles }) => getMainTextLogoStyles}
+  ${({ $getMainTextLogoStyles }) => $getMainTextLogoStyles}
 `
 
 export default function MainTextLogo({ $type, ...rest }) {

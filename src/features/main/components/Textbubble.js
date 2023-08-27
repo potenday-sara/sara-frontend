@@ -1,7 +1,7 @@
 import { css, styled } from "styled-components";
 import { getTextColor } from "../../../Styles";
-import { ReactComponent as SaraText } from "../../../images/logos/saralogoblue.svg";
-import { ReactComponent as MaraText } from "../../../images/logos/maralogored.svg";
+import { ReactComponent as SaraText } from "../../../images/logos/saracirclewhite.svg";
+import { ReactComponent as MaraText } from "../../../images/logos/maracirclewhite.svg";
 
 const getBubbleType = ({ $type }) => {
   return $type === "sara"

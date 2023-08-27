@@ -6,6 +6,7 @@ import TitleBubble from "../components/TitleBubble";
 import CharacterLogo from "../components/CharacterLogo";
 import CharacterName from "../components/CharacterName";
 import TextLabel from "../../../components/TextLabel/TextLabel";
+import { useNavigate } from "react-router";
 
 /**
  * $type(sara, mara) 값을 받아 css를 리턴하는 함수입니다
@@ -56,6 +57,7 @@ const textLabelStyles = css`
  * type ('sara', 'mara') 중 하나의 값을 받아 각 테마의 맞는 컴포넌트를 리턴합니다.
  */
 export default function OnboardingSectionLayout({ $type, isSelected, setSelectedType, ...rest }) {
+  const navigate = useNavigate()
   return (
     <StyledOnboardingSectionLayout {...rest} $type={$type}>
       <div className="section-box">
@@ -63,7 +65,7 @@ export default function OnboardingSectionLayout({ $type, isSelected, setSelected
         <CharacterLogo $type={$type} $isSelected={$type === isSelected} />
         <CharacterName $type={$type} />
         <TextLabel $isBtn $bgColor={"white"} $textLabelStyles={textLabelStyles} $type={$type} $color={$type === 'sara' ? 'blue' : 'red'} $size={'md'} label={'에게 물어보기'} textLogo={true} onClick=
-          {() => setSelectedType($type)} />
+          {() => navigate(`/question/${$type}`)} />
       </div>
     </StyledOnboardingSectionLayout>
   )

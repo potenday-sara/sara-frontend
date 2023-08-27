@@ -5,7 +5,7 @@ import OnboardingArticleLayout from "./OnboardingArticleLayout";
 
 const StyledOnboardingLayout = styled.div`
   display: grid;
-  grid-template-columns: minmax(512px,1fr) 240px minmax(512px, 1fr);
+  grid-template-columns: minmax(512px,1fr) 208px minmax(512px, 1fr);
   width: 100%;
   height: 100%;
 `
@@ -22,7 +22,7 @@ export default function OnboardingLayout() {
   return (
     <StyledOnboardingLayout>
       <OnboardingSectionLayout $type='sara' isSelected={isSelected} setSelectedType={setSelectedType} />
-      <OnboardingArticleLayout $type={isSelected} />
+      <OnboardingArticleLayout $type={isSelected} setSelectedType={setSelectedType} />
       <OnboardingSectionLayout $type='mara' isSelected={isSelected} setSelectedType={setSelectedType} />
     </StyledOnboardingLayout>
   )
