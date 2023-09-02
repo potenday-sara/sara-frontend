@@ -8,7 +8,7 @@ import { TextInput, TextareaInput } from "../../../components/Form/Form";
 const StyledQuestion = styled.div`
   display: grid;
   grid-template-rows: auto auto 60px;
-  gap: 40px;
+  gap: 16px;
 `;
 
 export default function SaraMaraForm({
@@ -29,20 +29,25 @@ export default function SaraMaraForm({
       });
     }
   };
+  const color = $type === 'sara' ? 'blue' : 'red'
   return (
     <StyledQuestion $type={$type}>
       <TextInput
+        $color={color}
+        type={"input"}
         label={"어떤 걸 사고싶어?"}
-        placeholder={"에어팟프로"}
+        placeholder={"사고싶은 물건을 입력해주세요"}
         id="제품"
         size={"small"}
         value={item}
         onChange={setItem}
       />
-      <TextareaInput
+      <TextInput
         label={"왜 고민하고 있어?"}
+        type={"textarea"}
+        $color={color}
         placeholder={
-          "벌써 세 번 잃어버렸는데,이번에 사면 또 잃어버릴 것 같아서 못 사겠어..."
+          "ex) 벌써 세 번 잃어버렸는데,이번에 사면 \n또 잃어버릴 것 같아서 못 사겠어..."
         }
         id="설명"
         size={"small"}
