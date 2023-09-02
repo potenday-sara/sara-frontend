@@ -1,6 +1,10 @@
 
 import { ReactComponent as SaraTitleLines } from '../assets/SaraBubbleText.svg'
 import { ReactComponent as MaraTitleLines } from '../assets/MaraBubbleText.svg'
+<<<<<<< HEAD
+=======
+
+>>>>>>> aa7271e6c471df8d34dc61dc99e71f797602da17
 import PropTypes from 'prop-types'
 import React from 'react'
 

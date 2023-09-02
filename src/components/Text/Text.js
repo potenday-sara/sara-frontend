@@ -70,6 +70,10 @@ const StyledBasicText = styled.p`
   font-family: Pretendard;
   white-space: pre-line;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> aa7271e6c471df8d34dc61dc99e71f797602da17
   ${({ $textStyles }) => $textStyles}
 
 `

@@ -1,6 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> aa7271e6c471df8d34dc61dc99e71f797602da17
 import { ReactComponent as Sara } from "../../images/logos/saratextlogo.svg";
 import { ReactComponent as Mara } from "../../images/logos/maratextlogo.svg";
 import { styled } from "styled-components";
