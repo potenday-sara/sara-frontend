@@ -28,9 +28,12 @@ const StyledRealtimeKeywords = styled.div`
     width: 100%;
     display: flex;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> aa7271e6c471df8d34dc61dc99e71f797602da17
+=======
+>>>>>>> dd858e0aa4d460675a6965bdfbb63a9c163803f5
     height: 282px;
     flex-direction: column;
     justify-content: center;

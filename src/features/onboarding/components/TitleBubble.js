@@ -14,9 +14,13 @@ const getBubbleTypeStyle = ({ $type }) => {
         }
         .speech-bubble:after {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> aa7271e6c471df8d34dc61dc99e71f797602da17
+=======
+
+>>>>>>> dd858e0aa4d460675a6965bdfbb63a9c163803f5
           right: 12%;
           border-left: 0px;
         }
@@ -28,9 +32,13 @@ const getBubbleTypeStyle = ({ $type }) => {
         }
          .speech-bubble:after {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> aa7271e6c471df8d34dc61dc99e71f797602da17
+=======
+
+>>>>>>> dd858e0aa4d460675a6965bdfbb63a9c163803f5
          left: 12%;
          border-right: 0;
         }
@@ -61,9 +69,13 @@ const StyledTextbubble = styled.div`
     width: 0;
     height: 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> aa7271e6c471df8d34dc61dc99e71f797602da17
+=======
+
+>>>>>>> dd858e0aa4d460675a6965bdfbb63a9c163803f5
     border: 29px solid transparent;
     border-top-color: rgba(255, 255, 255, 0.65);
     border-bottom: 0;
@@ -73,12 +85,20 @@ const StyledTextbubble = styled.div`
 `;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> aa7271e6c471df8d34dc61dc99e71f797602da17
 const $textStyles = css`
   opacity: 0.65;
 `
+=======
+
+const $textStyles = css`
+  opacity: 0.65;
+`
+
+>>>>>>> dd858e0aa4d460675a6965bdfbb63a9c163803f5
 
 <<<<<<< HEAD
 =======
@@ -97,12 +117,18 @@ const GetTitleContents = ({ $type }) => {
           />
           <BasicText
 <<<<<<< HEAD
+<<<<<<< HEAD
             $textStyles={$textStyles}
 =======
 
             $textStyles={$textStyles}
 
 >>>>>>> aa7271e6c471df8d34dc61dc99e71f797602da17
+=======
+
+            $textStyles={$textStyles}
+
+>>>>>>> dd858e0aa4d460675a6965bdfbb63a9c163803f5
             $size="xs"
             $bold="sm"
             $color="blue"
@@ -119,12 +145,18 @@ const GetTitleContents = ({ $type }) => {
           />
           <BasicText
 <<<<<<< HEAD
+<<<<<<< HEAD
             $textStyles={$textStyles}
 =======
 
             $textStyles={$textStyles}
 
 >>>>>>> aa7271e6c471df8d34dc61dc99e71f797602da17
+=======
+
+            $textStyles={$textStyles}
+
+>>>>>>> dd858e0aa4d460675a6965bdfbb63a9c163803f5
             label={"Mara가 객관적인 정보와 기준을 토대로,\n불매 결정을 내리는 데 도움을 줄 거예요!"}
             $size="xs"
             $bold="sm"
