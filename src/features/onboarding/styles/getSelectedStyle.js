@@ -12,7 +12,6 @@ export const getSelectedCss = (isSeleted) => {
     .back {
       z-index: -1;
     }
-
     .back-sara {
       left: -43%;
       width: 380px;

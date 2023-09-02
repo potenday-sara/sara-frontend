@@ -17,7 +17,6 @@ const StyledMainTextLogo = styled.div`
 export default function MainTextLogo({ $type, ...rest }) {
   // return <StyledMainTextLogo className="textLogo">{$type === "sara" ? <Sara /> : <Mara />}</StyledMainTextLogo>;
   return <StyledMainTextLogo {...rest} className="textLogo">{$type === 'sara' ? <Sara /> : <Mara />}</StyledMainTextLogo>;
-  // return <StyledMainTextLogo {...rest} className="textLogo"><Sara /></StyledMainTextLogo>;
 }
 
 MainTextLogo.propTypes = {

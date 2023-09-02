@@ -69,7 +69,9 @@ const StyledBasicText = styled.p`
   font-size: ${({ $size }) => getTextSizeCode($size)};
   font-family: Pretendard;
   white-space: pre-line;
+
   ${({ $textStyles }) => $textStyles}
+
 `
 
 /**
