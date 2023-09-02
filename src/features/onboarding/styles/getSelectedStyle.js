@@ -9,13 +9,9 @@ export const getSelectedCss = (isSeleted) => {
   if (isSeleted) return css`
     opacity: 1.0;
     scale: 1.2;
-<<<<<<< HEAD
     .back {
       z-index: -1;
     }
-
-=======
->>>>>>> 90f85befeb75d7d7215ac98e2fbd412fb48e136d
     .back-sara {
       left: -43%;
       width: 380px;
