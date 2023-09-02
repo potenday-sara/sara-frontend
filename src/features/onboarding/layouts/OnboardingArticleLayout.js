@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { css, styled } from "styled-components";
-import MainTextLogo from "../../../components/Logo/MainTextLogo";
 import RealtimeTrends from "../components/RealtimeTrends";
 import RealtimeTrend from "../components/RealtimeTrend";
 import { getRealtimeTrendsAPI } from "../apis/getRealtimeTrendsAPI";
