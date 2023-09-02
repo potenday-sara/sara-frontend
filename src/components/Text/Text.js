@@ -69,7 +69,11 @@ const StyledBasicText = styled.p`
   font-size: ${({ $size }) => getTextSizeCode($size)};
   font-family: Pretendard;
   white-space: pre-line;
+<<<<<<< HEAD
+  ${({ $textStyles }) => $textStyles}
+=======
 
+>>>>>>> 90f85befeb75d7d7215ac98e2fbd412fb48e136d
 `
 
 /**
@@ -80,6 +84,10 @@ const StyledBasicText = styled.p`
  * @param {['xs', 'sm', 'md', 'lg, xl']} size 텍스트 사이즈 설정 (default : md)
  * @param {color} color 희망하는 색깔 설정
  * @param {String} label 텍스트 입력 값 (Required)
+<<<<<<< HEAD
+ * @param {string} $textStyles css 정보를 바탕으로 css 설정
+=======
+>>>>>>> 90f85befeb75d7d7215ac98e2fbd412fb48e136d
  * @returns {ReactComponentElement} React Text Component
  */
 

@@ -8,6 +8,10 @@ const StyledRealtimeKeyword = styled.h2`
   display: flex;
   padding: 16px 18px;
   height: 49px;
+<<<<<<< HEAD
+  align-items: center;
+=======
+>>>>>>> 90f85befeb75d7d7215ac98e2fbd412fb48e136d
   width: 100%;
   gap: 8px;
   background-color: ${() => getColorCode('white')};

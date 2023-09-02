@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { css, styled } from "styled-components";
+<<<<<<< HEAD
+=======
 import MainTextLogo from "../../../components/Logo/MainTextLogo";
+>>>>>>> 90f85befeb75d7d7215ac98e2fbd412fb48e136d
 import RealtimeTrends from "../components/RealtimeTrends";
 import RealtimeTrend from "../components/RealtimeTrend";
 import { getRealtimeTrendsAPI } from "../apis/getRealtimeTrendsAPI";
 import { useQuery } from "react-query";
 import TextLabel from "../../../components/TextLabel/TextLabel";
 import { getSelectedCss } from "../styles/getSelectedStyle";
+<<<<<<< HEAD
+import MainTextLogo from "../components/MainTextLogo";
+=======
+>>>>>>> 90f85befeb75d7d7215ac98e2fbd412fb48e136d
 
 
 const StyledOnboardingArticleLayout = styled.article`

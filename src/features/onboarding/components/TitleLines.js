@@ -1,5 +1,10 @@
+<<<<<<< HEAD
+import { ReactComponent as SaraTitleLines } from '../assets/SaraBubbleText.svg'
+import { ReactComponent as MaraTitleLines } from '../assets/MaraBubbleText.svg'
+=======
 import { ReactComponent as SaraTitleLines } from '../assets/사라대사.svg'
 import { ReactComponent as MaraTitleLines } from '../assets/마라대사.svg'
+>>>>>>> 90f85befeb75d7d7215ac98e2fbd412fb48e136d
 
 import PropTypes from 'prop-types'
 import React from 'react'
