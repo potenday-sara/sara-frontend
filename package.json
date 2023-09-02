@@ -71,7 +71,6 @@
     "chromatic": "^6.17.4",
     "eslint-plugin-storybook": "^0.6.12",
     "prop-types": "^15.8.1",
-    "storybook": "^7.0.12",
     "webpack": "^5.83.1"
   },
   "readme": "ERROR: No README data found!",

@@ -1,12 +1,9 @@
 import { css, styled } from "styled-components";
 import { getTextColor } from "../../../Styles";
-<<<<<<< HEAD
 import { ReactComponent as SaraText } from "../../../images/logos/saracirclewhite.svg";
 import { ReactComponent as MaraText } from "../../../images/logos/maracirclewhite.svg";
-=======
-import { ReactComponent as SaraText } from "../../../images/logos/saralogoblue.svg";
-import { ReactComponent as MaraText } from "../../../images/logos/maralogored.svg";
->>>>>>> main
+// import { ReactComponent as SaraText } from "../../../images/logos/saralogoblue.svg";
+// import { ReactComponent as MaraText } from "../../../images/logos/maralogored.svg";
 
 const getBubbleType = ({ $type }) => {
   return $type === "sara"
@@ -56,11 +53,7 @@ const StyledTextbubble = styled.div`
 
   .speech-bubble:after {
     content: "";
-<<<<<<< HEAD
     z-index: 2;
-=======
-    z-index: 1;
->>>>>>> main
     position: absolute;
     bottom: 0;
     width: 0;
@@ -80,20 +73,10 @@ export default function Textbubble({ $type }) {
         {$type === "sara" ? (
           <>
             <h1>살까말까 할땐</h1>
-<<<<<<< HEAD
-
-=======
-            <SaraText />
->>>>>>> main
           </>
         ) : (
           <>
             <h1>사지</h1>
-<<<<<<< HEAD
-
-=======
-            <MaraText />
->>>>>>> main
           </>
         )}
       </div>
