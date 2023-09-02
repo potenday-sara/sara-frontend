@@ -33,7 +33,6 @@ const getFooterCSSbyPage = (page) => {
 
 
 const StyledFooter = styled.div`
-
   background: transparent ;
   width: 100%;
   height: 64px;

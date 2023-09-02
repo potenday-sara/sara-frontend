@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { css, styled } from "styled-components";
-import MainTextLogo from "../../../components/Logo/MainTextLogo";
 import RealtimeTrends from "../components/RealtimeTrends";
 import RealtimeTrend from "../components/RealtimeTrend";
 import { getRealtimeTrendsAPI } from "../apis/getRealtimeTrendsAPI";
 import { useQuery } from "react-query";
 import TextLabel from "../../../components/TextLabel/TextLabel";
 import { getSelectedCss } from "../styles/getSelectedStyle";
+import MainTextLogo from "../components/MainTextLogo";
 
 
 const StyledOnboardingArticleLayout = styled.article`
