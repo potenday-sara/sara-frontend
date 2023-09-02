@@ -70,6 +70,7 @@ const StyledBasicText = styled.p`
   font-family: Pretendard;
   white-space: pre-line;
 
+
   ${({ $textStyles }) => $textStyles}
 
 `

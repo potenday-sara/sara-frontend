@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+
 import { ReactComponent as Sara } from "../../images/logos/saratextlogo.svg";
 import { ReactComponent as Mara } from "../../images/logos/maratextlogo.svg";
 import { styled } from "styled-components";
