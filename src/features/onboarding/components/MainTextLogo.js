@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-
-import { ReactComponent as Sara } from "../../images/logos/saratextlogo.svg";
-import { ReactComponent as Mara } from "../../images/logos/maratextlogo.svg";
+import { ReactComponent as Sara } from "../../../images/logos/saratextlogo.svg";
+import { ReactComponent as Mara } from "../../../images/logos/maratextlogo.svg";
 import { styled } from "styled-components";
 
 
@@ -17,7 +16,8 @@ const StyledMainTextLogo = styled.div`
 
 export default function MainTextLogo({ $type, ...rest }) {
   // return <StyledMainTextLogo className="textLogo">{$type === "sara" ? <Sara /> : <Mara />}</StyledMainTextLogo>;
-  return <StyledMainTextLogo {...rest} className="textLogo">{$type === 'sara' ? <Sara /> : <Mara />}</StyledMainTextLogo>;
+  // return <StyledMainTextLogo {...rest} className="textLogo">{$type === 'sara' ? <Sara /> : <Mara />}</StyledMainTextLogo>;
+  return <StyledMainTextLogo {...rest} className="textLogo"><Sara /></StyledMainTextLogo>;
 }
 
 MainTextLogo.propTypes = {

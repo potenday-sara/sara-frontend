@@ -13,7 +13,8 @@ const getBubbleTypeStyle = ({ $type }) => {
           border-radius: 48px;
         }
         .speech-bubble:after {
-          right: 10%;
+
+          right: 12%;
           border-left: 0px;
         }
       `
@@ -23,7 +24,8 @@ const getBubbleTypeStyle = ({ $type }) => {
           padding : 32px 24px;
         }
          .speech-bubble:after {
-         left: 10%;
+
+         left: 12%;
          border-right: 0;
         }
       `;
@@ -52,13 +54,19 @@ const StyledTextbubble = styled.div`
     bottom: 0;
     width: 0;
     height: 0;
-    border: 30px solid transparent;
+
+    border: 29px solid transparent;
     border-top-color: rgba(255, 255, 255, 0.65);
     border-bottom: 0;
     margin-bottom: -28px;
   }
   ${(props) => getBubbleTypeStyle(props)}
 `;
+
+
+const $textStyles = css`
+  opacity: 0.65;
+`
 
 
 const GetTitleContents = ({ $type }) => {
@@ -73,6 +81,9 @@ const GetTitleContents = ({ $type }) => {
             $color="blue"
           />
           <BasicText
+
+            $textStyles={$textStyles}
+
             $size="xs"
             $bold="sm"
             $color="blue"
@@ -88,6 +99,9 @@ const GetTitleContents = ({ $type }) => {
             $color="red"
           />
           <BasicText
+
+            $textStyles={$textStyles}
+
             label={"Mara가 객관적인 정보와 기준을 토대로,\n불매 결정을 내리는 데 도움을 줄 거예요!"}
             $size="xs"
             $bold="sm"

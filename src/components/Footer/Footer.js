@@ -1,9 +1,38 @@
 import React from "react";
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 import { ReactComponent as FotterLogo } from "../../images/logos/footerlogo.svg";
+import { useLocation, useNavigate, useParams, useRoutes } from "react-router-dom";
+
+
+const getFooterCSSbyPage = (page) => {
+  switch (page) {
+    case '/':
+      return css`
+        display: grid;
+        grid-template-columns: minmax(512px,1fr) 208px minmax(512px, 1fr);
+        grid-template-rows: 1fr;
+
+        .left {
+          background: linear-gradient(0deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.85) 100%), #007BED;
+        
+        }
+        .right {
+          background: linear-gradient(0deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.85) 100%), #EF2B00;
+
+        }
+      `
+
+
+    default:
+      css`
+        /* background-color:  */
+      `
+  }
+}
+
+
 
 const StyledFooter = styled.div`
-  position: absolute;
   background: transparent ;
   width: 100%;
   height: 64px;
@@ -22,6 +51,8 @@ const StyledFooter = styled.div`
 `;
 
 export default function Footer() {
+  const navigate = useLocation()
+  console.log(navigate)
   return (
     <StyledFooter>
       <FotterLogo />

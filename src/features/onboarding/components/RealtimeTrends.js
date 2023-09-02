@@ -27,6 +27,7 @@ const StyledRealtimeKeywords = styled.div`
   .realtime-trends {
     width: 100%;
     display: flex;
+    height: 282px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
