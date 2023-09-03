@@ -11,7 +11,9 @@ import { postQuestion } from "../apis/postQuestion";
 import TextLogo from "../../../components/Logo/MainTextLogo";
 import Character from "../../../components/Logo/Character";
 import { getColorCode } from "../../../Styles";
+import ChatTag from "../components/ChatTag";
 const StyledChatboxLayout = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,7 +54,7 @@ export default function ChatboxLayout({ $type }) {
     <StyledChatboxLayout $type>
       <TextLogo $type={$type} />
       <Character $type={$type} />
-
+      <ChatTag />
       {Mutate.isIdle === true ? (
         <SaraMaraForm
           $type={$type}

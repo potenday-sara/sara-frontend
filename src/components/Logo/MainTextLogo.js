@@ -10,12 +10,17 @@ import { styled } from "styled-components";
 const StyledMainTextLogo = styled.div`
   width: 162.4px;
   height: 88px;
+
+
   margin: auto;
   ${({ $getMainTextLogoStyles }) => $getMainTextLogoStyles}
-`
+  .mara {
+    margin: 1px 0px;
+  }
+  `
 
 export default function MainTextLogo({ $type, ...rest }) {
-  return <StyledMainTextLogo {...rest} className="textLogo">{$type === 'sara' ? <Sara /> : <Mara />}</StyledMainTextLogo>;
+  return <StyledMainTextLogo {...rest} className="textLogo">{$type === 'sara' ? <Sara className="sara" /> : <Mara className="mara" />}</StyledMainTextLogo>;
 }
 
 MainTextLogo.propTypes = {

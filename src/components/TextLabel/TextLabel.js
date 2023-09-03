@@ -20,7 +20,7 @@ const StyledTextLabel = styled.div`
   padding: 16px;
   ${(isBtn) => getButtonStyle(isBtn)}
   ${({ $textLabelStyles }) => ($textLabelStyles)}
-
+  ${({ styles }) => (styles)}
 `
 
 

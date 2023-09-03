@@ -80,7 +80,7 @@ TextInput.propTypes = {
   onChange: PropTypes.func,
   placeholder: PropTypes.string,
   id: PropTypes.string,
-  $color: PropTypes.oneOf(['sara', 'mara']).isRequired,
+  $color: PropTypes.string,
   type: PropTypes.oneOf(['input', 'textarea']).isRequired
 };
 
