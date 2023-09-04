@@ -1,91 +1,87 @@
 import React from "react";
 import { css, styled } from "styled-components";
 import PropTypes from "prop-types";
-import { MainText } from "../Text/Text";
+import { BasicText, MainText } from "../Text/Text";
+import { getColorCode } from "../../Styles";
 
 const getBasicInputStyles = () => {
   return css`
-    font-family: "Pretendard";
     font-weight: 400;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 12px 22px;
-    margin-top: 10px;
-    border: none;
-    background: #f4f4f4;
     border-radius: 16px;
+    font-size: 14px;
+    border: 1px solid #CCC;
+    background: ${() => getColorCode('white')};
+    border-radius: 16px;
+
+    &::placeholder {
+      color: rgba(204, 204, 204, 1);
+      font-family: Pretendard;
+      font-size: 13px;
+      font-weight: 400;
+    }
 
     &:focus {
       outline: none;
+      border: 3px solid ${({ $color }) => getColorCode($color)};
     }
   `;
 };
-const getTextInputSizeStyles = ({ size }) => {
-  if (size === "small") {
-    return css`
-      width: 100%;
-      height: 53px;
-      font-size: 16px;
-    `;
-  } else {
-    return css`
-      width: 500px;
-      font-size: 25px;
-      height: 70px;
-    `;
-  }
+const getTextInputSizeStyles = () => {
+  return css`
+    width: 320px;
+    height: 56px;
+  `
 };
 
-const getTextAreaInputSizeStyles = ({ size }) => {
-  if (size === "small") {
-    return css`
-      width: 100%;
-      height: 100px;
-      font-size: 16px;
-    `;
-  } else {
-    return css`
-      width: 600px;
-      height: 800px;
-      font-size: 25px;
-    `;
-  }
+const getTextAreaInputSizeStyles = () => {
+  return css`
+    width: 320px;
+    height: 74px;
+    padding: 18px 16px;
+  `
 };
 
 const StyledInputBox = styled.div`
   display: flex;
+  gap: 8px;
   flex-direction: column;
-  width: 100%;
 `;
 
 const StyledTextInput = styled.input`
   text-align: center;
-  margin-top: 5px;
   ${() => getBasicInputStyles()}
   ${(props) => getTextInputSizeStyles(props)}
 `;
 
 const StyledTextAreaInput = styled.textarea`
   resize: none;
+  text-align: center;
   ${() => getBasicInputStyles()}
-  ${(props) => getTextAreaInputSizeStyles(props)}
-  height: 200px;
+  ${() => getTextAreaInputSizeStyles()}
+
 `;
-export const TextInput = ({ placeholder, label, id, ...rest }) => (
+export const TextInput = ({ type, placeholder, label, id, ...rest }) => (
   <StyledInputBox>
-    <MainText as="label" type={"h2"} label={label} htmlFor={id} color="black" />
-    <StyledTextInput placeholder={placeholder} type="text" {...rest} id={id} />
+    <BasicText as="label" label={label} htmlFor={id} $size="sm" $bold="lg" $color="black" />
+    {
+      type === 'input' ?
+        <StyledTextInput placeholder={placeholder} type="text" {...rest} id={id} /> :
+        <StyledTextAreaInput placeholder={placeholder} {...rest} id={id} />
+
+    }
   </StyledInputBox>
 );
 
 TextInput.propTypes = {
-  size: PropTypes.oneOf(["small", "medium"]).isRequired,
-  value: PropTypes.string,
   onChange: PropTypes.func,
   placeholder: PropTypes.string,
   id: PropTypes.string,
+  $color: PropTypes.string,
+  type: PropTypes.oneOf(['input', 'textarea']).isRequired
 };
 
 TextInput.defaultProps = {
@@ -93,26 +89,4 @@ TextInput.defaultProps = {
   size: "small",
   onChange: undefined,
   placeholder: "",
-};
-
-export const TextareaInput = ({ placeholder, label, id, ...rest }) => (
-  <StyledInputBox>
-    <MainText as="label" type={"h2"} label={label} htmlFor={id} color="black" />
-    <StyledTextAreaInput placeholder={placeholder} {...rest} id={id} />
-  </StyledInputBox>
-);
-
-TextareaInput.propTypes = {
-  size: PropTypes.oneOf(["small", "medium"]).isRequired,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
-  placeholder: PropTypes.string,
-  id: PropTypes.string,
-};
-
-TextareaInput.defaultProps = {
-  size: "small",
-  value: "",
-  onChange: undefined,
-  id: PropTypes.string,
 };
