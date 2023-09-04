@@ -12,6 +12,7 @@ const StyledBubbleChartLayout = styled.div`
   gap: 15px;
   width: 100%;
   max-width: 540px;
+  
 
   .chart-box {
     width: 100%;

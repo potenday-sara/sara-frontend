@@ -10,10 +10,10 @@ import { getQuestions } from "../apis/getQuestions";
 
 const StyledSectionLayout = styled.div`
   width: 100%;
-  margin-right: auto;
+  margin-left: auto;
   max-width: 480px;
-  height: 700px;
-
+  height: 500px;
+  
   display: grid;
   grid-template-rows: 2.5fr auto;
   gap: 60px;
@@ -66,7 +66,7 @@ export default function SectionLayout({ $type }) {
       {articleLoading ? null : (
         <OtherQuestions $type={$type} articles={articleDatas} />
       )}
-      <Trends type={$type} datas={datas} />
+      {/* <Trends type={$type} datas={datas} /> */}
     </StyledSectionLayout>
   );
 }

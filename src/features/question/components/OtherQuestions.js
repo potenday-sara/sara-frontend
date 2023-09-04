@@ -17,7 +17,7 @@ const StyledArticles = styled.div`
   height: 100%;
   overflow: hidden;
   position: relative;
-
+  
   .h2 {
     margin-bottom: 5px;
   }
@@ -27,10 +27,12 @@ const StyledArticles = styled.div`
       margin: 0;
     }
     width: 100%;
+    
   }
 
   .swiper-wrapper {
     transition-timing-function: linear;
+    
   }
 `;
 
