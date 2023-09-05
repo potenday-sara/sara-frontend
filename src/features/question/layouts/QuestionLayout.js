@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import ChatBoxLayout from "./ChatboxLayout";
 import SectionLayout from "./SectionLayout";
+import TrendItemsLayout from "./TrendItemsLayout";
 import { getChartColor } from "../utils/getStyles";
 import { getRangking } from "../../main/apis/getRanking";
 
@@ -40,9 +41,9 @@ export default function QuestionLayout({ $type }) {
 
   return (
     <StyledQuestionLayout>
-      <BubbleChartLayout $type={$type} data={BubbleData} />
-      <ChatBoxLayout $type={$type} />
       <SectionLayout $type={$type} />
+      <ChatBoxLayout $type={$type} />
+      <TrendItemsLayout $type={$type} />
     </StyledQuestionLayout>
   );
 }
