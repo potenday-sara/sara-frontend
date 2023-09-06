@@ -7,7 +7,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 const StyledChatTags = styled.div`
   position: absolute;
   transform: translate(-100%, 0);
-  top: 4%;
   left: 0px;
   display: flex;
   flex-direction: column;
@@ -29,7 +28,7 @@ const $textLabelStyles = css`
   width: 72px;
   height: 48px;
   align-items: center;
-  padding: 8px 8px;
+  padding: 5px 5px;
   cursor: pointer;
   scale: 1;
   ${({ $isSelected }) => getSelectedCss($isSelected)}

@@ -10,7 +10,7 @@ const StyledQuestion = styled.div`
   height: auto;
   min-height: calc(100vh - 64px);
   background-color: ${(props) =>
-    props.$pathname === "sara" ? "#edf5fd" : "#fdeae5"};
+    props.$pathname === "sara" ? "#edf5fd" : "#F4F4F4"};
 `;
 export default function Question({ $type }) {
   return (
