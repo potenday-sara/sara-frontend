@@ -7,7 +7,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 const StyledChatTags = styled.div`
   position: absolute;
   transform: translate(-100%, 0);
-  top: 4%;
   left: 0px;
   display: flex;
   flex-direction: column;

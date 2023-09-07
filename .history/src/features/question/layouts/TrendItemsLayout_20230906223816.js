@@ -17,7 +17,7 @@ const TrendStyle = styled.div`
   margin-right: auto;
   max-width: 480px;
   height: 500px;
-  padding-top: 40px;
+  
 
   h2{
     display:block;

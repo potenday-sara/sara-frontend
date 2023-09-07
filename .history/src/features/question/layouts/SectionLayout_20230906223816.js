@@ -13,7 +13,7 @@ const StyledSectionLayout = styled.div`
   margin-left: auto;
   max-width: 480px;
   height: 500px;
-  padding-top: 40px;
+  
   display: grid;
   grid-template-rows: 2.5fr auto;
   gap: 60px;
