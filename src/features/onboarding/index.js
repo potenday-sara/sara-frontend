@@ -5,10 +5,14 @@ import OnboardingLayout from "./layouts/OnboardingLayout";
 
 const StyledOnboarding = styled.div`
 width: 100%;
-height: 100vh;
 overflow: hidden;
 min-height : 832px;
+  @media screen and (${props => props.theme.desktopLarge}) {
+    
+  } 
 `
+
+
 
 export default function Onboarding() {
   return (

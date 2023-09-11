@@ -39,6 +39,15 @@ const StyledOnboardingSectionLayout = styled.section`
     flex-direction: column;
     align-items: center;
   }
+
+  @media screen and (${props => props.theme.desktopLarge}) {
+    align-items : center;
+
+    .section-box {
+      margin: auto;
+    }
+  }
+
 `
 
 const textLabelStyles = css`
@@ -47,7 +56,14 @@ const textLabelStyles = css`
   width: 256px;
   padding: 24px;
   margin-top: 40px;
+  align-items: center;
   gap: 8px;
+
+  @media screen and (${props => props.theme.desktopLarge}) {
+    width: 300px;
+    height: 80px;
+    align-items: center;
+    }
 `
 
 

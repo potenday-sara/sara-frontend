@@ -38,6 +38,7 @@ const SelectLayout = styled.div`
     grid-template-rows: 1fr;
     margin-top: 80px;
   }
+
 `;
 
 export default function Main() {

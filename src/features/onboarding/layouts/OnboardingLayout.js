@@ -8,6 +8,10 @@ const StyledOnboardingLayout = styled.div`
   grid-template-columns: minmax(512px,1fr) 208px minmax(512px, 1fr);
   width: 100%;
   height: 100%;
+
+  @media screen and (${props => props.theme.desktopLarge}) {
+    grid-template-columns: minmax(840px,1fr) 240px minmax(840px, 1fr);
+  }
 `
 
 
