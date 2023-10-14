@@ -9,6 +9,7 @@ const SelectLayout = styled.div`
   justify-content: center;
   width: 100%;
   min-height: calc(100vh - 64px);
+  height: auto;
   min-width: 1200px;
   .sara {
     left: 0%;
