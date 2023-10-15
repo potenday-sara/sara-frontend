@@ -8,19 +8,18 @@ import TextLabel from "../../../components/TextLabel/TextLabel";
 import { getSelectedCss } from "../styles/getSelectedStyle";
 import MainTextLogo from "../components/MainTextLogo";
 
-
-
 const StyledOnboardingArticleLayout = styled.article`
   display: flex;
   flex-direction: column;
+  height: 100%;
   align-items: center;
-
-`
+  justify-content: center;
+`;
 
 const $getMainTextLogoStyles = css`
   margin-top: 80px;
   margin-bottom: 64px;
-`
+`;
 
 const $textLabelStyles = css`
   width: 100%;
@@ -29,10 +28,10 @@ const $textLabelStyles = css`
   cursor: pointer;
   ${({ $isSelected }) => getSelectedCss($isSelected)}
   scale: 1;
-`
+`;
 
 export default function OnboardingArticleLayout({ $type, setSelectedType }) {
-  const [realtimeTrends, setRealtimeTrends] = useState([])
+  const [realtimeTrends, setRealtimeTrends] = useState([]);
   const { isLoading: trendLoading, data: RealtimeTrendsAPI } = useQuery(
     [$type, "ranking"],
     () => getRealtimeTrendsAPI($type)
@@ -41,12 +40,33 @@ export default function OnboardingArticleLayout({ $type, setSelectedType }) {
     setRealtimeTrends(RealtimeTrendsAPI?.data?.data);
   }, [RealtimeTrendsAPI]);
 
-
-  return <StyledOnboardingArticleLayout>
-    <MainTextLogo $type={$type} $getMainTextLogoStyles={$getMainTextLogoStyles} />
-    <RealtimeTrends $type={$type} data={realtimeTrends} />
-    <TextLabel onClick={() => { setSelectedType('sara') }} $isSelected={$type === 'sara'} circleTextLogo={true} $type={'sara'} $bgColor={'blue'} $textLabelStyles={$textLabelStyles} />
-    <TextLabel onClick={() => { setSelectedType('mara') }} $isSelected={$type === 'mara'} circleTextLogo={true} $type={'mara'} $bgColor={'red'} $textLabelStyles={$textLabelStyles} />
-
-  </StyledOnboardingArticleLayout>
+  return (
+    <StyledOnboardingArticleLayout>
+      <MainTextLogo
+        $type={$type}
+        $getMainTextLogoStyles={$getMainTextLogoStyles}
+      />
+      <RealtimeTrends $type={$type} data={realtimeTrends} />
+      <TextLabel
+        onClick={() => {
+          setSelectedType("sara");
+        }}
+        $isSelected={$type === "sara"}
+        circleTextLogo={true}
+        $type={"sara"}
+        $bgColor={"blue"}
+        $textLabelStyles={$textLabelStyles}
+      />
+      <TextLabel
+        onClick={() => {
+          setSelectedType("mara");
+        }}
+        $isSelected={$type === "mara"}
+        circleTextLogo={true}
+        $type={"mara"}
+        $bgColor={"red"}
+        $textLabelStyles={$textLabelStyles}
+      />
+    </StyledOnboardingArticleLayout>
+  );
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { css, styled } from "styled-components";
 import PropTypes from "prop-types";
 import { ReactComponentElement } from "react";
-import { getBoldCode, getColorCode, getTextSizeCode } from "../../Styles";
+import { getBoldCode, getColorCode, getDestopTextSizeCode } from "../../Styles";
 
 const textColor = ({ color = "black" }) => {
   switch (color) {
@@ -66,7 +66,7 @@ const StyledPText = styled.p`
 const StyledBasicText = styled.p`
   color : ${({ $customColor, $color }) => $customColor ? $customColor : getColorCode($color)};
   font-weight: ${({ $bold }) => getBoldCode($bold)};
-  font-size: ${({ $size }) => getTextSizeCode($size)};
+  ${({ $size }) => getDestopTextSizeCode($size)};
   font-family: Pretendard;
   white-space: pre-line;
   ${({ $textStyles }) => $textStyles}
