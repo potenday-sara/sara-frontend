@@ -12,6 +12,7 @@ const StyledQuestion = styled.div`
   background-color: ${(props) =>
     props.$pathname === "sara" ? "#edf5fd" : "#fdeae5"};
 `;
+
 export default function Question({ $type }) {
   return (
     <>

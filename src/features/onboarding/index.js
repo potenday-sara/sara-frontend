@@ -1,11 +1,13 @@
 import { styled } from "styled-components";
-import RealtimeKeywords from "./components/RealtimeTrends";
 import OnboardingLayout from "./layouts/OnboardingLayout";
 
 const StyledOnboarding = styled.div`
   width: 100%;
   height: auto;
-  overflow: hidden;
+  /* overflow: hidden; */
+  /* height: auto; */
+  @media screen and (${(props) => props.theme.desktopLarge}) {
+  }
 `;
 
 export default function Onboarding() {

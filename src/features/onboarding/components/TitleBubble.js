@@ -11,20 +11,26 @@ const getBubbleTypeStyle = ({ $type }) => {
           padding: 32px;
           width: 352px;
           border-radius: 48px;
+          @media screen and (${props => props.theme.desktopLarge}) {
+            width: 479px;
+          }
         }
         .speech-bubble:after {
           right: 12%;
           border-left: 0px;
         }
-      `
+        `
     : css`
         .speech-bubble {
           width: 390px;
           padding : 32px 24px;
+          @media screen and (${props => props.theme.desktopLarge}) {
+            width: 552px;
+          }
         }
-         .speech-bubble:after {
-         left: 12%;
-         border-right: 0;
+        .speech-bubble:after {
+          left: 12%;
+          border-right: 0;
         }
       `;
 };
@@ -39,10 +45,16 @@ const StyledTextbubble = styled.div`
     gap: 16px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     box-shadow: 4px 4px 24px rgba(0, 0, 0, 0.05);
     background: rgba(255, 255, 255, 0.65);
+
+    @media screen and (${props => props.theme.desktopLarge}) {
+      height: 315px;
+      padding: 40px 48px;
+    
+    }
   }
   
   .speech-bubble:after {
