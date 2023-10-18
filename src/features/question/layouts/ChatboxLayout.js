@@ -17,13 +17,13 @@ const StyledChatboxLayout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 684px;
+  height: auto;
   gap: 16px;
   margin: auto;
   padding: 48px 20px;
   width: 368px;
   max-width: 540px;
-  background-color: ${(props) => getColorCode('white')};
+  background-color: ${(props) => getColorCode("white")};
   border-radius: 24px;
   box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
 `;
@@ -55,7 +55,7 @@ export default function ChatboxLayout({ $type }) {
       <TextLogo $type={$type} />
       <Character $type={$type} />
       <ChatTag />
-      {Mutate.isIdle === true ? (
+      {/* {Mutate.isIdle === true ? (
         <SaraMaraForm
           $type={$type}
           item={item}
@@ -66,9 +66,10 @@ export default function ChatboxLayout({ $type }) {
         />
       ) : Mutate.isSuccess === true ? (
         <Answer $type={$type} data={data} navigate={dataResetNaviget} />
-      ) : (
-        <Spinner $type={$type} />
-      )}
+        ) : (
+          <Spinner $type={$type} />
+          )} */}
+      <Answer $type={$type} data={data} navigate={dataResetNaviget} />
     </StyledChatboxLayout>
   );
 }

@@ -1,14 +1,8 @@
-import { ReactComponent as Good } from "../../../images/feedback/good.svg";
-import { ReactComponent as Bad } from "../../../images/feedback/bad.svg";
-import { ReactComponent as Soso } from "../../../images/feedback/soso.svg";
 import { BasicButton } from "../../../components/Button/MainButton";
 import { styled } from "styled-components";
 import useInput from "../../../hooks/useInput";
 import { useState } from "react";
 import FeedbackEmotion from "../components/FeedbackEmotion";
-import { postScore } from "../apis/postScore";
-import { postFeedback } from "../apis/postFeedback";
-import Swal from "sweetalert2";
 import useAddScore from "../hooks/useAddScore";
 import useAddContents from "../hooks/useAddContents";
 
