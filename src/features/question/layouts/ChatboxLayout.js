@@ -65,17 +65,24 @@ export default function ChatboxLayout({ $type }) {
   return (
     <StyledChatboxLayout $type>
       <TextLogo $type={$type} stage={Mutate.isSuccess ? "answer" : "answer"} />
-      <div className="texts">
-        <BasicText label={"나의 질문"} $size={"xs"} $customColor={"#666"} />
-        <BasicText
-          label={"에어팟 프로"}
-          $color={$type === "sara" ? "blue" : "red"}
-          $bold={"lg"}
+      {Mutate.isSuccess === true ? (
+        <div className="texts">
+          <BasicText label={"나의 질문"} $size={"xs"} $customColor={"#666"} />
+          <BasicText
+            label={"에어팟 프로"}
+            $color={$type === "sara" ? "blue" : "red"}
+            $bold={"lg"}
+          />
+        </div>
+      ) : null}
+      {Mutate.isIdle === true || Mutate.isSuccess === true ? (
+        <Character
+          $type={$type}
+          stage={Mutate.isSuccess ? "answer" : "answer"}
         />
-      </div>
-      <Character $type={$type} stage={Mutate.isSuccess ? "answer" : "answer"} />
+      ) : null}
       <ChatTag />
-      {/* {Mutate.isIdle === true ? (
+      {Mutate.isIdle === true ? (
         <SaraMaraForm
           $type={$type}
           item={item}
@@ -86,10 +93,9 @@ export default function ChatboxLayout({ $type }) {
         />
       ) : Mutate.isSuccess === true ? (
         <Answer $type={$type} data={data} navigate={dataResetNaviget} />
-        ) : (
-          <Spinner $type={$type} />
-          )} */}
-      <Answer $type={$type} data={data} navigate={dataResetNaviget} />
+      ) : (
+        <Spinner $type={$type} />
+      )}
     </StyledChatboxLayout>
   );
 }
