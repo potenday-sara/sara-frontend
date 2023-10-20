@@ -5,49 +5,68 @@ import { useState } from "react";
 import FeedbackEmotion from "../components/FeedbackEmotion";
 import useAddScore from "../hooks/useAddScore";
 import useAddContents from "../hooks/useAddContents";
+import { BasicText } from "../../../components/Text/Text";
 
 const StyledFeedbackLayout = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   .feedbacksvgs {
     display: flex;
     justify-content: center;
     cursor: pointer;
-    gap: 30px;
+    gap: 15px;
   }
 
-  .feedbacks {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    /* height: 300px; */
-    ::placeholder {
-      font-size: 16px;
-      font-family: "Pretendard";
-    }
-    textarea {
-      background-color: #f4f4f4;
-      width: 100%;
-      border: 0px;
-      border-radius: 12px;
-      padding: 12px;
-      font-size: 16px;
-      color: #666666;
-      font-family: "Pretendard";
-      resize: none;
-      height: 100px;
-
-      h2 {
-        letter-spacing: 10px;
+  .inputs {
+    margin-top: 20px;
+    width: 100%;
+    position: relative;
+    .feedback-button {
+      &.sara {
+        background: linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.9) 0%,
+            rgba(255, 255, 255, 0.9) 100%
+          ),
+          #007bed;
       }
-      /* height: auto !important; */
+      &.mara {
+        background: linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.9) 0%,
+            rgba(255, 255, 255, 0.9) 100%
+          ),
+          #ef2b00;
+      }
+      border: none;
+      border-radius: 8px;
+      position: absolute;
+      transform: translate(0, -50%);
+      top: 50%;
+      right: 8px;
+      padding: 6px 8px;
+      p {
+        font-size: 10px;
+      }
     }
-    .button {
-      height: 50px;
+    input {
+      border-radius: 12px;
+      border: 0px;
+      outline: 1px solid #ddd;
       width: 100%;
+      height: 55px;
+      padding: 16px;
+      font-family: Pretendard;
+      font-weight: 400;
+      &::placeholder {
+        font-weight: 400;
+        color: #ddd;
+        font-size: 10px;
+        font-family: Pretendard;
+      }
     }
   }
 `;
@@ -70,7 +89,10 @@ export default function FeedbackLayout({ $type, questionId }) {
 
   return (
     <StyledFeedbackLayout>
-      <h2 className="fq">도움이 되셨나요?</h2>
+      <BasicText
+        $size={"xs"}
+        label={`${$type === "sara" ? "Sara" : "Mara"}가 도움이 되셨나요?`}
+      />
       <div className="feedbacksvgs">
         <FeedbackEmotion
           $type={$type === "sara" ? "#007bed" : "red"}
@@ -91,26 +113,22 @@ export default function FeedbackLayout({ $type, questionId }) {
           handleFeedbackValue={handleFeedbackValue}
         />
       </div>
-      {feedbackValue > 0 ? (
-        <div className="feedbacks">
-          <textarea
-            placeholder={`${
-              $type === "sara" ? "Sara" : "Mara"
-            }에게 바라는 점 / 하고싶은 얘기가 있다면 작성해주세요!
-            `}
-            value={content}
-            onChange={setContent}
-          ></textarea>
-          <div className="button">
-            <BasicButton
-              onClick={() => submitFeedbackContent(questionId, content)}
-              label={`${$type === "sara" ? "Sara" : "Mara"}에게 의견 전달하기`}
-              $backgroundColor={$type === "sara" ? "blue" : "red"}
-              color={"white"}
-            />
-          </div>
-        </div>
-      ) : null}
+      <div className="inputs">
+        <input
+          className="feedBackInput"
+          placeholder={`${
+            $type === "sara" ? "Sara" : "Mara"
+          }에게 바라는 점 / 하고싶은 얘기가 있다면 작성해주세요!`}
+        />
+        <button className={`feedback-button ${$type}`}>
+          <BasicText
+            label={"의견 보내기"}
+            $size={"xs"}
+            $bold={"lg"}
+            $color={$type === "sara" ? "blue" : "red"}
+          />
+        </button>
+      </div>
     </StyledFeedbackLayout>
   );
 }

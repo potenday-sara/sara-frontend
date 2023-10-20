@@ -67,7 +67,11 @@ export default function ChatboxLayout({ $type }) {
       <TextLogo $type={$type} stage={Mutate.isSuccess ? "answer" : "answer"} />
       <div className="texts">
         <BasicText label={"나의 질문"} $size={"xs"} $customColor={"#666"} />
-        <BasicText label={"에어팟 프로"} $color={"blue"} $bold={"lg"} />
+        <BasicText
+          label={"에어팟 프로"}
+          $color={$type === "sara" ? "blue" : "red"}
+          $bold={"lg"}
+        />
       </div>
       <Character $type={$type} stage={Mutate.isSuccess ? "answer" : "answer"} />
       <ChatTag />

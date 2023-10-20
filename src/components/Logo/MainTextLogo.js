@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { ReactComponent as Sara } from "../../images/logos/saratextlogo.svg";
 import { ReactComponent as Mara } from "../../images/logos/maratextlogo.svg";
 import { css, styled } from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const getCSSByStage = (stage) => {
   if (stage === "answer") {
@@ -20,6 +21,7 @@ const getCSSByStage = (stage) => {
 };
 
 const StyledMainTextLogo = styled.div`
+  cursor: pointer;
   ${({ stage }) => getCSSByStage(stage)}
   margin: auto;
   ${({ $getMainTextLogoStyles }) => $getMainTextLogoStyles}
@@ -29,9 +31,13 @@ const StyledMainTextLogo = styled.div`
 `;
 
 export default function MainTextLogo({ $type, ...rest }) {
-  console.log(rest.stage);
+  const navigate = useNavigate();
   return (
-    <StyledMainTextLogo {...rest} className="textLogo">
+    <StyledMainTextLogo
+      {...rest}
+      className="textLogo"
+      onClick={() => navigate("/")}
+    >
       {$type === "sara" ? <Sara className="sara" /> : <Mara className="mara" />}
     </StyledMainTextLogo>
   );
