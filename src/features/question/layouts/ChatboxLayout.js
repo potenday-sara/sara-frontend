@@ -22,7 +22,8 @@ const StyledChatboxLayout = styled.div`
   gap: 16px;
   margin: auto;
   padding: 48px 20px;
-  width: 368px;
+  margin-bottom: 50px;
+  width: 508px;
   max-width: 540px;
   background-color: ${(props) => getColorCode("white")};
   border-radius: 24px;
