@@ -1,9 +1,9 @@
 import React from "react";
 import { css, styled } from "styled-components";
-import { MainText } from "../Text/Text";
+import { BasicText, MainText } from "../Text/Text";
 import PropTypes from "prop-types";
-import { ReactComponent as Sara } from "../../images/logos/saralogo1.svg";
-import { ReactComponent as Mara } from "../../images/logos/maralogo1.svg";
+import { ReactComponent as Sara } from "../../images/logos/saratextcolor.svg";
+import { ReactComponent as Mara } from "../../images/logos/maratextcolor.svg";
 
 export const getBackgroundColor = ({ $backgroundColor }) => {
   switch ($backgroundColor) {
@@ -97,10 +97,42 @@ export const getButtonSize = ({ size }) => {
   }
 };
 
+const buttonColorByType = (type) => {
+  if (type === "sara")
+    return css`
+      color: #007bed;
+      background: linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.9) 0%,
+          rgba(255, 255, 255, 0.9) 100%
+        ),
+        #007bed;
+    `;
+  else
+    return css`
+      color: #ef2b00;
+      background: linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.9) 0%,
+          rgba(255, 255, 255, 0.9) 100%
+        ),
+        #ef2b00;
+    `;
+};
+
 export const StyledChoiceButton = styled.button`
-  ${() => getBasicButton()}
-  ${(props) => getBackgroundColor(props)}
-  ${(props) => getButtonSize(props)}
+  width: 100%;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  ${({ type }) => buttonColorByType(type)}
+  svg {
+    width: 74px;
+  }
 `;
 
 const StyledBasicButton = styled.button`
@@ -191,9 +223,9 @@ TrendButton.defaultProps = {
 
 export const ChoiceButton = ({ label, type, ...rest }) => {
   return (
-    <StyledChoiceButton {...rest}>
-      {type === "sara" ? <Sara /> : <Mara stroke="white" />}
-      <MainText type={"h1"} color={"white"} label={label} />
+    <StyledChoiceButton {...rest} type={type}>
+      {type === "sara" ? <Sara /> : <Mara stroke="" />}
+      <BasicText $bold={"lg"} label={label} $size={"xs"} />
     </StyledChoiceButton>
   );
 };
