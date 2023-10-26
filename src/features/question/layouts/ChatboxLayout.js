@@ -12,20 +12,32 @@ import TextLogo from "../../../components/Logo/MainTextLogo";
 import Character from "../../../components/Logo/Character";
 import { getColorCode } from "../../../Styles";
 import ChatTag from "../components/ChatTag";
+import { BasicText } from "../../../components/Text/Text";
 const StyledChatboxLayout = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 684px;
+  height: auto;
   gap: 16px;
   margin: auto;
   padding: 48px 20px;
   width: 368px;
   max-width: 540px;
-  background-color: ${(props) => getColorCode('white')};
+  background-color: ${(props) => getColorCode("white")};
   border-radius: 24px;
   box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
+
+  .texts {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ddd;
+  }
 `;
 
 export default function ChatboxLayout({ $type }) {
@@ -52,8 +64,23 @@ export default function ChatboxLayout({ $type }) {
 
   return (
     <StyledChatboxLayout $type>
-      <TextLogo $type={$type} />
-      <Character $type={$type} />
+      <TextLogo $type={$type} stage={Mutate.isSuccess ? "answer" : "answer"} />
+      {Mutate.isSuccess === true ? (
+        <div className="texts">
+          <BasicText label={"나의 질문"} $size={"xs"} $customColor={"#666"} />
+          <BasicText
+            label={"에어팟 프로"}
+            $color={$type === "sara" ? "blue" : "red"}
+            $bold={"lg"}
+          />
+        </div>
+      ) : null}
+      {Mutate.isIdle === true || Mutate.isSuccess === true ? (
+        <Character
+          $type={$type}
+          stage={Mutate.isSuccess ? "answer" : "answer"}
+        />
+      ) : null}
       <ChatTag />
       {Mutate.isIdle === true ? (
         <SaraMaraForm

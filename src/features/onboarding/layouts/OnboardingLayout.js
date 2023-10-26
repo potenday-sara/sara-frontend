@@ -5,13 +5,10 @@ import OnboardingArticleLayout from "./OnboardingArticleLayout";
 
 const StyledOnboardingLayout = styled.div`
   display: grid;
+  grid-template-columns: minmax(512px, 1fr) 208px minmax(512px, 1fr);
   min-height: calc(100vh - 64px);
-  grid-template-columns: minmax(500px, 1fr) 200px minmax(500px, 1fr);
-  grid-template-rows: 1fr;
   width: 100%;
-  @media screen and (${(props) => props.theme.desktopLarge}) {
-    grid-template-columns: minmax(840px, 1fr) 240px minmax(840px, 1fr);
-  }
+  height: 100%;
 `;
 
 /**
