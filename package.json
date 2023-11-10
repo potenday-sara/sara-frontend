@@ -75,5 +75,8 @@
     "webpack": "^5.83.1"
   },
   "readme": "ERROR: No README data found!",
-  "_id": "sara-frontend@0.1.0"
+  "_id": "sara-frontend@0.1.0",
+  "resolutions": {
+    "strip-ansi": "6.0.0"
+  }
 }
