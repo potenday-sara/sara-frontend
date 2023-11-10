@@ -13,8 +13,8 @@ const getBasicInputStyles = () => {
     align-items: center;
     border-radius: 16px;
     font-size: 14px;
-    border: 1px solid #CCC;
-    background: ${() => getColorCode('white')};
+    border: 1px solid #ccc;
+    background: ${() => getColorCode("white")};
     border-radius: 16px;
 
     &::placeholder {
@@ -32,17 +32,17 @@ const getBasicInputStyles = () => {
 };
 const getTextInputSizeStyles = () => {
   return css`
-    width: 320px;
+    width: 100%;
     height: 56px;
-  `
+  `;
 };
 
 const getTextAreaInputSizeStyles = () => {
   return css`
-    width: 320px;
+    width: 100%;
     height: 74px;
     padding: 18px 16px;
-  `
+  `;
 };
 
 const StyledInputBox = styled.div`
@@ -62,17 +62,27 @@ const StyledTextAreaInput = styled.textarea`
   text-align: center;
   ${() => getBasicInputStyles()}
   ${() => getTextAreaInputSizeStyles()}
-
 `;
 export const TextInput = ({ type, placeholder, label, id, ...rest }) => (
   <StyledInputBox>
-    <BasicText as="label" label={label} htmlFor={id} $size="sm" $bold="lg" $color="black" />
-    {
-      type === 'input' ?
-        <StyledTextInput placeholder={placeholder} type="text" {...rest} id={id} /> :
-        <StyledTextAreaInput placeholder={placeholder} {...rest} id={id} />
-
-    }
+    <BasicText
+      as="label"
+      label={label}
+      htmlFor={id}
+      $size="sm"
+      $bold="lg"
+      $color="black"
+    />
+    {type === "input" ? (
+      <StyledTextInput
+        placeholder={placeholder}
+        type="text"
+        {...rest}
+        id={id}
+      />
+    ) : (
+      <StyledTextAreaInput placeholder={placeholder} {...rest} id={id} />
+    )}
   </StyledInputBox>
 );
 
@@ -81,7 +91,7 @@ TextInput.propTypes = {
   placeholder: PropTypes.string,
   id: PropTypes.string,
   $color: PropTypes.string,
-  type: PropTypes.oneOf(['input', 'textarea']).isRequired
+  type: PropTypes.oneOf(["input", "textarea"]).isRequired,
 };
 
 TextInput.defaultProps = {

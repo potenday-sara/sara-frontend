@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import { useMutation } from "react-query";
 import { useNavigate } from "react-router-dom";
 import useInput from "../../../hooks/useInput";
@@ -13,6 +13,7 @@ import Character from "../../../components/Logo/Character";
 import { getColorCode } from "../../../Styles";
 import ChatTag from "../components/ChatTag";
 import { BasicText } from "../../../components/Text/Text";
+
 const StyledChatboxLayout = styled.div`
   position: relative;
   display: flex;
@@ -21,11 +22,11 @@ const StyledChatboxLayout = styled.div`
   height: auto;
   gap: 16px;
   margin: auto;
-  padding: 48px 20px;
+  padding: 64px 24px;
   margin-bottom: 50px;
   width: 508px;
   max-width: 540px;
-  background-color: ${(props) => getColorCode("white")};
+  background-color: ${() => getColorCode("white")};
   border-radius: 24px;
   box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
 

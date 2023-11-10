@@ -1,6 +1,5 @@
 import React from "react";
 import { styled } from "styled-components";
-import BubbleChartLayout from "./BubbleChartLayout";
 import { useQuery } from "react-query";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -16,7 +15,7 @@ const StyledQuestionLayout = styled.main`
   gap: 64px;
 
   display: grid;
-  grid-template-columns: 1fr 368px 1fr;
+  grid-template-columns: 1fr auto 1fr;
   grid-template-rows: 1fr;
   align-items: center;
 `;

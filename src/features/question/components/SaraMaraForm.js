@@ -7,6 +7,7 @@ import { TextInput, TextareaInput } from "../../../components/Form/Form";
 
 const StyledQuestion = styled.div`
   display: grid;
+  width: 100%;
   grid-template-rows: auto auto 60px;
   gap: 16px;
 `;
@@ -29,7 +30,7 @@ export default function SaraMaraForm({
       });
     }
   };
-  const color = $type === 'sara' ? 'blue' : 'red'
+  const color = $type === "sara" ? "blue" : "red";
   return (
     <StyledQuestion $type={$type}>
       <TextInput

@@ -1,96 +1,76 @@
 import React from "react";
-import { styled } from 'styled-components';
+import { styled } from "styled-components";
 import PropTypes from "prop-types";
+import { BasicText } from "../../../components/Text/Text";
+import TextLogo from "../../../components/Logo/TextLogo";
+import TrendItem from "../components/TrendItem";
 
+const StyledTrendItemLayout = styled.div`
+  width: 100%;
+  position: relative;
+  background-color: white;
+  margin-right: auto;
+  border-radius: 24px;
+  max-width: 394px;
+  height: 715px;
+  padding: 20px 16px;
+  border: 1px solid #ddd;
 
-const TrendItemStyle = styled.h2`
-  font-size: 16px !important;
-  font-weight: 700;
-  display: inline-block;
-  border-radius: 12px;
-  box-shadow: 4px 4px 24px rgba(0, 0, 0, 0.05);
-  background: #ffffff;
-  padding: 10px;
-  white-space: nowrap;
-  margin:5px;
-  
+  .title {
+    display: flex;
+    gap: 5px;
+  }
+  .trend-items {
+    margin-top: 23px;
+    display: grid;
+    gap: 12px;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+  .bottom {
+    width: 100%;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background: rgba(0, 123, 237, 0.05);
+    left: 0px;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    bottom: 0px;
+    p {
+      font-size: 10px !important;
+    }
+  }
 `;
 
-const TrendStyle = styled.div` 
-  width: 100%;
-  margin-right: auto;
-  max-width: 420px;
-  height: 500px;
-  padding-top: 40px;
-  margin: 0px 0px 150px 130px;
-
-  
-  .trend-box{
-    display: flex;
-    flex-direction: column;
-    width: max-content;
-    max-width:420px;
-    align-items: left-start;
-    justify-content : flex-start;
-    background-color: white;
-    height: 160px ;
-    border-radius: 16px;
-    
-    .box-top{
-      margin: 7px 0px 2px 21px;
-    }
-    
-    
-    h2{
-      font-size: 15px;
-      position: relative;
-      margin-top: 6px;
-      // margin-left:16px;
-    }
-  }
-
-  .trend-items{
-    display: flex;
-    width:420px;
-    height:200px;
-    flex-direction: row;
-    align-items: flex-start;
-    flex-wrap:wrap;
-    margin-right:5px;
-    margin-left:13px;
-    padding-bottom: 23px;
-
-    h2 {
-      background : ${(props) => (props.$type === "mara" ? "#ef2b00" : "#007bed")}; 
-      color: white;
-
-    }
-  }
-  `
-  ;
-
-
-export default function TrendItem ({ $type }) {
-  const items = [
-    '에어팟 맥스','삼성 비스포크 냉장고','공기 청정기','스트링백','뉴발란스 993'
-  ];
-
+export default function TrendItemLayout({ $type }) {
   return (
-    <TrendStyle $type={$type}>
-      <div className = "trend-box">
-        <div className="box-top">
-        <h2 className="box-top-text">인기 아이템</h2>
-        </div>
-        <div className ="trend-items" >
-          {items.map((itemList)=> (
-          <TrendItemStyle >{itemList}</TrendItemStyle>
-        ))}
-        </div>
+    <StyledTrendItemLayout $type={$type}>
+      <div className="title">
+        <TextLogo $type={$type} $fill={$type === "sara" ? "blue" : "red"} />
+        <BasicText label={"닭가슴살"} />
+        <BasicText label={"요즘 많이 팔리는"} />
       </div>
-    </TrendStyle>
-  ); 
+      <div className="trend-items">
+        <TrendItem />
+        <TrendItem />
+        <TrendItem />
+        <TrendItem />
+      </div>
+      <div className="bottom">
+        <BasicText
+          $color={"gray"}
+          label={
+            "*위 컨텐츠는 쿠팡 파트너스 활동의 일원으로 금전적 대가를 취할 수 있습니다"
+          }
+        />
+      </div>
+    </StyledTrendItemLayout>
+  );
 }
 
-TrendItem.propTypes = {
+TrendItemLayout.propTypes = {
   $type: PropTypes.oneOf(["sara", "mara"]).isRequired,
 };
