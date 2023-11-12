@@ -1,5 +1,7 @@
+import Lottie from "lottie-react";
 import { func } from "prop-types";
 import React from "react";
+import loading from "../assets/loadingLottie.json";
 import { styled } from "styled-components";
 
 const StyledSpinner = styled.div`
@@ -21,11 +23,13 @@ const StyledSpinner = styled.div`
     font-family: "Pretendard";
     font-size: 12px;
   }
+  margin-bottom: 20px;
 `;
 
 export default function Spinner({ $type }) {
   return (
     <StyledSpinner $type={$type}>
+      <Lottie animationData={loading} />
       <div className="main-text">
         {$type === "sara" ? "사라" : "마라"}가 대신 고민하고 있어요
       </div>

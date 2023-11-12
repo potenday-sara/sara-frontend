@@ -52,7 +52,6 @@ const StyledFooter = styled.div`
 
 export default function Footer() {
   const navigate = useLocation()
-  console.log(navigate)
   return (
     <StyledFooter>
       <FotterLogo />

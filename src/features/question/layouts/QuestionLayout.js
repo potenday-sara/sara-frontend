@@ -1,23 +1,21 @@
 import React from "react";
 import { styled } from "styled-components";
-import BubbleChartLayout from "./BubbleChartLayout";
 import { useQuery } from "react-query";
 import { useEffect } from "react";
 import { useState } from "react";
 import ChatBoxLayout from "./ChatboxLayout";
 import SectionLayout from "./SectionLayout";
+import TrendItemsLayout from "./TrendItemsLayout";
 import { getChartColor } from "../utils/getStyles";
 import { getRangking } from "../../main/apis/getRanking";
 
 const StyledQuestionLayout = styled.main`
   position: relative;
-  width: 90%;
-  gap: 50px;
-  min-width: 1200px;
-  max-width: 1920px;
-  margin: 100px auto;
+  width: 100%;
+  gap: 64px;
+
   display: grid;
-  grid-template-columns: 1fr 450px 1fr;
+  grid-template-columns: 1fr auto 1fr;
   grid-template-rows: 1fr;
   align-items: center;
 `;
@@ -42,9 +40,9 @@ export default function QuestionLayout({ $type }) {
 
   return (
     <StyledQuestionLayout>
-      <BubbleChartLayout $type={$type} data={BubbleData} />
-      <ChatBoxLayout $type={$type} />
       <SectionLayout $type={$type} />
+      <ChatBoxLayout $type={$type} />
+      <TrendItemsLayout $type={$type} />
     </StyledQuestionLayout>
   );
 }

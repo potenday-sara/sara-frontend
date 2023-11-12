@@ -16,6 +16,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@weknow/react-bubble-chart-d3": "^1.0.12",
     "axios": "^1.4.0",
+    "lottie-react": "^2.4.0",
     "react": "^18.2.0",
     "react-bubble-chart": "^0.4.0",
     "react-dom": "^18.2.0",
@@ -71,9 +72,11 @@
     "chromatic": "^6.17.4",
     "eslint-plugin-storybook": "^0.6.12",
     "prop-types": "^15.8.1",
-    "storybook": "^7.0.12",
     "webpack": "^5.83.1"
   },
   "readme": "ERROR: No README data found!",
-  "_id": "sara-frontend@0.1.0"
+  "_id": "sara-frontend@0.1.0",
+  "resolutions": {
+    "strip-ansi": "6.0.0"
+  }
 }

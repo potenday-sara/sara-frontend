@@ -31,22 +31,50 @@ export const getBoldCode = ($bold) => {
   }
 }
 
-export const getTextSizeCode = ($size) => {
+export const getDestopTextSizeCode = ($size) => {
   switch ($size) {
     case 'xs':
-      return '14px'
+      return css`
+        font-size : 14px;
+        @media screen and (${props => props.theme.desktopLarge}) {
+          font-size : 16px;
+          
+        }
+      `
     case 'sm':
-      return '16px'
+      return css`
+        font-size : 16px;
+        @media screen and (${props => props.theme.desktopLarge}) {
+          font-size : 24px;
+        }
+      `
     case 'md':
-      return '18px'
+      return css`
+        font-size : 18px;
+        @media screen and (${props => props.theme.desktopLarge}) {
+          font-size : 26px;
+        }
+      `
     case 'lg':
-      return '20px'
+      return css`
+        font-size : 20px;
+        @media screen and (${props => props.theme.desktopLarge}) {
+          font-size : 28px;
+        }
+      `
     case 'xl':
-      return '22px'
+      return css`
+        font-size : 22px;
+        @media screen and (${props => props.theme.desktopLarge}) {
+          font-size : 30px;
+        }
+      `
     default:
       return $size
   }
 }
+
+
 
 
 
@@ -151,9 +179,12 @@ export const GlobalStyles = createGlobalStyle`
 // };
 
 export const windowSize = {
-  base: "max-width: 1920px",
+  desktopLarge: '1920px',
 };
 
+export const Theme = {
+  desktopLarge: `(min-width:${windowSize.desktopLarge})`,
+}
 
 /**
  * type을 기준으로 색깔을 정해주는 함수입니다
@@ -163,3 +194,4 @@ export const windowSize = {
 export const getColorByType = ($type) => {
   return $type === 'sara' ? 'blue' : 'red'
 }
+
