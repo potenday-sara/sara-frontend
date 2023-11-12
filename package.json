@@ -17,6 +17,7 @@
     "@weknow/react-bubble-chart-d3": "^1.0.12",
     "axios": "^1.4.0",
     "lottie-react": "^2.4.0",
+    "prettier": "2.8.8",
     "react": "^18.2.0",
     "react-bubble-chart": "^0.4.0",
     "react-dom": "^18.2.0",
@@ -70,6 +71,9 @@
     "@storybook/testing-library": "^0.0.14-next.2",
     "babel-plugin-named-exports-order": "^0.0.2",
     "chromatic": "^6.17.4",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-storybook": "^0.6.12",
     "prop-types": "^15.8.1",
     "webpack": "^5.83.1"

@@ -1,24 +1,23 @@
-import React from "react";
-import { css, styled } from "styled-components";
-import PropTypes from "prop-types";
-import { ReactComponentElement } from "react";
-import { getBoldCode, getColorCode, getDestopTextSizeCode } from "../../Styles";
+import React from 'react';
+import { css, styled } from 'styled-components';
+import PropTypes from 'prop-types';
+import { getBoldCode, getColorCode, getDestopTextSizeCode } from '../../Styles';
 
-const textColor = ({ color = "black" }) => {
+const textColor = ({ color = 'black' }) => {
   switch (color) {
-    case "white":
+    case 'white':
       return css`
         color: #ffffff;
       `;
-    case "black":
+    case 'black':
       return css`
         color: #333333;
       `;
-    case "red":
+    case 'red':
       return css`
         color: #ef2b00;
       `;
-    case "blue":
+    case 'blue':
       return css`
         color: #007bed;
       `;
@@ -30,7 +29,7 @@ const textColor = ({ color = "black" }) => {
 };
 
 const basicTextStyle = () => css`
-  font-family: "Pretendard";
+  font-family: 'Pretendard';
   letter-spacing: 0.0015em;
 `;
 
@@ -74,7 +73,6 @@ const StyledBasicText = styled.p`
 `;
 
 /**
- *
  * 기본 프린텐다드 텍스트를 제공하는 함수입니다. 대표 색상 다섯가지 이외의 색상을 사용하고 싶은 경우
  * customColor를 활용해 주세요
  * @param {['sm', 'md', 'lg']} bold 텍스트 굵기 설정 (default : md)
@@ -90,30 +88,35 @@ export const BasicText = ({ label, ...rest }) => {
 };
 
 BasicText.propTypes = {
-  $bold: PropTypes.oneOf(["sm", "md", "lg"]),
-  $size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
-  $color: PropTypes.oneOf(["blue", "red", "gray", "white", "black"]),
+  $bold: PropTypes.oneOf(['sm', 'md', 'lg']),
+  $size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  $color: PropTypes.oneOf(['blue', 'red', 'gray', 'white', 'black']),
   $customColor: PropTypes.string,
   label: PropTypes.string,
   onClick: PropTypes.func,
 };
 
 BasicText.defaultProps = {
-  $bold: "md",
-  $size: "md",
-  $customColor: "",
+  $bold: 'md',
+  $size: 'md',
+  $customColor: '',
   onClick: undefined,
 };
 
 export const MainText = ({ type, label, ...rest }) => {
   switch (type) {
-    case "h1":
+    case 'h1':
       return <StyledH1Text {...rest}>{label}</StyledH1Text>;
 
-    case "h2":
+    case 'h2':
       return <StyledH2Text {...rest}>{label}</StyledH2Text>;
 
     default:
       return <StyledPText {...rest}>{label}</StyledPText>;
   }
+};
+
+MainText.propTypes = {
+  type: PropTypes.string,
+  label: PropTypes.string,
 };
