@@ -1,14 +1,12 @@
-import { css, styled } from "styled-components";
-import { getColorByType, getColorCode, getTextColor } from "../../../Styles";
-import RealtimeKeyword from "./RealtimeTrend";
-import { useEffect } from "react";
-import { useState } from "react";
-import PropTypes from "prop-types";
-import { BasicText } from "../../../components/Text/Text";
-import { ReactComponent as SaraText } from "../../../images/logos/SaraText.svg"
-import { ReactComponent as MaraText } from "../../../images/logos/MaraText.svg"
-import TextLogo from "../../../components/Logo/TextLogo";
+import React from 'react';
+import { css, styled } from 'styled-components';
+import { getColorByType, getColorCode } from '../../../Styles';
+import RealtimeKeyword from './RealtimeTrend';
 
+import PropTypes from 'prop-types';
+import { BasicText } from '../../../components/Text/Text';
+
+import TextLogo from '../../../components/Logo/TextLogo';
 
 const StyledRealtimeKeywords = styled.div`
   width: 100%;
@@ -32,7 +30,7 @@ const StyledRealtimeKeywords = styled.div`
     justify-content: center;
     align-items: center;
     padding: 8px;
-    gap : 4px;
+    gap: 4px;
     background-color: #eee;
   }
 `;
@@ -40,26 +38,38 @@ const StyledRealtimeKeywords = styled.div`
 const $getTextLogoStyles = css`
   width: 63px;
   height: 16px;
-`
-
+`;
 
 export default function RealtimeTrends({ $type, data }) {
-  const color = getColorByType($type)
-  const dataInOrder = data.map((i) => i.object)
+  const color = getColorByType($type);
+  const dataInOrder = data.map((i) => i.object);
 
   return (
     <StyledRealtimeKeywords $type={$type} $color={color}>
       <div className="realtime-title">
-        {$type === 'sara' ? <TextLogo $getTextLogoStyles={$getTextLogoStyles} $fill={'white'} $type={$type} /> : <TextLogo $fill={'white'} $type={$type} $getTextLogoStyles={$getTextLogoStyles} />}
-        <BasicText
-          label={'실시간 트렌드'}
-          $color="white"
-          $size="xs"
-        />
+        {$type === 'sara' ? (
+          <TextLogo
+            $getTextLogoStyles={$getTextLogoStyles}
+            $fill={'white'}
+            $type={$type}
+          />
+        ) : (
+          <TextLogo
+            $fill={'white'}
+            $type={$type}
+            $getTextLogoStyles={$getTextLogoStyles}
+          />
+        )}
+        <BasicText label={'실시간 트렌드'} $color="white" $size="xs" />
       </div>
       <div className="realtime-trends">
         {dataInOrder.slice(0, 5).map((trend, idx) => (
-          <RealtimeKeyword key={["trend", idx]} $type={$type} idx={idx + 1} trend={trend} />
+          <RealtimeKeyword
+            key={['trend', idx]}
+            $type={$type}
+            idx={idx + 1}
+            trend={trend}
+          />
         ))}
       </div>
     </StyledRealtimeKeywords>
@@ -67,7 +77,7 @@ export default function RealtimeTrends({ $type, data }) {
 }
 
 RealtimeTrends.propTypes = {
-  $type: PropTypes.oneOf(["sara", "mara"]).isRequired,
+  $type: PropTypes.oneOf(['sara', 'mara']).isRequired,
   data: PropTypes.array.isRequired,
 };
 

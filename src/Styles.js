@@ -1,4 +1,54 @@
 import { createGlobalStyle, css } from 'styled-components';
+import reset from 'styled-reset';
+
+export const colorPalete = [
+  'saraPrimary',
+  'saraSecondary',
+  'maraPrimary',
+  'maraSecondary',
+  'white',
+  'black',
+];
+
+export const Theme = {
+  color: {
+    // 테마 색깔
+    maraPrimary: '#ef2b00',
+    maraSecondary: '#fddfd9',
+    saraPrimary: '#007bed',
+    saraSecondary: '#d9ebfc',
+    // 기본색깔
+    white: '#fff',
+    black: '#333',
+  },
+};
+
+/**
+ * 테마색의 컬러 코드를 리턴하는 함수
+ * @param {string} saraPrimary
+ * @param {string} saraSecondaray
+ * @param {string} maraPrimary
+ * @param {string} maraSecondary
+ * @param {string} white
+ * @param {string} black
+ * @returns
+ */
+export const getColorCodeByType = (color) => {
+  switch (color) {
+    case 'saraPrimary':
+      return Theme.color.saraPrimary;
+    case 'saraSecondaray':
+      return Theme.color.saraSecondary;
+    case 'maraPrimary':
+      return Theme.color.maraPrimary;
+    case 'maraSecondary':
+      return Theme.color.maraSecondary;
+    case 'white':
+      return Theme.color.white;
+    case 'black':
+      return Theme.color.black;
+  }
+};
 
 /**
  * 프로젝트에서 사용하는 컬러 코드를 반환하는 코드입니다.
@@ -138,6 +188,7 @@ export const getBasicButton = () => css`
 `;
 
 export const GlobalStyles = createGlobalStyle`
+  ${reset}
   *, *::before, *::after {
     box-sizing: border-box;
     font-weight: 700;
@@ -165,30 +216,9 @@ export const GlobalStyles = createGlobalStyle`
     justify-content: center;
     align-items: center;
   }
+
+
 `;
-
-// export const device = {
-//   mobile: "min-width: 0px",
-//   laptop: "min-width: 1024px",
-// };
-
-export const windowSize = {
-  desktopLarge: '1920px',
-};
-
-export const Theme = {
-  desktopLarge: `(min-width:${windowSize.desktopLarge})`,
-  color: {
-    // 테마 색깔
-    saraPrimary: '#ef2b00',
-    saraSecondary: '#fddfd9',
-    maraPrimary: '#007bed',
-    maraSecondary: '#d9ebfc',
-    // 기본색깔
-    white: '#fff',
-    black: '#333',
-  },
-};
 
 /**
  * type을 기준으로 색깔을 정해주는 함수입니다

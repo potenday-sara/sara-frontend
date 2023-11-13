@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { styled } from "styled-components";
-import OnboardingSectionLayout from "./OnboardingSectionLayout";
-import OnboardingArticleLayout from "./OnboardingArticleLayout";
+import React, { useState } from 'react';
+import { styled } from 'styled-components';
+import OnboardingSectionLayout from './OnboardingSectionLayout';
+import MainAside from '../components/templates/MainAside';
 
 const StyledOnboardingLayout = styled.div`
   display: grid;
@@ -15,7 +15,7 @@ const StyledOnboardingLayout = styled.div`
  * 온보딩페에지의 기본 레이아웃입니다.
  */
 export default function OnboardingLayout() {
-  const [isSelected, setIsSelected] = useState("sara");
+  const [isSelected, setIsSelected] = useState('sara');
   const setSelectedType = ($type) => {
     setIsSelected($type);
   };
@@ -26,10 +26,7 @@ export default function OnboardingLayout() {
         isSelected={isSelected}
         setSelectedType={setSelectedType}
       />
-      <OnboardingArticleLayout
-        $type={isSelected}
-        setSelectedType={setSelectedType}
-      />
+      <MainAside $type={isSelected} setSelectedType={setSelectedType} />
       <OnboardingSectionLayout
         $type="mara"
         isSelected={isSelected}

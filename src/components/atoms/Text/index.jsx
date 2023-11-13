@@ -2,12 +2,33 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { getBoldCode, getColorCode } from '../../../Styles';
+import { getBoldCode, getColorCodeByType } from '../../../Styles';
 
-const StyledBasicText = styled.p`
+const getTextSize = (size) => {
+  switch (size) {
+    case 'xs':
+      return '0.5rem';
+    case 'sm':
+      return '0.75rem';
+
+    case 'md':
+      return '1rem';
+    case 'lg':
+      return '1.25rem';
+
+    case 'xl':
+      return '1.5rem';
+
+    default:
+      return size;
+  }
+};
+
+const StyledText = styled.p`
   color: ${({ $customColor, $color }) =>
-    $customColor ? $customColor : getColorCode($color)};
+    $customColor ? $customColor : getColorCodeByType($color)};
   font-weight: ${({ $bold }) => getBoldCode($bold)};
+  font-size: ${({ $size }) => getTextSize($size)};
   font-family: Pretendard;
   white-space: pre-line;
   ${({ $textStyles }) => $textStyles}
@@ -23,14 +44,20 @@ const StyledBasicText = styled.p`
  * @param {string} $textStyles css 정보를 바탕으로 css 설정
  * @return {ReactComponentElement} React Text Component
  */
-export const BasicText = ({ label, ...rest }) => {
-  return <StyledBasicText {...rest}>{label}</StyledBasicText>;
-};
-BasicText.propTypes = {
+
+export default function Text({ label, ...rest }) {
+  return <StyledText {...rest}>{label}</StyledText>;
+}
+
+Text.propTypes = {
   $bold: PropTypes.oneOf(['sm', 'md', 'lg']),
   $size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   $color: PropTypes.oneOf(['blue', 'red', 'gray', 'white', 'black']),
   $customColor: PropTypes.string,
   label: PropTypes.string,
   onClick: PropTypes.func,
+};
+
+Text.defaultProps = {
+  $size: 'md',
 };
