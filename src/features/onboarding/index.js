@@ -1,11 +1,8 @@
-import { styled } from "styled-components";
-import OnboardingLayout from "./layouts/OnboardingLayout";
+import React from 'react';
+import { styled } from 'styled-components';
+import OnboardingLayout from './layouts/OnboardingLayout';
 
 const StyledOnboarding = styled.div`
-  width: 100%;
-  height: auto;
-  /* overflow: hidden; */
-  /* height: auto; */
   @media screen and (${(props) => props.theme.desktopLarge}) {
   }
 `;

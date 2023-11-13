@@ -12,7 +12,7 @@ export const getColorCode = ($color) => {
     case 'red':
       return '#ef2b00';
     case 'gray':
-      return '#0000004d';
+      return '#00004d';
     case 'white':
       return '#ffffff';
     case 'black':
@@ -178,9 +178,15 @@ export const windowSize = {
 
 export const Theme = {
   desktopLarge: `(min-width:${windowSize.desktopLarge})`,
-  type: {
+  color: {
+    // 테마 색깔
     saraPrimary: '#ef2b00',
+    saraSecondary: '#fddfd9',
     maraPrimary: '#007bed',
+    maraSecondary: '#d9ebfc',
+    // 기본색깔
+    white: '#fff',
+    black: '#333',
   },
 };
 

@@ -2,13 +2,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { getBoldCode, getColorCode, getDestopTextSizeCode } from '../../Styles';
+import { getBoldCode, getColorCode } from '../../../Styles';
 
 const StyledBasicText = styled.p`
   color: ${({ $customColor, $color }) =>
     $customColor ? $customColor : getColorCode($color)};
   font-weight: ${({ $bold }) => getBoldCode($bold)};
-  ${({ $size }) => getDestopTextSizeCode($size)};
   font-family: Pretendard;
   white-space: pre-line;
   ${({ $textStyles }) => $textStyles}
@@ -22,12 +21,11 @@ const StyledBasicText = styled.p`
  * @param {color} color 희망하는 색깔 설정
  * @param {String} label 텍스트 입력 값 (Required)
  * @param {string} $textStyles css 정보를 바탕으로 css 설정
- * @returns {ReactComponentElement} React Text Component
+ * @return {ReactComponentElement} React Text Component
  */
 export const BasicText = ({ label, ...rest }) => {
   return <StyledBasicText {...rest}>{label}</StyledBasicText>;
 };
-
 BasicText.propTypes = {
   $bold: PropTypes.oneOf(['sm', 'md', 'lg']),
   $size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),

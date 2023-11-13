@@ -1,8 +1,8 @@
-import React from "react";
-import { css, styled } from "styled-components";
-import PropTypes from "prop-types";
-import { BasicText, MainText } from "../Text/Text";
-import { getColorCode } from "../../Styles";
+import React from 'react';
+import { css, styled } from 'styled-components';
+import PropTypes from 'prop-types';
+import { BasicText } from '../Text/Text';
+import { getColorCode } from '../../Styles';
 
 const getBasicInputStyles = () => {
   return css`
@@ -14,7 +14,7 @@ const getBasicInputStyles = () => {
     border-radius: 16px;
     font-size: 14px;
     border: 1px solid #ccc;
-    background: ${() => getColorCode("white")};
+    background: ${() => getColorCode('white')};
     border-radius: 16px;
 
     &::placeholder {
@@ -63,17 +63,17 @@ const StyledTextAreaInput = styled.textarea`
   ${() => getBasicInputStyles()}
   ${() => getTextAreaInputSizeStyles()}
 `;
-export const TextInput = ({ type, placeholder, label, id, ...rest }) => (
+export const TextInput = ({ type, placeholder, id, ...rest }) => (
   <StyledInputBox>
     <BasicText
       as="label"
-      label={label}
+      // label={label}
       htmlFor={id}
       $size="sm"
       $bold="lg"
       $color="black"
     />
-    {type === "input" ? (
+    {type === 'input' ? (
       <StyledTextInput
         placeholder={placeholder}
         type="text"
@@ -91,12 +91,12 @@ TextInput.propTypes = {
   placeholder: PropTypes.string,
   id: PropTypes.string,
   $color: PropTypes.string,
-  type: PropTypes.oneOf(["input", "textarea"]).isRequired,
+  type: PropTypes.oneOf(['input', 'textarea']).isRequired,
 };
 
 TextInput.defaultProps = {
-  value: "",
-  size: "small",
+  value: '',
+  size: 'small',
   onChange: undefined,
-  placeholder: "",
+  placeholder: '',
 };
