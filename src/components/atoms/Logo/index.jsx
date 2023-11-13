@@ -41,7 +41,9 @@ const getLogoByType = (logoType, fill) => {
  */
 export default function Logo({ fill, logoType, ...rest }) {
   return (
-    <StyledLogoWrap {...rest}>{getLogoByType(logoType, fill)}</StyledLogoWrap>
+    <StyledLogoWrap {...rest} className="logo-wrap">
+      {getLogoByType(logoType, fill)}
+    </StyledLogoWrap>
   );
 }
 

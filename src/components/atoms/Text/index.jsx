@@ -7,9 +7,9 @@ import { getBoldCode, getColorCodeByType } from '../../../Styles';
 const getTextSize = (size) => {
   switch (size) {
     case 'xs':
-      return '0.5rem';
+      return '0.9rem';
     case 'sm':
-      return '0.75rem';
+      return '0.95rem';
 
     case 'md':
       return '1rem';

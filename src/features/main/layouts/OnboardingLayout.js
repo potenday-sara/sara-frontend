@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { styled } from 'styled-components';
-import OnboardingSectionLayout from './OnboardingSectionLayout';
+import OnboardingSectionLayout from '../components/templates/MainSection';
 import MainAside from '../components/templates/MainAside';
 
 const StyledOnboardingLayout = styled.div`

@@ -6,6 +6,10 @@ export default function TrendLabels() {
   return (
     <StyledTrendLabels>
       <TrendLabel />
+      <TrendLabel />
+      <TrendLabel />
+      <TrendLabel />
+      <TrendLabel />
     </StyledTrendLabels>
   );
 }
