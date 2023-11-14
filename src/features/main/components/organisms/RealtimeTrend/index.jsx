@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import StyledRealtimeTrend from './styles';
 import TrendLabels from '../../molecules/TrendLabels';
 import TrendTitle from '../../molecules/TrendTitle';
+import SaraMaraContext from '../../../stores/SaraMaraContext';
 
 export default function RealtimeTrend() {
+  const { type } = useContext(SaraMaraContext);
+
   return (
     <StyledRealtimeTrend $color={'saraPrimary'}>
-      <TrendTitle />
+      <TrendTitle $type={type} />
       <TrendLabels />
     </StyledRealtimeTrend>
   );

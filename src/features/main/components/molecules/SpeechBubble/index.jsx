@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from 'styled-components';
-import TitleLines from '../../TitleLines';
+import TitleLines from '../../atoms/CharacterChat';
 
 import PropTypes from 'prop-types';
 import Text from '../../../../../components/atoms/Text';

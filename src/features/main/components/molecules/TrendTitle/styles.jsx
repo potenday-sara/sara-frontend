@@ -10,6 +10,10 @@ const StyledTrendTitle = styled.div`
   width: 100%;
   height: 48px;
   background-color: ${({ $color }) => getColorCodeByType($color)};
+
+  .logo-wrap {
+    width: 80px;
+  }
 `;
 
 export default StyledTrendTitle;
