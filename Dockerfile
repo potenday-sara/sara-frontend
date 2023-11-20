@@ -1,15 +1,16 @@
 # build environment
 FROM node:20 as build
+RUN npm install -g yarn
 WORKDIR /app
 COPY package.json ./
-COPY package-lock.json ./
-RUN npm install --silent
+COPY yarn-lock.json ./
+RUN yarn install --silent
 COPY . ./
-RUN npm run build
+RUN yarn build
 
 # production environment
 FROM nginx:stable-alpine
-COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=build /app/build /usr/share/nginx/html
 # new
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80

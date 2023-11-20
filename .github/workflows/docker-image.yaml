@@ -3,52 +3,52 @@ name: Build and Push Docker image
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3 
 
-    - name: Login to Harbor
-      uses: docker/login-action@v1
-      with:
-        registry: harbor.sara-mara.com
-        username: ${{ secrets.HARBOR_USERNAME }}
-        password: ${{ secrets.HARBOR_PASSWORD }}
+      - name: Login to Harbor
+        uses: docker/login-action@v1
+        with:
+          registry: harbor.sara-mara.com
+          username: ${{ secrets.HARBOR_USERNAME }}
+          password: ${{ secrets.HARBOR_PASSWORD }}
 
-    - name: Get the version
-      id: get_version
-      run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
 
-    - name: Build and push
-      uses: docker/build-push-action@v2
-      with:
-        context: .
-        push: true
-        tags: harbor.sara-mara.com/sara/backend:${{ steps.get_version.outputs.VERSION }}
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: harbor.sara-mara.com/sara/client:${{ steps.get_version.outputs.VERSION }}
 
-    - name: Checkout CD repository
-      uses: actions/checkout@v2
-      with:
-        repository: potenday-sara/sara-resources
-        token: ${{ secrets.CD_REPO_TOKEN }}
+      - name: Checkout CD repository
+        uses: actions/checkout@v2
+        with:
+          repository: potenday-sara/sara-resources
+          token: ${{ secrets.CD_REPO_TOKEN }}
 
-    - name: Update image tag in deployment.yaml
-      run: |
-        cd backend
-        kustomize edit set image harbor.sara-mara.com/sara/backend=harbor.sara-mara.com/sara/backend:${{ steps.get_version.outputs.VERSION }}
+      - name: Update image tag in deployment.yaml
+        run: |
+          cd client
+          kustomize edit set image harbor.sara-mara.com/sara/client=harbor.sara-mara.com/sara/client:${{ steps.get_version.outputs.VERSION }}
 
-    - name: Commit and push changes
-      run: |
-        git config user.name "GitHub Actions"
-        git config user.email "actions@github.com"
-        git add .
-        git commit -m "Update image tag to ${{ steps.get_version.outputs.VERSION }}"
-        git push
+      - name: Commit and push changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Update image tag to ${{ steps.get_version.outputs.VERSION }}"
+          git push
