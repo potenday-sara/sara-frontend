@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import StyledTrendLabels from './styles';
 import TrendLabel from '../../atoms/TrendLabel';
-import SaraMaraContext from '../../../stores/SaraMaraContext';
+import SaraMaraContext from '../../../stores/Wrapped';
 
 const contents = ['나이키 조던', '나이키 조던', '나이키 조던'];
 

@@ -8,7 +8,7 @@ import CharacterName from '../../atoms/CharacterName';
 import TextLabel from '../../../../../components/TextLabel/TextLabel';
 import { useNavigate } from 'react-router';
 import StyledMainSection from './styles';
-import SaraMaraContext from '../../../stores/SaraMaraContext';
+import SaraMaraContext from '../../../stores/Wrapped';
 
 const textLabelStyles = css`
   display: flex;

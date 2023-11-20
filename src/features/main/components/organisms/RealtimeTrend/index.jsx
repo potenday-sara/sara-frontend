@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import StyledRealtimeTrend from './styles';
 import TrendLabels from '../../molecules/TrendLabels';
 import TrendTitle from '../../atoms/TrendTitle';
-import SaraMaraContext from '../../../stores/SaraMaraContext';
+import SaraMaraContext from '../../../stores/Wrapped';
 
 export default function RealtimeTrend() {
   const { type } = useContext(SaraMaraContext);

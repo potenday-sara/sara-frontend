@@ -1,4 +1,4 @@
-import { axios } from "../../../lib/axios";
+import axios from '../../../lib/axios';
 
 export const postScore = (id, score) => {
   const data = {
@@ -6,5 +6,5 @@ export const postScore = (id, score) => {
     questionId: id,
   };
 
-  return axios({ method: "post", url: "/assess/score", data });
+  return axios({ method: 'post', url: '/assess/score', data });
 };

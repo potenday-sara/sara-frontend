@@ -3,7 +3,7 @@ import Logo from '../../../../../components/atoms/Logo';
 import RealtimeTrend from '../../organisms/RealtimeTrend';
 import StyledMainAside from './styles';
 import FlatButton from '../../atoms/FlatButton';
-import SaraMaraContext from '../../../stores/SaraMaraContext';
+import SaraMaraContext from '../../../stores/Wrapped';
 import PropTypes from 'prop-types';
 
 export default function MainAside({ type }) {
