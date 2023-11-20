@@ -4,11 +4,11 @@ import Logo from '../../../../../components/atoms/Logo';
 import Text from '../../../../../components/atoms/Text';
 import PropTypes from 'prop-types';
 
-export default function TrendTitle({ $type }) {
+export default function TrendTitle({ type }) {
   return (
-    <StyledTrendTitle $color={$type === 'sara' ? 'saraPrimary' : 'maraPrimary'}>
+    <StyledTrendTitle $color={type === 'sara' ? 'saraPrimary' : 'maraPrimary'}>
       <Logo
-        logoType={$type === 'sara' ? 'SaraTextOnly' : 'MaraTextOnly'}
+        logoType={type === 'sara' ? 'SaraTextOnly' : 'MaraTextOnly'}
         fill={'white'}
       />
       <Text

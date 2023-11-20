@@ -4,9 +4,10 @@
     "es2021": true
   },
   "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
-    // "plugin:prettier/recommended"
+    // 리팩토링 시 주석 처리
+    // "eslint:recommended",
+    // "plugin:react/recommended"
+    "plugin:prettier/recommended"
   ],
   "parserOptions": {
     "ecmaVersion": "latest",

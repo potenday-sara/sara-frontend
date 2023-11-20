@@ -9,8 +9,8 @@ export default function RealtimeTrend() {
 
   return (
     <StyledRealtimeTrend $color={'saraPrimary'}>
-      <TrendTitle $type={type} />
-      <TrendLabels />
+      <TrendTitle type={type} />
+      <TrendLabels type={type} />
     </StyledRealtimeTrend>
   );
 }

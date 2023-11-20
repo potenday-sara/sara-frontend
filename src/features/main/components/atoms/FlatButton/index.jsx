@@ -3,20 +3,14 @@ import StyledFlatButton from './styles';
 import Logo from '../../../../../components/atoms/Logo';
 import PropTypes from 'prop-types';
 
-export default function FlatButton({ type, activated, onClick }) {
+export default function FlatButton({ type, activated, onClick, children }) {
   return (
     <StyledFlatButton
       className={activated ? 'activated' : 'non-activated'}
       $type={type}
       onClick={onClick}
     >
-      <Logo
-        logoType={
-          type === 'sara'
-            ? 'SaraTextWithCircleWhite'
-            : 'MaraTextWithCircleWhite'
-        }
-      />
+      {children}
     </StyledFlatButton>
   );
 }

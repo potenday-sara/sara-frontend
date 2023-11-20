@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Logo from '../../../../../components/atoms/Logo';
 import RealtimeTrend from '../../organisms/RealtimeTrend';
 import StyledMainAside from './styles';
@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 
 export default function MainAside({ type }) {
   const { setSara, setMara } = useContext(SaraMaraContext);
+
   return (
     <StyledMainAside>
       <div className="aside-top">
@@ -15,16 +16,12 @@ export default function MainAside({ type }) {
       </div>
       <div className="aside-head">
         <RealtimeTrend />
-        <FlatButton
-          type={'sara'}
-          activated={type === 'sara'}
-          onClick={setSara}
-        />
-        <FlatButton
-          type={'mara'}
-          activated={type === 'mara'}
-          onClick={setMara}
-        />
+        <FlatButton type={'sara'} activated={type === 'sara'} onClick={setSara}>
+          <Logo logoType={'SaraTextWithCircleWhite'} />
+        </FlatButton>
+        <FlatButton type={'mara'} activated={type === 'mara'} onClick={setMara}>
+          <Logo logoType={'MaraTextWithCircleWhite'} />
+        </FlatButton>
       </div>
     </StyledMainAside>
   );
