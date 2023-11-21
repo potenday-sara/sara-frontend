@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { GlobalStyles } from './Styles';
-import { QuestionRoutes } from './features/question';
+import QuestionPage from './features/question';
 import Footer from './components/Footer/Footer';
 import Onboarding from './features/main';
 import Navbar from './components/Navbar/Navbar';
@@ -13,7 +13,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Onboarding />} />
-        <Route path="/question/*" element={<QuestionRoutes />} />
+        <Route path="/question/*" element={<QuestionPage />} />
       </Routes>
       <Footer />
     </>

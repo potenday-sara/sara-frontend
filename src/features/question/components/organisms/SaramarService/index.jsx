@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import { useMutation } from "react-query";
-import { useNavigate } from "react-router-dom";
-import useInput from "../../../hooks/useInput";
-import SaraMaraForm from "../components/SaraMaraForm";
-import Spinner from "../components/Spinner";
-import Answer from "../components/Answer";
-import PropTypes from "prop-types";
-import { postQuestion } from "../apis/postQuestion";
-import TextLogo from "../../../components/Logo/MainTextLogo";
-import Character from "../../../components/Logo/Character";
-import { getColorCode } from "../../../Styles";
-import ChatTag from "../components/ChatTag";
-import { BasicText } from "../../../components/Text/Text";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { useMutation } from 'react-query';
+import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { getColorCode } from '../../../../../Styles';
+import useInput from '../../../../../hooks/useInput';
+import { postQuestion } from '../../../apis/postQuestion';
+import TextLogo from '../../../../../components/Logo/TextLogo';
+import { BasicText } from '../../../../../components/Text/Text';
+import Character from '../../../../../components/Logo/Character';
+import ChatTag from '../../ChatTag';
+import SaraMaraForm from '../../SaraMaraForm';
+import Answer from '../../Answer';
+import Spinner from '../../Spinner';
 
 const StyledChatboxLayout = styled.div`
   position: relative;
@@ -26,7 +26,7 @@ const StyledChatboxLayout = styled.div`
   margin-bottom: 50px;
   width: 508px;
   max-width: 540px;
-  background-color: ${() => getColorCode("white")};
+  background-color: ${() => getColorCode('white')};
   border-radius: 24px;
   box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
 
@@ -66,21 +66,21 @@ export default function ChatboxLayout({ $type }) {
 
   return (
     <StyledChatboxLayout $type>
-      <TextLogo $type={$type} stage={Mutate.isSuccess ? "answer" : "answer"} />
+      <TextLogo $type={$type} stage={Mutate.isSuccess ? 'answer' : 'answer'} />
       {Mutate.isSuccess === true ? (
         <div className="texts">
-          <BasicText label={"나의 질문"} $size={"xs"} $customColor={"#666"} />
+          <BasicText label={'나의 질문'} $size={'xs'} $customColor={'#666'} />
           <BasicText
-            label={"에어팟 프로"}
-            $color={$type === "sara" ? "blue" : "red"}
-            $bold={"lg"}
+            label={'에어팟 프로'}
+            $color={$type === 'sara' ? 'blue' : 'red'}
+            $bold={'lg'}
           />
         </div>
       ) : null}
       {Mutate.isIdle === true || Mutate.isSuccess === true ? (
         <Character
           $type={$type}
-          stage={Mutate.isSuccess ? "answer" : "answer"}
+          stage={Mutate.isSuccess ? 'answer' : 'answer'}
         />
       ) : null}
       <ChatTag />
@@ -103,5 +103,5 @@ export default function ChatboxLayout({ $type }) {
 }
 
 ChatboxLayout.propTypes = {
-  $type: PropTypes.oneOf(["sara", "mara"]).isRequired,
+  $type: PropTypes.oneOf(['sara', 'mara']).isRequired,
 };
