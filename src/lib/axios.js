@@ -1,5 +1,7 @@
 import Axios from 'axios';
 
-export default axios = Axios.create({
+const axios = Axios.create({
   baseURL: 'https://api.sara-mara.com/',
 });
+
+export default axios;
