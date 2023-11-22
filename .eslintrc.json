@@ -5,9 +5,9 @@
   },
   "extends": [
     // 리팩토링 시 주석 처리
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:prettier/recommended"
+    // "eslint:recommended",
+    // "plugin:react/recommended",
+    // "plugin:prettier/recommended"
   ],
   "parser": "@babel/eslint-parser",
   "parserOptions": {

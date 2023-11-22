@@ -25,13 +25,13 @@ const getTextSize = (size) => {
 };
 
 const StyledText = styled.p`
-  color: ${({ $customColor, $color }) =>
-    $customColor ? $customColor : getColorCodeByType($color)};
-  font-weight: ${({ $bold }) => getBoldCode($bold)};
-  font-size: ${({ $size }) => getTextSize($size)};
+  color: ${({ customColor, color }) =>
+    customColor ? customColor : getColorCodeByType(color)};
+  font-weight: ${({ bold }) => getBoldCode(bold)};
+  font-size: ${({ size }) => getTextSize(size)};
   font-family: Pretendard;
   white-space: pre-line;
-  ${({ $textStyles }) => $textStyles}
+  ${({ textStyles }) => textStyles}
 `;
 
 /**
@@ -50,10 +50,10 @@ export default function Text({ label, ...rest }) {
 }
 
 Text.propTypes = {
-  $bold: PropTypes.oneOf(['sm', 'md', 'lg']),
-  $size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-  $color: PropTypes.oneOf(['blue', 'red', 'gray', 'white', 'black']),
-  $customColor: PropTypes.string,
+  bold: PropTypes.oneOf(['sm', 'md', 'lg']),
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  color: PropTypes.oneOf(['blue', 'red', 'gray', 'white', 'black']),
+  customColor: PropTypes.string,
   label: PropTypes.string,
   onClick: PropTypes.func,
 };

@@ -5,6 +5,11 @@ import { ReactComponent as MaraTextOnly } from '../../../images/logos/MaraText.s
 import { ReactComponent as SaraTextOnly } from '../../../images/logos/SaraText.svg';
 import { ReactComponent as SaraTextWithCircleWhite } from '../../../images/logos/saracirclewhite.svg';
 import { ReactComponent as MaraTextWithCircleWhite } from '../../../images/logos/maracirclewhite.svg';
+
+import { ReactComponent as SaraTextWithCircleWithText } from '../../../images/logos/saratextlogo.svg';
+import { ReactComponent as MaraTextWithCircleWithText } from '../../../images/logos/maratextlogo.svg';
+import { ReactComponent as SaraCircleCharacter } from '../../../images/logos/SaraCircleCharacter.svg';
+import { ReactComponent as MaraCircleCharacter } from '../../../images/logos/MaraCircleCharacter.svg';
 import { colorPalete } from '../../../Styles';
 import StyledLogoWrap from './styles';
 
@@ -20,6 +25,14 @@ const getLogoByType = (logoType, fill) => {
       return <SaraTextWithCircleWhite />;
     case 'MaraTextWithCircleWhite':
       return <MaraTextWithCircleWhite />;
+    case 'SaraTextWithCircleWithText':
+      return <SaraTextWithCircleWithText />;
+    case 'MaraTextWithCircleWithText':
+      return <MaraTextWithCircleWithText />;
+    case 'SaraCircleCharacter':
+      return <SaraCircleCharacter />;
+    case 'MaraCircleCharacter':
+      return <MaraCircleCharacter />;
   }
 };
 
@@ -27,9 +40,9 @@ const getLogoByType = (logoType, fill) => {
  * Logo를 반환하는 함수
  * @param {logoType} Logo 형태 선택
  */
-export default function Logo({ fill, logoType }) {
+export default function Logo({ fill, logoType, ...rest }) {
   return (
-    <StyledLogoWrap className="logo-wrap">
+    <StyledLogoWrap className="logo-wrap" {...rest}>
       {getLogoByType(logoType, fill)}
     </StyledLogoWrap>
   );
@@ -42,5 +55,12 @@ Logo.propTypes = {
     'TextOnlySara',
     'SaraTextWithCircleWhite',
     'MaraTextWithCircleWhite',
+    'SaraTextWithCirclwWithText',
+    'MaraTextWithCirclwWithText',
+    'SaraCircleCharacter',
+    'MaraCircleCharacter',
   ]),
+  w: PropTypes.string,
+  h: PropTypes.string,
+  m: PropTypes.string,
 };

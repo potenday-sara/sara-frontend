@@ -18,6 +18,7 @@ export const Theme = {
     saraPrimary: '#007bed',
     saraSecondary: '#d9ebfc',
     // 기본색깔
+    gray: '#ccc',
     white: '#fff',
     black: '#333',
   },
@@ -31,6 +32,7 @@ export const Theme = {
  * @param {string} maraSecondary
  * @param {string} white
  * @param {string} black
+ * @param {string} gray
  * @returns
  */
 export const getColorCodeByType = (color) => {
@@ -47,6 +49,8 @@ export const getColorCodeByType = (color) => {
       return Theme.color.white;
     case 'black':
       return Theme.color.black;
+    case 'gray':
+      return Theme.color.gray;
   }
 };
 
