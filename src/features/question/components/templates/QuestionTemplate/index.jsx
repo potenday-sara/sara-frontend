@@ -8,7 +8,8 @@ import StyledQuestionTemplate from './styles';
 export default function QuestionTemplate({ type, children }) {
   return (
     <StyledQuestionTemplate type={type}>
-      <SectionLayout type={type} />
+      {/* <SectionLayout type={type} /> */}
+      <div></div>
       {children}
       <TrendItemsLayout type={type} />
     </StyledQuestionTemplate>

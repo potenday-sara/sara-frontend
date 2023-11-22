@@ -1,13 +1,14 @@
-import  axios  from "../../../lib/axios";
+import axios from '../../../lib/axios';
+import apis from './index';
 
-export const postQuestion = (value, question, type) => {
-  const data = {
-    object: {
-      value: value,
+export const postQuestion = async ({ ItemValue, ContentsValue, type }) => {
+  return await axios({
+    url: apis.questions,
+    method: 'post',
+    data: {
+      product: ItemValue,
+      content: ContentsValue,
+      type: type,
     },
-    question: question,
-    type: type,
-  };
-
-  return axios({ method: "post", data: data });
+  });
 };

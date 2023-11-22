@@ -7,6 +7,8 @@ export default function Textarea({ ph, id, ...rest }) {
 }
 
 Textarea.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChnage: PropTypes.func,
   w: PropTypes.string,
   h: PropTypes.string,
   ph: PropTypes.string,

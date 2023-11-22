@@ -2,11 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import StyledButton from './styles';
 
-export default function Button({ label, ...rest }) {
-  return <StyledButton {...rest}>{label}</StyledButton>;
+export default function Button({ label, type, ...rest }) {
+  return (
+    <StyledButton {...rest} type={type}>
+      {label}
+    </StyledButton>
+  );
 }
 
 Button.PropTypes = {
+  type: PropTypes.string,
   w: PropTypes.string,
   m: PropTypes.string,
   h: PropTypes.string,

@@ -1,9 +1,9 @@
-const QUESTIONS = 'questions/';
+const QUESTIONS = '/questions/';
 
 const apis = {
   questions: QUESTIONS,
   questionsId: (id) => QUESTIONS + id,
-  questionFeedback: QUESTIONS + id + '/feedback/',
+  questionFeedback: (id) => QUESTIONS + id + '/feedback/',
 };
 
 export default apis;

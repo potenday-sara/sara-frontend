@@ -17,6 +17,7 @@
     "@weknow/react-bubble-chart-d3": "^1.0.12",
     "axios": "^1.4.0",
     "eslint": "^8.54.0",
+    "http-proxy-middleware": "^2.0.6",
     "lottie-react": "^2.4.0",
     "prettier": "^3.1.0",
     "react": "^18.2.0",
@@ -63,6 +64,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.5.4",
     "@storybook/addon-essentials": "^7.0.12",
     "@storybook/addon-interactions": "^7.0.12",
     "@storybook/addon-links": "^7.0.12",
@@ -71,7 +73,6 @@
     "@storybook/react": "^7.0.12",
     "@storybook/react-webpack5": "^7.0.12",
     "@storybook/testing-library": "^0.0.14-next.2",
-    "@babel/eslint-parser": "^7.5.4",
     "babel-plugin-named-exports-order": "^0.0.2",
     "chromatic": "^6.17.4",
     "eslint-config-prettier": "^9.0.0",
@@ -85,5 +86,6 @@
   "_id": "sara-frontend@0.1.0",
   "resolutions": {
     "strip-ansi": "6.0.0"
-  }
+  },
+  "proxy": "https://api.sara-mara.com:8000/"
 }
