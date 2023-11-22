@@ -87,5 +87,5 @@
   "resolutions": {
     "strip-ansi": "6.0.0"
   },
-  "proxy": "https://api.sara-mara.com:8000/"
+  "proxy": "https://api.sara-mara.com"
 }

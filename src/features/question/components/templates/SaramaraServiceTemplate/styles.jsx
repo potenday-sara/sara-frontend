@@ -5,6 +5,7 @@ export const StyledSaramaraServiceTemplate = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 24px;
 
   width: 100%;
   max-width: 368px;

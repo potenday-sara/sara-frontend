@@ -16,7 +16,5 @@
     // "requireConfigFile": "false"
   },
   "plugins": ["react", "prettier"],
-  "rules": {
-    "prettier/prettier": "error"
-  }
+  "rules": {}
 }

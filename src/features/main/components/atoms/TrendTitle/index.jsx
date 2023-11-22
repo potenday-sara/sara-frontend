@@ -11,12 +11,7 @@ export default function TrendTitle({ type }) {
         logoType={type === 'sara' ? 'SaraTextOnly' : 'MaraTextOnly'}
         fill={'white'}
       />
-      <Text
-        label={'실시간 트렌드'}
-        $color={'white'}
-        $size={'sm'}
-        $bold={'lg'}
-      />
+      <Text label={'실시간 트렌드'} color={'white'} size={'sm'} bold={'lg'} />
     </StyledTrendTitle>
   );
 }

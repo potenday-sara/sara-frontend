@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Theme } from '../../../../../Styles';
 import useQuestion from '../../../hooks/useQuestion';
 import Form from '../../../../../components/molecules/Form';
@@ -48,10 +49,15 @@ export default function SaramaraForm({ type }) {
       </Form.Input>
       <Form.Button>
         <Button
-          label={<Text label={'사야할까?'} color={'white'} />}
+          label={
+            <Text
+              label={`${QuestionFormData.ItemValue || ''}사야할까?`}
+              color={'white'}
+            />
+          }
           m={'16px 0 0'}
           bg={
-            type === 'sara' ? Theme.color.maraPrimary : Theme.color.saraPrimary
+            type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary
           }
           type={'submit'}
         />
@@ -59,3 +65,7 @@ export default function SaramaraForm({ type }) {
     </Form>
   );
 }
+
+SaramaraForm.propTypes = {
+  type: PropTypes.oneOf(['sara', 'mara']),
+};
