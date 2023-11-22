@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { getBoldCode, getColorCodeByType } from '../../../Styles';
+import zIndex from '@mui/material/styles/zIndex';
 
 const getTextSize = (size) => {
   switch (size) {
@@ -50,6 +51,7 @@ export default function Text({ label, ...rest }) {
 }
 
 Text.propTypes = {
+  style: PropTypes.object,
   bold: PropTypes.oneOf(['sm', 'md', 'lg']),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   color: PropTypes.oneOf(['blue', 'red', 'gray', 'white', 'black']),
