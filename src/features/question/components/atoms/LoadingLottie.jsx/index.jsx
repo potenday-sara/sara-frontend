@@ -5,7 +5,7 @@ import SaraLoading from '../../../assets/LoadingLottie/SaraLoading.json';
 import MaraLoading from '../../../assets/LoadingLottie/MaraLoading.json';
 import PropTypes from 'prop-types';
 
-export default function ChatLoading({ type, ...rest }) {
+export default function LoadingLottie({ type, ...rest }) {
   return (
     <StyledChatLoading {...rest}>
       <Lottie animationData={type === 'sara' ? SaraLoading : MaraLoading} />
@@ -13,7 +13,7 @@ export default function ChatLoading({ type, ...rest }) {
   );
 }
 
-ChatLoading.propTypes = {
+LoadingLottie.propTypes = {
   w: PropTypes.string,
   h: PropTypes.string,
   m: PropTypes.string,

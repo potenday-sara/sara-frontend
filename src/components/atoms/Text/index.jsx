@@ -3,7 +3,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { getBoldCode, getColorCodeByType } from '../../../Styles';
-import zIndex from '@mui/material/styles/zIndex';
 
 const getTextSize = (size) => {
   switch (size) {
@@ -32,7 +31,6 @@ const StyledText = styled.p`
   font-size: ${({ size }) => getTextSize(size)};
   font-family: Pretendard;
   white-space: pre-line;
-  ${({ textStyles }) => textStyles}
 `;
 
 /**
@@ -42,7 +40,7 @@ const StyledText = styled.p`
  * @param {['xs', 'sm', 'md', 'lg, xl']} size 텍스트 사이즈 설정 (default : md)
  * @param {color} color 희망하는 색깔 설정
  * @param {String} label 텍스트 입력 값 (Required)
- * @param {string} $textStyles css 정보를 바탕으로 css 설정
+ * @param {string} style css 정보를 바탕으로 css 설정
  * @return {ReactComponentElement} React Text Component
  */
 
@@ -58,6 +56,7 @@ Text.propTypes = {
   customColor: PropTypes.string,
   label: PropTypes.string,
   onClick: PropTypes.func,
+  style: PropTypes.object,
 };
 
 Text.defaultProps = {
