@@ -22,9 +22,9 @@ const getLogoByType = (logoType, fill) => {
     case 'SaraTextOnly':
       return <SaraTextOnly fill={fill} />;
     case 'SaraTextWithCircleWhite':
-      return <SaraTextWithCircleWhite />;
+      return <SaraTextWithCircleWhite fill={fill} />;
     case 'MaraTextWithCircleWhite':
-      return <MaraTextWithCircleWhite />;
+      return <MaraTextWithCircleWhite fill={fill} />;
     case 'SaraTextWithCircleWithText':
       return <SaraTextWithCircleWithText />;
     case 'MaraTextWithCircleWithText':

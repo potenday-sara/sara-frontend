@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import StyledButton from './styles';
 
-export default function Button({ label, type, ...rest }) {
+export default function Button({ children, type, ...rest }) {
   return (
     <StyledButton {...rest} type={type}>
-      {label}
+      {children}
     </StyledButton>
   );
 }
@@ -16,5 +16,5 @@ Button.PropTypes = {
   m: PropTypes.string,
   h: PropTypes.string,
   bg: PropTypes.string,
-  label: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
 };

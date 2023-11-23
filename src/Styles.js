@@ -20,6 +20,7 @@ export const Theme = {
     // 기본색깔
     gray: '#ccc',
     white: '#fff',
+    darkGray: '#999',
     black: '#333',
   },
 };

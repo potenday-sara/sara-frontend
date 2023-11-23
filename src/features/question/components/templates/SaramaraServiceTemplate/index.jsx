@@ -9,18 +9,11 @@ import { Theme } from '../../../../../Styles.js';
 import Text from '../../../../../components/atoms/Text/index.jsx';
 import zIndex from '@mui/material/styles/zIndex.js';
 import QuestionLoading from '../../organisms/QuestionLoading/index.jsx';
+import QuestionAnwser from '../../organisms/QuestionAnswer/index.jsx';
 
 export default function SaramaraServiceTemplate({ type }) {
   return (
     <StyledSaramaraServiceTemplate>
-      <Logo
-        w={'162px'}
-        logoType={
-          type === 'sara'
-            ? 'SaraTextWithCircleWithText'
-            : 'MaraTextWithCircleWithText'
-        }
-      />
       {type === 'k' && (
         <>
           <Logo
@@ -35,13 +28,15 @@ export default function SaramaraServiceTemplate({ type }) {
       )}
 
       {type === 'l' && <QuestionLoading type={type} />}
-      <Logo
+      {/* <QuestionLoading type={type} /> */}
+      {/* <Logo
         w={'180px'}
         m={'24px'}
         logoType={
           type === 'sara' ? 'SaraCircleCharacter' : 'MaraCircleCharacter'
         }
-      />
+      /> */}
+      <QuestionAnwser type={type} />
     </StyledSaramaraServiceTemplate>
   );
 }

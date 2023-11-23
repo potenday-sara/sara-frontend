@@ -23,15 +23,6 @@ const StyledQuestionLoading = styled.main`
     display: flex;
     align-items: flex-end;
   }
-
-  .item-announce {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 24px;
-  }
 `;
 
 export default StyledQuestionLoading;

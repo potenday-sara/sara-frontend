@@ -6,6 +6,7 @@ import Progressbar from '../../../../../components/atoms/Progressbar/index.jsx';
 import Text from '../../../../../components/atoms/Text/index.jsx';
 import Logo from '../../../../../components/atoms/Logo';
 import { Theme } from '../../../../../Styles.js';
+import QuestionInfo from '../../molecules/QuestionInfo/index.jsx';
 
 export default function QuestionLoading({ type }) {
   return (
@@ -53,23 +54,7 @@ export default function QuestionLoading({ type }) {
           bold={'sm'}
         />
       </div>
-      <div className="item-announce">
-        <Text label={'나의 질문'} color={'black'} bold={'md'} />
-        <Text
-          label={'에어팟 프로'}
-          color={type === 'sara' ? 'saraPrimary' : 'maraPrimary'}
-          style={{
-            fontSize: 20,
-          }}
-          bold={'lg'}
-        />
-        <Text
-          label={'이미 잃어버렸는데 다시 사도될까 고민하고있어'}
-          color={'gray'}
-          size={'sm'}
-          bold={'md'}
-        />
-      </div>
+      <QuestionInfo type={type} />
     </StyledQuestionLoading>
   );
 }

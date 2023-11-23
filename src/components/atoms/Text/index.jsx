@@ -25,8 +25,7 @@ const getTextSize = (size) => {
 };
 
 const StyledText = styled.p`
-  color: ${({ customColor, color }) =>
-    customColor ? customColor : getColorCodeByType(color)};
+  color: ${({ customColor, color }) => (customColor ? customColor : color)};
   font-weight: ${({ bold }) => getBoldCode(bold)};
   font-size: ${({ size }) => getTextSize(size)};
   font-family: Pretendard;
