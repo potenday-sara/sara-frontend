@@ -16,5 +16,6 @@ Button.PropTypes = {
   m: PropTypes.string,
   h: PropTypes.string,
   bg: PropTypes.string,
+  style: PropTypes.any,
   children: PropTypes.string.isRequired,
 };

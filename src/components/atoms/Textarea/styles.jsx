@@ -3,9 +3,9 @@ import { getColorCodeByType } from '../../../Styles';
 
 const StyledTextarea = styled.textarea`
   width: ${({ w }) => (w ? w : '100%')};
-  height: ${({ h }) => (h ? h : '100%')};
+  height: ${({ h }) => (h ? h : 'auto')};
 
-  padding: 24px 32px;
+  /* padding: 24px 32px; */
   font-size: 14px;
   border-radius: 12px;
   border: 1px solid ${getColorCodeByType('gray')};

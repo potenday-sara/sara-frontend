@@ -8,6 +8,7 @@ function Form({ children, ...rest }) {
 
 Form.propTypes = {
   children: PropTypes.node,
+  styles: PropTypes.object,
   onSubmit: PropTypes.func.isRequired,
 };
 
