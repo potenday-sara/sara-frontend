@@ -1,9 +1,9 @@
-import { styled } from "styled-components";
-import PropTypes from "prop-types";
+import { styled } from 'styled-components';
+import PropTypes from 'prop-types';
 
-import { ReactComponent as Good } from "../../../images/feedback/good.svg";
-import { ReactComponent as Bad } from "../../../images/feedback/bad.svg";
-import { ReactComponent as Soso } from "../../../images/feedback/soso.svg";
+import { ReactComponent as Good } from '../../../images/feedback/good.svg';
+import { ReactComponent as Bad } from '../../../images/feedback/bad.svg';
+import { ReactComponent as Soso } from '../../../images/feedback/soso.svg';
 const StyledFeedbackEmotion = styled.div`
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@ const StyledFeedbackEmotion = styled.div`
   p {
     margin-top: 3px;
     color: #999999;
-    font-family: "Pretendard";
+    font-family: 'Pretendard';
     font-size: 12px;
   }
 `;
@@ -63,7 +63,7 @@ export default function FeedbackEmotion({
 }
 
 FeedbackEmotion.propTypes = {
-  $type: PropTypes.oneOf(["sara", "mara"]).isRequired,
+  $type: PropTypes.oneOf(['sara', 'mara']).isRequired,
   emotion: PropTypes.oneOf([1, 2, 3]).isRequired,
   feedbackValue: PropTypes.number.isRequired,
   setFeedbackValue: PropTypes.func,

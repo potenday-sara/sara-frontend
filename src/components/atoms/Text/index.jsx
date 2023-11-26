@@ -48,14 +48,14 @@ export default function Text({ label, ...rest }) {
 }
 
 Text.propTypes = {
-  style: PropTypes.object,
+  style: PropTypes.any,
   bold: PropTypes.oneOf(['sm', 'md', 'lg']),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   color: PropTypes.oneOf(['blue', 'red', 'gray', 'white', 'black']),
   customColor: PropTypes.string,
   label: PropTypes.string,
   onClick: PropTypes.func,
-  style: PropTypes.object,
+  style: PropTypes.any,
 };
 
 Text.defaultProps = {

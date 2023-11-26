@@ -200,6 +200,11 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+  select {
+    -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  }
 
   h1 {
     font-family: Pretendard;

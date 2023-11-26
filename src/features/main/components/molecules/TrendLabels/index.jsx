@@ -10,13 +10,14 @@ export default function TrendLabels() {
   const { type } = useContext(SaraMaraContext);
   const { data } = useRank(type);
 
+  console.log(data);
   return (
     <StyledTrendLabels>
-      {data?.map((data, i) => {
+      {data?.map((data) => {
         return (
-          <TrendLabel key={i}>
-            <TrendLabel.LabelNum type={type}>{i + 1}</TrendLabel.LabelNum>
-            <TrendLabel.LabelName>{data}</TrendLabel.LabelName>
+          <TrendLabel key={data.rank}>
+            <TrendLabel.LabelNum type={type}>{data.rank}</TrendLabel.LabelNum>
+            <TrendLabel.LabelName>{data.product}</TrendLabel.LabelName>
           </TrendLabel>
         );
       })}

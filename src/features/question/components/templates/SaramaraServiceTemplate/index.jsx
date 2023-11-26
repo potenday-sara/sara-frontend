@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { StyledSaramaraServiceTemplate } from './styles';
 import Logo from '../../../../../components/atoms/Logo';
 import SaramaraForm from '../../organisms/SaramaraForm';
-import ChatLoading from '../../atoms/LoadingLottie.jsx/index.jsx';
+import ChatLoading from '../../atoms/LoadingLottie/index.jsx';
 import Progressbar from '../../../../../components/atoms/Progressbar/index.jsx';
 import { Theme } from '../../../../../Styles.js';
 import Text from '../../../../../components/atoms/Text/index.jsx';

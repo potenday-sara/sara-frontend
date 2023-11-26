@@ -6,6 +6,7 @@ import AnswerContent from '../../molecules/AnswerContent';
 import Button from '../../../../../components/atoms/Button';
 import { Theme } from '../../../../../Styles';
 import Text from '../../../../../components/atoms/Text';
+import QuestionFeedback from '../QuestionEmotionForm';
 
 export default function QuestionAnwser({ type }) {
   return (
@@ -60,6 +61,9 @@ export default function QuestionAnwser({ type }) {
             </div>
           </Button>
         </div>
+        <section className="answer-bottom">
+          <QuestionFeedback type={type} />
+        </section>
       </section>
     </StyledQuestionAnswer>
   );

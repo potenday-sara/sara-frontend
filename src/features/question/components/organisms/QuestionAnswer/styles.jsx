@@ -31,6 +31,10 @@ const StyledQuestionAnswer = styled.section`
     align-items: center;
     gap: 8px;
   }
+  .answer-bottom {
+    width: 100%;
+    margin: 24px;
+  }
 `;
 
 export default StyledQuestionAnswer;
