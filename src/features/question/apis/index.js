@@ -1,4 +1,5 @@
 const QUESTIONS = '/questions/';
+const CS = '/cs';
 
 const apis = {
   questions: QUESTIONS,
@@ -7,6 +8,8 @@ const apis = {
     console.log(id);
     return QUESTIONS + id + '/feedback/';
   },
+
+  cs: CS + '/feedback/',
 };
 
 export default apis;

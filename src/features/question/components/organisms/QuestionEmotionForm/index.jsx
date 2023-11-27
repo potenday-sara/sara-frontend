@@ -8,9 +8,11 @@ import Input from '../../../../../components/atoms/Input';
 import Textarea from '../../../../../components/atoms/Textarea';
 import Button from '../../../../../components/atoms/Button';
 import { Theme } from '../../../../../Styles';
+import useFeedback from '../../../hooks/useFeedback';
 
 export default function QuestionEmotionForm({ type, quesionId }) {
   const firstChar = type.charAt(0).toUpperCase() + type.slice(1);
+  const { value: CScontent, onChange, submitCSFeedback } = useFeedback();
 
   return (
     <StyledFeedback>
@@ -21,12 +23,15 @@ export default function QuestionEmotionForm({ type, quesionId }) {
           position: 'relative',
           marginTop: 24,
         }}
+        onSubmit={(e) => submitCSFeedback(e)}
       >
         <Form.Label>
           <Form.Input>
             <Textarea
-              style={{ padding: '16px 90px 16px 16px' }}
+              style={{ padding: '16px 100px 16px 16px' }}
               isAutoHeight={true}
+              value={CScontent}
+              onChange={onChange}
               ph={'바라는 점 / 하고싶은 얘기가 있다면 작성해주세요'}
               rows={1}
               h={8}
@@ -41,6 +46,7 @@ export default function QuestionEmotionForm({ type, quesionId }) {
                     ? Theme.color.saraSecondary
                     : Theme.color.maraSecondary
                 }
+                onClick={(e) => submitCSFeedback(e)}
                 style={{
                   position: 'absolute',
                   top: 12,

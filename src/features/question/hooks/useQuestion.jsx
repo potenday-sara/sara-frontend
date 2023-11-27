@@ -37,7 +37,7 @@ const useQuestion = (type) => {
   const [requestQuestion, setRequestQuestion] = useState(false);
   const [cnt, setCnt] = useState(0);
   const [answer, setAnswer] = useState('');
-  const [MAX_CNT, setMAX_CNT] = useState(50);
+  const [MAX_CNT, setMAX_CNT] = useState(100);
   // 최대 요청 횟수
 
   const { refetch } = useQuery({
@@ -45,11 +45,16 @@ const useQuestion = (type) => {
       setCnt((prev) => prev + 1);
       const { data } = await getQuestionState(quesionId);
       if (cnt < MAX_CNT) setRequestQuestion(true);
-      else setRequestQuestion(false);
+      else {
+        // 임시로 시간초과가 발생했지만 대답완료 페이지로 이동
+        setStage('finish');
+        setRequestQuestion(false)
+      };
 
       // 수정해야 하는 부분
       if (data.answer?.length > 0) {
         setCnt(100);
+        setRequestQuestion(false);
         console.log(data.answer);
         setAnswer(data.answer);
         setTimeout(() => {

@@ -55,11 +55,7 @@ export default function QuestionLoading({ type, QuestionFormData, progress }) {
           bold={'sm'}
         />
       </div>
-      <QuestionInfo
-        type={type}
-        item={QuestionFormData.ItemValue}
-        contents={QuestionFormData.ContentsValue}
-      />
+      <QuestionInfo type={type} QuestionFormData={QuestionFormData} />
     </StyledQuestionLoading>
   );
 }

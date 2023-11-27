@@ -18,7 +18,7 @@ export default function SaramaraServiceTemplate({ type }) {
   } = useQuestion(type);
   return (
     <StyledSaramaraServiceTemplate>
-      {/* {stage === 'initial' && (
+      {stage === 'initial' && (
         <SaramaraForm
           type={type}
           QuestionFormData={QuestionFormData}
@@ -38,14 +38,9 @@ export default function SaramaraServiceTemplate({ type }) {
           type={type}
           answer={answer}
           QuestionFormData={QuestionFormData}
+          quesionId={quesionId}
         />
-        )} */}
-      <QuestionAnwser
-        quesionId={quesionId}
-        type={type}
-        answer={answer}
-        QuestionFormData={QuestionFormData}
-      />
+      )}
     </StyledSaramaraServiceTemplate>
   );
 }
