@@ -8,7 +8,12 @@ import { Theme } from '../../../../../Styles';
 import Text from '../../../../../components/atoms/Text';
 import QuestionFeedback from '../QuestionEmotionForm';
 
-export default function QuestionAnwser({ type, answer, QuestionFormData }) {
+export default function QuestionAnwser({
+  type,
+  answer,
+  QuestionFormData,
+  quesionId,
+}) {
   return (
     <StyledQuestionAnswer>
       <section className="question-top">
@@ -62,7 +67,7 @@ export default function QuestionAnwser({ type, answer, QuestionFormData }) {
           </Button>
         </div>
         <section className="answer-bottom">
-          <QuestionFeedback type={type} />
+          <QuestionFeedback type={type} quesionId={quesionId} />
         </section>
       </section>
     </StyledQuestionAnswer>

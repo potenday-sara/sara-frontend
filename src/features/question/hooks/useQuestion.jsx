@@ -30,14 +30,17 @@ const useQuestion = (type) => {
   const [stage, setStage] = useState('initial');
   const { value: ItemValue, onChange: ItemChange } = useInput('');
   const { value: ContentsValue, onChange: ContentsChange } = useInput('');
-  const [quesionId, setQuestionId] = useState('');
+  // const [quesionId, setQuestionId] = useState('');
+  const [quesionId, setQuestionId] = useState(
+    '8c4770e0-6680-4927-88fd-8c30b4bb2871',
+  );
   const [requestQuestion, setRequestQuestion] = useState(false);
   const [cnt, setCnt] = useState(0);
   const [answer, setAnswer] = useState('');
   const [MAX_CNT, setMAX_CNT] = useState(50);
   // 최대 요청 횟수
 
-  const { data, refetch, remove } = useQuery({
+  const { refetch } = useQuery({
     queryFn: async () => {
       setCnt((prev) => prev + 1);
       const { data } = await getQuestionState(quesionId);
@@ -83,7 +86,14 @@ const useQuestion = (type) => {
   };
 
   let progress = Math.floor((cnt / MAX_CNT) * 100);
-  return { stage, QuestionFormData, SubmitQuestion, progress, answer };
+  return {
+    stage,
+    QuestionFormData,
+    SubmitQuestion,
+    progress,
+    answer,
+    quesionId,
+  };
 };
 
 export default useQuestion;

@@ -5,14 +5,20 @@ import SaramaraForm from '../../organisms/SaramaraForm';
 
 import QuestionLoading from '../../organisms/QuestionLoading/index.jsx';
 import QuestionAnwser from '../../organisms/QuestionAnswer/index.jsx';
-import useQuestion from '../../../hooks/useQuestion.js';
+import useQuestion from '../../../hooks/useQuestion.jsx';
 
 export default function SaramaraServiceTemplate({ type }) {
-  const { stage, QuestionFormData, SubmitQuestion, progress, answer } =
-    useQuestion(type);
+  const {
+    stage,
+    QuestionFormData,
+    SubmitQuestion,
+    progress,
+    answer,
+    quesionId,
+  } = useQuestion(type);
   return (
     <StyledSaramaraServiceTemplate>
-      {stage === 'initial' && (
+      {/* {stage === 'initial' && (
         <SaramaraForm
           type={type}
           QuestionFormData={QuestionFormData}
@@ -33,7 +39,13 @@ export default function SaramaraServiceTemplate({ type }) {
           answer={answer}
           QuestionFormData={QuestionFormData}
         />
-      )}
+        )} */}
+      <QuestionAnwser
+        quesionId={quesionId}
+        type={type}
+        answer={answer}
+        QuestionFormData={QuestionFormData}
+      />
     </StyledSaramaraServiceTemplate>
   );
 }

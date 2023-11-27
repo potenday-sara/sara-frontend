@@ -73,12 +73,6 @@ export default function SaramaraForm({
         </Form.Input>
         <Form.Button>
           <Button
-            label={
-              <Text
-                label={`${QuestionFormData.ItemValue || ''}사야할까?`}
-                color={'white'}
-              />
-            }
             m={'16px 0 0'}
             bg={
               type === 'sara'
@@ -87,7 +81,12 @@ export default function SaramaraForm({
             }
             type={'submit'}
             onClick={SubmitQuestion}
-          />
+          >
+            <Text
+              label={`${QuestionFormData?.ItemValue || ''} 사야할까?`}
+              color={'white'}
+            />
+          </Button>
         </Form.Button>
       </Form>
     </StyledSaramaraForm>

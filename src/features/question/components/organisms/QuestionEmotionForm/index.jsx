@@ -9,13 +9,13 @@ import Textarea from '../../../../../components/atoms/Textarea';
 import Button from '../../../../../components/atoms/Button';
 import { Theme } from '../../../../../Styles';
 
-export default function QuestionEmotionForm({ type }) {
+export default function QuestionEmotionForm({ type, quesionId }) {
   const firstChar = type.charAt(0).toUpperCase() + type.slice(1);
 
   return (
     <StyledFeedback>
       <Text label={`${firstChar} 가 도움이 되셨나요?`} bold={'lg'} />
-      <FeedbackSelect type={type} />
+      <FeedbackSelect type={type} quesionId={quesionId} />
       <Form
         style={{
           position: 'relative',
@@ -67,4 +67,5 @@ export default function QuestionEmotionForm({ type }) {
 
 QuestionEmotionForm.propTypes = {
   type: PropTypes.oneOf(['sara', 'mara']),
+  quesionId: PropTypes.string,
 };
