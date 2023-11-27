@@ -1,7 +1,7 @@
-import React from "react";
-import { styled } from "styled-components";
-import PropTypes from "prop-types";
-import { MainText } from "../../../components/Text/Text";
+import React from 'react';
+import { styled } from 'styled-components';
+import PropTypes from 'prop-types';
+import { MainText } from '../../../components/Text/Text';
 
 const StyledArticle = styled.div`
   display: grid;
@@ -10,7 +10,7 @@ const StyledArticle = styled.div`
   grid-template-columns: 5fr 1fr;
   grid-template-rows: 1fr;
   background-color: white;
-  height: 120px !important;
+  height: 10px !important;
   overflow: hidden;
   /* background-color: red; */
   padding: 20px 20px;
@@ -41,17 +41,17 @@ export default function OtherQuestion({ type, label, text, ...rest }) {
       <div className="contents">
         <MainText
           label={label}
-          type={"h2"}
-          color={type === "sara" ? "blue" : "red"}
+          type={'h2'}
+          color={type === 'sara' ? 'blue' : 'red'}
         />
-        <MainText label={text} type={"p"} color={"#999999"} />
+        <MainText label={text} type={'p'} color={'#999999'} />
       </div>
     </StyledArticle>
   );
 }
 
 OtherQuestion.propTypes = {
-  type: PropTypes.oneOf(["sara", "mara"]).isRequired,
+  type: PropTypes.oneOf(['sara', 'mara']).isRequired,
   label: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
 };

@@ -1,12 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
-import { styled } from "styled-components";
-import OtherQuestion from "./OtherQuestion";
-import PropTypes from "prop-types";
+import React, { useEffect, useRef, useState } from 'react';
+import { styled } from 'styled-components';
+import OtherQuestion from './OtherQuestion';
+import PropTypes from 'prop-types';
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper';
 
-import "swiper/css";
+import 'swiper/css';
 
 const StyledArticles = styled.div`
   display: grid;
@@ -17,7 +17,7 @@ const StyledArticles = styled.div`
   height: 100%;
   overflow: hidden;
   position: relative;
-  
+
   .h2 {
     margin-bottom: 5px;
   }
@@ -27,12 +27,11 @@ const StyledArticles = styled.div`
       margin: 0;
     }
     width: 100%;
-    
   }
 
   .swiper-wrapper {
+    height: 100px;
     transition-timing-function: linear;
-    
   }
 `;
 
@@ -50,7 +49,7 @@ export default function OtherQuestions({ $type, articles }) {
         }}
         loop={true}
         spaceBetween={30}
-        direction={"vertical"}
+        direction={'vertical'}
         modules={[Autoplay]}
         className="mySwiper"
       >
@@ -68,5 +67,5 @@ export default function OtherQuestions({ $type, articles }) {
 }
 
 OtherQuestions.propTypes = {
-  $type: PropTypes.oneOf(["sara", "mara"]).isRequired,
+  $type: PropTypes.oneOf(['sara', 'mara']).isRequired,
 };
