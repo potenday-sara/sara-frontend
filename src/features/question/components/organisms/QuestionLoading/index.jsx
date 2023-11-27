@@ -8,11 +8,12 @@ import Logo from '../../../../../components/atoms/Logo';
 import { Theme } from '../../../../../Styles.js';
 import QuestionInfo from '../../molecules/QuestionInfo/index.jsx';
 
-export default function QuestionLoading({ type }) {
+export default function QuestionLoading({ type, QuestionFormData, progress }) {
   return (
     <StyledQuestionLoading>
       <LoadingLottie type={type} w={'212px'} />
       <Progressbar
+        progress={progress}
         label={
           <Text
             style={{ zIndex: 2, fontSize: 10 }}
@@ -54,7 +55,11 @@ export default function QuestionLoading({ type }) {
           bold={'sm'}
         />
       </div>
-      <QuestionInfo type={type} />
+      <QuestionInfo
+        type={type}
+        item={QuestionFormData.ItemValue}
+        contents={QuestionFormData.ContentsValue}
+      />
     </StyledQuestionLoading>
   );
 }

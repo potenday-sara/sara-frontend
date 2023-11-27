@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import StyledProgressbar from './styles';
 
 export default function Progressbar({ label, ...rest }) {
+  console.log(rest.progress);
   return (
     <StyledProgressbar {...rest}>
       <div className="progress" />

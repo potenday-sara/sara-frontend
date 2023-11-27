@@ -3,12 +3,12 @@ import PropType from 'prop-types';
 import StyledQuestionInfo from './styles';
 import Text from '../../../../../components/atoms/Text';
 
-export default function QuestionInfo({ type, item, contents }) {
+export default function QuestionInfo({ type, QuestionFormData }) {
   return (
     <StyledQuestionInfo>
       <Text label={'나의 질문'} color={'black'} bold={'md'} />
       <Text
-        label={item || '에어팟 프로'}
+        label={QuestionFormData?.ItemValue || '에어팟 프로'}
         color={type === 'sara' ? 'saraPrimary' : 'maraPrimary'}
         style={{
           fontSize: 20,
@@ -16,7 +16,10 @@ export default function QuestionInfo({ type, item, contents }) {
         bold={'lg'}
       />
       <Text
-        label={contents || '이미 잃어버렸는데 다시 사도될까 고민하고있어'}
+        label={
+          QuestionFormData?.ContentsValue ||
+          '이미 잃어버렸는데 다시 사도될까 고민하고있어'
+        }
         color={'gray'}
         size={'sm'}
         bold={'md'}

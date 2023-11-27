@@ -8,7 +8,7 @@ import { Theme } from '../../../../../Styles';
 import Text from '../../../../../components/atoms/Text';
 import QuestionFeedback from '../QuestionEmotionForm';
 
-export default function QuestionAnwser({ type }) {
+export default function QuestionAnwser({ type, answer, QuestionFormData }) {
   return (
     <StyledQuestionAnswer>
       <section className="question-top">
@@ -20,7 +20,7 @@ export default function QuestionAnwser({ type }) {
               : 'MaraTextWithCircleWithText'
           }
         />
-        <QuestionInfo type={'sara'} />
+        <QuestionInfo type={'sara'} QuestionFormData={QuestionFormData} />
       </section>
       <section className="question-mid">
         <Logo
@@ -30,7 +30,7 @@ export default function QuestionAnwser({ type }) {
             type === 'sara' ? 'SaraCircleCharacter' : 'MaraCircleCharacter'
           }
         />
-        <AnswerContent type={type} />
+        <AnswerContent type={type} answer={answer} />
         <div className="button-wrap">
           <Button bg={Theme.color.saraSecondary}>
             <div className="button">
