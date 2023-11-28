@@ -10,7 +10,7 @@ export default function TrendLabels() {
   const { type } = useContext(SaraMaraContext);
   const { data: ranks, isLoading } = useRank(type);
 
-  console.log(ranks);
+  console.log(ranks, isLoading);
   return (
     <StyledTrendLabels>
       {!isLoading &&
