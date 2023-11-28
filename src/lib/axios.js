@@ -1,5 +1,7 @@
-import Axios from "axios";
+import Axios from 'axios';
 
-export const axios = Axios.create({
-  baseURL: "http://115.85.181.180:8080/api/question",
+const axios = Axios.create({
+  // baseURL: 'https://api.sara-mara.com/',
 });
+
+export default axios;
