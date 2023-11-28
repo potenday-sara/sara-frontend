@@ -1,11 +1,15 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-// import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
+import Button from '../../../../../components/atoms/Button';
 import TitleBubble from '../../molecules/SpeechBubble';
 import CharacterLogo from '../../atoms/CharacterLogo';
 import CharacterName from '../../atoms/CharacterName';
 import StyledMainSection from './styles';
 import SaraMaraContext from '../../../stores/SaraMaraContext';
+import Logo from '../../../../../components/atoms/Logo';
+import Text from '../../../../../components/atoms/Text';
+import { Theme } from '../../../../../Styles';
 
 /**
  * Onboarding 페이지의 세션 컴포넌트입니다
@@ -13,23 +17,33 @@ import SaraMaraContext from '../../../stores/SaraMaraContext';
  */
 export default function MainSection({ type, ...rest }) {
   const { type: nowType } = useContext(SaraMaraContext);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <StyledMainSection {...rest} $type={type}>
-      <TitleBubble $type={type} />
-      <CharacterLogo $type={type} $isSelected={type === nowType} />
-      <CharacterName $type={type} />
-      {/* <TextLabel
-        $isBtn
-        $bgColor={'white'}
-        $textLabelStyles={textLabelStyles}
-        $type={type}
-        $color={type === 'sara' ? 'blue' : 'red'}
-        $size={'md'}
-        label={'에게 물어보기'}
-        textLogo={true}
+      <TitleBubble type={type} />
+      <CharacterLogo type={type} $isType={type === nowType} />
+      <CharacterName type={type} />
+      <Button
         onClick={() => navigate(`/question/${type}`)}
-      /> */}
+        style={{
+          display: 'flex',
+          width: 256,
+          padding: 24,
+          justifyContent: 'center',
+          alignItems: 'flex-end',
+          marginTop: 20,
+          borderRadius: 0,
+          gap: 8,
+        }}
+        bg={Theme.color.white}
+      >
+        <Logo
+          fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+          w="77px"
+          logoType={type === 'sara' ? 'SaraTextOnly' : 'MaraTextOnly'}
+        />
+        <Text label="에게 물어보기" color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary} />
+      </Button>
     </StyledMainSection>
   );
 }

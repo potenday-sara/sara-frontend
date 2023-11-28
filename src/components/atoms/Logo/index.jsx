@@ -53,19 +53,23 @@ Logo.propTypes = {
   fill: PropTypes.string,
   logoType: PropTypes.oneOf([
     'MainLogo',
-    'TextOnlySara',
+    'MaraTextOnly',
+    'SaraTextOnly',
     'SaraTextWithCircleWhite',
     'MaraTextWithCircleWhite',
-    'SaraTextWithCirclwWithText',
-    'MaraTextWithCirclwWithText',
+    'SaraTextWithCircleWithText',
+    'MaraTextWithCircleWithText',
     'SaraCircleCharacter',
     'MaraCircleCharacter',
   ]).isRequired,
-  w: PropTypes.string.isRequired,
-  h: PropTypes.string.isRequired,
-  m: PropTypes.string.isRequired,
+  w: PropTypes.string,
+  h: PropTypes.string,
+  m: PropTypes.string,
 };
 
 Logo.defaultProps = {
   fill: '',
+  w: '',
+  h: '',
+  m: '',
 };

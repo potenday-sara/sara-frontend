@@ -27,13 +27,11 @@ function LabelNum({ children, type }) {
   );
 }
 LabelNum.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['sara', 'mara']).isRequired,
 };
 
-LabelNum.defaultProps = {
-  children: null,
-};
+LabelNum.defaultProps = {};
 
 function LabelName({ children }) {
   return <Text label={children} size="sm" />;

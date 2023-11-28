@@ -4,8 +4,7 @@ import apis from '../apis';
 
 const useRank = (rankType) => {
   const getRank = async (type) => {
-    const { data } = await axios.get({
-      url: apis.rank,
+    const { data } = await axios.get(apis.rank, {
       params: {
         type,
       },

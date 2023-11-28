@@ -20,8 +20,8 @@ const getCharacterLogoCss = (type) => {
 const StyledCharacterLogo = styled.div`
   margin-top: 45px;
   position: relative;
-  ${({ $type }) => getCharacterLogoCss($type)}
-  ${({ $isSelected }) => getSelectedCss($isSelected)}
+  ${({ type }) => getCharacterLogoCss(type)}
+  ${({ $isType }) => getSelectedCss($isType)}
   .back {
     position: absolute;
     transform: translate(-50%, -50%);

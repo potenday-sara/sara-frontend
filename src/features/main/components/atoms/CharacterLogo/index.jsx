@@ -9,17 +9,17 @@ import StyledCharacterLogo from './styles';
 /**
  * $type (sara, mara) 값에 따라 캐릭터로고를 리턴하는 함수입니다
  */
-export default function CharacterLogo({ type, isSelected, ...rest }) {
+export default function CharacterLogo({ ...rest }) {
   return (
-    <StyledCharacterLogo isSelected={isSelected} type={type} {...rest}>
-      {isSelected && type === 'sara' ? <SaraBackText className="back back-sara" /> : null}
-      {isSelected && type === 'mara' ? <MaraBackText className="back back-mara" /> : null}
-      {type === 'sara' ? <CharacterSara /> : <CharacterMara />}
+    <StyledCharacterLogo {...rest}>
+      {rest.$isType && rest.type === 'sara' ? <SaraBackText className="back back-sara" /> : null}
+      {rest.$isType && rest.type === 'mara' ? <MaraBackText className="back back-mara" /> : null}
+      {rest.type === 'sara' ? <CharacterSara /> : <CharacterMara />}
     </StyledCharacterLogo>
   );
 }
 
 CharacterLogo.propTypes = {
   type: PropTypes.oneOf(['sara', 'mara']).isRequired,
-  isSelected: PropTypes.bool.isRequired,
+  $isType: PropTypes.bool.isRequired,
 };

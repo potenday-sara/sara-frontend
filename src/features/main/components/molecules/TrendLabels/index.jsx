@@ -15,7 +15,7 @@ export default function TrendLabels() {
       {ranks?.map((data) => {
         return (
           <TrendLabel key={data.rank}>
-            <TrendLabel.LabelNum type={type}>{data.rank}</TrendLabel.LabelNum>
+            <TrendLabel.LabelNum type={type}>{String(data.rank)}</TrendLabel.LabelNum>
             <TrendLabel.LabelName>{data.product}</TrendLabel.LabelName>
           </TrendLabel>
         );
