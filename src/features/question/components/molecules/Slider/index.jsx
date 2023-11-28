@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Autoplay } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import StyledSlider from './styles';
 import QuestionCard from '../../atoms/QuestionCard';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper';
 import Text from '../../../../../components/atoms/Text';
 import { Theme } from '../../../../../Styles';
 
-const Slider = ({ datas, type }) => {
+function Slider({ datas, type }) {
   return (
     <StyledSlider>
       <Swiper
@@ -18,25 +18,21 @@ const Slider = ({ datas, type }) => {
           delay: 0,
           disableOnInteraction: false,
         }}
-        loop={true}
-        direction={'vertical'}
+        loop
+        direction="vertical"
         modules={[Autoplay]}
         className="mySwiper"
       >
         {datas?.map(({ content, product }, idx) => {
           return (
-            <SwiperSlide key={idx}>
+            <SwiperSlide key={('slider', [idx])}>
               <QuestionCard>
                 <QuestionCard.Title>
                   <Text
                     label={product}
-                    bold={'lg'}
-                    size={'lg'}
-                    color={
-                      type === 'sara'
-                        ? Theme.color.saraPrimary
-                        : Theme.color.maraPrimary
-                    }
+                    bold="lg"
+                    size="lg"
+                    color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
                   />
                 </QuestionCard.Title>
                 <QuestionCard.Contents label={content} />
@@ -47,6 +43,14 @@ const Slider = ({ datas, type }) => {
       </Swiper>
     </StyledSlider>
   );
+}
+
+Slider.propTypes = {
+  type: PropTypes.oneOf(['sara', 'mara']).isRequired,
+  datas: PropTypes.arrayOf,
 };
 
+Slider.defaultProps = {
+  datas: [],
+};
 export default Slider;

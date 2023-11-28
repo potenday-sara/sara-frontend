@@ -1,7 +1,7 @@
-import TitleLines from "./TitleLines";
+import TitleLines from './TitleLines';
 
 export default {
-  title: "Develop System/Items/TitleLines",
+  title: 'Develop System/Items/TitleLines',
   component: TitleLines,
 };
 
@@ -12,10 +12,7 @@ SaraTitleLines.args = {
   $type: 'sara',
 };
 
-
 export const MaraTitleLines = Template.bind({});
 MaraTitleLines.args = {
-  $type: 'mara'
-}
-
-
+  $type: 'mara',
+};

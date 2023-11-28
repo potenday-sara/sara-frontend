@@ -1,18 +1,18 @@
 import styled from 'styled-components';
-import { getColorCodeByType } from '../../../Styles';
+import { Theme } from '../../../Styles';
 
 const StyledTextarea = styled.textarea`
-  width: ${({ w }) => (w ? w : '100%')};
-  height: ${({ h }) => (h ? h : 'auto')};
+  width: ${({ w }) => w || '100%'};
+  height: ${({ h }) => h || 'auto'};
 
   font-size: 14px;
   border-radius: 12px;
-  border: 1px solid ${getColorCodeByType('gray')};
+  border: 1px solid ${Theme.color.gray};
   font-family: Pretendard;
   resize: none;
 
   &::placeholder {
-    color: ${getColorCodeByType('gray')};
+    color: ${Theme.color.gray};
     margin: 0px 10px;
     text-align: center;
     font-family: Pretendard;

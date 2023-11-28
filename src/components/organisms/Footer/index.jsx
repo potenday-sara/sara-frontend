@@ -1,7 +1,7 @@
 import React from 'react';
-import { ReactComponent as FotterLogo } from '../../images/logos/footerlogo.svg';
-import StyledFooter from './styles';
 import PropTypes from 'prop-types';
+import { ReactComponent as FotterLogo } from '../../../images/logos/footerlogo.svg';
+import StyledFooter from './styles';
 
 export default function Footer({ ...rest }) {
   return (
@@ -14,5 +14,5 @@ export default function Footer({ ...rest }) {
 }
 
 Footer.propType = {
-  style: PropTypes.object,
+  style: PropTypes.objectOf,
 };

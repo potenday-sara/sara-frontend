@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { getColorCodeByType } from '../../../../../Styles';
+import { Theme } from '../../../../../Styles';
 
 const StyledTrendLabel = styled.div`
   width: 100%;
@@ -10,7 +10,7 @@ const StyledTrendLabel = styled.div`
   align-items: center;
   width: 100%;
   gap: 8px;
-  background-color: ${() => getColorCodeByType('white')};
+  background-color: ${() => Theme.color.white};
   border-radius: 12px;
 `;
 

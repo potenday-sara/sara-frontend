@@ -6,30 +6,26 @@ import Text from '../../../../../components/atoms/Text';
 export default function QuestionInfo({ type, QuestionFormData }) {
   return (
     <StyledQuestionInfo>
-      <Text label={'나의 질문'} color={'black'} bold={'md'} />
+      <Text label="나의 질문" color="black" bold="md" />
       <Text
         label={QuestionFormData?.ItemValue || '에어팟 프로'}
         color={type === 'sara' ? 'saraPrimary' : 'maraPrimary'}
         style={{
           fontSize: 20,
         }}
-        bold={'lg'}
+        bold="lg"
       />
       <Text
-        label={
-          QuestionFormData?.ContentsValue ||
-          '이미 잃어버렸는데 다시 사도될까 고민하고있어'
-        }
-        color={'gray'}
-        size={'sm'}
-        bold={'md'}
+        label={QuestionFormData?.ContentsValue || '이미 잃어버렸는데 다시 사도될까 고민하고있어'}
+        color="gray"
+        size="sm"
+        bold="md"
       />
     </StyledQuestionInfo>
   );
 }
 
 QuestionInfo.propTypes = {
-  type: PropType.oneOf(['sara', 'mara']),
-  item: PropType.string,
-  contents: PropType.string,
+  QuestionFormData: PropType.objectOf.isRequired,
+  type: PropType.oneOf(['sara', 'mara']).isRequired,
 };

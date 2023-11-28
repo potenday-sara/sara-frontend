@@ -1,14 +1,13 @@
+import { useState } from 'react';
 import { useMutation } from 'react-query';
 import axios from '../../../lib/axios';
 import apis from '../apis';
-import { useState } from 'react';
 
 const useEmotionFeedback = (id) => {
   const [isFeedback, setIsFeedback] = useState(false);
   const [nowSelected, setNowSelected] = useState(null);
   const { mutate } = useMutation(
     async () => {
-      console.log(apis.questionFeedback(id));
       if (!nowSelected) return;
       const score = {
         bad: -1,
@@ -22,14 +21,13 @@ const useEmotionFeedback = (id) => {
     },
     {
       onSuccess: () => {
-        console.log('피드백완료');
         setIsFeedback(true);
       },
     },
   );
 
-  const getNowSelectedFeedback = (id) => {
-    setNowSelected(id);
+  const getNowSelectedFeedback = (score) => {
+    setNowSelected(score);
     mutate();
   };
 

@@ -6,8 +6,8 @@ const useQuestions = () => {
   const { data, isLoading } = useQuery({
     queryKey: ['getOtherQuestion'],
     queryFn: async () => {
-      const { data } = await axios.get(apis.questions);
-      return data;
+      const { data: resData } = await axios.get(apis.questions);
+      return resData;
     },
   });
 

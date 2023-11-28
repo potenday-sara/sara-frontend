@@ -1,8 +1,6 @@
 import React from 'react';
-import { css } from 'styled-components';
-import TitleLines from '../../atoms/CharacterChat';
-
 import PropTypes from 'prop-types';
+import TitleLines from '../../atoms/CharacterChat';
 import Text from '../../../../../components/atoms/Text';
 import StyledTextbubble from './styles';
 import { Theme } from '../../../../../Styles';
@@ -16,41 +14,32 @@ const textStyles = {
  * @param {$type} sara, mara로 타입을 결정합니다
  * @returns {React.ReactComponentElement}
  */
-export default function TitleBubble({ $type }) {
+export default function TitleBubble({ type }) {
   return (
-    <StyledTextbubble $type={$type}>
-      <TitleLines $type={$type} />
-      {$type === 'sara' ? (
+    <StyledTextbubble type={type}>
+      <TitleLines type={type} />
+      {type === 'sara' ? (
         <>
-          <Text
-            label={'사야할 것과 망설이는 이유를 말해주세요!'}
-            size="md"
-            bold="lg"
-            color={Theme.color.saraPrimary}
-          />
+          <Text label="사야할 것과 망설이는 이유를 말해주세요!" size="md" bold="lg" color={Theme.color.saraPrimary} />
           <Text
             style={textStyles}
             size="xs"
             bold="sm"
             color={Theme.color.saraPrimary}
-            label={
-              'Sara가 긍정적인 정보와 효과를 알려주고,\n구매 결정을 내리는 데 도움을 줄 거예요!'
-            }
+            label="Sara가 긍정적인 정보와 효과를 알려주고,\n구매 결정을 내리는 데 도움을 줄 거예요!"
           />
         </>
       ) : (
         <>
           <Text
-            label={'사지 말아야 할 것과 망설이는 이유를 말해주세요.'}
+            label="사지 말아야 할 것과 망설이는 이유를 말해주세요."
             size="md"
             bold="lg"
             color={Theme.color.maraPrimary}
           />
           <Text
             style={textStyles}
-            label={
-              'Mara가 객관적인 정보와 기준을 토대로,\n불매 결정을 내리는 데 도움을 줄 거예요!'
-            }
+            label="Mara가 객관적인 정보와 기준을 토대로,\n불매 결정을 내리는 데 도움을 줄 거예요!"
             size="xs"
             bold="sm"
             color={Theme.color.maraPrimary}
@@ -62,5 +51,5 @@ export default function TitleBubble({ $type }) {
 }
 
 TitleBubble.propTypes = {
-  $type: PropTypes.oneOf(['sara', 'mara']),
+  type: PropTypes.oneOf(['sara', 'mara']).isRequired,
 };

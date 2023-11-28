@@ -54,18 +54,16 @@ export default function CounpangRecommend({ type }) {
     <StyledCounpoangRecommend>
       <Title>
         <Logo
-          w={'77px'}
+          w="77px"
           logoType={type === 'sara' ? 'SaraTextOnly' : 'MaraTextOnly'}
-          fill={
-            type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary
-          }
+          fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
           style={{
             marginBottom: 8,
           }}
         />
         <Text
-          label={', 요즘 많이 팔리는'}
-          size={'md'}
+          label=", 요즘 많이 팔리는"
+          size="md"
           style={{
             marginBottom: 8,
             marginRight: 8,
@@ -75,14 +73,7 @@ export default function CounpangRecommend({ type }) {
           options={tempOptions}
           setValue={setValue}
           trigger={
-            <SelectInput
-              value={value}
-              bg={
-                type === 'sara'
-                  ? Theme.color.saraPrimary
-                  : Theme.color.maraPrimary
-              }
-            />
+            <SelectInput value={value} bg={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary} />
           }
         />
       </Title>
@@ -90,9 +81,7 @@ export default function CounpangRecommend({ type }) {
       <div className="bottom">
         <Text
           color={Theme.color.darkGray}
-          label={
-            '*위 컨텐츠는 쿠팡 파트너스 활동의 일원으로 금전적 대가를 취할 수 있습니다'
-          }
+          label="*위 컨텐츠는 쿠팡 파트너스 활동의 일원으로 금전적 대가를 취할 수 있습니다"
         />
       </div>
     </StyledCounpoangRecommend>
@@ -100,5 +89,5 @@ export default function CounpangRecommend({ type }) {
 }
 
 CounpangRecommend.propTypes = {
-  type: PropTypes.oneOf(['sara', 'mara']),
+  type: PropTypes.oneOf(['sara', 'mara']).isRequired,
 };

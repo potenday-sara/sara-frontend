@@ -10,17 +10,16 @@ const getCharacterNameCss = ($type) => {
       width: 97px;
       height: 48px;
     `;
-  } else {
-    return css`
-      width: 107px;
-      height: 40px;
-    `;
   }
+  return css`
+    width: 107px;
+    height: 40px;
+  `;
 };
 
 const StyledCharacterName = styled.div`
   margin-top: 40px;
-  ${({ $type }) => getCharacterNameCss($type)}
+  ${({ type }) => getCharacterNameCss(type)}
 `;
 
 export default StyledCharacterName;

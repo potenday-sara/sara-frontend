@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { getColorCodeByType } from '../../../../../Styles';
+import { Theme } from '../../../../../Styles';
 
 const StyledFlatButton = styled.button`
   cursor: pointer;
@@ -8,8 +8,7 @@ const StyledFlatButton = styled.button`
   outline: none;
   border: 0px;
   padding: 20px 35px;
-  background-color: ${({ $type }) =>
-    getColorCodeByType($type === 'sara' ? 'saraPrimary' : 'maraPrimary')};
+  background-color: ${({ type }) => (type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary)};
 
   &.activated {
     opacity: 1;

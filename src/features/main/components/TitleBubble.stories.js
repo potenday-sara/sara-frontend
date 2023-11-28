@@ -1,7 +1,7 @@
-import TitleBubble from "./TitleBubble";
+import TitleBubble from './TitleBubble';
 
 export default {
-  title: "Develop System/Items/TitleBubble",
+  title: 'Develop System/Items/TitleBubble',
   component: TitleBubble,
 };
 
@@ -12,10 +12,7 @@ TitleBubble.args = {
   $type: 'sara',
 };
 
-
 export const MaraTitleBubble = Template.bind({});
 TitleBubble.args = {
-  $type: 'mara'
-}
-
-
+  $type: 'mara',
+};

@@ -8,7 +8,7 @@ export default function RealtimeTrend() {
   const { type } = useContext(SaraMaraContext);
 
   return (
-    <StyledRealtimeTrend $color={'saraPrimary'}>
+    <StyledRealtimeTrend color="saraPrimary">
       <TrendTitle type={type} />
       <TrendLabels type={type} />
     </StyledRealtimeTrend>

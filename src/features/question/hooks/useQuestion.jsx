@@ -1,26 +1,7 @@
+import { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
 import useInput from '../../../hooks/useInput';
-import { useEffect, useRef, useState } from 'react';
 import { getQuestionState, postQuestion } from '../apis/postQuestion';
-
-const useInterval = (callback, delay) => {
-  const savedCallback = useRef();
-  console.log(callback);
-  console.log('hi');
-
-  useEffect(() => {
-    savedCallback.current = callback;
-  });
-
-  useEffect(() => {
-    const tick = () => {
-      savedCallback.current();
-    };
-
-    const timerId = setInterval(tick, delay);
-    return () => clearInterval(timerId);
-  }, [delay]);
-};
 
 /**
  * 질문 전송 및 데이터 관리 훅
@@ -31,13 +12,11 @@ const useQuestion = (type) => {
   const { value: ItemValue, onChange: ItemChange } = useInput('');
   const { value: ContentsValue, onChange: ContentsChange } = useInput('');
   // const [quesionId, setQuestionId] = useState('');
-  const [quesionId, setQuestionId] = useState(
-    '8c4770e0-6680-4927-88fd-8c30b4bb2871',
-  );
+  const [quesionId, setQuestionId] = useState('8c4770e0-6680-4927-88fd-8c30b4bb2871');
   const [requestQuestion, setRequestQuestion] = useState(false);
   const [cnt, setCnt] = useState(0);
   const [answer, setAnswer] = useState('');
-  const [MAX_CNT, setMAX_CNT] = useState(60);
+  const [MAX_CNT] = useState(60);
   // 최대 요청 횟수
 
   const { refetch } = useQuery({
@@ -55,7 +34,6 @@ const useQuestion = (type) => {
       if (data.answer?.length > 0) {
         setCnt(100);
         setRequestQuestion(false);
-        console.log(data.answer);
         setAnswer(data.answer);
         setTimeout(() => {
           setStage('finish');
@@ -64,7 +42,7 @@ const useQuestion = (type) => {
     },
 
     queryKey: ['getId'],
-    enabled: requestQuestion ? true : false,
+    enabled: requestQuestion,
     refetchInterval: 1000,
     refetchIntervalInBackground: true,
   });
@@ -86,11 +64,11 @@ const useQuestion = (type) => {
 
   const SubmitQuestion = (event) => {
     event.preventDefault();
-    const data = mutate({ ItemValue, ContentsValue, type });
+    mutate({ ItemValue, ContentsValue, type });
     setStage('process');
   };
 
-  let progress = Math.floor((cnt / MAX_CNT) * 100);
+  const progress = Math.floor((cnt / MAX_CNT) * 100);
   return {
     stage,
     QuestionFormData,

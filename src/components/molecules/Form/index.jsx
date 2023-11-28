@@ -1,6 +1,6 @@
 import React from 'react';
-import StyledForm from './styles';
 import PropTypes from 'prop-types';
+import StyledForm from './styles';
 
 function Form({ children, ...rest }) {
   return <StyledForm {...rest}>{children}</StyledForm>;
@@ -8,8 +8,13 @@ function Form({ children, ...rest }) {
 
 Form.propTypes = {
   children: PropTypes.node,
-  styles: PropTypes.object,
+  style: PropTypes.objectOf,
   onSubmit: PropTypes.func.isRequired,
+};
+
+Form.defaultProps = {
+  children: null,
+  style: {},
 };
 
 const Label = ({ children }) => {

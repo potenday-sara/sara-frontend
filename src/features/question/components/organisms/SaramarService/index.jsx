@@ -70,18 +70,11 @@ export default function ChatboxLayout({ $type }) {
       {Mutate.isSuccess === true ? (
         <div className="texts">
           <BasicText label={'나의 질문'} $size={'xs'} $customColor={'#666'} />
-          <BasicText
-            label={'에어팟 프로'}
-            $color={$type === 'sara' ? 'blue' : 'red'}
-            $bold={'lg'}
-          />
+          <BasicText label={'에어팟 프로'} $color={$type === 'sara' ? 'blue' : 'red'} $bold={'lg'} />
         </div>
       ) : null}
       {Mutate.isIdle === true || Mutate.isSuccess === true ? (
-        <Character
-          $type={$type}
-          stage={Mutate.isSuccess ? 'answer' : 'answer'}
-        />
+        <Character $type={$type} stage={Mutate.isSuccess ? 'answer' : 'answer'} />
       ) : null}
       <ChatTag />
       {Mutate.isIdle === true ? (

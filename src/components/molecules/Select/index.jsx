@@ -1,10 +1,10 @@
-import StyledSelect from './styles';
 import React, { cloneElement, useState } from 'react';
+import PropTypes from 'prop-types';
+import StyledSelect from './styles';
 import { Theme } from '../../../Styles';
-import SelectInput from '../../atoms/SelectInput';
 import Text from '../../atoms/Text';
 
-function Select({ type, trigger, options, setValue }) {
+function Select({ trigger, options, setValue }) {
   const [isModal, setIsModal] = useState(false);
   const changeValue = (value) => {
     setValue(value);
@@ -19,12 +19,8 @@ function Select({ type, trigger, options, setValue }) {
         <div className="selects">
           {options?.map(({ value }) => {
             return (
-              <option
-                onClick={() => changeValue(value)}
-                className="option"
-                value={value}
-              >
-                <Text label={value} color={Theme.color.darkGray} size={'md'} />
+              <option onClick={() => changeValue(value)} className="option" value={value}>
+                <Text label={value} color={Theme.color.darkGray} size="md" />
               </option>
             );
           })}
@@ -34,8 +30,15 @@ function Select({ type, trigger, options, setValue }) {
   );
 }
 
-function Trigger({ children }) {
-  return cloneElement(children, { className: 'trigger' });
-}
+Select.propTypes = {
+  trigger: PropTypes.node.isRequired,
+  options: PropTypes.arrayOf,
+  setValue: PropTypes.func,
+};
+
+Select.defaultProps = {
+  options: [],
+  setValue: undefined,
+};
 
 export default Select;

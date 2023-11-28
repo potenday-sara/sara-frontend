@@ -10,7 +10,6 @@ import { ReactComponent as SaraTextWithCircleWithText } from '../../../images/lo
 import { ReactComponent as MaraTextWithCircleWithText } from '../../../images/logos/maratextlogo.svg';
 import { ReactComponent as SaraCircleCharacter } from '../../../images/logos/SaraCircleCharacter.svg';
 import { ReactComponent as MaraCircleCharacter } from '../../../images/logos/MaraCircleCharacter.svg';
-import { colorPalete } from '../../../Styles';
 import StyledLogoWrap from './styles';
 
 const getLogoByType = (logoType, fill) => {
@@ -33,6 +32,8 @@ const getLogoByType = (logoType, fill) => {
       return <SaraCircleCharacter />;
     case 'MaraCircleCharacter':
       return <MaraCircleCharacter />;
+    default:
+      return null;
   }
 };
 
@@ -49,7 +50,7 @@ export default function Logo({ fill, logoType, ...rest }) {
 }
 
 Logo.propTypes = {
-  fill: PropTypes.oneOf(colorPalete),
+  fill: PropTypes.string,
   logoType: PropTypes.oneOf([
     'MainLogo',
     'TextOnlySara',
@@ -59,8 +60,12 @@ Logo.propTypes = {
     'MaraTextWithCirclwWithText',
     'SaraCircleCharacter',
     'MaraCircleCharacter',
-  ]),
-  w: PropTypes.string,
-  h: PropTypes.string,
-  m: PropTypes.string,
+  ]).isRequired,
+  w: PropTypes.string.isRequired,
+  h: PropTypes.string.isRequired,
+  m: PropTypes.string.isRequired,
+};
+
+Logo.defaultProps = {
+  fill: '',
 };

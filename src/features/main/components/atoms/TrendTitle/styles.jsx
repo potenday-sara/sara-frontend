@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { getColorCodeByType } from '../../../../../Styles';
+import { Theme } from '../../../../../Styles';
 
 const StyledTrendTitle = styled.div`
   box-shadow: 4px 4px 24px 0px rgba(0, 0, 0, 0.05);
@@ -9,7 +9,7 @@ const StyledTrendTitle = styled.div`
   align-items: flex-end;
   width: 100%;
   height: 48px;
-  background-color: ${({ $color }) => getColorCodeByType($color)};
+  background-color: ${({ bg }) => bg || Theme.color.white};
 
   .logo-wrap {
     width: 80px;

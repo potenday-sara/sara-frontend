@@ -3,13 +3,12 @@ const CS = '/cs';
 
 const apis = {
   questions: QUESTIONS,
-  questionsId: (id) => QUESTIONS + id + '/',
+  questionsId: (id) => `${QUESTIONS}${id}/`,
   questionFeedback: (id) => {
-    console.log(id);
-    return QUESTIONS + id + '/feedback/';
+    return `${QUESTIONS}${id}/feedback/`;
   },
 
-  cs: CS + '/feedback/',
+  cs: `${CS}/feedback/`,
 };
 
 export default apis;

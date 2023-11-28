@@ -5,9 +5,9 @@ const StyledProgressbar = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: ${({ w }) => (w ? w : '100%')};
-  height: ${({ h }) => (h ? h : '100%')};
-  background-color: ${({ bg }) => (bg ? bg : Theme.color.gray)};
+  width: ${({ w }) => w || '100%'};
+  height: ${({ h }) => h || '100%'};
+  background-color: ${({ bg }) => bg || Theme.color.gray};
   position: relative;
   overflow: hidden;
   border-radius: 12px;

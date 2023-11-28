@@ -1,6 +1,6 @@
 import React from 'react';
-import StyledLabel from './styles';
 import PropTypes from 'prop-types';
+import StyledLabel from './styles';
 
 export default function Label({ htmlFor, text, ...rest }) {
   return (
@@ -13,5 +13,9 @@ export default function Label({ htmlFor, text, ...rest }) {
 Label.propTypes = {
   text: PropTypes.node,
   htmlFor: PropTypes.string.isRequired,
-  m: PropTypes.string,
+  m: PropTypes.string.isRequired,
+};
+
+Label.defaultProps = {
+  text: null,
 };

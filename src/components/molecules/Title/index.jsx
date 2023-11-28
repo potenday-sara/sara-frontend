@@ -2,8 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import StyledTitle from './styles';
 
-const Title = ({ type, children }) => {
+function Title({ children }) {
   return <StyledTitle>{children}</StyledTitle>;
+}
+
+Title.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default Title;

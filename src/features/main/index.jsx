@@ -3,7 +3,7 @@ import OnboardingSectionLayout from './components/templates/MainSection';
 import MainAside from './components/templates/MainAside';
 import StyledMain from './styles';
 import SaraMaraContext from './stores/SaraMaraContext';
-import Footer from '../../components/Footer';
+import Footer from '../../components/organisms/Footer';
 
 /**
  * 온보딩페에지의 기본 레이아웃입니다.

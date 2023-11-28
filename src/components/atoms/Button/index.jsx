@@ -10,12 +10,17 @@ export default function Button({ children, type, ...rest }) {
   );
 }
 
-Button.PropTypes = {
+Button.propTypes = {
   type: PropTypes.string,
-  w: PropTypes.string,
-  m: PropTypes.string,
-  h: PropTypes.string,
-  bg: PropTypes.string,
-  style: PropTypes.any,
-  children: PropTypes.string.isRequired,
+  w: PropTypes.string.isRequired,
+  m: PropTypes.string.isRequired,
+  h: PropTypes.string.isRequired,
+  bg: PropTypes.string.isRequired,
+  style: PropTypes.objectOf(PropTypes),
+  children: PropTypes.node.isRequired,
+};
+
+Button.defaultProps = {
+  type: 'button',
+  style: {},
 };

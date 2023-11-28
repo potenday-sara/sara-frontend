@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledSaramaraServiceTemplate = styled.section`
+const StyledSaramaraServiceTemplate = styled.section`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -19,10 +19,10 @@ export const StyledSaramaraServiceTemplate = styled.section`
   box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
 
   .tag {
-
     background-color: red;
-
 
     left: 0px;
   }
 `;
+
+export default StyledSaramaraServiceTemplate;

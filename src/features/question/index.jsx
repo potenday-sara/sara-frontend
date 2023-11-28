@@ -1,7 +1,7 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import QuestionTemplate from './components/templates/QuestionTemplate';
 import SaramaraServiceTemplate from './components/templates/SaramaraServiceTemplate';
-import { Route, Routes } from 'react-router-dom';
 
 export default function QuestionPage() {
   return (
@@ -10,7 +10,7 @@ export default function QuestionPage() {
         path="/sara"
         element={
           <QuestionTemplate type="sara">
-            <SaramaraServiceTemplate type={'sara'} />
+            <SaramaraServiceTemplate type="sara" />
           </QuestionTemplate>
         }
       />

@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 /**
  * $type(sara, mara) 값을 받아 css를 리턴하는 함수입니다
@@ -6,28 +6,17 @@ import styled, { css } from "styled-components";
 const getSectionCssByType = ($type) => {
   if ($type === 'sara')
     return css`
-      background: linear-gradient(
-          0deg,
-          rgba(255, 255, 255, 0.85) 0%,
-          rgba(255, 255, 255, 0.85) 100%
-        ),
-        #007bed;
+      background: linear-gradient(0deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.85) 100%), #007bed;
       .section-box {
         margin: auto 0px auto auto;
       }
     `;
-  else
-    return css`
-      background: linear-gradient(
-          0deg,
-          rgba(255, 255, 255, 0.85) 0%,
-          rgba(255, 255, 255, 0.85) 100%
-        ),
-        #ef2b00;
-      .section-box {
-        margin: auto auto auto 0px;
-      }
-    `;
+  return css`
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.85) 100%), #ef2b00;
+    .section-box {
+      margin: auto auto auto 0px;
+    }
+  `;
 };
 
 const StyledMainSection = styled.section`
@@ -45,4 +34,4 @@ const StyledMainSection = styled.section`
   }
 `;
 
-export default StyledMainSection
+export default StyledMainSection;

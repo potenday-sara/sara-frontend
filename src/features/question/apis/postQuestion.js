@@ -5,7 +5,7 @@ export const postQuestion = async ({ ItemValue, ContentsValue, type }) => {
   const data = await axios.post(apis.questions, {
     product: ItemValue,
     content: ContentsValue,
-    type: type,
+    type,
   });
 
   return data;

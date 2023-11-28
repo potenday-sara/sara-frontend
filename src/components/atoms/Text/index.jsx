@@ -1,8 +1,19 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { getBoldCode, getColorCodeByType } from '../../../Styles';
+export const getBoldCode = (bold) => {
+  switch (bold) {
+    case 'sm':
+      return 400;
+    case 'md':
+      return 500;
+    case 'lg':
+      return 700;
+    default:
+      return null;
+  }
+};
 
 const getTextSize = (size) => {
   switch (size) {
@@ -25,7 +36,7 @@ const getTextSize = (size) => {
 };
 
 const StyledText = styled.p`
-  color: ${({ customColor, color }) => (customColor ? customColor : color)};
+  color: ${({ customColor, color }) => customColor || color};
   font-weight: ${({ bold }) => getBoldCode(bold)};
   font-size: ${({ size }) => getTextSize(size)};
   font-family: Pretendard;
@@ -48,16 +59,19 @@ export default function Text({ label, ...rest }) {
 }
 
 Text.propTypes = {
-  style: PropTypes.any,
   bold: PropTypes.oneOf(['sm', 'md', 'lg']),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-  color: PropTypes.oneOf(['blue', 'red', 'gray', 'white', 'black']),
-  customColor: PropTypes.string,
+  color: PropTypes.string,
   label: PropTypes.string,
   onClick: PropTypes.func,
-  style: PropTypes.any,
+  style: PropTypes.objectOf(PropTypes.objectOf),
 };
 
 Text.defaultProps = {
-  $size: 'md',
+  bold: 'md',
+  size: 'md',
+  label: '',
+  onClick: undefined,
+  style: {},
+  color: 'black',
 };

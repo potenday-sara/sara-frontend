@@ -13,7 +13,7 @@ const StyledSelectInput = styled.form`
     gap: 8px;
     font-size: 14px;
     color: ${Theme.color.white};
-    background-color: ${({ bg }) => (bg ? bg : 'blue')};
+    background-color: ${({ bg }) => bg || 'blue'};
     outline: none;
     border: none;
     z-index: 0;

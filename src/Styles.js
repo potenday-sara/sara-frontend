@@ -1,14 +1,7 @@
 import { createGlobalStyle, css } from 'styled-components';
 import reset from 'styled-reset';
 
-export const colorPalete = [
-  'saraPrimary',
-  'saraSecondary',
-  'maraPrimary',
-  'maraSecondary',
-  'white',
-  'black',
-];
+export const colorPalete = ['saraPrimary', 'saraSecondary', 'maraPrimary', 'maraSecondary', 'white', 'black'];
 
 export const Theme = {
   color: {
@@ -23,67 +16,6 @@ export const Theme = {
     darkGray: '#999',
     black: '#333',
   },
-};
-
-/**
- * 테마색의 컬러 코드를 리턴하는 함수
- * @param {string} saraPrimary
- * @param {string} saraSecondaray
- * @param {string} maraPrimary
- * @param {string} maraSecondary
- * @param {string} white
- * @param {string} black
- * @param {string} gray
- * @returns
- */
-export const getColorCodeByType = (color) => {
-  switch (color) {
-    case 'saraPrimary':
-      return Theme.color.saraPrimary;
-    case 'saraSecondaray':
-      return Theme.color.saraSecondary;
-    case 'maraPrimary':
-      return Theme.color.maraPrimary;
-    case 'maraSecondary':
-      return Theme.color.maraSecondary;
-    case 'white':
-      return Theme.color.white;
-    case 'black':
-      return Theme.color.black;
-    case 'gray':
-      return Theme.color.gray;
-  }
-};
-
-/**
- * 프로젝트에서 사용하는 컬러 코드를 반환하는 코드입니다.
- * @param {string} color 'blue', 'red', 'gray', 'white', 'black' 값 중 하나를 가집니다
- * @returns {string} 컬러 코드 반환
- */
-export const getColorCode = ($color) => {
-  switch ($color) {
-    case 'blue':
-      return '#007bed';
-    case 'red':
-      return '#ef2b00';
-    case 'gray':
-      return '#00004d';
-    case 'white':
-      return '#ffffff';
-    case 'black':
-      return '#333333';
-  }
-};
-
-export const getBoldCode = ($bold) => {
-  switch ($bold) {
-    case 'sm':
-      return 400;
-    case 'md':
-      return 500;
-    case 'lg':
-      return 700;
-  }
 };
 
 export const getDestopTextSizeCode = ($size) => {
@@ -235,6 +167,4 @@ export const GlobalStyles = createGlobalStyle`
  * @param {['sara', 'mara']} $type sara, mara 둘 중 하나의 값을 받습니다
  * @return {String} sara 일 경우 blue, mara일 경우 red를 리턴합니다
  */
-export const getColorByType = ($type) => {
-  return $type === 'sara' ? 'blue' : 'red';
-};
+export const getColorByType = ($type) => ($type === 'sara' ? 'blue' : 'red');

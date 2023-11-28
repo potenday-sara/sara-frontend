@@ -1,8 +1,7 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import StyledSelectInput from './styles';
 import { ReactComponent as ArrowBottom } from '../../../images/svgs/BottomArrow.svg';
-import PropTypes from 'prop-types';
-import Text from '../Text';
-import { Theme } from '../../../Styles';
 
 function SelectInput({ value, ...rest }) {
   return (
@@ -14,7 +13,12 @@ function SelectInput({ value, ...rest }) {
 }
 
 SelectInput.propTypes = {
-  type: PropTypes.oneOf(['sara', 'mara']),
+  value: PropTypes.string,
+  type: PropTypes.oneOf(['sara', 'mara']).isRequired,
+};
+
+SelectInput.defaultProps = {
+  value: '값을입력해주세요',
 };
 
 export default SelectInput;

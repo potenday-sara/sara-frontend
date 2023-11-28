@@ -9,7 +9,7 @@ const StyledQuestionTemplate = styled.main`
   grid-row-gap: 10px;
   grid-auto-rows: auto;
   justify-content: center;
-  background-color: ${({ bg }) => (bg ? bg : null)};
+  background-color: ${({ bg }) => bg || null};
 
   align-items: center;
   width: auto;

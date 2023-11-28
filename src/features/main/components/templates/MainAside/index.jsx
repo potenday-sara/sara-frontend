@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import Logo from '../../../../../components/atoms/Logo';
 import RealtimeTrend from '../../organisms/RealtimeTrend';
 import StyledMainAside from './styles';
 import FlatButton from '../../atoms/FlatButton';
 import SaraMaraContext from '../../../stores/SaraMaraContext';
-import PropTypes from 'prop-types';
 import { Theme } from '../../../../../Styles';
 
 export default function MainAside({ type }) {
@@ -13,15 +13,15 @@ export default function MainAside({ type }) {
   return (
     <StyledMainAside>
       <div className="aside-top">
-        <Logo logoType={'MainLogo'} />
+        <Logo logoType="MainLogo" />
       </div>
       <div className="aside-head">
         <RealtimeTrend />
-        <FlatButton type={'sara'} activated={type === 'sara'} onClick={setSara}>
-          <Logo logoType={'SaraTextWithCircleWhite'} fill={Theme.color.white} />
+        <FlatButton type="sara" activated={type === 'sara'} onClick={setSara}>
+          <Logo logoType="SaraTextWithCircleWhite" fill={Theme.color.white} />
         </FlatButton>
-        <FlatButton type={'mara'} activated={type === 'mara'} onClick={setMara}>
-          <Logo logoType={'MaraTextWithCircleWhite'} fill={Theme.color.white} />
+        <FlatButton type="mara" activated={type === 'mara'} onClick={setMara}>
+          <Logo logoType="MaraTextWithCircleWhite" fill={Theme.color.white} />
         </FlatButton>
       </div>
     </StyledMainAside>
@@ -29,5 +29,5 @@ export default function MainAside({ type }) {
 }
 
 MainAside.propTypes = {
-  type: PropTypes.oneOf(['sara', 'mara']),
+  type: PropTypes.oneOf(['sara', 'mara']).isRequired,
 };

@@ -1,17 +1,10 @@
 import React, { cloneElement } from 'react';
+import PropTypes from 'prop-types';
 import StyledFeedbackEmotion from './styles';
 import Text from '../../../../../components/atoms/Text';
 import { Theme } from '../../../../../Styles';
-import PropTypes from 'prop-types';
 
-function FeedbackEmotion({
-  emotion,
-  isActivated,
-  type,
-  children,
-  score,
-  ...rest
-}) {
+function FeedbackEmotion({ emotion, isActivated, type, children, score, ...rest }) {
   return (
     <StyledFeedbackEmotion {...rest}>
       {cloneElement(emotion, {
@@ -31,18 +24,30 @@ function FeedbackEmotion({
 }
 
 FeedbackEmotion.propTypes = {
-  emotion: PropTypes.node,
-  type: PropTypes.oneOf(['sara', 'mara']),
+  emotion: PropTypes.node.isRequired,
+  type: PropTypes.oneOf(['sara', 'mara']).isRequired,
   children: PropTypes.node,
-  score: PropTypes.oneOf(['bad', 'soso', 'good']),
+  score: PropTypes.oneOf(['bad', 'soso', 'good']).isRequired,
   onClick: PropTypes.func,
   className: PropTypes.string,
   isActivated: PropTypes.bool,
   id: PropTypes.string,
 };
 
-const Label = ({ label }) => {
-  return <Text label={label} bold={'sm'} size={'xs'} />;
+FeedbackEmotion.defaultProps = {
+  children: null,
+  onClick: undefined,
+  className: '',
+  isActivated: false,
+  id: '',
+};
+
+function Label({ label }) {
+  return <Text label={label} bold="sm" size="xs" />;
+}
+
+Label.propTypes = {
+  label: PropTypes.string.isRequired,
 };
 
 FeedbackEmotion.Label = Label;

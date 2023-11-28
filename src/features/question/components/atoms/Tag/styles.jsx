@@ -14,11 +14,7 @@ const StyledTag = styled.div`
   transform: translate(-100%);
 
   background-color: ${({ isActive, type }) =>
-    isActive
-      ? Theme.color.white
-      : type === 'sara'
-        ? Theme.color.saraSecondary
-        : Theme.color.maraSecondary};
+    isActive ? Theme.color.white : type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary};
 `;
 
 export default StyledTag;

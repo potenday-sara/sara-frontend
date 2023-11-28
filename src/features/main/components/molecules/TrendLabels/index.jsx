@@ -8,11 +8,11 @@ import useRank from '../../../hooks/useRank';
 
 export default function TrendLabels() {
   const { type } = useContext(SaraMaraContext);
-  const { data } = useRank(type);
+  const { data: ranks } = useRank(type);
 
   return (
     <StyledTrendLabels>
-      {data?.map((data) => {
+      {ranks?.map((data) => {
         return (
           <TrendLabel key={data.rank}>
             <TrendLabel.LabelNum type={type}>{data.rank}</TrendLabel.LabelNum>

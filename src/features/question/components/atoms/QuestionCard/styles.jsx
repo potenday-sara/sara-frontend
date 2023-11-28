@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const StyledCard = styled.div`
-  width: ${({ w }) => (w ? w : '100%')};
-  height: ${({ h }) => (h ? h : '128px')};
+  width: ${({ w }) => w || '100%'};
+  height: ${({ h }) => h || '128px'};
   padding: 20px 20px;
   bottom: 5px;
   background: #ffffff;
