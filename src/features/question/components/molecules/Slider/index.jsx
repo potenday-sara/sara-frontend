@@ -8,6 +8,7 @@ import Text from '../../../../../components/atoms/Text';
 import { Theme } from '../../../../../Styles';
 
 function Slider({ datas, type }) {
+  console.log(datas);
   return (
     <StyledSlider>
       <Swiper

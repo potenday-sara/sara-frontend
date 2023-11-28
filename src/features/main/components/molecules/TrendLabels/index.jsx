@@ -8,18 +8,20 @@ import useRank from '../../../hooks/useRank';
 
 export default function TrendLabels() {
   const { type } = useContext(SaraMaraContext);
-  const { data: ranks } = useRank(type);
+  const { data: ranks, isLoading } = useRank(type);
 
+  console.log(ranks);
   return (
     <StyledTrendLabels>
-      {ranks?.map((data) => {
-        return (
-          <TrendLabel key={data.rank}>
-            <TrendLabel.LabelNum type={type}>{String(data.rank)}</TrendLabel.LabelNum>
-            <TrendLabel.LabelName>{data.product}</TrendLabel.LabelName>
-          </TrendLabel>
-        );
-      })}
+      {!isLoading &&
+        ranks?.map((data) => {
+          return (
+            <TrendLabel key={data.rank}>
+              <TrendLabel.LabelNum type={type}>{String(data.rank)}</TrendLabel.LabelNum>
+              <TrendLabel.LabelName>{data.product}</TrendLabel.LabelName>
+            </TrendLabel>
+          );
+        })}
     </StyledTrendLabels>
   );
 }
