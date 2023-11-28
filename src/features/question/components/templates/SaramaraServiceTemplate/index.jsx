@@ -7,6 +7,8 @@ import QuestionLoading from '../../organisms/QuestionLoading/index.jsx';
 import QuestionAnwser from '../../organisms/QuestionAnswer/index.jsx';
 import useQuestion from '../../../hooks/useQuestion.jsx';
 import { Theme } from '../../../../../Styles.js';
+import Tag from '../../atoms/Tag/index.jsx';
+import { useNavigate } from 'react-router-dom';
 
 export default function SaramaraServiceTemplate({ type }) {
   const {
@@ -17,6 +19,7 @@ export default function SaramaraServiceTemplate({ type }) {
     answer,
     quesionId,
   } = useQuestion(type);
+  const navigate = useNavigate();
   return (
     <StyledSaramaraServiceTemplate>
       {stage === 'initial' && (
@@ -42,6 +45,24 @@ export default function SaramaraServiceTemplate({ type }) {
           quesionId={quesionId}
         />
       )}
+      <Tag
+        type={'sara'}
+        isActive={type === 'sara'}
+        onClick={() => navigate('/question/sara')}
+        style={{
+          top: 30,
+          left: 0,
+        }}
+      />
+      <Tag
+        onClick={() => navigate('/question/mara')}
+        isActive={type === 'mara'}
+        type={'mara'}
+        style={{
+          top: 78,
+          left: 0,
+        }}
+      />
     </StyledSaramaraServiceTemplate>
   );
 }

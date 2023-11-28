@@ -9,7 +9,7 @@ import Footer from '../../components/Footer';
  * 온보딩페에지의 기본 레이아웃입니다.
  */
 export default function Main() {
-  const [type, setType] = useState('mara');
+  const [type, setType] = useState('sara');
   const setSara = () => setType('sara');
   const setMara = () => setType('mara');
 

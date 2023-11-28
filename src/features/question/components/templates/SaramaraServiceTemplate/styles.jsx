@@ -17,4 +17,12 @@ export const StyledSaramaraServiceTemplate = styled.section`
   background-color: white;
   border-radius: 24px;
   box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
+
+  .tag {
+
+    background-color: red;
+
+
+    left: 0px;
+  }
 `;

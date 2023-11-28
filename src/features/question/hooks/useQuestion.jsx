@@ -37,7 +37,7 @@ const useQuestion = (type) => {
   const [requestQuestion, setRequestQuestion] = useState(false);
   const [cnt, setCnt] = useState(0);
   const [answer, setAnswer] = useState('');
-  const [MAX_CNT, setMAX_CNT] = useState(100);
+  const [MAX_CNT, setMAX_CNT] = useState(60);
   // 최대 요청 횟수
 
   const { refetch } = useQuery({
@@ -48,8 +48,8 @@ const useQuestion = (type) => {
       else {
         // 임시로 시간초과가 발생했지만 대답완료 페이지로 이동
         setStage('finish');
-        setRequestQuestion(false)
-      };
+        setRequestQuestion(false);
+      }
 
       // 수정해야 하는 부분
       if (data.answer?.length > 0) {
@@ -65,7 +65,7 @@ const useQuestion = (type) => {
 
     queryKey: ['getId'],
     enabled: requestQuestion ? true : false,
-    refetchInterval: 5000,
+    refetchInterval: 1000,
     refetchIntervalInBackground: true,
   });
 
@@ -73,7 +73,6 @@ const useQuestion = (type) => {
     onSuccess: ({ data }) => {
       setQuestionId(data.id);
       setRequestQuestion(true);
-      setStage('process');
       refetch();
     },
   });
@@ -88,6 +87,7 @@ const useQuestion = (type) => {
   const SubmitQuestion = (event) => {
     event.preventDefault();
     const data = mutate({ ItemValue, ContentsValue, type });
+    setStage('process');
   };
 
   let progress = Math.floor((cnt / MAX_CNT) * 100);

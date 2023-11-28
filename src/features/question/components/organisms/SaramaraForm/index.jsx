@@ -10,15 +10,21 @@ import Button from '../../../../../components/atoms/Button';
 import Text from '../../../../../components/atoms/Text';
 import StyledSaramaraForm from './styles';
 import Logo from '../../../../../components/atoms/Logo';
+import { useNavigate } from 'react-router-dom';
 
 export default function SaramaraForm({
   type,
   QuestionFormData,
   SubmitQuestion,
 }) {
+  const navigate = useNavigate();
   return (
     <StyledSaramaraForm>
       <Logo
+        style={{
+          cursor: 'pointer',
+        }}
+        onClick={() => navigate('/')}
         w={'148px'}
         logoType={
           type === 'sara'
