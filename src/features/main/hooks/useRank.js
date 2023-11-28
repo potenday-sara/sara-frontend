@@ -12,11 +12,15 @@ const useRank = (type) => {
       },
     });
 
-    return data;
+    return data?.slice(0, 5);
   };
 
-  const { data, isLoading, isError } = useQuery(['Rank', type], () =>
-    getRank(type),
+  const { data, isLoading, isError } = useQuery(
+    ['Rank', type],
+    () => getRank(type),
+    {
+      staleTime: 10000,
+    },
   );
 
   return { data, isLoading, isError };

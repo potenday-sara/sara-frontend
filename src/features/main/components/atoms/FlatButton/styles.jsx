@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { getColorCodeByType } from '../../../../../Styles';
 
 const StyledFlatButton = styled.button`
+  cursor: pointer;
   width: 100%;
   aspect-ratio: 8 / 5;
   outline: none;

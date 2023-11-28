@@ -4,10 +4,8 @@ const StyledMainAside = styled.aside`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 10vh;
   align-items: center;
-
+  justify-content: space-around;
   height: auto;
 `;
 

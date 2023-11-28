@@ -5,10 +5,11 @@ import TitleLines from '../../atoms/CharacterChat';
 import PropTypes from 'prop-types';
 import Text from '../../../../../components/atoms/Text';
 import StyledTextbubble from './styles';
+import { Theme } from '../../../../../Styles';
 
-const $textStyles = css`
-  opacity: 0.65;
-`;
+const textStyles = {
+  opacity: 0.65,
+};
 
 /**
  * $type을 바탕으로 사라, 마라 말풍선을 리턴합니다.
@@ -23,15 +24,15 @@ export default function TitleBubble({ $type }) {
         <>
           <Text
             label={'사야할 것과 망설이는 이유를 말해주세요!'}
-            $size="md"
-            $bold="lg"
-            $color="saraPrimary"
+            size="md"
+            bold="lg"
+            color={Theme.color.saraPrimary}
           />
           <Text
-            $textStyles={$textStyles}
-            $size="xs"
-            $bold="sm"
-            $color="saraPrimary"
+            style={textStyles}
+            size="xs"
+            bold="sm"
+            color={Theme.color.saraPrimary}
             label={
               'Sara가 긍정적인 정보와 효과를 알려주고,\n구매 결정을 내리는 데 도움을 줄 거예요!'
             }
@@ -41,18 +42,18 @@ export default function TitleBubble({ $type }) {
         <>
           <Text
             label={'사지 말아야 할 것과 망설이는 이유를 말해주세요.'}
-            $size="md"
-            $bold="lg"
-            $color="maraPrimary"
+            size="md"
+            bold="lg"
+            color={Theme.color.maraPrimary}
           />
           <Text
-            $textStyles={$textStyles}
+            style={textStyles}
             label={
               'Mara가 객관적인 정보와 기준을 토대로,\n불매 결정을 내리는 데 도움을 줄 거예요!'
             }
-            $size="xs"
-            $bold="sm"
-            $color="maraPrimary"
+            size="xs"
+            bold="sm"
+            color={Theme.color.maraPrimary}
           />
         </>
       )}

@@ -3,6 +3,7 @@ import OnboardingSectionLayout from './components/templates/MainSection';
 import MainAside from './components/templates/MainAside';
 import StyledMain from './styles';
 import SaraMaraContext from './stores/SaraMaraContext';
+import Footer from '../../components/Footer';
 
 /**
  * 온보딩페에지의 기본 레이아웃입니다.
@@ -23,6 +24,11 @@ export default function Main() {
         <MainAside type={type} />
         <OnboardingSectionLayout type="mara" />
       </SaraMaraContext.Provider>
+      <Footer
+        style={{
+          gridArea: '2 / 1 / 3 / 4',
+        }}
+      />
     </StyledMain>
   );
 }
