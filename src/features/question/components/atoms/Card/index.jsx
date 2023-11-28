@@ -22,6 +22,7 @@ function Card({ isRocket, label, price, img }) {
         <Text label={price} color={Theme.color.gray} />
         {isRocket && <img src={rocket} alt="..." width={'70px'} />}
       </div>
+      
     </StyledCard>
   );
 }

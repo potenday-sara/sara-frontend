@@ -87,6 +87,14 @@ export default function CounpangRecommend({ type }) {
         />
       </Title>
       <Cards datas={tempDatas} />
+      <div className="bottom">
+        <Text
+          color={Theme.color.darkGray}
+          label={
+            '*위 컨텐츠는 쿠팡 파트너스 활동의 일원으로 금전적 대가를 취할 수 있습니다'
+          }
+        />
+      </div>
     </StyledCounpoangRecommend>
   );
 }
