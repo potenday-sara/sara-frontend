@@ -16,7 +16,10 @@
     "@testing-library/user-event": "^13.5.0",
     "@weknow/react-bubble-chart-d3": "^1.0.12",
     "axios": "^1.4.0",
+    "eslint": "^7.32.0 || ^8.2.0",
+    "http-proxy-middleware": "^2.0.6",
     "lottie-react": "^2.4.0",
+    "prettier": "^3.1.0",
     "react": "^18.2.0",
     "react-bubble-chart": "^0.4.0",
     "react-dom": "^18.2.0",
@@ -26,6 +29,7 @@
     "react-slick": "^0.29.0",
     "storybook-addon-react-router-v6": "^1.0.0",
     "styled-components": "^6.0.7",
+    "styled-reset": "^4.5.1",
     "sweetalert2": "^11.7.5",
     "swiper": "^9.0.0",
     "web-vitals": "^2.1.4",
@@ -60,6 +64,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.5.4",
     "@storybook/addon-essentials": "^7.0.12",
     "@storybook/addon-interactions": "^7.0.12",
     "@storybook/addon-links": "^7.0.12",
@@ -70,6 +75,13 @@
     "@storybook/testing-library": "^0.0.14-next.2",
     "babel-plugin-named-exports-order": "^0.0.2",
     "chromatic": "^6.17.4",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-storybook": "^0.6.12",
     "prop-types": "^15.8.1",
     "webpack": "^5.83.1"
@@ -78,5 +90,6 @@
   "_id": "sara-frontend@0.1.0",
   "resolutions": {
     "strip-ansi": "6.0.0"
-  }
+  },
+  "proxy": "https://api.sara-mara.com"
 }

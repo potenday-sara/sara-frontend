@@ -1,9 +1,9 @@
-import { axios } from "../../../lib/axios";
+import axios from '../../../lib/axios';
 
 export const getQuestions = ($type) => {
-  let type = $type === "/sara" ? "SARA" : "MARA";
+  let type = $type === '/sara' ? 'SARA' : 'MARA';
   return axios({
-    method: "get",
+    method: 'get',
     url: `/${type}/questions`,
   });
 };
