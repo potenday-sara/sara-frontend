@@ -14,7 +14,7 @@ const Title = ({ children }) => {
 
 const Contents = ({ label }) => {
   const string = label.length > 20 ? label.slice(0, 20) + '...' : label;
-  return <Text label={string} size={'lg'} color={Theme.color.darkGray} />;
+  return <Text label={string} size={'md'} color={Theme.color.darkGray} />;
 };
 
 QuestionCard.Title = Title;

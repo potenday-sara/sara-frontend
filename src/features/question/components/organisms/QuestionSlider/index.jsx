@@ -19,7 +19,7 @@ export default function QuestionSlider({ type }) {
         bold={'lg'}
         size={'lg'}
       />
-      {!QuestionLoading && <Slider datas={OtherQuestions} />}
+      {!QuestionLoading && <Slider datas={OtherQuestions} type={type} />}
     </StyledQuestionSlider>
   );
 }
