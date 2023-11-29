@@ -26,7 +26,7 @@ export default function TitleBubble({ type }) {
             size="xs"
             bold="sm"
             color={Theme.color.saraPrimary}
-            label="Sara가 긍정적인 정보와 효과를 알려주고,\n구매 결정을 내리는 데 도움을 줄 거예요!"
+            label={`Sara가 긍정적인 정보와 효과를 알려주고,\n구매 결정을 내리는 데 도움을 줄 거예요!`}
           />
         </>
       ) : (
@@ -39,7 +39,7 @@ export default function TitleBubble({ type }) {
           />
           <Text
             style={textStyles}
-            label="Mara가 객관적인 정보와 기준을 토대로,\n불매 결정을 내리는 데 도움을 줄 거예요!"
+            label={`Mara가 객관적인 정보와 기준을 토대로,\n불매 결정을 내리는 데 도움을 줄 거예요!`}
             size="xs"
             bold="sm"
             color={Theme.color.maraPrimary}
