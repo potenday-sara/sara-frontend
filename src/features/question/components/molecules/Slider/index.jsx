@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Autoplay } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper } from 'swiper/react';
 import StyledSlider from './styles';
-import QuestionCard from '../../atoms/QuestionCard';
-import Text from '../../../../../components/atoms/Text';
-import { Theme } from '../../../../../Styles';
+// import QuestionCard from '../../atoms/QuestionCard';
+// import Text from '../../../../../components/atoms/Text';
+// import { Theme } from '../../../../../Styles';
 
-function Slider({ datas, type }) {
+function Slider({ datas }) {
   console.log(datas);
   return (
     <StyledSlider>
@@ -24,7 +24,7 @@ function Slider({ datas, type }) {
         modules={[Autoplay]}
         className="mySwiper"
       >
-        {datas?.map(({ content, product }, idx) => {
+        {/* {datas?.map(({ content, product }, idx) => {
           return (
             <SwiperSlide key={('slider', [idx])}>
               <QuestionCard>
@@ -40,14 +40,14 @@ function Slider({ datas, type }) {
               </QuestionCard>
             </SwiperSlide>
           );
-        })}
+        })} */}
       </Swiper>
     </StyledSlider>
   );
 }
 
 Slider.propTypes = {
-  type: PropTypes.oneOf(['sara', 'mara']).isRequired,
+  // type: PropTypes.oneOf(['sara', 'mara']).isRequired,
   datas: PropTypes.arrayOf,
 };
 
