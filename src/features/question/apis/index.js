@@ -1,4 +1,5 @@
 const QUESTIONS = '/questions/';
+const ANSWER = '/answers';
 const CS = '/cs';
 
 const apis = {
@@ -7,7 +8,7 @@ const apis = {
   questionFeedback: (id) => {
     return `${QUESTIONS}${id}/feedback/`;
   },
-
+  getAnswer: (id) => `${ANSWER}/${id}/`,
   cs: `${CS}/feedback/`,
 };
 

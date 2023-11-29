@@ -9,8 +9,9 @@ import useQuestion from '../../../hooks/useQuestion';
 import Tag from '../../atoms/Tag';
 
 export default function SaramaraServiceTemplate({ type }) {
-  const { stage, QuestionFormData, SubmitQuestion, progress, answer, quesionId } = useQuestion(type);
+  const { stage, QuestionFormData, SubmitQuestion, progress, quesionId, gptAnswer } = useQuestion(type);
   const navigate = useNavigate();
+
   return (
     <StyledSaramaraServiceTemplate>
       {stage === 'initial' && (
@@ -19,7 +20,12 @@ export default function SaramaraServiceTemplate({ type }) {
 
       {stage === 'process' && <QuestionLoading type={type} QuestionFormData={QuestionFormData} progress={progress} />}
       {stage === 'finish' && (
-        <QuestionAnwser type={type} answer={answer} QuestionFormData={QuestionFormData} quesionId={quesionId} />
+        <QuestionAnwser
+          type={type}
+          answer={gptAnswer.data.content}
+          QuestionFormData={QuestionFormData}
+          quesionId={quesionId}
+        />
       )}
       <Tag
         type="sara"

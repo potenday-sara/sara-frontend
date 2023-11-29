@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
 import useInput from '../../../hooks/useInput';
 import { getQuestionState, postQuestion } from '../apis/postQuestion';
+import getAnswer from '../apis/getAnswer';
 
 /**
  * 질문 전송 및 데이터 관리 훅
@@ -14,25 +15,13 @@ const useQuestion = (type) => {
   const { value: ContentsValue, onChange: ContentsChange } = useInput('');
   const [quesionId, setQuestionId] = useState('');
   const [requestQuestion, setRequestQuestion] = useState(false);
-  // const [requestCount, setRequestCount] = useState(0);
-  const [requestCount] = useState(0);
-  const [answerId] = useState('');
-  const [maxRequesrCount] = useState(60);
+  const [requestCount, setRequestCount] = useState(0);
+  const [answerId, setAnswerId] = useState('');
+  const [maxRequesrCount] = useState(3);
   // const [maxRequesrCount, setMaxRequestCount] = useState(60);
 
   // // 요청 횟수를 카운트하는 함수
-  // const countRequest = () => setCnt((prev) => prev + 1);
-
-  // // 요청 횟수와 남은 요청을 비교하는 함수
-  // const checkCountRequest = () => {
-  //   if (requestCount < maxRequesrCount) {
-  //     setRequestQuestion(setRequestQuestion(false));
-  //   } else {
-  //     setRequestQuestion(true);
-  //     // 에러 추가 후 에러로 바꿔야 할 부분
-  //     setStage('finish');
-  //   }
-  // };
+  const countRequest = () => setRequestCount((prev) => prev + 1);
 
   // // 질문 재시도시 남은 횟수 변경하는 함수
   // const setRetryRequest = (retryCount) => {
@@ -40,42 +29,42 @@ const useQuestion = (type) => {
   //   setMaxRequestCount(retryCount);
   // };
 
-  // 질문 요청 시 작동하는 함수
-  const getGptAnswerId = async () => {
-    console.log('반복중이니?');
-    if (!quesionId) return null;
-    const { data } = await getQuestionState(quesionId);
-    return data;
-  };
+  // 답변 받는 쿼리
+  const { data: gptAnswer } = useQuery({
+    queryFn: () => getAnswer(answerId),
+    queryKey: ['getAnswer', answerId],
+  });
 
-  // 최대 요청 횟수
-  const { refetch } = useQuery({
-    queryFn: getGptAnswerId(),
-    // async () => {
-    //   setCnt((prev) => prev + 1);
-    //   const { data } = await getQuestionState(quesionId);
+  // 답변 생성 여부 확인 쿼리
+  const { refetch: GetAnswerState } = useQuery({
+    queryFn: async () => {
+      const { data } = await getQuestionState(quesionId);
 
-    //   if (requestCount < maxRequesrCount) setRequestQuestion(true);
-    //   else {
-    //     // 임시로 시간초과가 발생했지만 대답완료 페이지로 이동
-    //     setStage('finish');
-    //     setRequestQuestion(false);
-    //   }
+      // 요청 횟수 1회 증가
+      countRequest();
 
-    //   // 수정해야 하는 부분
-    //   if (data.answer?.length > 0) {
-    //     setCnt(100);
-    //     setRequestQuestion(false);
-    //     answerId(data.answer);
-    //     setTimeout(() => {
-    //       setStage('finish');
-    //     }, 2000);
-    //   }
-    // },
+      // 질문에 답이 있는 경우
+      if (data?.answer?.length > 0) {
+        // 답 저장 후 로직 종료
+        setAnswerId(data.answer);
+        setRequestQuestion(false);
+        setStage('finish');
+        // 정답 id로 요청보내기
+        return data;
+      }
 
-    queryKey: ['getId'],
-    enabled: false,
-    refetchInterval: requestQuestion ? 1000 : false,
+      // 요청 횟수 비교
+      if (requestCount >= maxRequesrCount) {
+        setAnswerId('5417465a-6f01-4498-bfa9-40d583cf6935');
+        setStage('finish');
+        setRequestQuestion(false);
+      }
+      return data;
+    },
+
+    queryKey: ['getId', quesionId],
+    enabled: requestQuestion,
+    refetchInterval: 1000,
     refetchIntervalInBackground: true,
   });
 
@@ -83,7 +72,7 @@ const useQuestion = (type) => {
     onSuccess: ({ data }) => {
       setQuestionId(data.id);
       setRequestQuestion(true);
-      refetch();
+      GetAnswerState();
     },
   });
 
@@ -108,6 +97,7 @@ const useQuestion = (type) => {
     progress,
     answerId,
     quesionId,
+    gptAnswer,
   };
 };
 
