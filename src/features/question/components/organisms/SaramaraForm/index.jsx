@@ -69,7 +69,12 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
 
 SaramaraForm.propTypes = {
   type: PropTypes.oneOf(['sara', 'mara']).isRequired,
-  QuestionFormData: PropTypes.objectOf,
+  QuestionFormData: PropTypes.shape({
+    ItemValue: PropTypes.string,
+    ItemChange: PropTypes.func,
+    ContentsValue: PropTypes.string,
+    ContentsChange: PropTypes.func,
+  }),
   SubmitQuestion: PropTypes.func,
 };
 

@@ -14,7 +14,14 @@ function Cards({ datas }) {
 }
 
 Cards.propTypes = {
-  datas: PropTypes.arrayOf,
+  datas: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      price: PropTypes.string,
+      img: PropTypes.node,
+      isRocket: PropTypes.bool,
+    }),
+  ),
 };
 
 Cards.defaultProps = {

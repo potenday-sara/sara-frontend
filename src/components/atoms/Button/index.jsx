@@ -12,15 +12,19 @@ export default function Button({ children, type, ...rest }) {
 
 Button.propTypes = {
   type: PropTypes.string,
-  w: PropTypes.string.isRequired,
-  m: PropTypes.string.isRequired,
-  h: PropTypes.string.isRequired,
-  bg: PropTypes.string.isRequired,
-  style: PropTypes.objectOf(PropTypes),
+  w: PropTypes.string,
+  m: PropTypes.string,
+  h: PropTypes.string,
+  bg: PropTypes.string,
+  style: PropTypes.shape({}),
   children: PropTypes.node.isRequired,
 };
 
 Button.defaultProps = {
   type: 'button',
   style: {},
+  w: '',
+  m: '',
+  h: '',
+  bg: '',
 };

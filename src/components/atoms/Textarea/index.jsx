@@ -17,7 +17,7 @@ export default function Textarea({ ph, isAutoHeight, id, ...rest }) {
 Textarea.propTypes = {
   value: PropTypes.string.isRequired,
   isAutoHeight: PropTypes.bool,
-  style: PropTypes.objectOf,
+  style: PropTypes.shape({}),
   onChnage: PropTypes.func,
   w: PropTypes.string,
   h: PropTypes.string,

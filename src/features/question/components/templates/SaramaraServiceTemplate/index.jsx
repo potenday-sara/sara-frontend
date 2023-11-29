@@ -23,7 +23,7 @@ export default function SaramaraServiceTemplate({ type }) {
       )}
       <Tag
         type="sara"
-        isActive={type === 'sara'}
+        $isActive={type === 'sara'}
         onClick={() => navigate('/question/sara')}
         style={{
           top: 30,
@@ -32,7 +32,7 @@ export default function SaramaraServiceTemplate({ type }) {
       />
       <Tag
         onClick={() => navigate('/question/mara')}
-        isActive={type === 'mara'}
+        $isActive={type === 'mara'}
         type="mara"
         style={{
           top: 78,
