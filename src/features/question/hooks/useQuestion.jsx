@@ -11,17 +11,21 @@ import getAnswer from '../apis/getAnswer';
 const useQuestion = (type) => {
   // initial, process, finish, error(추가 예정)
   const [stage, setStage] = useState('initial');
-  const { value: ItemValue, onChange: ItemChange } = useInput('');
-  const { value: ContentsValue, onChange: ContentsChange } = useInput('');
+  const { value: ItemValue, onChange: ItemChange, setValue: setItemValue } = useInput('');
+  const { value: ContentsValue, onChange: ContentsChange, setValue: setContentsValue } = useInput('');
   const [quesionId, setQuestionId] = useState('');
   const [requestQuestion, setRequestQuestion] = useState(false);
   const [requestCount, setRequestCount] = useState(0);
   const [answerId, setAnswerId] = useState('');
-  const [maxRequesrCount] = useState(3);
+  const [progress, setProgress] = useState(0);
+  const [maxRequestCount] = useState(20);
   // const [maxRequesrCount, setMaxRequestCount] = useState(60);
 
   // // 요청 횟수를 카운트하는 함수
-  const countRequest = () => setRequestCount((prev) => prev + 1);
+  const countRequest = () => {
+    setRequestCount((prev) => prev + 1);
+    setProgress(Math.floor((requestCount / maxRequestCount) * 100));
+  };
 
   // // 질문 재시도시 남은 횟수 변경하는 함수
   // const setRetryRequest = (retryCount) => {
@@ -48,16 +52,19 @@ const useQuestion = (type) => {
         // 답 저장 후 로직 종료
         setAnswerId(data.answer);
         setRequestQuestion(false);
-        setStage('finish');
+        setRequestCount(maxRequestCount);
+        setTimeout(() => {
+          setStage('finish');
+        }, 3000);
         // 정답 id로 요청보내기
         return data;
       }
 
       // 요청 횟수 비교
-      if (requestCount >= maxRequesrCount) {
-        setAnswerId('5417465a-6f01-4498-bfa9-40d583cf6935');
-        setStage('finish');
+      if (requestCount >= maxRequestCount) {
+        // 실패로직 추가
         setRequestQuestion(false);
+        setStage('finish');
       }
       return data;
     },
@@ -72,6 +79,7 @@ const useQuestion = (type) => {
     onSuccess: ({ data }) => {
       setQuestionId(data.id);
       setRequestQuestion(true);
+      setRequestCount(0);
       GetAnswerState();
     },
   });
@@ -89,9 +97,17 @@ const useQuestion = (type) => {
     setStage('process');
   };
 
-  const progress = Math.floor((requestCount / maxRequesrCount) * 100);
+  const refreshForm = () => {
+    setItemValue('');
+    setContentsValue('');
+    setStage('initial');
+    setRequestCount(0);
+    setProgress(0);
+  };
+
   return {
     stage,
+    refreshForm,
     QuestionFormData,
     SubmitQuestion,
     progress,

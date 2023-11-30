@@ -1,5 +1,5 @@
 import React from 'react';
-import PropType from 'prop-types';
+import PropTypes from 'prop-types';
 import StyledQuestionInfo from './styles';
 import Text from '../../../../../components/atoms/Text';
 
@@ -26,6 +26,11 @@ export default function QuestionInfo({ type, QuestionFormData }) {
 }
 
 QuestionInfo.propTypes = {
-  QuestionFormData: PropType.objectOf.isRequired,
-  type: PropType.oneOf(['sara', 'mara']).isRequired,
+  QuestionFormData: PropTypes.shape({
+    ItemValue: PropTypes.string,
+    ItemChange: PropTypes.func,
+    ContentsValue: PropTypes.string,
+    ContentsChange: PropTypes.func,
+  }).isRequired,
+  type: PropTypes.oneOf(['sara', 'mara']).isRequired,
 };

@@ -4,7 +4,7 @@ import StyledFeedbackEmotion from './styles';
 import Text from '../../../../../components/atoms/Text';
 import { Theme } from '../../../../../Styles';
 
-function FeedbackEmotion({ emotion, isActivated, type, children, score, ...rest }) {
+function FeedbackEmotion({ emotion, isActivated, type, children, ...rest }) {
   return (
     <StyledFeedbackEmotion {...rest}>
       {cloneElement(emotion, {
@@ -27,7 +27,6 @@ FeedbackEmotion.propTypes = {
   emotion: PropTypes.node.isRequired,
   type: PropTypes.oneOf(['sara', 'mara']).isRequired,
   children: PropTypes.node,
-  score: PropTypes.oneOf(['bad', 'soso', 'good']).isRequired,
   onClick: PropTypes.func,
   className: PropTypes.string,
   isActivated: PropTypes.bool,
