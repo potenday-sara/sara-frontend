@@ -14,5 +14,5 @@ export default function Footer({ ...rest }) {
 }
 
 Footer.propType = {
-  style: PropTypes.objectOf,
+  style: PropTypes.shape({}),
 };

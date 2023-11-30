@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router';
 import StyledQuestionAnswer from './styles';
 import Logo from '../../../../../components/atoms/Logo';
 import QuestionInfo from '../../molecules/QuestionInfo';
@@ -9,7 +10,19 @@ import { Theme } from '../../../../../Styles';
 import Text from '../../../../../components/atoms/Text';
 import QuestionFeedback from '../QuestionEmotionForm';
 
-export default function QuestionAnwser({ type, answer, QuestionFormData, quesionId }) {
+const buttonStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: 8,
+};
+
+export default function QuestionAnwser({ type, answer, QuestionFormData, quesionId, refreshForm }) {
+  const navigate = useNavigate('');
+  const QuestionNavigator = (from) => {
+    refreshForm();
+    navigate(from);
+  };
   return (
     <StyledQuestionAnswer>
       <section className="question-top">
@@ -20,25 +33,29 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
         <Logo w="180px" m="24px" logoType={type === 'sara' ? 'SaraCircleCharacter' : 'MaraCircleCharacter'} />
         <AnswerContent type={type} answer={answer} />
         <div className="button-wrap">
-          <Button bg={Theme.color.saraSecondary}>
-            <div className="button">
-              <Logo w="74px" logoType="SaraTextWithCircleWhite" fill={Theme.color.saraPrimary} />
-              <Text
-                size="md"
-                color={Theme.color.saraPrimary}
-                label={type === 'sara' ? '에게 다른것 묻기' : '에게 물어보기'}
-              />
-            </div>
+          <Button
+            bg={Theme.color.saraSecondary}
+            style={buttonStyle}
+            onClick={() => QuestionNavigator('/question/sara')}
+          >
+            <Logo w="74px" logoType="SaraTextWithCircleWhite" fill={Theme.color.saraPrimary} />
+            <Text
+              size="md"
+              color={Theme.color.saraPrimary}
+              label={type === 'sara' ? '에게 다른것 묻기' : '에게 물어보기'}
+            />
           </Button>
-          <Button bg={Theme.color.maraSecondary}>
-            <div className="button">
-              <Logo w="74px" logoType="MaraTextWithCircleWhite" fill={Theme.color.maraPrimary} />
-              <Text
-                size="md"
-                color={Theme.color.maraPrimary}
-                label={type === 'mara' ? '에게 다른것 묻기' : '에게 물어보기'}
-              />
-            </div>
+          <Button
+            bg={Theme.color.maraSecondary}
+            style={buttonStyle}
+            onClick={() => QuestionNavigator('/question/mara')}
+          >
+            <Logo w="74px" logoType="MaraTextWithCircleWhite" fill={Theme.color.maraPrimary} />
+            <Text
+              size="md"
+              color={Theme.color.maraPrimary}
+              label={type === 'mara' ? '에게 다른것 묻기' : '에게 물어보기'}
+            />
           </Button>
         </div>
         <section className="answer-bottom">
@@ -52,11 +69,17 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
 QuestionAnwser.propTypes = {
   type: PropTypes.oneOf(['sara', 'mara']).isRequired,
   answer: PropTypes.string,
-  QuestionFormData: PropTypes.objectOf,
+  QuestionFormData: PropTypes.shape({
+    ItemValue: PropTypes.string,
+    ItemChange: PropTypes.func,
+    ContentsValue: PropTypes.string,
+    ContentsChange: PropTypes.func,
+  }).isRequired,
+
   quesionId: PropTypes.string.isRequired,
+  refreshForm: PropTypes.func.isRequired,
 };
 
 QuestionAnwser.defaultProps = {
   answer: '',
-  QuestionFormData: {},
 };

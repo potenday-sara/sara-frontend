@@ -9,12 +9,16 @@ export default function Input({ ph, id, onChange, value, ...rest }) {
 Input.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func,
-  w: PropTypes.string.isRequired,
-  h: PropTypes.string.isRequired,
-  ph: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  w: PropTypes.string,
+  h: PropTypes.string,
+  ph: PropTypes.string,
+  id: PropTypes.string,
 };
 
 Input.defaultProps = {
   onChange: undefined,
+  w: '',
+  h: '',
+  ph: '',
+  id: '',
 };

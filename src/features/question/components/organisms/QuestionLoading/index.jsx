@@ -43,11 +43,15 @@ export default function QuestionLoading({ type, QuestionFormData, progress }) {
 
 QuestionLoading.propTypes = {
   type: PropTypes.oneOf(['sara', 'mara']).isRequired,
-  QuestionFormData: PropTypes.objectOf,
-  progress: PropTypes.string,
+  QuestionFormData: PropTypes.shape({
+    ItemValue: PropTypes.string,
+    ItemChange: PropTypes.func,
+    ContentsValue: PropTypes.string,
+    ContentsChange: PropTypes.func,
+  }).isRequired,
+  progress: PropTypes.number,
 };
 
 QuestionLoading.defaultProps = {
-  QuestionFormData: {},
-  progress: '0%',
+  progress: 0,
 };

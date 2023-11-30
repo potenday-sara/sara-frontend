@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const StyledSlider = styled.div`
+  overflow-y: hidden;
   .swiper-slide {
   }
   .swiper-wrapper {
