@@ -9,9 +9,11 @@ import Footer from '../../../../../components/organisms/Footer';
 export default function QuestionTemplate({ type, children }) {
   return (
     <StyledQuestionTemplate type={type} bg={type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary}>
-      <QuestionSlider type={type} />
-      {children}
-      <CoupangRecommend type={type} />
+      <div className="grid">
+        <QuestionSlider type={type} />
+        {children}
+        <CoupangRecommend type={type} />
+      </div>
       <div className="design">
         <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="40" viewBox="0 0 1920 40" fill="none">
           <path

@@ -27,6 +27,7 @@ export default function QuestionEmotionForm({ type, quesionId }) {
         <Form.Label>
           <Form.Input>
             <Textarea
+              id="feedback"
               style={{ padding: '16px 100px 16px 16px' }}
               isAutoHeight
               value={CScontent}

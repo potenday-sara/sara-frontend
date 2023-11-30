@@ -64,7 +64,7 @@ Text.propTypes = {
   color: PropTypes.string,
   label: PropTypes.string,
   onClick: PropTypes.func,
-  style: PropTypes.objectOf(PropTypes.objectOf),
+  style: PropTypes.shape({}),
 };
 
 Text.defaultProps = {

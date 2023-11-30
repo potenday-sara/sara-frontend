@@ -20,7 +20,7 @@ Textarea.propTypes = {
   style: PropTypes.shape({}),
   onChnage: PropTypes.func,
   w: PropTypes.string,
-  h: PropTypes.string,
+  h: PropTypes.string || PropTypes.number,
   ph: PropTypes.string,
   id: PropTypes.string.isRequired,
 };
