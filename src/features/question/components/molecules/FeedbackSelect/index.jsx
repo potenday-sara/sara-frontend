@@ -10,9 +10,9 @@ import useEmotionFeedback from '../../../hooks/useEmotionFeedback';
 export default function FeedbackSelect({ type, quesionId }) {
   const { nowSelected, getNowSelectedFeedback } = useEmotionFeedback(quesionId);
   const feedbackOptions = [
-    [<Good />, '도움이 됐어요', 'good'],
-    [<Soso />, '그럭저럭...?!', 'soso'],
-    [<Bad />, '별로에요 우우~', 'bad'],
+    [<Good />, '도움이 됐어요', 1],
+    [<Soso />, '그럭저럭...?!', 0],
+    [<Bad />, '별로에요 우우~', -1],
   ];
 
   return (
@@ -20,8 +20,6 @@ export default function FeedbackSelect({ type, quesionId }) {
       {feedbackOptions.map(([option, label, score], idx) => {
         return (
           <FeedbackEmotion
-            id={score}
-            className={score}
             type={type}
             emotion={option}
             key={['Emotion', idx]}

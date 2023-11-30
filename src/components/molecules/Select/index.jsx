@@ -32,7 +32,11 @@ function Select({ trigger, options, setValue }) {
 
 Select.propTypes = {
   trigger: PropTypes.node.isRequired,
-  options: PropTypes.arrayOf,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string,
+    }),
+  ),
   setValue: PropTypes.func,
 };
 

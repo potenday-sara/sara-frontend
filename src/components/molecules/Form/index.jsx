@@ -8,7 +8,7 @@ function Form({ children, ...rest }) {
 
 Form.propTypes = {
   children: PropTypes.node,
-  style: PropTypes.objectOf,
+  style: PropTypes.shape({}),
   onSubmit: PropTypes.func.isRequired,
 };
 

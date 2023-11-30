@@ -73,7 +73,11 @@ export default function CounpangRecommend({ type }) {
           options={tempOptions}
           setValue={setValue}
           trigger={
-            <SelectInput value={value} bg={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary} />
+            <SelectInput
+              value={value}
+              bg={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+              type={type}
+            />
           }
         />
       </Title>

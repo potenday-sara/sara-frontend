@@ -13,8 +13,8 @@ const StyledTag = styled.div`
   border-bottom-left-radius: 12px;
   transform: translate(-100%);
 
-  background-color: ${({ isActive, type }) =>
-    isActive ? Theme.color.white : type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary};
+  background-color: ${({ $isActive, type }) =>
+    $isActive ? Theme.color.white : type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary};
 `;
 
 export default StyledTag;

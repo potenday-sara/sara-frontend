@@ -10,7 +10,7 @@ function QuestionCard({ children, ...rest }) {
 
 QuestionCard.propTypes = {
   children: PropTypes.node.isRequired,
-  style: PropTypes.objectOf,
+  style: PropTypes.shape({}),
 };
 
 QuestionCard.defaultProps = {
