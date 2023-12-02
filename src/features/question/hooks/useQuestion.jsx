@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
 import useInput from '../../../hooks/useInput';
 import { getQuestionState, postQuestion } from '../apis/postQuestion';
@@ -18,12 +18,23 @@ const useQuestion = (type) => {
   const [requestCount, setRequestCount] = useState(0);
   const [answerId, setAnswerId] = useState('');
   const [progress, setProgress] = useState(0);
-  const [maxRequestCount] = useState(20);
+  const [maxRequestCount] = useState(17);
   // const [maxRequesrCount, setMaxRequestCount] = useState(60);
 
+  // questionID를 바꾼 후에, Question 응답을 받는 코드
+  const isMouted = useRef(false);
+  useEffect(() => {
+    if (isMouted.current) {
+      setRequestQuestion(true);
+      console.log(quesionId);
+    } else {
+      isMouted.current = true;
+    }
+  }, [quesionId]);
+
   // // 요청 횟수를 카운트하는 함수
-  const countRequest = () => {
-    setRequestCount((prev) => prev + 1);
+  const countRequest = (cnt) => {
+    setRequestCount((prev) => cnt || prev + 1);
     setProgress(Math.floor((requestCount / maxRequestCount) * 100));
   };
 
@@ -40,10 +51,9 @@ const useQuestion = (type) => {
   });
 
   // 답변 생성 여부 확인 쿼리
-  const { refetch: GetAnswerState } = useQuery({
+  const { remove: DeleteAnswer } = useQuery({
     queryFn: async () => {
       const { data } = await getQuestionState(quesionId);
-
       // 요청 횟수 1회 증가
       countRequest();
 
@@ -52,7 +62,7 @@ const useQuestion = (type) => {
         // 답 저장 후 로직 종료
         setAnswerId(data.answer);
         setRequestQuestion(false);
-        setRequestCount(maxRequestCount);
+        setProgress(100);
         setTimeout(() => {
           setStage('finish');
         }, 3000);
@@ -77,10 +87,8 @@ const useQuestion = (type) => {
 
   const { mutate } = useMutation(postQuestion, {
     onSuccess: ({ data }) => {
+      DeleteAnswer();
       setQuestionId(data.id);
-      setRequestQuestion(true);
-      setRequestCount(0);
-      GetAnswerState();
     },
   });
 

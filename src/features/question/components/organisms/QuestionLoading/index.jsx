@@ -11,6 +11,7 @@ import QuestionInfo from '../../molecules/QuestionInfo/index';
 export default function QuestionLoading({ type, QuestionFormData, progress }) {
   return (
     <StyledQuestionLoading>
+      <Logo w="148px" logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'} />
       <LoadingLottie type={type} w="212px" />
       <Progressbar
         progress={progress}
