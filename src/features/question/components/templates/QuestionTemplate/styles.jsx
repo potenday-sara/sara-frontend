@@ -7,11 +7,14 @@ const StyledQuestionTemplate = styled.main`
   background-color: ${({ bg }) => bg || null};
 
   min-height: calc(100vh - 144px);
-  background-size: cover;
+  height: 100%;
   z-index: 1;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
   .grid {
     align-items: center;
+    height: 100%;
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 402px 368px 410px;
