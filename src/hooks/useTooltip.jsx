@@ -16,10 +16,11 @@ const useTooltip = () => {
       ref.current.addEventListener('mouseenter', setTooltipTrue, false);
       ref.current.addEventListener('mouseleave', setTooltipFalse, false);
     }
-
     return () => {
-      ref.current.removeEventListener('mouseover', setTooltipTrue, false);
-      ref.current.removeEventListener('mouseout', setTooltipFalse, false);
+      if (ref && ref.current) {
+        ref.current.removeEventListener('mouseenter', setTooltipTrue, false);
+        ref.current.removeEventListener('mouseleave', setTooltipFalse, false);
+      }
     };
   }, []);
 

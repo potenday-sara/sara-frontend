@@ -6,12 +6,11 @@ const StyledQuestionTemplate = styled.main`
   position: relative;
   background-color: ${({ bg }) => bg || null};
 
-  min-height: 100vh;
+  min-height: calc(100vh - 144px);
   background-size: cover;
   z-index: 1;
 
   .grid {
-    min-height: calc(100vh - 64px);
     align-items: center;
     display: grid;
     grid-template-rows: 1fr;

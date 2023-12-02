@@ -7,6 +7,7 @@ const StyledTooltip = styled.div`
   background-color: ${Theme.color.darkGray};
   padding: 10px;
   width: auto;
+  z-index: 999;
   position: absolute;
   transform: translate(-50%, 100%);
   left: 50%;
