@@ -1,11 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import StyledButton from './styles';
+import useTooltip from '../../../hooks/useTooltip';
+import Tooltip from '../Tooltip';
+import Text from '../Text';
+import { Theme } from '../../../Styles';
 
-export default function Button({ children, type, ...rest }) {
+export default function Button({ tooltip, tooltipText, children, type, ...rest }) {
+  const { ref, isTooltip } = useTooltip();
+
   return (
-    <StyledButton {...rest} type={type}>
+    <StyledButton {...rest} type={type} ref={ref}>
       {children}
+      {tooltip && isTooltip && (
+        <Tooltip w="150px">
+          <Text label={tooltipText} size="xs" color={Theme.color.white} />
+        </Tooltip>
+      )}
     </StyledButton>
   );
 }
@@ -18,6 +29,8 @@ Button.propTypes = {
   bg: PropTypes.string,
   style: PropTypes.shape({}),
   children: PropTypes.node.isRequired,
+  tooltip: PropTypes.bool,
+  tooltipText: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -27,4 +40,6 @@ Button.defaultProps = {
   m: '',
   h: '',
   bg: '',
+  tooltip: false,
+  tooltipText: '',
 };

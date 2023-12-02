@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useMutation } from 'react-query';
 import axios from '../../../lib/axios';
 import apis from '../apis';
@@ -6,6 +6,7 @@ import apis from '../apis';
 const useEmotionFeedback = (id) => {
   const [isFeedback, setIsFeedback] = useState(false);
   const [nowSelected, setNowSelected] = useState(null);
+  const isMounted = useRef(false);
 
   const { mutate } = useMutation(
     async () => {
@@ -21,9 +22,16 @@ const useEmotionFeedback = (id) => {
     },
   );
 
+  useEffect(() => {
+    if (isMounted.current) {
+      mutate();
+    } else {
+      isMounted.current = true;
+    }
+  }, [nowSelected]);
+
   const getNowSelectedFeedback = (score) => {
     setNowSelected(score);
-    mutate();
   };
 
   return { nowSelected, getNowSelectedFeedback, isFeedback, mutate };

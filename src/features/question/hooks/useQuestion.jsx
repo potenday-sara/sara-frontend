@@ -88,7 +88,6 @@ const useQuestion = (type) => {
   const { mutate } = useMutation(postQuestion, {
     onSuccess: ({ data }) => {
       DeleteAnswer();
-      countRequest();
       setQuestionId(data.id);
     },
   });

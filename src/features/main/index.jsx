@@ -4,6 +4,7 @@ import MainAside from './components/templates/MainAside';
 import StyledMain from './styles';
 import SaraMaraContext from './stores/SaraMaraContext';
 import Footer from '../../components/organisms/Footer';
+import Navbar from './components/organisms/MainNavbar';
 
 /**
  * 온보딩페에지의 기본 레이아웃입니다.
@@ -19,6 +20,11 @@ export default function Main() {
 
   return (
     <StyledMain>
+      <Navbar
+        style={{
+          gridArea: '1 / 1 / 2 / 4',
+        }}
+      />
       <SaraMaraContext.Provider value={saramaraStore}>
         <OnboardingSectionLayout type="sara" />
         <MainAside type={type} />
@@ -26,7 +32,7 @@ export default function Main() {
       </SaraMaraContext.Provider>
       <Footer
         style={{
-          gridArea: '2 / 1 / 3 / 4',
+          gridArea: '3 / 1 / 4 / 4',
         }}
       />
     </StyledMain>
