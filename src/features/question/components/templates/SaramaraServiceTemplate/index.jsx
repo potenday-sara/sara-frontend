@@ -7,6 +7,7 @@ import QuestionLoading from '../../organisms/QuestionLoading';
 import QuestionAnwser from '../../organisms/QuestionAnswer';
 import useQuestion from '../../../hooks/useQuestion';
 import Tag from '../../atoms/Tag';
+import QuestionFailed from '../../organisms/QuestionFailed';
 
 export default function SaramaraServiceTemplate({ type }) {
   const { stage, refreshForm, QuestionFormData, SubmitQuestion, progress, quesionId, gptAnswer } = useQuestion(type);
@@ -14,7 +15,7 @@ export default function SaramaraServiceTemplate({ type }) {
 
   return (
     <StyledSaramaraServiceTemplate>
-      {stage === 'initial' && (
+      {/* {stage === 'initial' && (
         <SaramaraForm type={type} QuestionFormData={QuestionFormData} SubmitQuestion={SubmitQuestion} />
       )}
 
@@ -27,7 +28,9 @@ export default function SaramaraServiceTemplate({ type }) {
           quesionId={quesionId}
           refreshForm={refreshForm}
         />
-      )}
+      )} */}
+
+      <QuestionFailed type="sara" />
       <Tag
         type="sara"
         $isActive={type === 'sara'}
