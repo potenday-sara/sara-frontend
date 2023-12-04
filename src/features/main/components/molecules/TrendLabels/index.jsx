@@ -13,9 +13,9 @@ export default function TrendLabels() {
   return (
     <StyledTrendLabels>
       {!isLoading &&
-        ranks?.map((data) => {
+        ranks?.map((data, idx) => {
           return (
-            <TrendLabel key={data.rank}>
+            <TrendLabel key={[type, data.rank, idx]}>
               <TrendLabel.LabelNum type={type}>{String(data.rank)}</TrendLabel.LabelNum>
               <TrendLabel.LabelName>{data.product}</TrendLabel.LabelName>
             </TrendLabel>
