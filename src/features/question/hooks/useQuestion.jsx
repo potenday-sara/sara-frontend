@@ -119,8 +119,16 @@ const useQuestion = (type) => {
   };
 
   const refreshForm = () => {
+    setQuestionId('');
+    setAnswerId('');
     setItemValue('');
     setContentsValue('');
+    setStage('initial');
+    setRequestCount(0);
+    setProgress(0);
+  };
+
+  const retryForm = () => {
     setQuestionId('');
     setAnswerId('');
     setStage('initial');
@@ -138,6 +146,7 @@ const useQuestion = (type) => {
     quesionId,
     gptAnswer,
     setRetryRequest,
+    retryForm,
   };
 };
 

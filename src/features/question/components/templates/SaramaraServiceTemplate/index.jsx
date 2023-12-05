@@ -10,8 +10,17 @@ import Tag from '../../atoms/Tag';
 import QuestionFailed from '../../organisms/QuestionFailed';
 
 export default function SaramaraServiceTemplate({ type }) {
-  const { stage, refreshForm, QuestionFormData, SubmitQuestion, progress, quesionId, gptAnswer, setRetryRequest } =
-    useQuestion(type);
+  const {
+    stage,
+    refreshForm,
+    QuestionFormData,
+    SubmitQuestion,
+    retryForm,
+    progress,
+    quesionId,
+    gptAnswer,
+    setRetryRequest,
+  } = useQuestion(type);
   const navigate = useNavigate();
 
   return (
@@ -31,7 +40,12 @@ export default function SaramaraServiceTemplate({ type }) {
         />
       )}
       {stage === 'error' && (
-        <QuestionFailed type="sara" QuestionFormData={QuestionFormData} setRetryRequest={setRetryRequest} />
+        <QuestionFailed
+          retryForm={retryForm}
+          type={type}
+          QuestionFormData={QuestionFormData}
+          setRetryRequest={setRetryRequest}
+        />
       )}
 
       <Tag

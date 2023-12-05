@@ -18,7 +18,7 @@ const buttonStyle = {
   gap: 8,
 };
 
-export default function QuestionFailed({ setRetryRequest, QuestionFormData, type }) {
+export default function QuestionFailed({ retryForm, setRetryRequest, QuestionFormData, type }) {
   return (
     <StyledQuestionFailed>
       <Logo w="148px" logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'} />
@@ -32,6 +32,9 @@ export default function QuestionFailed({ setRetryRequest, QuestionFormData, type
         <Logo
           w="60px"
           logoType={type === 'sara' ? 'SaraTextOnly' : 'MaraTextOnly'}
+          style={{
+            marginBottom: 2,
+          }}
           fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
         />
         <Text
@@ -39,9 +42,6 @@ export default function QuestionFailed({ setRetryRequest, QuestionFormData, type
           size="sm"
           bold="lg"
           color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-          style={{
-            marginRight: 8,
-          }}
         />
       </Title>
       <div className="button-wrap">
@@ -52,8 +52,16 @@ export default function QuestionFailed({ setRetryRequest, QuestionFormData, type
         >
           <Text size="md" color={Theme.color.white} label="10초 더 주기" />
         </Button>
-        <Button bg={type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary} style={buttonStyle}>
-          <Text size="md" color={Theme.color.saraPrimary} label="다시 물어보기" />
+        <Button
+          onClick={retryForm}
+          bg={type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary}
+          style={buttonStyle}
+        >
+          <Text
+            size="md"
+            color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+            label="다시 물어보기"
+          />
         </Button>
       </div>
       <QuestionInfo type={type} QuestionFormData={QuestionFormData} />
@@ -64,6 +72,7 @@ export default function QuestionFailed({ setRetryRequest, QuestionFormData, type
 QuestionFailed.propTypes = {
   type: PropTypes.oneOf(['sara', 'mara']).isRequired,
   setRetryRequest: PropTypes.func.isRequired,
+  retryForm: PropTypes.func.isRequired,
   QuestionFormData: PropTypes.shape({
     ItemValue: PropTypes.string,
     ItemChange: PropTypes.func,
