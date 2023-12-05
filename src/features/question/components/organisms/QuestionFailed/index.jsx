@@ -18,7 +18,7 @@ const buttonStyle = {
   gap: 8,
 };
 
-export default function QuestionFailed({ type }) {
+export default function QuestionFailed({ setRetryRequest, QuestionFormData, type }) {
   return (
     <StyledQuestionFailed>
       <Logo w="148px" logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'} />
@@ -45,18 +45,29 @@ export default function QuestionFailed({ type }) {
         />
       </Title>
       <div className="button-wrap">
-        <Button bg={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary} style={buttonStyle}>
+        <Button
+          bg={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+          style={buttonStyle}
+          onClick={setRetryRequest}
+        >
           <Text size="md" color={Theme.color.white} label="10초 더 주기" />
         </Button>
         <Button bg={type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary} style={buttonStyle}>
           <Text size="md" color={Theme.color.saraPrimary} label="다시 물어보기" />
         </Button>
       </div>
-      <QuestionInfo type={type} />
+      <QuestionInfo type={type} QuestionFormData={QuestionFormData} />
     </StyledQuestionFailed>
   );
 }
 
 QuestionFailed.propTypes = {
   type: PropTypes.oneOf(['sara', 'mara']).isRequired,
+  setRetryRequest: PropTypes.func.isRequired,
+  QuestionFormData: PropTypes.shape({
+    ItemValue: PropTypes.string,
+    ItemChange: PropTypes.func,
+    ContentsValue: PropTypes.string,
+    ContentsChange: PropTypes.func,
+  }).isRequired,
 };

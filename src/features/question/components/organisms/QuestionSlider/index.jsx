@@ -6,7 +6,7 @@ import Slider from '../../molecules/Slider';
 import useQuestions from '../../../hooks/useQuestions';
 
 export default function QuestionSlider({ type }) {
-  const { data: OtherQuestions, isLoading: QuestionLoading } = useQuestions();
+  const { data: OtherQuestions, isLoading: QuestionLoading } = useQuestions(type);
 
   return (
     <StyledQuestionSlider>
