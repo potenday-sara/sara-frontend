@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import StyledQuestionLoading from './styles';
 import LoadingLottie from '../../atoms/LoadingLottie/index';
-import Progressbar from '../../../../../components/atoms/Progressbar/index';
+import Progressbar from '../../../../../components/atoms/Progressbar';
 import Text from '../../../../../components/atoms/Text/index';
 import Logo from '../../../../../components/atoms/Logo';
 import { Theme } from '../../../../../Styles';
@@ -37,7 +37,7 @@ export default function QuestionLoading({ type, QuestionFormData, progress }) {
         </div>
         <Text label="카테고리를 바꿔서 볼 수도 있어요" color={Theme.color.gray} size="sm" bold="sm" />
       </div>
-      <QuestionInfo type={type} QuestionFormData={QuestionFormData} />
+      <QuestionInfo type={type} QuestionFormData={QuestionFormData} style={{ marginBottom: 24 }} />
     </StyledQuestionLoading>
   );
 }

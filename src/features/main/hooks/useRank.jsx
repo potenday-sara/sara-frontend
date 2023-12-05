@@ -10,7 +10,7 @@ const useRank = (rankType) => {
       },
     });
 
-    return data?.slice(0, 5);
+    return data;
   };
 
   const { data, isLoading, isError } = useQuery(['Rank', rankType], () => getRank(rankType), {

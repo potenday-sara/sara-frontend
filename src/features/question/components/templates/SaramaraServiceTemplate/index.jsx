@@ -7,9 +7,20 @@ import QuestionLoading from '../../organisms/QuestionLoading';
 import QuestionAnwser from '../../organisms/QuestionAnswer';
 import useQuestion from '../../../hooks/useQuestion';
 import Tag from '../../atoms/Tag';
+import QuestionFailed from '../../organisms/QuestionFailed';
 
 export default function SaramaraServiceTemplate({ type }) {
-  const { stage, refreshForm, QuestionFormData, SubmitQuestion, progress, quesionId, gptAnswer } = useQuestion(type);
+  const {
+    stage,
+    refreshForm,
+    QuestionFormData,
+    SubmitQuestion,
+    retryForm,
+    progress,
+    quesionId,
+    gptAnswer,
+    setRetryRequest,
+  } = useQuestion(type);
   const navigate = useNavigate();
 
   return (
@@ -28,6 +39,15 @@ export default function SaramaraServiceTemplate({ type }) {
           refreshForm={refreshForm}
         />
       )}
+      {stage === 'error' && (
+        <QuestionFailed
+          retryForm={retryForm}
+          type={type}
+          QuestionFormData={QuestionFormData}
+          setRetryRequest={setRetryRequest}
+        />
+      )}
+
       <Tag
         type="sara"
         $isActive={type === 'sara'}

@@ -18,36 +18,48 @@ const useQuestion = (type) => {
   const [requestCount, setRequestCount] = useState(0);
   const [answerId, setAnswerId] = useState('');
   const [progress, setProgress] = useState(0);
-  const [maxRequestCount] = useState(17);
-  // const [maxRequesrCount, setMaxRequestCount] = useState(60);
+  // const [maxRequestCount, setMaxRequestCount] = useState(17);
+  const maxCount = 15;
+  const [maxRequestCount, setMaxRequestCount] = useState(maxCount);
 
+  // 질문 재시도 횟수
+  const retryCount = 10;
   // questionID를 바꾼 후에, Question 응답을 받는 코드
   const isMouted = useRef(false);
   useEffect(() => {
     if (isMouted.current) {
-      setRequestQuestion(true);
-      console.log(quesionId);
+      if (quesionId) {
+        setRequestQuestion(true);
+      } else {
+        setRequestQuestion(false);
+        setAnswerId('');
+      }
     } else {
       isMouted.current = true;
     }
   }, [quesionId]);
 
-  // // 요청 횟수를 카운트하는 함수
-  const countRequest = (cnt) => {
-    setRequestCount((prev) => cnt || prev + 1);
-    setProgress(Math.floor((requestCount / maxRequestCount) * 100));
-  };
+  // 요청 횟수가 증가할때 마다 progress변경
+  useEffect(() => {
+    if (isMouted.current) {
+      setProgress(Math.max(100 - Math.floor((requestCount / maxRequestCount) * 100), 0));
+    } else {
+      isMouted.current = true;
+    }
+  }, [requestCount]);
 
-  // // 질문 재시도시 남은 횟수 변경하는 함수
-  // const setRetryRequest = (retryCount) => {
-  //   requestCount(0);
-  //   setMaxRequestCount(retryCount);
-  // };
+  // 질문 재시도시 남은 횟수 변경하는 함수
+  const setRetryRequest = () => {
+    setMaxRequestCount(retryCount);
+    setRequestCount(0);
+    setRequestQuestion(true);
+    setStage('process');
+  };
 
   // 답변 받는 쿼리
   const { data: gptAnswer } = useQuery({
-    queryFn: () => getAnswer(answerId),
     queryKey: ['getAnswer', answerId],
+    queryFn: () => getAnswer(answerId),
   });
 
   // 답변 생성 여부 확인 쿼리
@@ -55,17 +67,17 @@ const useQuestion = (type) => {
     queryFn: async () => {
       const { data } = await getQuestionState(quesionId);
       // 요청 횟수 1회 증가
-      countRequest();
+      setRequestCount((prev) => prev + 1);
 
       // 질문에 답이 있는 경우
       if (data?.answer?.length > 0) {
         // 답 저장 후 로직 종료
         setAnswerId(data.answer);
         setRequestQuestion(false);
-        setProgress(100);
         setTimeout(() => {
           setStage('finish');
         }, 3000);
+
         // 정답 id로 요청보내기
         return data;
       }
@@ -74,12 +86,12 @@ const useQuestion = (type) => {
       if (requestCount >= maxRequestCount) {
         // 실패로직 추가
         setRequestQuestion(false);
-        setStage('finish');
+        setStage('error');
       }
       return data;
     },
 
-    queryKey: ['getId', quesionId],
+    queryKey: ['getId', quesionId, type],
     enabled: requestQuestion,
     refetchInterval: 1000,
     refetchIntervalInBackground: true,
@@ -101,13 +113,24 @@ const useQuestion = (type) => {
 
   const SubmitQuestion = (event) => {
     event.preventDefault();
+    setMaxRequestCount(maxCount);
     mutate({ ItemValue, ContentsValue, type });
     setStage('process');
   };
 
   const refreshForm = () => {
+    setQuestionId('');
+    setAnswerId('');
     setItemValue('');
     setContentsValue('');
+    setStage('initial');
+    setRequestCount(0);
+    setProgress(0);
+  };
+
+  const retryForm = () => {
+    setQuestionId('');
+    setAnswerId('');
     setStage('initial');
     setRequestCount(0);
     setProgress(0);
@@ -122,6 +145,8 @@ const useQuestion = (type) => {
     answerId,
     quesionId,
     gptAnswer,
+    setRetryRequest,
+    retryForm,
   };
 };
 

@@ -2,9 +2,9 @@ import { useQuery } from 'react-query';
 import axios from '../../../lib/axios';
 import apis from '../apis';
 
-const useQuestions = () => {
+const useQuestions = (type) => {
   const { data, isLoading } = useQuery({
-    queryKey: ['getOtherQuestion'],
+    queryKey: ['getOtherQuestion', type],
     queryFn: async () => {
       const { data: resData } = await axios.get(apis.questions);
       return resData;

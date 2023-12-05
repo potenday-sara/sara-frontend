@@ -27,7 +27,7 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
     <StyledQuestionAnswer>
       <section className="question-top">
         <Logo w="148px" logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'} />
-        <QuestionInfo type="sara" QuestionFormData={QuestionFormData} />
+        <QuestionInfo type="sara" QuestionFormData={QuestionFormData} style={{ marginBottom: 24 }} />
       </section>
       <section className="question-mid">
         <Logo w="180px" m="24px" logoType={type === 'sara' ? 'SaraCircleCharacter' : 'MaraCircleCharacter'} />
