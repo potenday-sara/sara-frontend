@@ -5,7 +5,7 @@ const StyledCards = styled.main`
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: auto;
-  gap: 10px;
+  gap: 8px;
 `;
 
 export default StyledCards;

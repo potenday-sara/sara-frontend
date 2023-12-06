@@ -11,7 +11,7 @@ const StyledSelectInput = styled.form`
     padding: 10px;
     border-radius: 8px;
     gap: 8px;
-    font-size: 14px;
+    font-size: 16px;
     color: ${Theme.color.white};
     background-color: ${({ bg }) => bg || 'blue'};
     outline: none;
