@@ -40,9 +40,10 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
           >
             <Logo w="74px" logoType="SaraTextWithCircleWhite" fill={Theme.color.saraPrimary} />
             <Text
-              size="md"
               color={Theme.color.saraPrimary}
               label={type === 'sara' ? '에게 다른것 묻기' : '에게 물어보기'}
+              size="14px"
+              bold="700"
             />
           </Button>
           <Button
@@ -52,7 +53,8 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
           >
             <Logo w="74px" logoType="MaraTextWithCircleWhite" fill={Theme.color.maraPrimary} />
             <Text
-              size="md"
+              size="14px"
+              bold="700"
               color={Theme.color.maraPrimary}
               label={type === 'mara' ? '에게 다른것 묻기' : '에게 물어보기'}
             />

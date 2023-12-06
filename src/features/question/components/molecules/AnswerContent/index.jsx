@@ -14,9 +14,9 @@ export default function AnswerContent({ type, answer }) {
           logoType={type === 'sara' ? 'SaraTextOnly' : 'MaraTextOnly'}
           fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
         />
-        <Text label="의 답변" />
+        <Text label="의 답변" color={Theme.color.midGray} size="16px" bold="700" />
       </div>
-      <Text style={{ lineHeight: 1.3 }} label={answer} size="sm" color={Theme.color.darkGray} />
+      <Text style={{ lineHeight: '22.4px' }} label={answer} size="14px" bold="500" color={Theme.color.darkGray} />
     </StyledAnswerContent>
   );
 }

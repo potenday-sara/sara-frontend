@@ -1,6 +1,6 @@
 import React from 'react';
-import StyledQuestionFailed from './styles';
 import PropTypes from 'prop-types';
+import StyledQuestionFailed from './styles';
 import Logo from '../../../../../components/atoms/Logo';
 import SaraFildedCharacter from '../../../assets/SaraQuestionFailled.png';
 import Progressbar from '../../../../../components/atoms/Progressbar';
@@ -24,11 +24,11 @@ export default function QuestionFailed({ retryForm, setRetryRequest, QuestionFor
       <Logo w="148px" logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'} />
       <img src={SaraFildedCharacter} alt="사라 질문 실패 이미지" />
       <Progressbar
-        w="80%"
+        w="212px"
         h="20px"
         label={<Text style={{ zIndex: 2, fontSize: 10 }} label="남은시간" bold="sm" color="white" size="xs" />}
       />
-      <Title>
+      <Title style={{ justifyContent: 'center', padding: '8 0 10' }}>
         <Logo
           w="60px"
           logoType={type === 'sara' ? 'SaraTextOnly' : 'MaraTextOnly'}
@@ -39,8 +39,8 @@ export default function QuestionFailed({ retryForm, setRetryRequest, QuestionFor
         />
         <Text
           label="가 아직 생각할 시간이 부족하대요..!"
-          size="sm"
-          bold="lg"
+          size="16px"
+          bold="700"
           color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
         />
       </Title>
@@ -50,7 +50,7 @@ export default function QuestionFailed({ retryForm, setRetryRequest, QuestionFor
           style={buttonStyle}
           onClick={setRetryRequest}
         >
-          <Text size="md" color={Theme.color.white} label="10초 더 주기" />
+          <Text size="14px" color={Theme.color.white} label="10초 더 주기" bold="700" />
         </Button>
         <Button
           onClick={retryForm}
@@ -58,13 +58,14 @@ export default function QuestionFailed({ retryForm, setRetryRequest, QuestionFor
           style={buttonStyle}
         >
           <Text
-            size="md"
+            size="14px"
             color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
             label="다시 물어보기"
+            bold="700"
           />
         </Button>
       </div>
-      <QuestionInfo type={type} QuestionFormData={QuestionFormData} />
+      <QuestionInfo type={type} QuestionFormData={QuestionFormData} style={{ paddingTop: 18 }} />
     </StyledQuestionFailed>
   );
 }

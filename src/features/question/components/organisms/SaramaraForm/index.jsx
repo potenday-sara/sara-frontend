@@ -26,7 +26,7 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
       <Logo w="180px" m="24px" logoType={type === 'sara' ? 'SaraCircleCharacter' : 'MaraCircleCharacter'} />
       <Form onSubmit={SubmitQuestion}>
         <Form.Label>
-          <Label m="0 0 8px 0px" htmlFor="item" text={<Text bold="lg" label="어떤걸 사고싶어?" />} />
+          <Label m="0 0 8px 0px" htmlFor="item" text={<Text bold="700" size={'14px'} label="어떤걸 사고싶어?" />} />
         </Form.Label>
         <Form.Input>
           <Input
@@ -38,7 +38,7 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
           />
         </Form.Input>
         <Form.Label>
-          <Label m="16px 0 8px" htmlFor="contents" text={<Text bold="lg" label="왜 고민하고 있어?" />} />
+          <Label m="16px 0 8px" htmlFor="contents" text={<Text bold="700" size={'14px'} label="왜 고민하고 있어?" />} />
         </Form.Label>
         <Form.Input>
           <Textarea
@@ -59,7 +59,12 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
             type="submit"
             onClick={SubmitQuestion}
           >
-            <Text label={`${QuestionFormData?.ItemValue || ''} 사야할까?`} color="white" />
+            <Text
+              label={`${QuestionFormData?.ItemValue || ''} 사야할까?`}
+              size={'14px'}
+              bold={'700'}
+              color={Theme.color.white}
+            />
           </Button>
         </Form.Button>
       </Form>

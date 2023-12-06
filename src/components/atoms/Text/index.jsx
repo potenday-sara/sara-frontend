@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Theme } from '../../../Styles';
 
 export const getBoldCode = (bold) => {
   switch (bold) {
@@ -11,24 +12,24 @@ export const getBoldCode = (bold) => {
     case 'lg':
       return 700;
     default:
-      return null;
+      return bold * 1;
   }
 };
 
 const getTextSize = (size) => {
   switch (size) {
     case 'xs':
-      return '0.9rem';
+      return '14px';
     case 'sm':
-      return '0.95rem';
+      return '16px';
 
     case 'md':
-      return '1rem';
+      return '18px';
     case 'lg':
-      return '1.25rem';
+      return '20px';
 
     case 'xl':
-      return '1.5rem';
+      return '24px';
 
     default:
       return size;
@@ -36,7 +37,7 @@ const getTextSize = (size) => {
 };
 
 const StyledText = styled.p`
-  color: ${({ customColor, color }) => customColor || color};
+  color: ${({ color }) => color || Theme.color.black};
   font-weight: ${({ bold }) => getBoldCode(bold)};
   font-size: ${({ size }) => getTextSize(size)};
   font-family: Pretendard;
