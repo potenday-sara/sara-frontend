@@ -12,7 +12,7 @@ function Slider({ datas, type }) {
     <StyledSlider>
       <Swiper
         speed={3000}
-        slidesPerView={3.5}
+        slidesPerView={4}
         loop
         touchRatio={0}
         autoplay={{
@@ -30,8 +30,8 @@ function Slider({ datas, type }) {
                 <QuestionCard.Title>
                   <Text
                     label={product}
-                    bold="lg"
-                    size="lg"
+                    bold="700"
+                    size="16px"
                     color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
                   />
                 </QuestionCard.Title>

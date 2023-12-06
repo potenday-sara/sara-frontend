@@ -13,7 +13,7 @@ const StyledSaramaraServiceTemplate = styled.section`
   min-height: 400px;
 
   margin: auto;
-  padding: 64px 24px;
+  padding: 40px 24px;
   background-color: white;
   border-radius: 24px;
   box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);

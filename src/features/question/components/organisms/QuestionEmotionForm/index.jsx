@@ -15,7 +15,13 @@ export default function QuestionEmotionForm({ type, quesionId }) {
 
   return (
     <StyledFeedback>
-      <Text label={`${firstChar} 가 도움이 되셨나요?`} bold="700" size={'16px'} color={Theme.color.midGray} />
+      <Text
+        label={`${firstChar} 가 도움이 되셨나요?`}
+        bold="700"
+        size={'16px'}
+        color={Theme.color.midGray}
+        style={{ marginBottom: 12 }}
+      />
       <FeedbackSelect type={type} quesionId={quesionId} />
       <Form
         style={{
@@ -32,7 +38,7 @@ export default function QuestionEmotionForm({ type, quesionId }) {
               isAutoHeight
               value={CScontent}
               onChange={onChange}
-              ph="바라는 점 / 하고싶은 얘기가 있다면 작성해주세요"
+              ph={`${firstChar}에게 바라는 점 / 하고싶은 얘기가 있다면 작성해주세요`}
               rows={1}
               h={8}
             />

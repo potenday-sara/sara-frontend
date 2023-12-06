@@ -26,8 +26,8 @@ Title.propTypes = {
 };
 
 function Contents({ label }) {
-  const string = label.length > 20 ? `${label.slice(0, 20)}...` : label;
-  return <Text label={string} size="md" color={Theme.color.darkGray} />;
+  const string = label.length > 50 ? `${label.slice(0, 50)}...` : label;
+  return <Text label={string} size="14px" color={Theme.color.midGray} />;
 }
 
 Contents.propTypes = {
