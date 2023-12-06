@@ -42,7 +42,12 @@ export default function MainSection({ type, ...rest }) {
           w="77px"
           logoType={type === 'sara' ? 'SaraTextOnly' : 'MaraTextOnly'}
         />
-        <Text label="에게 물어보기" color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary} />
+        <Text
+          label="에게 물어보기"
+          color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+          size="16px"
+          bold="700"
+        />
       </Button>
     </StyledMainSection>
   );

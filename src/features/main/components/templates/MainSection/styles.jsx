@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { Theme } from '../../../../../Styles';
 
 /**
  * $type(sara, mara) 값을 받아 css를 리턴하는 함수입니다
@@ -6,13 +7,13 @@ import styled, { css } from 'styled-components';
 const getSectionCssByType = ($type) => {
   if ($type === 'sara')
     return css`
-      background: linear-gradient(0deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.85) 100%), #007bed;
+      background: ${Theme.color.saraSecondary};
       .section-box {
         margin: auto 0px auto auto;
       }
     `;
   return css`
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.85) 100%), #ef2b00;
+    background: ${Theme.color.maraSecondary};
     .section-box {
       margin: auto auto auto 0px;
     }

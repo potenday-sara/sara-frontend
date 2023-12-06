@@ -20,8 +20,8 @@ function LabelNum({ children, type }) {
   return (
     <Text
       label={children}
-      size="sm"
-      bold="lg"
+      size="14px"
+      bold="700"
       color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
     />
   );
@@ -34,7 +34,7 @@ LabelNum.propTypes = {
 LabelNum.defaultProps = {};
 
 function LabelName({ children }) {
-  return <Text label={children} size="sm" />;
+  return <Text label={children} size="14px" bold="700" />;
 }
 LabelName.propTypes = {
   children: PropTypes.string.isRequired,
