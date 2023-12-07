@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import StyledQuestionFailed from './styles';
 import Logo from '../../../../../components/atoms/Logo';
 import SaraFildedCharacter from '../../../assets/SaraQuestionFailled.png';
+import MaraFildedCharacter from '../../../assets/MaraFildedCharacter.png';
 import Progressbar from '../../../../../components/atoms/Progressbar';
 import Text from '../../../../../components/atoms/Text';
 import Title from '../../../../../components/molecules/Title';
@@ -22,7 +23,7 @@ export default function QuestionFailed({ retryForm, setRetryRequest, QuestionFor
   return (
     <StyledQuestionFailed>
       <Logo w="148px" logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'} />
-      <img src={SaraFildedCharacter} alt="사라 질문 실패 이미지" />
+      <img src={type === 'sara' ? SaraFildedCharacter : MaraFildedCharacter} alt="사라 질문 실패 이미지" />
       <Progressbar
         w="212px"
         h="20px"

@@ -35,7 +35,7 @@ export default function QuestionLoading({ type, QuestionFormData, progress }) {
             label="추천 인기상품도 둘러보세요!"
             color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimarys}
             bold="700"
-            size={'18px'}
+            size="18px"
           />
         </Title>
         <Text label="카테고리를 바꿔서 볼 수도 있어요" color={Theme.color.darkGray} size="14px" bold="500" />
