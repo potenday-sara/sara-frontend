@@ -18,7 +18,7 @@ export default function QuestionEmotionForm({ type, quesionId }) {
       <Text
         label={`${firstChar} 가 도움이 되셨나요?`}
         bold="700"
-        size={'16px'}
+        size="16px"
         color={Theme.color.midGray}
         style={{ marginBottom: 12 }}
       />

@@ -1,7 +1,6 @@
 import React, { cloneElement, useState } from 'react';
 import PropTypes from 'prop-types';
 import StyledSelect from './styles';
-import { Theme } from '../../../Styles';
 import Text from '../../atoms/Text';
 
 function Select({ trigger, options, setValue, ...rest }) {
@@ -20,7 +19,7 @@ function Select({ trigger, options, setValue, ...rest }) {
           {options?.map(({ value }) => {
             return (
               <option onClick={() => changeValue(value)} className="option" value={value}>
-                <Text label={value} color={'red'} size="16px" />
+                <Text label={value} size="16px" />
               </option>
             );
           })}

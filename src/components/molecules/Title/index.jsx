@@ -11,7 +11,7 @@ Title.propTypes = {
   style: PropTypes.shape({}),
 };
 
-Title.defaultType = {
+Title.defaultProps = {
   style: {},
 };
 

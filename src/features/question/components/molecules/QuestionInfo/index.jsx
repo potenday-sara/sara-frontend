@@ -7,7 +7,7 @@ import { Theme } from '../../../../../Styles';
 export default function QuestionInfo({ type, QuestionFormData, ...rest }) {
   return (
     <StyledQuestionInfo {...rest}>
-      <Text label="나의 질문" color={Theme.color.midGray} size={'16px'} bold="700" />
+      <Text label="나의 질문" color={Theme.color.midGray} size="16px" bold="700" />
       <Text
         label={QuestionFormData?.ItemValue || '에어팟 프로'}
         color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}

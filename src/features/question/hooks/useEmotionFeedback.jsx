@@ -2,10 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import { useMutation } from 'react-query';
 import axios from '../../../lib/axios';
 import apis from '../apis';
+import useToast from '../../../hooks/useToast';
 
 const useEmotionFeedback = (id) => {
   const [isFeedback, setIsFeedback] = useState(false);
   const [nowSelected, setNowSelected] = useState(null);
+  const { isToast, openToast } = useToast(800);
   const isMounted = useRef(false);
 
   const { mutate } = useMutation(
@@ -18,6 +20,7 @@ const useEmotionFeedback = (id) => {
     {
       onSuccess: () => {
         setIsFeedback(true);
+        openToast();
       },
     },
   );
@@ -34,7 +37,7 @@ const useEmotionFeedback = (id) => {
     setNowSelected(score);
   };
 
-  return { nowSelected, getNowSelectedFeedback, isFeedback, mutate };
+  return { nowSelected, getNowSelectedFeedback, isFeedback, mutate, isToast };
 };
 
 export default useEmotionFeedback;

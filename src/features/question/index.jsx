@@ -16,7 +16,7 @@ export default function QuestionPage() {
             <QuestionTemplate type="sara">
               <SaramaraServiceTemplate type="sara" />
             </QuestionTemplate>
-            <Footer />
+            <Footer style={{ minWidth: 1400 }} />
           </>
         }
       />
@@ -28,7 +28,7 @@ export default function QuestionPage() {
             <QuestionTemplate type="mara">
               <SaramaraServiceTemplate type="mara" />
             </QuestionTemplate>
-            <Footer />
+            <Footer style={{ minWidth: 1400 }} />
           </>
         }
       />

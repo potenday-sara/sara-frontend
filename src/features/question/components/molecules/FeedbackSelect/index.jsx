@@ -6,9 +6,12 @@ import { ReactComponent as Bad } from '../../../../../images/feedback/bad.svg';
 import { ReactComponent as Soso } from '../../../../../images/feedback/soso.svg';
 import FeedbackEmotion from '../../atoms/FeedbackEmotion';
 import useEmotionFeedback from '../../../hooks/useEmotionFeedback';
+import Toast from '../../../../../components/molecules/Toast';
+import Text from '../../../../../components/atoms/Text';
+import { Theme } from '../../../../../Styles';
 
 export default function FeedbackSelect({ type, quesionId }) {
-  const { nowSelected, getNowSelectedFeedback } = useEmotionFeedback(quesionId);
+  const { nowSelected, getNowSelectedFeedback, isToast } = useEmotionFeedback(quesionId);
   const feedbackOptions = [
     [<Good />, '도움이 됐어요', 1],
     [<Soso />, '그럭저럭...?!', 0],
@@ -27,6 +30,11 @@ export default function FeedbackSelect({ type, quesionId }) {
             onClick={() => getNowSelectedFeedback(score)}
           >
             <FeedbackEmotion.Label label={label} />
+            {isToast && nowSelected === score && (
+              <Toast style={{ width: 130 }}>
+                <Text label="평가가 반영되었어요!" color={Theme.color.white} size="12px" bold="400" />
+              </Toast>
+            )}
           </FeedbackEmotion>
         );
       })}

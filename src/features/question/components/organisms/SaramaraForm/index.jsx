@@ -13,6 +13,7 @@ import Logo from '../../../../../components/atoms/Logo';
 
 export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion }) {
   const navigate = useNavigate();
+
   return (
     <StyledSaramaraForm>
       <Logo

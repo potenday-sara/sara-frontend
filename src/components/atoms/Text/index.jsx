@@ -60,8 +60,8 @@ export default function Text({ label, ...rest }) {
 }
 
 Text.propTypes = {
-  bold: PropTypes.oneOf(['sm', 'md', 'lg']),
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  bold: PropTypes.string,
+  size: PropTypes.string,
   color: PropTypes.string,
   label: PropTypes.string,
   onClick: PropTypes.func,
