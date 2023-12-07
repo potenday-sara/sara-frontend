@@ -7,14 +7,14 @@ const StyledQuestionFailed = styled.main`
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 12px;
+  gap: 18px;
 
   .button-wrap {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 5px;
-    padding-bottom: 12px;
+    padding-bottom: 18px;
     border-bottom: 1px solid ${Theme.color.gray};
   }
 `;

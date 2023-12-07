@@ -26,7 +26,27 @@ export default function SaramaraServiceTemplate({ type }) {
   return (
     <StyledSaramaraServiceTemplate>
       {stage === 'initial' && (
-        <SaramaraForm type={type} QuestionFormData={QuestionFormData} SubmitQuestion={SubmitQuestion} />
+        <>
+          <SaramaraForm type={type} QuestionFormData={QuestionFormData} SubmitQuestion={SubmitQuestion} />
+          <Tag
+            type="sara"
+            $isActive={type === 'sara'}
+            onClick={() => navigate('/question/sara')}
+            style={{
+              top: 30,
+              left: 0,
+            }}
+          />
+          <Tag
+            onClick={() => navigate('/question/mara')}
+            $isActive={type === 'mara'}
+            type="mara"
+            style={{
+              top: 78,
+              left: 0,
+            }}
+          />
+        </>
       )}
 
       {stage === 'process' && <QuestionLoading type={type} QuestionFormData={QuestionFormData} progress={progress} />}
@@ -47,25 +67,6 @@ export default function SaramaraServiceTemplate({ type }) {
           setRetryRequest={setRetryRequest}
         />
       )}
-
-      <Tag
-        type="sara"
-        $isActive={type === 'sara'}
-        onClick={() => navigate('/question/sara')}
-        style={{
-          top: 30,
-          left: 0,
-        }}
-      />
-      <Tag
-        onClick={() => navigate('/question/mara')}
-        $isActive={type === 'mara'}
-        type="mara"
-        style={{
-          top: 78,
-          left: 0,
-        }}
-      />
     </StyledSaramaraServiceTemplate>
   );
 }

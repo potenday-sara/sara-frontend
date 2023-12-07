@@ -10,10 +10,10 @@ function QuestionNavbar({ ...rest }) {
     <StyledQuestionNavbar {...rest}>
       <div className="button-wrap">
         <Button w="74px" h="45px" bg={Theme.color.saraPrimary} tooltip tooltipText="준비중인 기능입니다.">
-          <Text label="로그인" color={Theme.color.white} />
+          <Text label="로그인" color={Theme.color.white} size="14px" bold="500" />
         </Button>
         <Button w="74px" h="45px" bg={Theme.color.white} tooltip tooltipText="준비중인 기능입니다.">
-          <Text label="회원가입" color={Theme.color.black} />
+          <Text label="회원가입" color={Theme.color.black} size="14px" bold="500" />
         </Button>
       </div>
     </StyledQuestionNavbar>

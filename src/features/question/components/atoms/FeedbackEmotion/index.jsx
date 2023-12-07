@@ -42,7 +42,7 @@ FeedbackEmotion.defaultProps = {
 };
 
 function Label({ label }) {
-  return <Text label={label} bold="sm" size="xs" />;
+  return <Text label={label} bold="500" size="13px" color={Theme.color.darkGray} />;
 }
 
 Label.propTypes = {

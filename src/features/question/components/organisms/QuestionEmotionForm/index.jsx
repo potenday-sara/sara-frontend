@@ -11,11 +11,17 @@ import useFeedback from '../../../hooks/useFeedback';
 
 export default function QuestionEmotionForm({ type, quesionId }) {
   const firstChar = type.charAt(0).toUpperCase() + type.slice(1);
-  const { value: CScontent, onChange, submitCSFeedback } = useFeedback();
+  const { value: CScontent, onChange, submitCSFeedback } = useFeedback(quesionId);
 
   return (
     <StyledFeedback>
-      <Text label={`${firstChar} 가 도움이 되셨나요?`} bold="lg" />
+      <Text
+        label={`${firstChar} 가 도움이 되셨나요?`}
+        bold="700"
+        size="16px"
+        color={Theme.color.midGray}
+        style={{ marginBottom: 12 }}
+      />
       <FeedbackSelect type={type} quesionId={quesionId} />
       <Form
         style={{
@@ -32,7 +38,7 @@ export default function QuestionEmotionForm({ type, quesionId }) {
               isAutoHeight
               value={CScontent}
               onChange={onChange}
-              ph="바라는 점 / 하고싶은 얘기가 있다면 작성해주세요"
+              ph={`${firstChar}에게 바라는 점 / 하고싶은 얘기가 있다면 작성해주세요`}
               rows={1}
               h={8}
             />
@@ -50,7 +56,12 @@ export default function QuestionEmotionForm({ type, quesionId }) {
                   borderRadius: 12,
                 }}
               >
-                <Text label="의견 보내기" color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary} />
+                <Text
+                  label="의견 보내기"
+                  color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+                  size="14px"
+                  bold="700"
+                />
               </Button>
             </Form.Button>
           </Form.Input>
