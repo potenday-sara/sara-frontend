@@ -32,7 +32,6 @@ QuestionInfo.propTypes = {
   style: PropTypes.shape({}),
   type: PropTypes.oneOf(['sara', 'mara']).isRequired,
 };
-
 QuestionInfo.defaultProps = {
   style: {},
 };
