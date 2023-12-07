@@ -23,7 +23,7 @@ const StyledQuestionAnswer = styled.section`
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
   }
   .button {
     display: flex;
@@ -33,7 +33,7 @@ const StyledQuestionAnswer = styled.section`
   }
   .answer-bottom {
     width: 100%;
-    margin: 24px;
+    margin: 24px 0px 0px;
   }
 `;
 

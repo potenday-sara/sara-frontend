@@ -52,26 +52,22 @@ export default function CounpangRecommend({ type }) {
   const [value, setValue] = useState('생활용품');
   return (
     <StyledCounpoangRecommend>
-      <Title>
+      <Title style={{ gap: 0, padding: 0, marginBottom: 23 }}>
         <Logo
           w="77px"
           logoType={type === 'sara' ? 'SaraTextOnly' : 'MaraTextOnly'}
           fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-          style={{
-            marginBottom: 8,
-          }}
+          style={{}}
         />
-        <Text
-          label=", 요즘 많이 팔리는"
-          size="md"
-          style={{
-            marginBottom: 8,
-            marginRight: 8,
-          }}
-        />
+        <Text label=" , 요즘 많이 팔리는" size="16px" color={Theme.color.midGray} bold="700" />
         <Select
           options={tempOptions}
           setValue={setValue}
+          style={{
+            position: 'absolute',
+            top: 16,
+            right: 30,
+          }}
           trigger={
             <SelectInput
               value={value}
@@ -86,6 +82,10 @@ export default function CounpangRecommend({ type }) {
         <Text
           color={Theme.color.darkGray}
           label="*위 컨텐츠는 쿠팡 파트너스 활동의 일원으로 금전적 대가를 취할 수 있습니다"
+          style={{
+            color: `rgba(0,0,0,0.1)`,
+            fontSize: 10,
+          }}
         />
       </div>
     </StyledCounpoangRecommend>

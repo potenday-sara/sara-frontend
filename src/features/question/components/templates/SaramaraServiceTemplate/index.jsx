@@ -7,15 +7,46 @@ import QuestionLoading from '../../organisms/QuestionLoading';
 import QuestionAnwser from '../../organisms/QuestionAnswer';
 import useQuestion from '../../../hooks/useQuestion';
 import Tag from '../../atoms/Tag';
+import QuestionFailed from '../../organisms/QuestionFailed';
 
 export default function SaramaraServiceTemplate({ type }) {
-  const { stage, refreshForm, QuestionFormData, SubmitQuestion, progress, quesionId, gptAnswer } = useQuestion(type);
+  const {
+    stage,
+    refreshForm,
+    QuestionFormData,
+    SubmitQuestion,
+    retryForm,
+    progress,
+    quesionId,
+    gptAnswer,
+    setRetryRequest,
+  } = useQuestion(type);
   const navigate = useNavigate();
 
   return (
     <StyledSaramaraServiceTemplate>
       {stage === 'initial' && (
-        <SaramaraForm type={type} QuestionFormData={QuestionFormData} SubmitQuestion={SubmitQuestion} />
+        <>
+          <SaramaraForm type={type} QuestionFormData={QuestionFormData} SubmitQuestion={SubmitQuestion} />
+          <Tag
+            type="sara"
+            $isActive={type === 'sara'}
+            onClick={() => navigate('/question/sara')}
+            style={{
+              top: 30,
+              left: 0,
+            }}
+          />
+          <Tag
+            onClick={() => navigate('/question/mara')}
+            $isActive={type === 'mara'}
+            type="mara"
+            style={{
+              top: 78,
+              left: 0,
+            }}
+          />
+        </>
       )}
 
       {stage === 'process' && <QuestionLoading type={type} QuestionFormData={QuestionFormData} progress={progress} />}
@@ -28,24 +59,14 @@ export default function SaramaraServiceTemplate({ type }) {
           refreshForm={refreshForm}
         />
       )}
-      <Tag
-        type="sara"
-        $isActive={type === 'sara'}
-        onClick={() => navigate('/question/sara')}
-        style={{
-          top: 30,
-          left: 0,
-        }}
-      />
-      <Tag
-        onClick={() => navigate('/question/mara')}
-        $isActive={type === 'mara'}
-        type="mara"
-        style={{
-          top: 78,
-          left: 0,
-        }}
-      />
+      {stage === 'error' && (
+        <QuestionFailed
+          retryForm={retryForm}
+          type={type}
+          QuestionFormData={QuestionFormData}
+          setRetryRequest={setRetryRequest}
+        />
+      )}
     </StyledSaramaraServiceTemplate>
   );
 }

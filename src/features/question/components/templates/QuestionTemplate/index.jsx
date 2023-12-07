@@ -4,7 +4,7 @@ import StyledQuestionTemplate from './styles';
 import QuestionSlider from '../../organisms/QuestionSlider';
 import CoupangRecommend from '../../organisms/CoupangRecommend';
 import { Theme } from '../../../../../Styles';
-import Footer from '../../../../../components/organisms/Footer';
+// import Footer from '../../../../../components/organisms/Footer';
 
 export default function QuestionTemplate({ type, children }) {
   return (
@@ -34,11 +34,6 @@ export default function QuestionTemplate({ type, children }) {
           />
         </svg>
       </div>
-      <Footer
-        style={{
-          gridArea: '2 / 1 / 3 / 4',
-        }}
-      />
     </StyledQuestionTemplate>
   );
 }

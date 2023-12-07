@@ -2,6 +2,8 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import QuestionTemplate from './components/templates/QuestionTemplate';
 import SaramaraServiceTemplate from './components/templates/SaramaraServiceTemplate';
+import Footer from '../../components/organisms/Footer';
+import QuestionNavbar from './components/organisms/QuestionNavbar';
 
 export default function QuestionPage() {
   return (
@@ -9,17 +11,25 @@ export default function QuestionPage() {
       <Route
         path="/sara"
         element={
-          <QuestionTemplate type="sara">
-            <SaramaraServiceTemplate type="sara" />
-          </QuestionTemplate>
+          <>
+            <QuestionNavbar type="sara" />
+            <QuestionTemplate type="sara">
+              <SaramaraServiceTemplate type="sara" />
+            </QuestionTemplate>
+            <Footer style={{ minWidth: 1400 }} />
+          </>
         }
       />
       <Route
         path="/mara"
         element={
-          <QuestionTemplate type="mara">
-            <SaramaraServiceTemplate type="mara" />
-          </QuestionTemplate>
+          <>
+            <QuestionNavbar type="mara" />
+            <QuestionTemplate type="mara">
+              <SaramaraServiceTemplate type="mara" />
+            </QuestionTemplate>
+            <Footer style={{ minWidth: 1400 }} />
+          </>
         }
       />
     </Routes>

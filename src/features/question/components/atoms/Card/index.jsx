@@ -8,20 +8,24 @@ import { Theme } from '../../../../../Styles';
 function Card({ isRocket, label, price, img }) {
   return (
     <StyledCard>
-      <div className="image">
-        <img src={img} alt="..." />
-      </div>
+      <div
+        className="image"
+        style={{
+          backgroundImage: `url(${img})`,
+        }}
+      />
+
       <div className="contents">
-        <Text
-          label={label}
-          color={Theme.color.darkGray}
-          bold="lg"
-          style={{
-            lineHeight: 1.2,
-          }}
-        />
-        <Text label={price} color={Theme.color.gray} />
-        {isRocket && <img src={rocket} alt="..." width="70px" />}
+        <Text label={label} color={Theme.color.midGray} size="14px" bold="700" />
+        <Text label={price} color={Theme.color.darkGray} size="16px" bold="500" />
+        {isRocket && (
+          <div
+            className="rocket"
+            style={{
+              backgroundImage: `url(${rocket})`,
+            }}
+          />
+        )}
       </div>
     </StyledCard>
   );

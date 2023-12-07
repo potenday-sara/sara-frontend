@@ -1,10 +1,9 @@
 import React, { cloneElement, useState } from 'react';
 import PropTypes from 'prop-types';
 import StyledSelect from './styles';
-import { Theme } from '../../../Styles';
 import Text from '../../atoms/Text';
 
-function Select({ trigger, options, setValue }) {
+function Select({ trigger, options, setValue, ...rest }) {
   const [isModal, setIsModal] = useState(false);
   const changeValue = (value) => {
     setValue(value);
@@ -12,7 +11,7 @@ function Select({ trigger, options, setValue }) {
   };
 
   return (
-    <StyledSelect>
+    <StyledSelect {...rest}>
       {cloneElement(trigger, { onClick: () => setIsModal((prev) => !prev) })}
 
       {isModal && (
@@ -20,7 +19,7 @@ function Select({ trigger, options, setValue }) {
           {options?.map(({ value }) => {
             return (
               <option onClick={() => changeValue(value)} className="option" value={value}>
-                <Text label={value} color={Theme.color.darkGray} size="md" />
+                <Text label={value} size="16px" />
               </option>
             );
           })}
@@ -38,10 +37,12 @@ Select.propTypes = {
     }),
   ),
   setValue: PropTypes.func,
+  style: PropTypes.shape({}),
 };
 
 Select.defaultProps = {
   options: [],
+  style: {},
   setValue: undefined,
 };
 

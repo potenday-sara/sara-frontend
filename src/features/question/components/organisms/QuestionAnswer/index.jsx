@@ -27,7 +27,7 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
     <StyledQuestionAnswer>
       <section className="question-top">
         <Logo w="148px" logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'} />
-        <QuestionInfo type="sara" QuestionFormData={QuestionFormData} />
+        <QuestionInfo type={type} QuestionFormData={QuestionFormData} style={{ marginBottom: 24 }} />
       </section>
       <section className="question-mid">
         <Logo w="180px" m="24px" logoType={type === 'sara' ? 'SaraCircleCharacter' : 'MaraCircleCharacter'} />
@@ -40,9 +40,10 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
           >
             <Logo w="74px" logoType="SaraTextWithCircleWhite" fill={Theme.color.saraPrimary} />
             <Text
-              size="md"
               color={Theme.color.saraPrimary}
               label={type === 'sara' ? '에게 다른것 묻기' : '에게 물어보기'}
+              size="14px"
+              bold="700"
             />
           </Button>
           <Button
@@ -52,7 +53,8 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
           >
             <Logo w="74px" logoType="MaraTextWithCircleWhite" fill={Theme.color.maraPrimary} />
             <Text
-              size="md"
+              size="14px"
+              bold="700"
               color={Theme.color.maraPrimary}
               label={type === 'mara' ? '에게 다른것 묻기' : '에게 물어보기'}
             />

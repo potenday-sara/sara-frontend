@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 const StyledFeedbackSelect = styled.div`
+  position: relative;
   width: 100%;
   display: flex;
-  gap: 14px;
+  gap: 24px;
   justify-content: center;
 `;
 

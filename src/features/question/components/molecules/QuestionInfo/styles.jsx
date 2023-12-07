@@ -5,8 +5,7 @@ const StyledQuestionInfo = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 24px;
+  gap: 8px;
 `;
 
 export default StyledQuestionInfo;

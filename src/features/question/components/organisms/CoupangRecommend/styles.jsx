@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
 const StyledCoupoangRecommend = styled.section`
-  width: 100%;
+  width: 344px;
   position: relative;
   background-color: white;
   margin-right: auto;
   border-radius: 24px;
-  max-width: 394px;
-  height: 715px;
-  padding: 0px 16px 20px;
+  padding: 24px 16px 40px;
+  overflow: hidden;
 
   .bottom {
     width: 100%;
@@ -19,12 +18,7 @@ const StyledCoupoangRecommend = styled.section`
     position: absolute;
     background: rgba(0, 123, 237, 0.05);
     left: 0px;
-    border-bottom-left-radius: 24px;
-    border-bottom-right-radius: 24px;
     bottom: 0px;
-    p {
-      font-size: 10px !important;
-    }
   }
 `;
 

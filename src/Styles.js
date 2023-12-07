@@ -12,8 +12,10 @@ export const Theme = {
     saraSecondary: '#d9ebfc',
     // 기본색깔
     gray: '#ccc',
-    white: '#fff',
+    midGray: '#666',
     darkGray: '#999',
+    white: '#fff',
+
     black: '#333',
   },
 };

@@ -27,6 +27,8 @@ const StyledSelect = styled.div`
       padding: 12px 12px 8px 8px;
       border-radius: 8px;
       background-color: white;
+      color: ${Theme.color.midkGray};
+      font-family: Pretendard;
       display: flex;
       align-items: center;
       cursor: pointer;

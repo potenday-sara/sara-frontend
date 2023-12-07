@@ -12,6 +12,7 @@ export const postQuestion = async ({ ItemValue, ContentsValue, type }) => {
 };
 
 export const getQuestionState = async (id) => {
+  console.log(id);
   const data = await axios.get(apis.questionsId(id));
   return data;
 };
