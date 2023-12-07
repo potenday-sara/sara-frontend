@@ -3,10 +3,10 @@ import axios from '../../../lib/axios';
 import apis from '../apis';
 import useInput from '../../../hooks/useInput';
 
-const useFeedback = () => {
+const useFeedback = (id) => {
   const { value, onChange, setValue } = useInput('');
   const { mutate } = useMutation(async (data) => {
-    await axios.post(apis.cs, {
+    await axios.post(apis.postCS(id), {
       content: data,
     });
   });

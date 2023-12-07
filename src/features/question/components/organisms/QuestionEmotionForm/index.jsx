@@ -11,7 +11,7 @@ import useFeedback from '../../../hooks/useFeedback';
 
 export default function QuestionEmotionForm({ type, quesionId }) {
   const firstChar = type.charAt(0).toUpperCase() + type.slice(1);
-  const { value: CScontent, onChange, submitCSFeedback } = useFeedback();
+  const { value: CScontent, onChange, submitCSFeedback } = useFeedback(quesionId);
 
   return (
     <StyledFeedback>

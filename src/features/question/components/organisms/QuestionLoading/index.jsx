@@ -8,10 +8,12 @@ import Logo from '../../../../../components/atoms/Logo';
 import { Theme } from '../../../../../Styles';
 import QuestionInfo from '../../molecules/QuestionInfo/index';
 import Title from '../../../../../components/molecules/Title';
+import usePreventLeave from '../../../hooks/usePreventLeave';
 
 export default function QuestionLoading({ type, QuestionFormData, progress }) {
+  const { onPreventLeave, offPreventLeave } = usePreventLeave();
   return (
-    <StyledQuestionLoading>
+    <StyledQuestionLoading {...onPreventLeave} {...offPreventLeave}>
       <Logo w="148px" logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'} />
       <LoadingLottie type={type} w="212px" h="212px" />
       <Progressbar

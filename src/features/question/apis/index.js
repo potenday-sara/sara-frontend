@@ -1,6 +1,5 @@
 const QUESTIONS = '/questions/';
 const ANSWER = '/answers';
-const CS = '/cs';
 
 const apis = {
   questions: QUESTIONS,
@@ -9,7 +8,7 @@ const apis = {
     return `${QUESTIONS}${id}/feedback/`;
   },
   getAnswer: (id) => `${ANSWER}/${id}/`,
-  cs: `${CS}/feedback/`,
+  postCS: (id) => `${QUESTIONS}${id}/cs/`,
 };
 
 export default apis;
