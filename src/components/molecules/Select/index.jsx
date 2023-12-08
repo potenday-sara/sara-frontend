@@ -5,8 +5,16 @@ import Text from '../../atoms/Text';
 
 function Select({ trigger, options, setValue, ...rest }) {
   const [isModal, setIsModal] = useState(false);
-  const changeValue = (value) => {
-    setValue(value);
+  // useEffect(() => {
+  //   document.body.addEventListener('click', () => setIsModal(false), true);
+  //   return () => {
+  //     document.body.removeEventListener('click', () => setIsModal(false), true);
+  //   };
+  // }, []);
+  const changeValue = (e, { id, value }) => {
+    e.stopPropagation();
+    console.log(id, value);
+    setValue(id, value);
     setIsModal(false);
   };
 
@@ -16,10 +24,15 @@ function Select({ trigger, options, setValue, ...rest }) {
 
       {isModal && (
         <div className="selects">
-          {options?.map(({ value }) => {
+          {options?.map((data) => {
             return (
-              <option onClick={() => changeValue(value)} className="option" value={value}>
-                <Text label={value} size="16px" />
+              <option
+                key={['category', data.id]}
+                onClick={(e) => changeValue(e, data)}
+                className="option"
+                value={data.value}
+              >
+                <Text label={data.value} size="16px" />
               </option>
             );
           })}
