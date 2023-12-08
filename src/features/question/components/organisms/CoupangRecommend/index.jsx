@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import StyledCounpoangRecommend from './styles';
 import Text from '../../../../../components/atoms/Text';
@@ -7,49 +7,12 @@ import Title from '../../../../../components/molecules/Title';
 import { Theme } from '../../../../../Styles';
 import Select from '../../../../../components/molecules/Select';
 import SelectInput from '../../../../../components/atoms/SelectInput';
-import tempImage from '../../../assets/temp/buds.jpg';
 import Cards from '../../molecules/Cards';
-
-const tempOptions = [
-  {
-    value: '생활용품',
-  },
-  {
-    value: 'IT',
-  },
-  {
-    value: '생활용품',
-  },
-];
-const tempDatas = [
-  {
-    label: '삼성 갤럭시 버즈갤럭시 버즈',
-    price: '224,000원',
-    img: tempImage,
-    isRocket: false,
-  },
-  {
-    label: '삼성 갤럭시 버즈',
-    price: '224,000원',
-    img: tempImage,
-    isRocket: true,
-  },
-  {
-    label: '삼성 갤럭시 버즈',
-    price: '224,000원',
-    img: tempImage,
-    isRocket: false,
-  },
-  {
-    label: '삼성 갤럭시 버즈',
-    price: '224,000원',
-    img: tempImage,
-    isRocket: false,
-  },
-];
+import useCoupang from '../../../hooks/useCoupang';
 
 export default function CounpangRecommend({ type }) {
-  const [value, setValue] = useState('생활용품');
+  const { categories, categoryLoading, nowCategory, changeNowCategory, showingData } = useCoupang();
+  const goCoupang = (url) => window.open(url);
   return (
     <StyledCounpoangRecommend>
       <Title style={{ gap: 0, padding: 0, marginBottom: 23 }}>
@@ -60,24 +23,26 @@ export default function CounpangRecommend({ type }) {
           style={{}}
         />
         <Text label=" , 요즘 많이 팔리는" size="16px" color={Theme.color.midGray} bold="700" />
-        <Select
-          options={tempOptions}
-          setValue={setValue}
-          style={{
-            position: 'absolute',
-            top: 16,
-            right: 30,
-          }}
-          trigger={
-            <SelectInput
-              value={value}
-              bg={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-              type={type}
-            />
-          }
-        />
+        {!categoryLoading && (
+          <Select
+            options={categories.map((data) => data)}
+            setValue={changeNowCategory}
+            style={{
+              position: 'absolute',
+              top: 16,
+              right: 14,
+            }}
+            trigger={
+              <SelectInput
+                value={nowCategory.value}
+                bg={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+                type={type}
+              />
+            }
+          />
+        )}
       </Title>
-      <Cards datas={tempDatas} />
+      <Cards datas={showingData} onClick={goCoupang} />
       <div className="bottom">
         <Text
           color={Theme.color.darkGray}

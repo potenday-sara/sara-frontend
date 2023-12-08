@@ -3,28 +3,34 @@ import PropTypes from 'prop-types';
 import StyledCards from './styles';
 import Card from '../../atoms/Card';
 
-function Cards({ datas }) {
+function Cards({ datas, onClick }) {
   return (
     <StyledCards>
       {datas.map((props, idx) => {
-        return <Card key={['card', idx]} {...props} />;
+        return <Card key={['card', idx]} {...props} onClick={onClick} />;
       })}
     </StyledCards>
   );
 }
 
 Cards.propTypes = {
+  onClick: PropTypes.func,
   datas: PropTypes.arrayOf(
     PropTypes.shape({
-      label: PropTypes.string,
-      price: PropTypes.string,
-      img: PropTypes.node,
-      isRocket: PropTypes.bool,
+      category_name: PropTypes.string,
+      is_free_shipping: PropTypes.bool,
+      is_rocket: PropTypes.bool.isRequired,
+      product_id: PropTypes.number.isRequired,
+      product_image: PropTypes.string.isRequired,
+      product_name: PropTypes.string.isRequired,
+      product_price: PropTypes.number.isRequireds,
+      product_url: PropTypes.string.isRequired,
     }),
   ),
 };
 
 Cards.defaultProps = {
   datas: [],
+  onClick: undefined,
 };
 export default Cards;
