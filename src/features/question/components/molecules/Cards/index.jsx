@@ -16,6 +16,7 @@ function Cards({ datas }) {
 }
 
 Cards.propTypes = {
+  onClick: PropTypes.func,
   datas: PropTypes.arrayOf(
     PropTypes.shape({
       category_name: PropTypes.string,
@@ -32,5 +33,6 @@ Cards.propTypes = {
 
 Cards.defaultProps = {
   datas: [],
+  onClick: undefined,
 };
 export default Cards;
