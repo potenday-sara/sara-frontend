@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const StyledCoupoangRecommend = styled.section`
   width: 344px;
   position: relative;
+  height: 634.11px;
   background-color: white;
   margin-right: auto;
   border-radius: 24px;

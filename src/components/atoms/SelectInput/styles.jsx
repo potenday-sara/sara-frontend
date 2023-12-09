@@ -5,7 +5,7 @@ const StyledSelectInput = styled.form`
   cursor: pointer;
   position: relative;
   z-index: 2;
-  width: 100px;
+  width: 120px;
   input {
     width: 100%;
     padding: 10px;
@@ -23,7 +23,7 @@ const StyledSelectInput = styled.form`
     position: absolute;
     transform: translate(0%, -50%);
     top: 50%;
-    right: 10px;
+    right: 5px;
     z-index: 1;
   }
 `;

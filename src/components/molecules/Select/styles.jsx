@@ -4,30 +4,45 @@ import { Theme } from '../../../Styles';
 const StyledSelect = styled.div`
   position: relative;
   width: auto;
+  ::-webkit-scrollbar {
+    display: none;
+  }
   /* height: 100px; */
   .selects {
     position: absolute;
-    transform: translate(0, 10%);
+    transform: translate(-50%, 10px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    left: 50%;
+    height: 110px;
     /* top: 0px; */
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: 30px;
     grid-auto-rows: 30px;
-    width: 100%;
+    width: 120px;
     box-shadow: 4px 4px 24px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     padding: 5px 5px;
     gap: 5px;
+    margin: auto;
     align-items: center;
-    overflow: hidden;
     background-color: ${Theme.color.white};
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    .scroll {
+      -ms-overflow-style: none; /* 인터넷 익스플로러 */
+      scrollbar-width: none; /* 파이어폭스 */
+    }
+
     .option {
-      width: 100%;
+      width: 90%;
       height: 100%;
       padding: 12px 12px 8px 8px;
       border-radius: 8px;
       background-color: white;
-      color: ${Theme.color.midkGray};
+      color: ${Theme.color.midGray};
       font-family: Pretendard;
       display: flex;
       align-items: center;

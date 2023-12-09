@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const StyledCard = styled.div`
   width: 152px;
+  cursor: pointer;
   height: 239px;
   border-radius: 16px;
   padding: 16px;
