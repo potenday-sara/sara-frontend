@@ -13,6 +13,7 @@ function Card({
   product_url: productUrl,
   ...rest
 }) {
+  const sliceTitle = (str) => (str.length > 20 ? `${str.slice(0, 20)}...` : str);
   const localePrice = price.toLocaleString();
   return (
     <StyledCard onClick={() => rest.onClick(productUrl)}>
@@ -24,7 +25,7 @@ function Card({
       />
 
       <div className="contents">
-        <Text label={label} color={Theme.color.midGray} size="14px" bold="700" />
+        <Text label={sliceTitle(label)} color={Theme.color.midGray} size="14px" bold="700" />
         <Text label={`${localePrice}원`} color={Theme.color.darkGray} size="16px" bold="500" />
         {isRocket && (
           <div

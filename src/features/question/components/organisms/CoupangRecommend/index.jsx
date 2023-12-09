@@ -9,9 +9,21 @@ import Select from '../../../../../components/molecules/Select';
 import SelectInput from '../../../../../components/atoms/SelectInput';
 import Cards from '../../molecules/Cards';
 import useCoupang from '../../../hooks/useCoupang';
+import Pagination from '../../../../../components/molecules/Pagination';
 
 export default function CounpangRecommend({ type }) {
-  const { categories, categoryLoading, nowCategory, changeNowCategory, showingData } = useCoupang();
+  const {
+    nowPage,
+    categories,
+    categoryLoading,
+    nowCategory,
+    changeNowCategory,
+    showingData,
+    setNextPage,
+    setPrevPage,
+    itemLoading,
+    maxPage,
+  } = useCoupang();
   const goCoupang = (url) => window.open(url);
   return (
     <StyledCounpoangRecommend>
@@ -43,6 +55,11 @@ export default function CounpangRecommend({ type }) {
         )}
       </Title>
       <Cards datas={showingData} onClick={goCoupang} />
+
+      {!itemLoading && !categoryLoading && (
+        <Pagination leftClick={setPrevPage} nowPage={nowPage} maxPage={maxPage} rightClick={setNextPage} type={type} />
+      )}
+
       <div className="bottom">
         <Text
           color={Theme.color.darkGray}

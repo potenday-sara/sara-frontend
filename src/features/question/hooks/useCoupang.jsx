@@ -16,7 +16,6 @@ const getCategories = async (callback) => {
 };
 
 const getItemsByCategory = async (id, callback) => {
-  console.log(id);
   const data = await axios.get(apis.getItemsByCategories(id));
   if (data.status === 200) {
     callback(Math.ceil(data.data.length / 4));
@@ -26,24 +25,25 @@ const getItemsByCategory = async (id, callback) => {
 
 const usePage = () => {
   const [nowPage, setNowPage] = useState(1);
-  const [maxPage, setMaxPage] = useState(4);
+  const [maxPage, setMaxPage] = useState(8);
 
-  const changeNextPage = () => {
+  const setNextPage = () => {
     if (nowPage + 1 <= maxPage) setNowPage((prev) => prev + 1);
   };
 
-  const changePrevPage = () => {
-    if (nowPage - 1 >= 1) setNowPage((prev) => prev + 1);
+  const setPrevPage = () => {
+    if (nowPage - 1 >= 1) setNowPage((prev) => prev - 1);
   };
 
-  return { nowPage, changeNextPage, changePrevPage, setMaxPage };
+  return { nowPage, setNowPage, setNextPage, setPrevPage, setMaxPage, maxPage };
 };
 
 const useCoupang = () => {
   const [nowCategory, setNowCategory] = useState({});
-  const { nowPage, setNextPage, setPrevPage, setMaxPage } = usePage();
+  const { nowPage, setNowPage, setNextPage, setPrevPage, setMaxPage, maxPage } = usePage();
 
   const changeNowCategory = (id, value) => {
+    setNowPage(1);
     setNowCategory({ id, value });
   };
 
@@ -70,6 +70,7 @@ const useCoupang = () => {
     nowPage,
     setNextPage,
     setPrevPage,
+    maxPage,
   };
 
   // return { Ca };
