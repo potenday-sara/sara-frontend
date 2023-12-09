@@ -13,7 +13,6 @@ function Select({ trigger, options, setValue, ...rest }) {
   // }, []);
   const changeValue = (e, { id, value }) => {
     e.stopPropagation();
-    console.log(id, value);
     setValue(id, value);
     setIsModal(false);
   };
