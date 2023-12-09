@@ -42,7 +42,7 @@ function Pagination({ nowPage, maxPage, leftClick, rightClick, type }) {
           width: 40,
           textAlign: 'center',
         }}
-        bold={500}
+        bold="500"
         color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
       />
 

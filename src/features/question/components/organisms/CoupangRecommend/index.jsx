@@ -24,7 +24,6 @@ export default function CounpangRecommend({ type }) {
     itemLoading,
     maxPage,
   } = useCoupang();
-  const goCoupang = (url) => window.open(url);
   return (
     <StyledCounpoangRecommend>
       <Title style={{ gap: 0, padding: 0, marginBottom: 23 }}>
@@ -54,7 +53,7 @@ export default function CounpangRecommend({ type }) {
           />
         )}
       </Title>
-      <Cards datas={showingData} onClick={goCoupang} />
+      <Cards datas={showingData} />
 
       {!itemLoading && !categoryLoading && (
         <Pagination leftClick={setPrevPage} nowPage={nowPage} maxPage={maxPage} rightClick={setNextPage} type={type} />
