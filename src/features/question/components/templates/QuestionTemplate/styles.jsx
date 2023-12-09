@@ -5,7 +5,7 @@ const StyledQuestionTemplate = styled.main`
   min-width: 1400px;
   position: relative;
   background-color: ${({ bg }) => bg || null};
-
+  padding-bottom: 80px;
   min-height: calc(100vh - 144px);
   height: 100%;
   z-index: 1;

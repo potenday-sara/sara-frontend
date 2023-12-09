@@ -47,6 +47,7 @@ export default function QuestionFailed({ retryForm, setRetryRequest, QuestionFor
       </Title>
       <div className="button-wrap">
         <Button
+          h="56px"
           bg={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
           style={buttonStyle}
           onClick={setRetryRequest}
@@ -54,6 +55,7 @@ export default function QuestionFailed({ retryForm, setRetryRequest, QuestionFor
           <Text size="14px" color={Theme.color.white} label="10초 더 주기" bold="700" />
         </Button>
         <Button
+          h="56px"
           onClick={retryForm}
           bg={type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary}
           style={buttonStyle}

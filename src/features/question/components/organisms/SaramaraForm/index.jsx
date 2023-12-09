@@ -56,6 +56,7 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
         <Form.Button>
           <Button
             m="16px 0 0"
+            h="56px"
             bg={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
             type="submit"
             onClick={SubmitQuestion}

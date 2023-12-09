@@ -7,6 +7,9 @@ const StyledMainAside = styled.aside`
   align-items: center;
   justify-content: space-around;
   height: auto;
+  .aside-top {
+    margin: 40px 0px;
+  }
 `;
 
 export default StyledMainAside;

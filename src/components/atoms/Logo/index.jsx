@@ -65,6 +65,7 @@ Logo.propTypes = {
   w: PropTypes.string,
   h: PropTypes.string,
   m: PropTypes.string,
+  style: PropTypes.shape({}),
 };
 
 Logo.defaultProps = {
@@ -72,4 +73,5 @@ Logo.defaultProps = {
   w: '',
   h: '',
   m: '',
+  style: {},
 };

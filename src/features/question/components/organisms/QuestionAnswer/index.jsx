@@ -26,7 +26,14 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
   return (
     <StyledQuestionAnswer>
       <section className="question-top">
-        <Logo w="148px" logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'} />
+        <Logo
+          style={{
+            cursor: 'pointer',
+          }}
+          onClick={() => navigate('/')}
+          w="148px"
+          logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'}
+        />
         <QuestionInfo type={type} QuestionFormData={QuestionFormData} style={{ marginBottom: 24 }} />
       </section>
       <section className="question-mid">
@@ -34,6 +41,7 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
         <AnswerContent type={type} answer={answer} />
         <div className="button-wrap">
           <Button
+            h="56px"
             bg={Theme.color.saraSecondary}
             style={buttonStyle}
             onClick={() => QuestionNavigator('/question/sara')}
@@ -47,6 +55,7 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
             />
           </Button>
           <Button
+            h="56px"
             bg={Theme.color.maraSecondary}
             style={buttonStyle}
             onClick={() => QuestionNavigator('/question/mara')}
