@@ -7,7 +7,6 @@ const StyledButton = styled.button`
   margin: ${({ m }) => m || null};
   background-color: ${({ bg }) => bg || Theme.color.gray};
   height: ${({ h }) => h || null};
-  aspect-ratio: 6 / 1;
   border-radius: 16px;
   border: none;
   cursor: pointer;

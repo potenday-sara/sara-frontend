@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
-const getBubbleTypeStyle = ({ $type }) => {
-  return $type === 'sara'
+const getBubbleTypeStyle = ({ type }) => {
+  return type === 'sara'
     ? css`
         padding: 32px;
         width: 352px;
