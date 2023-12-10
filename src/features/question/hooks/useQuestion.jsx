@@ -98,7 +98,7 @@ const useQuestion = (type) => {
       if (requestCount >= maxRequestCount) {
         // 실패로직 추가
         setRequestQuestion(false);
-        setStage(StageState.FINISH);
+        setStage(StageState.ERROR);
       }
       return data;
     },

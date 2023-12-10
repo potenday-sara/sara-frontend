@@ -4,6 +4,10 @@ import { Theme } from '../../../Styles';
 const StyledSelect = styled.div`
   position: relative;
   width: auto;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   ::-webkit-scrollbar {
     display: none;
   }
@@ -28,6 +32,7 @@ const StyledSelect = styled.div`
     margin: auto;
     align-items: center;
     background-color: ${Theme.color.white};
+
     ::-webkit-scrollbar {
       display: none;
     }
@@ -37,14 +42,14 @@ const StyledSelect = styled.div`
     }
 
     .option {
-      width: 90%;
+      width: 100%;
       height: 100%;
-      padding: 12px 12px 8px 8px;
+      padding: 0px 8px;
       border-radius: 8px;
       background-color: white;
       color: ${Theme.color.midGray};
-      font-family: Pretendard;
       display: flex;
+      word-break: keep-all;
       align-items: center;
       cursor: pointer;
       &:hover {
