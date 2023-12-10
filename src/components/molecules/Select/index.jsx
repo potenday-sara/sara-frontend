@@ -1,16 +1,20 @@
-import React, { cloneElement, useState } from 'react';
+import React, { cloneElement, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import StyledSelect from './styles';
-import Text from '../../atoms/Text';
 
 function Select({ trigger, options, setValue, ...rest }) {
   const [isModal, setIsModal] = useState(false);
-  // useEffect(() => {
-  //   document.body.addEventListener('click', () => setIsModal(false), true);
-  //   return () => {
-  //     document.body.removeEventListener('click', () => setIsModal(false), true);
-  //   };
-  // }, []);
+  useEffect(() => {
+    const clickBody = () => {
+      console.log('body');
+      setIsModal(false);
+    };
+    document.body.addEventListener('click', clickBody, false);
+
+    return () => {
+      document.body.removeEventListener('click', clickBody, false);
+    };
+  }, []);
   const changeValue = (e, { id, value }) => {
     e.stopPropagation();
     setValue(id, value);
@@ -19,7 +23,12 @@ function Select({ trigger, options, setValue, ...rest }) {
 
   return (
     <StyledSelect {...rest}>
-      {cloneElement(trigger, { onClick: () => setIsModal((prev) => !prev) })}
+      {cloneElement(trigger, {
+        onClick: (e) => {
+          e.stopPropagation();
+          setIsModal((prev) => !prev);
+        },
+      })}
 
       {isModal && (
         <div className="selects">
@@ -29,10 +38,9 @@ function Select({ trigger, options, setValue, ...rest }) {
                 key={['category', data.id]}
                 onClick={(e) => changeValue(e, data)}
                 className="option"
+                label={data.value}
                 value={data.value}
-              >
-                <Text label={data.value} size="16px" />
-              </option>
+              />
             );
           })}
         </div>
