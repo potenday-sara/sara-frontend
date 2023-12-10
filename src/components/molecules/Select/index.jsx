@@ -1,6 +1,7 @@
 import React, { cloneElement, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import StyledSelect from './styles';
+import Text from '../../atoms/Text';
 
 function Select({ trigger, options, setValue, ...rest }) {
   const [isModal, setIsModal] = useState(false);
@@ -34,13 +35,15 @@ function Select({ trigger, options, setValue, ...rest }) {
         <div className="selects">
           {options?.map((data) => {
             return (
-              <option
+              <div
                 key={['category', data.id]}
+                role="presentation"
                 onClick={(e) => changeValue(e, data)}
                 className="option"
-                label={data.value}
                 value={data.value}
-              />
+              >
+                <Text label={data.value} size="16px" />
+              </div>
             );
           })}
         </div>

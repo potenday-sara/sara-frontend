@@ -160,6 +160,12 @@ export const GlobalStyles = createGlobalStyle`
     justify-content: center;
     align-items: center;
   }
+  select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  }
+  
 
 
 `;
