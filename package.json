@@ -90,5 +90,6 @@
   "_id": "sara-frontend@0.1.0",
   "resolutions": {
     "strip-ansi": "6.0.0"
-  }
+  },
+  "proxy": "https://api.sara-mara.com"
 }

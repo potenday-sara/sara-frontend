@@ -14,11 +14,10 @@ function SelectInput({ value, ...rest }) {
 
 SelectInput.propTypes = {
   value: PropTypes.string,
-  type: PropTypes.oneOf(['sara', 'mara']).isRequired,
 };
 
 SelectInput.defaultProps = {
   value: '값을입력해주세요',
-};
+}; 
 
 export default SelectInput;

@@ -10,6 +10,7 @@ import SelectInput from '../../../../../components/atoms/SelectInput';
 import Cards from '../../molecules/Cards';
 import useCoupang from '../../../hooks/useCoupang';
 import Pagination from '../../../../../components/molecules/Pagination';
+import Dropdown from '../../../../../components/atoms/Dropdown';
 
 export default function CounpangRecommend({ type }) {
   const {
@@ -36,21 +37,33 @@ export default function CounpangRecommend({ type }) {
         <Text label=" , 요즘 많이 팔리는" size="16px" color={Theme.color.midGray} bold="700" />
         {!categoryLoading && (
           <Select
-            options={categories.map((data) => data)}
-            setValue={changeNowCategory}
             style={{
               position: 'absolute',
-              top: 16,
+              top: 14,
               right: 14,
             }}
-            trigger={
-              <SelectInput
-                value={nowCategory.value}
-                bg={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-                type={type}
-              />
-            }
-          />
+          >
+            <Select.List>
+              <Dropdown
+                trigger={
+                  <SelectInput
+                    value={nowCategory.value}
+                    bg={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+                  />
+                }
+              >
+                {categories.map((data) => {
+                  return (
+                    <Dropdown.Item
+                      label={data.value}
+                      key={['DropdownItem', data.id]}
+                      onClick={() => changeNowCategory(data.id, data.value)}
+                    />
+                  );
+                })}
+              </Dropdown>
+            </Select.List>
+          </Select>
         )}
       </Title>
       <Cards datas={showingData} />
