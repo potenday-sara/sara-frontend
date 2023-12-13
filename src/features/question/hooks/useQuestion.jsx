@@ -126,8 +126,7 @@ const useQuestion = (type) => {
   };
 
   // 액션
-  const SubmitQuestion = (event) => {
-    event.preventDefault();
+  const SubmitQuestion = () => {
     setMaxRequestCount(MaxRequestCount);
     mutate({ ItemValue, ContentsValue, type });
     setStage(StageState.PROCESS);

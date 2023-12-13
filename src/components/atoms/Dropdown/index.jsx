@@ -29,13 +29,18 @@ function Dropdown({ trigger, children }) {
   );
 }
 
-const Item = ({ label, ...rest }) => {
+Dropdown.propTypes = {
+  trigger: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
+};
+
+function Item({ label, ...rest }) {
   return (
     <StyledDropdownItem {...rest}>
       <Text label={label} size="16px" />
     </StyledDropdownItem>
   );
-};
+}
 
 Item.propTypes = {
   label: PropTypes.string.isRequired,
