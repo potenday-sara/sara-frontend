@@ -72,10 +72,12 @@ const useQuestion = (type) => {
   const { data: gptAnswer } = useQuery({
     queryKey: ['getAnswer', answerId],
     queryFn: () => getAnswer(answerId),
+    enabled: !!answerId,
   });
 
   // 답변 생성 여부 확인 쿼리(액션)
   const { remove: DeleteAnswer } = useQuery({
+    queryKey: ['getId', quesionId, type],
     queryFn: async () => {
       const { data } = await getQuestionState(quesionId);
       // 요청 횟수 1회 증가(액션)
@@ -103,7 +105,6 @@ const useQuestion = (type) => {
       return data;
     },
 
-    queryKey: ['getId', quesionId, type],
     enabled: requestQuestion,
     refetchInterval: 1000,
     refetchIntervalInBackground: true,
