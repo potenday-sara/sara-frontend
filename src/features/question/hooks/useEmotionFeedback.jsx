@@ -33,11 +33,11 @@ const useEmotionFeedback = (id) => {
     }
   }, [nowSelected]);
 
-  const getNowSelectedFeedback = (score) => {
+  const setNowSelectedFeedback = (score) => {
     setNowSelected(score);
   };
 
-  return { nowSelected, getNowSelectedFeedback, isFeedback, mutate, isToast };
+  return { nowSelected, setNowSelectedFeedback, isFeedback, mutate, isToast };
 };
 
 export default useEmotionFeedback;

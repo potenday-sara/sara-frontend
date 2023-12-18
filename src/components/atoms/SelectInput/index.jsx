@@ -14,7 +14,6 @@ function SelectInput({ value, ...rest }) {
 
 SelectInput.propTypes = {
   value: PropTypes.string,
-  type: PropTypes.oneOf(['sara', 'mara']).isRequired,
 };
 
 SelectInput.defaultProps = {

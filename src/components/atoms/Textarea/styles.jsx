@@ -10,6 +10,8 @@ const StyledTextarea = styled.textarea`
   border: 1px solid ${Theme.color.gray};
   font-family: Pretendard;
   resize: none;
+  color: ${Theme.color.black};
+  font-weight: 700;
 
   &::placeholder {
     color: ${Theme.color.gray};

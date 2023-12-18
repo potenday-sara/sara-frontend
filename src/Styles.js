@@ -128,6 +128,9 @@ export const getBasicButton = () => css`
 
 export const GlobalStyles = createGlobalStyle`
   ${reset}
+  #root {
+    position: relative;
+  }
   *, *::before, *::after {
     box-sizing: border-box;
     font-weight: 700;

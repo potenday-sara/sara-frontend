@@ -9,12 +9,14 @@ const StyledInput = styled.input`
   border-radius: 12px;
   border: 1px solid ${Theme.color.gray};
   font-family: Pretendard;
+  color: ${Theme.color.black};
+  font-weight: 700;
 
   &::placeholder {
     color: ${Theme.color.gray};
     font-family: Pretendard;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 700;
   }
 `;
 

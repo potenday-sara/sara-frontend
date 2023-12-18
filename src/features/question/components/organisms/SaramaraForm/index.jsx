@@ -11,9 +11,25 @@ import Text from '../../../../../components/atoms/Text';
 import StyledSaramaraForm from './styles';
 import Logo from '../../../../../components/atoms/Logo';
 
+const checkItemLength = (string) => string.length > 0 && string.length <= 30;
+const checkContentLegth = (string) => string.length > 4 && string.length <= 200;
+
 export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion }) {
   const navigate = useNavigate();
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (!checkItemLength(QuestionFormData.ItemValue)) {
+      console.log('아이템 유효성 검사 실패');
+      return;
+    }
 
+    if (!checkContentLegth(QuestionFormData.ContentsValue)) {
+      console.log('콘텐츠 유효성 검사 실패');
+      return;
+    }
+
+    SubmitQuestion();
+  };
   return (
     <StyledSaramaraForm>
       <Logo
@@ -25,9 +41,13 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
         logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'}
       />
       <Logo w="180px" m="24px" logoType={type === 'sara' ? 'SaraCircleCharacter' : 'MaraCircleCharacter'} />
-      <Form onSubmit={SubmitQuestion}>
+      <Form onSubmit={(e) => onSubmit(e)}>
         <Form.Label>
-          <Label m="0 0 8px 0px" htmlFor="item" text={<Text bold="700" size="14px" label="어떤걸 사고싶어?" />} />
+          <Label
+            m="0 0 8px 0px"
+            htmlFor="item"
+            text={<Text bold="700" size="14px" label="어떤걸 사고싶어?" color={Theme.color.midGray} />}
+          />
         </Form.Label>
         <Form.Input>
           <Input
@@ -39,7 +59,11 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
           />
         </Form.Input>
         <Form.Label>
-          <Label m="16px 0 8px" htmlFor="contents" text={<Text bold="700" size="14px" label="왜 고민하고 있어?" />} />
+          <Label
+            m="16px 0 8px"
+            htmlFor="contents"
+            text={<Text bold="700" size="14px" label="왜 고민하고 있어?" color={Theme.color.midGray} />}
+          />
         </Form.Label>
         <Form.Input>
           <Textarea
@@ -59,7 +83,7 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
             h="56px"
             bg={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
             type="submit"
-            onClick={SubmitQuestion}
+            onClick={onSubmit}
           >
             <Text
               label={`${QuestionFormData?.ItemValue || ''} 사야할까?`}
