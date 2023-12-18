@@ -18,6 +18,6 @@ SelectInput.propTypes = {
 
 SelectInput.defaultProps = {
   value: '값을입력해주세요',
-}; 
+};
 
 export default SelectInput;

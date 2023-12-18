@@ -1,4 +1,4 @@
-import React, { cloneElement } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import StyledSelect, { StyledList } from './styles';
 
@@ -14,11 +14,15 @@ function Select({ onChange, children, value, ...rest }) {
 Select.propTypes = {
   onChange: PropTypes.func,
   style: PropTypes.shape({}),
+  children: PropTypes.node,
+  value: PropTypes.string,
 };
 
 Select.defaultProps = {
   onChange: () => {},
   style: {},
+  value: '',
+  children: null,
 };
 
 function List({ children, cssstyle }) {

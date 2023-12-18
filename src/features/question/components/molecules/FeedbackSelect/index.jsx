@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { css } from 'styled-components';
 import StyledFeedbackSelect from './styles';
 import { ReactComponent as Good } from '../../../../../images/feedback/good.svg';
 import { ReactComponent as Bad } from '../../../../../images/feedback/bad.svg';
@@ -10,7 +11,6 @@ import Toast from '../../../../../components/molecules/Toast';
 import Text from '../../../../../components/atoms/Text';
 import { Theme } from '../../../../../Styles';
 import Select from '../../../../../components/molecules/Select';
-import { css } from 'styled-components';
 
 const feedbackOptions = [
   [<Good />, '도움이 됐어요', 1],
