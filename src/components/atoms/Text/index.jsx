@@ -60,6 +60,7 @@ export default function Text({ label, ...rest }) {
 }
 
 Text.propTypes = {
+  className: PropTypes.string,
   bold: PropTypes.string,
   size: PropTypes.string,
   color: PropTypes.string,
@@ -69,6 +70,7 @@ Text.propTypes = {
 };
 
 Text.defaultProps = {
+  className: '',
   bold: 'md',
   size: 'md',
   label: '',
