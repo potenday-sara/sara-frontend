@@ -1,8 +1,8 @@
 import React from 'react';
+// import PropTypes from 'prop-types'
 import StyledNavigateGoogleForm from './styles';
 import Text from '../../atoms/Text';
 import { Theme } from '../../../Styles';
-// import PropTypes from 'prop-types'
 import SaraNonHover from '../../../images/logos/saranonHover.png';
 
 function NavigateGoogleForm() {

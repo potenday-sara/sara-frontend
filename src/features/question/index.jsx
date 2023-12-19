@@ -4,6 +4,7 @@ import QuestionTemplate from './components/templates/QuestionTemplate';
 import SaramaraServiceTemplate from './components/templates/SaramaraServiceTemplate';
 import Footer from '../../components/organisms/Footer';
 import QuestionNavbar from './components/organisms/QuestionNavbar';
+import NavigateGoogleForm from '../../components/organisms/NavigateGoogleForm';
 
 export default function QuestionPage() {
   return (
@@ -16,6 +17,7 @@ export default function QuestionPage() {
             <QuestionTemplate type="sara">
               <SaramaraServiceTemplate type="sara" />
             </QuestionTemplate>
+            <NavigateGoogleForm />
             <Footer style={{ minWidth: 1400 }} />
           </>
         }
