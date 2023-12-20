@@ -10,6 +10,13 @@ import MaraHover from '../../../images/logos/hoverCharacter/maraHover.png';
 import Button from '../../atoms/Button';
 import useHover from '../../../hooks/useHover';
 
+const getText = (type, hovered) => {
+  if (type === 'sara') {
+    return hovered ? '의견 남겨달라샤!' : 'Sara 써보니 어때?';
+  }
+  return hovered ? '의견 남겨달라먀!' : 'Mara 써보니 어때?';
+};
+
 function NavigateGoogleForm({ type }) {
   const textStyle = {
     padding: 10,
@@ -43,20 +50,12 @@ function NavigateGoogleForm({ type }) {
       </div>
 
       <Text
-        className={`text move-updown ${isHovered ? 'text-show' : null}`}
+        className={`text  ${isHovered ? 'move-hori' : 'move-updown'}`}
         style={textStyle}
         color={Theme.color.white}
         size="14px"
         bold="500"
-        label="Sara 써보니 어때?"
-      />
-      <Text
-        className={`text move-hori ${isHovered ? null : 'text-show'}`}
-        style={textStyle}
-        color={Theme.color.white}
-        size="14px"
-        bold="500"
-        label="의견 남겨달라샤!"
+        label={getText(type, isHovered)}
       />
     </StyledNavigateGoogleForm>
   );

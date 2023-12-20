@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 
-const updownAni = keyframes`
+const saraUpdown = keyframes`
   0% {
     margin-top: 0px;
     box-shadow: 0px 12px 20px 0px rgba(0, 123, 237, 0.30);
@@ -10,12 +10,23 @@ const updownAni = keyframes`
   100% {
     opacity: 0;
     margin-top: 20px;
-    box-shadow: 0px 12px 20px 0px rgba(0, 123, 237, 0.50);
+  }
+`;
+const maraUpdown = keyframes`
+  0% {
+    margin-top: 0px;
+    filter: drop-shadow(0px 6px 10px rgba(239, 43, 0, 0.20));
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    margin-top: 20px;
 
   }
 `;
 
-const moveHoriAni = keyframes`
+const saraMoveHori = keyframes`
   0% {
     margin-top: 0px;
     margin-left: 15px;
@@ -26,7 +37,18 @@ const moveHoriAni = keyframes`
   100% {
     margin-left: 2px;
     box-shadow: 0px 12px 20px 0px rgba(0, 123, 237, 0.50);
-
+  }
+`;
+const maraMoveHori = keyframes`
+  0% {
+    margin-top: 0px;
+    margin-left: 15px;
+    filter: drop-shadow(0px 6px 10px rgba(239, 43, 0, 0.20));
+  }
+  
+  100% {
+    filter: drop-shadow(0px 12px 20px rgba(239, 43, 0, 0.30));
+    margin-left: 2px;
   }
 `;
 
@@ -39,14 +61,34 @@ const saraBeforeShadowAni = keyframes`
     box-shadow: none
   }
 `;
+const maraBeforeShadowAni = keyframes`
+    0% {
+      filter: drop-shadow(0px 6px 10px rgba(239, 43, 0, 0.20));
 
-const afterShadowAni = keyframes`
+  }
+
+  100% {
+    box-shadow: none
+  }
+`;
+
+const saraAfterShadowAni = keyframes`
   0% {
     box-shadow: 0px 6px 10px 0px rgba(0, 123, 237, 0.20);
   }
   
   100% {
     box-shadow: 0px 12px 20px 0px rgba(0, 123, 237, 0.50);
+  }
+`;
+const maraAfterShadowAni = keyframes`
+  0% {
+    filter: drop-shadow(0px 6px 10px rgba(239, 43, 0, 0.20));
+  }
+  
+  100% {
+    filter: drop-shadow(0px 12px 20px rgba(239, 43, 0, 0.30));
+
   }
 `;
 
@@ -84,12 +126,14 @@ const StyledNavigateGoogleForm = styled.div`
   }
 
   .non-hover-ani {
-    animation: ${saraBeforeShadowAni} 1.5s infinite alternate ease-in-out;
+    animation: ${({ type }) => (type === 'sara' ? saraBeforeShadowAni : maraBeforeShadowAni)} 1.5s infinite alternate
+      ease-in-out;
   }
 
   .hover-ani {
-    border: 1px solid rgba(0, 123, 237, 0.6);
-    animation: ${afterShadowAni} 0.8s infinite alternate ease-in;
+    border: 1px solid ${({ type }) => (type === 'sara' ? 'rgba(0, 123, 237, 0.6)' : 'rgba(239, 43, 0, 0.3)')};
+    animation: ${({ type }) => (type === 'sara' ? saraAfterShadowAni : maraAfterShadowAni)} 0.8s infinite alternate
+      ease-in;
   }
 
   .text-show {
@@ -98,12 +142,12 @@ const StyledNavigateGoogleForm = styled.div`
   }
 
   .move-hori {
-    animation: ${moveHoriAni} 0.8s infinite alternate ease-in;
+    animation: ${({ type }) => (type === 'sara' ? saraMoveHori : maraMoveHori)} 0.8s infinite alternate ease-in;
   }
 
   .move-updown {
     margin-left: 15px;
-    animation: ${updownAni} 1.5s infinite alternate ease-in-out;
+    animation: ${({ type }) => (type === 'sara' ? saraUpdown : maraUpdown)} 1.5s infinite alternate ease-in-out;
   }
 `;
 
