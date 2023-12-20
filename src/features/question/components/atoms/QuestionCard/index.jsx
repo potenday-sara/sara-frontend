@@ -34,7 +34,7 @@ Title.propTypes = {
 };
 
 function Contents({ label }) {
-  const string = label.length > 50 ? `${label.slice(0, 100)}...` : label;
+  const string = label.length > 50 ? `${label.slice(0, 80)}...` : label;
   return <Text className="card-content" label={string} color={Theme.color.midGray} bold="500" />;
 }
 

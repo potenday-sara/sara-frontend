@@ -24,14 +24,15 @@ const StyledSlider = styled.div`
     }
   }
 
-  .shadow {
+  &::after {
     top: 0px;
+    content: '';
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
-    box-shadow: 0px 0px 20px 5px ${Theme.color.saraSecondary} inset;
+    box-shadow: 0px 0px 15px 5px
+      ${({ type }) => (type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary)} inset;
     width: 100%;
     height: 100%;
-    z-index: 999;
     position: absolute;
   }
 `;

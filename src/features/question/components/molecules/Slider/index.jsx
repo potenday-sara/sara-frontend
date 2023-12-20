@@ -7,8 +7,7 @@ import QuestionCard from '../../atoms/QuestionCard';
 
 function Slider({ datas, type }) {
   return (
-    <StyledSlider>
-      <div className="shadow" />
+    <StyledSlider type={type}>
       <Swiper
         modules={[Autoplay]}
         className="mySwiper"
@@ -26,7 +25,7 @@ function Slider({ datas, type }) {
           return (
             <SwiperSlide key={('slider', [idx])}>
               <QuestionCard type={type}>
-                <QuestionCard.Title label={product} />
+                <QuestionCard.Title label={product} type={type} />
                 <QuestionCard.Contents label={content} />
               </QuestionCard>
             </SwiperSlide>

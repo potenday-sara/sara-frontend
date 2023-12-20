@@ -20,6 +20,7 @@ const StyledCard = styled.div`
     }
     .card-content {
       font-size: 14px;
+      line-height: 135%;
     }
   }
 
@@ -33,6 +34,7 @@ const StyledCard = styled.div`
       font-size: 20px;
     }
     .card-content {
+      line-height: 135%;
       font-size: 16px;
     }
   }
