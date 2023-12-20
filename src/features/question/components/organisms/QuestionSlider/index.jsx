@@ -11,7 +11,7 @@ export default function QuestionSlider({ type }) {
 
   return (
     <StyledQuestionSlider>
-      <Text className="title" label="다른 사람들의 고민" color={Theme.color.black} bold="700" />
+      <Text className="question-slider-title" label="다른 사람들의 고민" color={Theme.color.black} bold="700" />
       {!QuestionLoading && <Slider datas={OtherQuestions} type={type} />}
     </StyledQuestionSlider>
   );

@@ -17,17 +17,25 @@ QuestionCard.defaultProps = {
   style: {},
 };
 
-function Title({ children }) {
-  return children;
+function Title({ label, type }) {
+  return (
+    <Text
+      className="card-title"
+      label={label}
+      color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+      bold="700"
+    />
+  );
 }
 
 Title.propTypes = {
-  children: PropTypes.node.isRequired,
+  type: PropTypes.oneOf(['sara', 'mara']).isRequired,
+  label: PropTypes.string.isRequired,
 };
 
 function Contents({ label }) {
-  const string = label.length > 50 ? `${label.slice(0, 50)}...` : label;
-  return <Text label={string} size="14px" color={Theme.color.midGray} />;
+  const string = label.length > 50 ? `${label.slice(0, 100)}...` : label;
+  return <Text className="card-content" label={string} color={Theme.color.midGray} bold="500" />;
 }
 
 Contents.propTypes = {

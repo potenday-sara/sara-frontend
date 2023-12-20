@@ -4,37 +4,29 @@ import { Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import StyledSlider from './styles';
 import QuestionCard from '../../atoms/QuestionCard';
-import Text from '../../../../../components/atoms/Text';
-import { Theme } from '../../../../../Styles';
 
 function Slider({ datas, type }) {
   return (
     <StyledSlider>
+      <div className="shadow" />
       <Swiper
+        modules={[Autoplay]}
+        className="mySwiper"
         speed={3000}
-        slidesPerView={4}
+        slidesPerView="auto"
+        spaceBetween={1}
         loop
-        touchRatio={0}
         autoplay={{
           delay: 0,
           disableOnInteraction: false,
         }}
         direction="vertical"
-        modules={[Autoplay]}
-        className="mySwiper"
       >
         {datas?.map(({ content, product }, idx) => {
           return (
             <SwiperSlide key={('slider', [idx])}>
-              <QuestionCard>
-                <QuestionCard.Title>
-                  <Text
-                    label={product}
-                    bold="700"
-                    size="16px"
-                    color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-                  />
-                </QuestionCard.Title>
+              <QuestionCard type={type}>
+                <QuestionCard.Title label={product} />
                 <QuestionCard.Contents label={content} />
               </QuestionCard>
             </SwiperSlide>

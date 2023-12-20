@@ -16,30 +16,10 @@ export const getBoldCode = (bold) => {
   }
 };
 
-const getTextSize = (size) => {
-  switch (size) {
-    case 'xs':
-      return '14px';
-    case 'sm':
-      return '16px';
-
-    case 'md':
-      return '18px';
-    case 'lg':
-      return '20px';
-
-    case 'xl':
-      return '24px';
-
-    default:
-      return size;
-  }
-};
-
 const StyledText = styled.p`
   color: ${({ color }) => color || Theme.color.black};
   font-weight: ${({ bold }) => getBoldCode(bold)};
-  font-size: ${({ size }) => getTextSize(size)};
+  font-size: ${({ size }) => size || 'inherit'};
   font-family: Pretendard;
   white-space: pre-line;
 `;
@@ -72,7 +52,7 @@ Text.propTypes = {
 Text.defaultProps = {
   className: '',
   bold: 'md',
-  size: 'md',
+  size: '',
   label: '',
   onClick: undefined,
   style: {},
