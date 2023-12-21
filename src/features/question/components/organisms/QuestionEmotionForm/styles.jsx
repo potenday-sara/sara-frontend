@@ -6,6 +6,11 @@ const StyledFeedback = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  .disabled {
+    opacity: 0.8;
+    cursor: none;
+  }
 `;
 
 export default StyledFeedback;
