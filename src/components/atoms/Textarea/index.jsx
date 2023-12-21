@@ -7,7 +7,9 @@ export default function Textarea({ ph, isAutoHeight, id, ...rest }) {
   useEffect(() => {
     if (isAutoHeight) {
       ref.current.style.height = 0;
+      console.log(ref.current.scrollHeight);
       ref.current.style.height = `${rest.h + ref.current.scrollHeight}px`;
+      console.log(ref.current.style.height);
     }
   }, [rest.value]);
 
