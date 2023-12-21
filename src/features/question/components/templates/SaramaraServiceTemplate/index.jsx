@@ -67,13 +67,6 @@ export default function SaramaraServiceTemplate({ type }) {
           setRetryRequest={setRetryRequest}
         />
       )}
-      <QuestionAnwser
-        type={type}
-        answer={gptAnswer?.data?.content}
-        QuestionFormData={QuestionFormData}
-        quesionId={quesionId}
-        refreshForm={refreshForm}
-      />
     </StyledSaramaraServiceTemplate>
   );
 }

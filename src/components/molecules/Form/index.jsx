@@ -22,7 +22,9 @@ const Label = ({ children }) => {
 };
 
 const Input = ({ children, isError }) => {
-  return cloneElement(children, { className: `${isError ? 'input input-error' : 'input'}` });
+  return cloneElement(children, {
+    className: `${children.props.className} ${isError ? 'input input-error' : 'input'}`,
+  });
 };
 
 function Error({ children }) {

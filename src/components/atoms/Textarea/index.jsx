@@ -2,18 +2,16 @@ import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import StyledTextarea from './styles';
 
-export default function Textarea({ ph, isAutoHeight, id, ...rest }) {
+export default function Textarea({ ph, isAutoHeight, ...rest }) {
   const ref = useRef(null);
   useEffect(() => {
     if (isAutoHeight) {
       ref.current.style.height = 0;
-      console.log(ref.current.scrollHeight);
       ref.current.style.height = `${rest.h + ref.current.scrollHeight}px`;
-      console.log(ref.current.style.height);
     }
   }, [rest.value]);
 
-  return <StyledTextarea placeholder={ph} id={id} ref={ref} {...rest} rows={1} />;
+  return <StyledTextarea placeholder={ph} ref={ref} {...rest} rows={1} />;
 }
 
 Textarea.propTypes = {
@@ -21,6 +19,7 @@ Textarea.propTypes = {
   isAutoHeight: PropTypes.bool,
   style: PropTypes.shape({}),
   onChnage: PropTypes.func,
+  className: PropTypes.string,
   w: PropTypes.string,
   h: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   ph: PropTypes.string,
@@ -31,6 +30,7 @@ Textarea.defaultProps = {
   isAutoHeight: false,
   style: {},
   onChnage: undefined,
+  className: '',
   w: '',
   h: '',
   ph: '',

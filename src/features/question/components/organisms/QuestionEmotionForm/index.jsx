@@ -11,7 +11,7 @@ import useFeedback from '../../../hooks/useFeedback';
 
 export default function QuestionEmotionForm({ type, quesionId }) {
   const firstChar = type.charAt(0).toUpperCase() + type.slice(1);
-  const { value: CScontent, onChange, submitCSFeedback } = useFeedback(quesionId);
+  const { value: CScontent, onChange, submitCSFeedback, isFeedback } = useFeedback(quesionId);
 
   return (
     <StyledFeedback>
@@ -35,22 +35,28 @@ export default function QuestionEmotionForm({ type, quesionId }) {
             id="feedback"
             style={{ padding: '16px 100px 16px 16px' }}
             isAutoHeight
+            disabled={isFeedback}
             value={CScontent}
             onChange={onChange}
-            ph={`${firstChar}에게 바라는 점 / 하고싶은 얘기가 있다면 작성해주세요`}
+            ph={
+              isFeedback ? '의견이 제출 됐습니다' : `${firstChar}에게 바라는 점 / 하고싶은 얘기가 있다면 작성해주세요`
+            }
             rows={1}
+            h={8}
           />
         </Form.Input>
         <Form.Button>
           <Button
             type="submit"
+            className={isFeedback ? 'disabled' : ''}
+            disabled={isFeedback}
             w="84px"
             h="33px"
             bg={type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary}
             onClick={(e) => submitCSFeedback(e)}
             style={{
               position: 'absolute',
-              top: 16,
+              top: 12,
               right: 12,
               borderRadius: 12,
             }}
