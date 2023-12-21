@@ -4,8 +4,6 @@ import { Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import StyledSlider from './styles';
 import QuestionCard from '../../atoms/QuestionCard';
-import Text from '../../../../../components/atoms/Text';
-import { Theme } from '../../../../../Styles';
 
 function Slider({ datas, type }) {
   return (
@@ -27,14 +25,7 @@ function Slider({ datas, type }) {
           return (
             <SwiperSlide key={('slider', [idx])}>
               <QuestionCard>
-                <QuestionCard.Title>
-                  <Text
-                    label={product}
-                    bold="700"
-                    size="16px"
-                    color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-                  />
-                </QuestionCard.Title>
+                <QuestionCard.Title label={product} type={type} />
                 <QuestionCard.Contents label={content} />
               </QuestionCard>
             </SwiperSlide>

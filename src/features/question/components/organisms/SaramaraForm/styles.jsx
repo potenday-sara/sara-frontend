@@ -1,4 +1,13 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const vibration = keyframes`
+  from {
+    transform: rotate(1.5deg);
+  }
+  to {
+    transform: rotate(-1.5deg);
+  }
+`;
 
 const StyledSaramaraForm = styled.div`
   width: 100%;
@@ -23,6 +32,10 @@ const StyledSaramaraForm = styled.div`
     }
     color: #ff2e00;
     outline: 1px solid #f00;
+  }
+
+  .failed-submit {
+    animation: ${vibration} 0.1s alternate;
   }
 `;
 

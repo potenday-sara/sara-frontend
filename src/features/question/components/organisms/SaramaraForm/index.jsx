@@ -17,22 +17,30 @@ const checkContentLegth = (string) => string.length > 4 && string.length <= 200;
 export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion }) {
   const [itemError, setItemError] = useState(false);
   const [contentError, setContentError] = useState(false);
+  const [failedSubmit, setFailedSubmit] = useState(false);
   const navigate = useNavigate();
   const onSubmit = (e) => {
+    let itemFailed = false;
+    let contentFailed = false;
     e.preventDefault();
     if (!checkItemLength(QuestionFormData.ItemValue)) {
       setItemError(true);
-      console.log('아이템 유효성 검사 실패');
-      return;
+      itemFailed = true;
     }
 
     if (!checkContentLegth(QuestionFormData.ContentsValue)) {
       setContentError(true);
-      console.log('콘텐츠 유효성 검사 실패');
-      return;
+      contentFailed = true;
     }
 
-    SubmitQuestion();
+    if (!itemFailed && !contentFailed) SubmitQuestion();
+    else {
+      setFailedSubmit(true);
+
+      setTimeout(() => {
+        setFailedSubmit(false);
+      }, 400);
+    }
   };
 
   const ItemChange = (event) => {
@@ -91,6 +99,7 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
 
         <Form.Button>
           <Button
+            className={failedSubmit && 'failed-submit'}
             m="16px 0 0"
             h="56px"
             bg={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
