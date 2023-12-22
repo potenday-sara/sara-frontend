@@ -4,6 +4,11 @@ import reset from 'styled-reset';
 export const colorPalete = ['saraPrimary', 'saraSecondary', 'maraPrimary', 'maraSecondary', 'white', 'black'];
 
 export const Theme = {
+  deviceSize: {
+    small: '@media (max-width: 639px)',
+    medium: '@media (max-width: 1919px)',
+    large: '@media (min-width: 1920px)',
+  },
   color: {
     // 테마 색깔
     maraPrimary: '#ef2b00',
@@ -15,7 +20,6 @@ export const Theme = {
     midGray: '#666',
     darkGray: '#999',
     white: '#fff',
-
     black: '#333',
   },
 };

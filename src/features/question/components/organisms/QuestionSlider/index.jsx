@@ -11,15 +11,7 @@ export default function QuestionSlider({ type }) {
 
   return (
     <StyledQuestionSlider>
-      <Text
-        style={{
-          marginBottom: 8,
-        }}
-        label="다른 사람들은 어떤 고민이 있을까?"
-        color={Theme.color.midGray}
-        bold="700"
-        size="14px"
-      />
+      <Text className="question-slider-title" label="다른 사람들의 고민" color={Theme.color.black} bold="700" />
       {!QuestionLoading && <Slider datas={OtherQuestions} type={type} />}
     </StyledQuestionSlider>
   );

@@ -7,19 +7,19 @@ import QuestionCard from '../../atoms/QuestionCard';
 
 function Slider({ datas, type }) {
   return (
-    <StyledSlider>
+    <StyledSlider type={type}>
       <Swiper
+        modules={[Autoplay]}
+        className="mySwiper"
         speed={3000}
-        slidesPerView={4}
+        slidesPerView="auto"
+        spaceBetween={1}
         loop
-        touchRatio={0}
         autoplay={{
           delay: 0,
           disableOnInteraction: false,
         }}
         direction="vertical"
-        modules={[Autoplay]}
-        className="mySwiper"
       >
         {datas?.map(({ content, product }, idx) => {
           return (
