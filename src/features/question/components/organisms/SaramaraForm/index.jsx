@@ -99,7 +99,7 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
 
         <Form.Button>
           <Button
-            className={failedSubmit && 'failed-submit'}
+            className={failedSubmit ? 'failed-submit' : ''}
             m="16px 0 0"
             h="56px"
             bg={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
