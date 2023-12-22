@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import StyledForm from './styles';
 
 function Form({ children, ...rest }) {
-  return <StyledForm {...rest}>{children}</StyledForm>;
+  return (
+    <StyledForm className="form" {...rest}>
+      {children}
+    </StyledForm>
+  );
 }
 
 Form.propTypes = {
@@ -17,8 +21,8 @@ Form.defaultProps = {
   style: {},
 };
 
-const Label = ({ children }) => {
-  return children;
+const Label = ({ children, className }) => {
+  return cloneElement(children, { className });
 };
 
 const Input = ({ children, isError }) => {
@@ -27,16 +31,22 @@ const Input = ({ children, isError }) => {
   });
 };
 
-function Error({ children }) {
-  return children ? cloneElement(children, { className: 'alert form-error' }) : <div className="alert" />;
+function Error({ children, className }) {
+  return children ? (
+    cloneElement(children, { className: `alert form-error ${className}` })
+  ) : (
+    <div className={`alert ${className}`} />
+  );
 }
 
 Error.propTypes = {
+  className: PropTypes.string,
   children: PropTypes.node,
 };
 
 Error.defaultProps = {
   children: null,
+  className: '',
 };
 
 const Button = ({ children }) => {

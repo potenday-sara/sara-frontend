@@ -1,7 +1,6 @@
 import React, { cloneElement, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import StyledDropdown, { StyledDropdownItem } from './styles';
-
 import Text from '../Text';
 
 function Dropdown({ trigger, children }) {
