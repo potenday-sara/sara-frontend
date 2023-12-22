@@ -38,7 +38,6 @@ function NavigateGoogleForm({ type }) {
               'https://docs.google.com/forms/d/e/1FAIpQLSeqz5u-Y_X_wC_IUbwrcQeEaT0ebp6DcVrw2dn4rBS4osT18g/viewform?usp=sf_link',
             )
           }
-          ref={ref}
           className={isHovered ? 'hover-ani' : 'non-hover-ani'}
           style={googleFormButtonStyle}
           bg={type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary}

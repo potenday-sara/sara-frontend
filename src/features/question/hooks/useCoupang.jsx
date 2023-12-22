@@ -7,7 +7,9 @@ const getCategories = async (callback) => {
   const data = await axios.get(apis.getCategories);
   let categories;
   if (data.status === 200) {
-    callback(data.data[0].id, data.data[0].name);
+    const randomValue = Math.floor(Math.random() * data.data.length);
+
+    callback(data.data[randomValue].id, data.data[randomValue].name);
     categories = data.data.map(({ id, name }) => {
       return { id, value: name };
     });
@@ -41,10 +43,12 @@ const usePage = () => {
 const useCoupang = () => {
   const [nowCategory, setNowCategory] = useState({});
   const { nowPage, setNowPage, setNextPage, setPrevPage, setMaxPage, maxPage } = usePage();
+
   const changeNowCategory = (id, value) => {
     setNowPage(1);
     setNowCategory({ id, value });
   };
+
   const queryClient = useQueryClient();
 
   const { data: categories, isLoading: categoryLoading } = useQuery({
@@ -61,6 +65,7 @@ const useCoupang = () => {
   });
 
   const isMouted = useRef(false);
+
   useEffect(() => {
     if (isMouted.current) {
       categories.forEach(({ id }) => {
