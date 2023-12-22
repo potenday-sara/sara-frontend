@@ -21,6 +21,7 @@ function Title({ label, type }) {
   const string = label.length > 15 ? `${label.slice(0, 12)}...` : label;
   return (
     <Text
+      className="card-title"
       bold="700"
       size="16px"
       label={string}
@@ -36,7 +37,7 @@ Title.propTypes = {
 
 function Contents({ label }) {
   const string = label.length > 65 ? `${label.slice(0, 62)}...` : label;
-  return <Text label={string} size="14px" color={Theme.color.midGray} />;
+  return <Text label={string} className="card-content" size="14px" color={Theme.color.midGray} />;
 }
 
 Contents.propTypes = {
