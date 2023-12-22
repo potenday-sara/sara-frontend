@@ -3,13 +3,10 @@ import { useQuery, useQueryClient } from 'react-query';
 import axios from '../../../lib/axios';
 import apis from '../apis';
 
-const getCategories = async (callback) => {
+const getCategories = async () => {
   const data = await axios.get(apis.getCategories);
   let categories;
   if (data.status === 200) {
-    const randomValue = Math.floor(Math.random() * data.data.length);
-
-    callback(data.data[randomValue].id, data.data[randomValue].name);
     categories = data.data.map(({ id, name }) => {
       return { id, value: name };
     });
@@ -53,7 +50,7 @@ const useCoupang = () => {
 
   const { data: categories, isLoading: categoryLoading } = useQuery({
     queryKey: ['coupangCategories'],
-    queryFn: () => getCategories(changeNowCategory),
+    queryFn: () => getCategories(),
     staleTime: Infinity,
   });
 
@@ -63,6 +60,13 @@ const useCoupang = () => {
     enabled: !!nowCategory?.id,
     staleTime: Infinity,
   });
+
+  useEffect(() => {
+    if (categories?.length) {
+      const randomValue = Math.floor(Math.random() * categories.length);
+      changeNowCategory(categories[randomValue].id, categories[randomValue].value);
+    }
+  }, [categories]);
 
   const isMouted = useRef(false);
 
