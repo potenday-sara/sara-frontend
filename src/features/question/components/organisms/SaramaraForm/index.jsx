@@ -45,13 +45,17 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
 
   const ItemChange = (event) => {
     if (event?.target?.value.length > 30) setItemError(true);
-    else QuestionFormData.ItemChange(event);
-    setItemError(false);
+    else {
+      QuestionFormData.ItemChange(event);
+      setItemError(false);
+    }
   };
   const contentChange = (event) => {
     if (event?.target?.value.length > 200) setContentError(true);
-    else QuestionFormData.ContentsChange(event);
-    setContentError(false);
+    else {
+      QuestionFormData.ContentsChange(event);
+      setContentError(false);
+    }
   };
   return (
     <StyledSaramaraForm>

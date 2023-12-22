@@ -15,13 +15,13 @@ const StyledSaramaraForm = styled.div`
   flex-direction: column;
   align-items: center;
   .form {
-    row-gap: 8px;
     display: grid;
     align-items: center;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: auto;
 
     .input {
+      margin-top: 8px;
       grid-column: 1 / 3;
       margin-bottom: 16px;
     }
