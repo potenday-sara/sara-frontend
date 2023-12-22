@@ -14,28 +14,16 @@ const StyledSaramaraForm = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  .form {
-    display: grid;
-    align-items: center;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: auto;
-
-    .input {
-      margin-top: 8px;
-      grid-column: 1 / 3;
-      margin-bottom: 16px;
-    }
-
-    .button {
-      grid-column: 1 / 3;
-    }
-  }
 
   .alert {
-    /* height: 13px; */
+    margin-top: 8px;
+    height: 13px;
     color: #ff2e00;
     font-weight: 500;
-    text-align: right;
+  }
+
+  textarea + .alert {
+    margin-top: 6px;
   }
 
   .input-error {

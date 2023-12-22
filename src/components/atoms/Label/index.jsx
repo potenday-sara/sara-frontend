@@ -14,10 +14,8 @@ Label.propTypes = {
   text: PropTypes.node,
   htmlFor: PropTypes.string.isRequired,
   m: PropTypes.string.isRequired,
-  className: PropTypes.string,
 };
 
 Label.defaultProps = {
   text: null,
-  className: '',
 };
