@@ -45,13 +45,17 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
 
   const ItemChange = (event) => {
     if (event?.target?.value.length > 30) setItemError(true);
-    else QuestionFormData.ItemChange(event);
-    setItemError(false);
+    else {
+      QuestionFormData.ItemChange(event);
+      setItemError(false);
+    }
   };
   const contentChange = (event) => {
     if (event?.target?.value.length > 200) setContentError(true);
-    else QuestionFormData.ContentsChange(event);
-    setContentError(false);
+    else {
+      QuestionFormData.ContentsChange(event);
+      setContentError(false);
+    }
   };
   return (
     <StyledSaramaraForm>
@@ -67,22 +71,21 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
       <Form onSubmit={(e) => onSubmit(e)}>
         <Form.Label>
           <Label
-            m="0 0 8px 0px"
             htmlFor="item"
             text={<Text bold="700" size="14px" label="어떤걸 사고싶어?" color={Theme.color.midGray} />}
           />
         </Form.Label>
+        <Form.Error>{itemError ? <Text label="1자 ~ 30자 이내로 입력해주세요" size="13px" /> : null}</Form.Error>
         <Form.Input isError={itemError}>
           <Input id="item" h="56px" ph="블루투스 이어폰" value={QuestionFormData.ItemValue} onChange={ItemChange} />
         </Form.Input>
-        <Form.Error>{itemError ? <Text label="1자 ~ 30자 이내로 입력해주세요" size="13px" /> : null}</Form.Error>
-        <Form.Label>
+        <Form.Label className="second-input">
           <Label
-            m="16px 0 8px"
             htmlFor="contents"
             text={<Text bold="700" size="14px" label="왜 고민하고 있어?" color={Theme.color.midGray} />}
           />
         </Form.Label>
+        <Form.Error>{contentError ? <Text label="5자 ~ 200자 이내로 입력해주세요" size="13px" /> : null}</Form.Error>
         <Form.Input isError={contentError}>
           <Textarea
             id="contents"
@@ -95,12 +98,10 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
             ph="고민하고있는 이유를 알려주세요! &#13; ex)비싸서 / 유행인데 사도될까?"
           />
         </Form.Input>
-        <Form.Error>{contentError ? <Text label="5자 ~ 200자 이내로 입력해주세요" size="13px" /> : null}</Form.Error>
 
         <Form.Button>
           <Button
             className={failedSubmit ? 'failed-submit' : ''}
-            m="16px 0 0"
             h="56px"
             bg={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
             type="submit"
