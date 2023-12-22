@@ -24,7 +24,7 @@ function Slider({ datas, type }) {
         {datas?.map(({ content, product }, idx) => {
           return (
             <SwiperSlide key={('slider', [idx])}>
-              <QuestionCard type={type}>
+              <QuestionCard>
                 <QuestionCard.Title label={product} type={type} />
                 <QuestionCard.Contents label={content} />
               </QuestionCard>

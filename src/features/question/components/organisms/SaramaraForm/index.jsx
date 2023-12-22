@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { Theme } from '../../../../../Styles';
@@ -15,20 +15,43 @@ const checkItemLength = (string) => string.length > 0 && string.length <= 30;
 const checkContentLegth = (string) => string.length > 4 && string.length <= 200;
 
 export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion }) {
+  const [itemError, setItemError] = useState(false);
+  const [contentError, setContentError] = useState(false);
+  const [failedSubmit, setFailedSubmit] = useState(false);
   const navigate = useNavigate();
   const onSubmit = (e) => {
+    let itemFailed = false;
+    let contentFailed = false;
     e.preventDefault();
     if (!checkItemLength(QuestionFormData.ItemValue)) {
-      console.log('아이템 유효성 검사 실패');
-      return;
+      setItemError(true);
+      itemFailed = true;
     }
 
     if (!checkContentLegth(QuestionFormData.ContentsValue)) {
-      console.log('콘텐츠 유효성 검사 실패');
-      return;
+      setContentError(true);
+      contentFailed = true;
     }
 
-    SubmitQuestion();
+    if (!itemFailed && !contentFailed) SubmitQuestion();
+    else {
+      setFailedSubmit(true);
+
+      setTimeout(() => {
+        setFailedSubmit(false);
+      }, 400);
+    }
+  };
+
+  const ItemChange = (event) => {
+    if (event?.target?.value.length > 30) setItemError(true);
+    else QuestionFormData.ItemChange(event);
+    setItemError(false);
+  };
+  const contentChange = (event) => {
+    if (event?.target?.value.length > 200) setContentError(true);
+    else QuestionFormData.ContentsChange(event);
+    setContentError(false);
   };
   return (
     <StyledSaramaraForm>
@@ -49,15 +72,10 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
             text={<Text bold="700" size="14px" label="어떤걸 사고싶어?" color={Theme.color.midGray} />}
           />
         </Form.Label>
-        <Form.Input>
-          <Input
-            id="item"
-            h="56px"
-            ph="고민하는 물건을 적어주세요"
-            value={QuestionFormData.ItemValue}
-            onChange={QuestionFormData.ItemChange}
-          />
+        <Form.Input isError={itemError}>
+          <Input id="item" h="56px" ph="블루투스 이어폰" value={QuestionFormData.ItemValue} onChange={ItemChange} />
         </Form.Input>
+        <Form.Error>{itemError ? <Text label="1자 ~ 30자 이내로 입력해주세요" size="13px" /> : null}</Form.Error>
         <Form.Label>
           <Label
             m="16px 0 8px"
@@ -65,7 +83,7 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
             text={<Text bold="700" size="14px" label="왜 고민하고 있어?" color={Theme.color.midGray} />}
           />
         </Form.Label>
-        <Form.Input>
+        <Form.Input isError={contentError}>
           <Textarea
             id="contents"
             h="88px"
@@ -73,12 +91,15 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
               padding: '24px 32px',
             }}
             value={QuestionFormData.ContentsValue}
-            onChange={QuestionFormData.ContentsChange}
-            ph="ex) 벌써 세 번 잃어버렸는데,이번에 사면 또 잃어버릴 것 같아서 못 사겠어..."
+            onChange={contentChange}
+            ph="고민하고있는 이유를 알려주세요! &#13; ex)비싸서 / 유행인데 사도될까?"
           />
         </Form.Input>
+        <Form.Error>{contentError ? <Text label="5자 ~ 200자 이내로 입력해주세요" size="13px" /> : null}</Form.Error>
+
         <Form.Button>
           <Button
+            className={failedSubmit ? 'failed-submit' : ''}
             m="16px 0 0"
             h="56px"
             bg={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}

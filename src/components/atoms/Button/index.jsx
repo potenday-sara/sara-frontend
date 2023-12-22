@@ -10,7 +10,7 @@ export default function Button({ tooltip, tooltipText, children, type, ...rest }
   const { ref, isTooltip } = useTooltip();
 
   return (
-    <StyledButton {...rest} type={type} ref={ref}>
+    <StyledButton {...rest} type={type} ref={ref} className={`${rest.className} button`}>
       {children}
       {tooltip && isTooltip && (
         <Tooltip w="150px">
@@ -29,12 +29,14 @@ Button.propTypes = {
   bg: PropTypes.string,
   style: PropTypes.shape({}),
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
   tooltip: PropTypes.bool,
   tooltipText: PropTypes.string,
 };
 
 Button.defaultProps = {
   type: 'button',
+  className: '',
   style: {},
   w: '',
   m: '',

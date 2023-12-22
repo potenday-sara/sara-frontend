@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { useMutation } from 'react-query';
 import axios from '../../../lib/axios';
 import apis from '../apis';
 import useInput from '../../../hooks/useInput';
 
 const useFeedback = (id) => {
+  const [isFeedback, setIsFeedback] = useState(false);
   const { value, onChange, setValue } = useInput('');
   const { mutate } = useMutation(
     async (data) => {
@@ -12,7 +14,10 @@ const useFeedback = (id) => {
       });
     },
     {
-      onSuccess: () => alert('의견이 제출 됐습니다!'),
+      onSuccess: () => {
+        alert('의견이 제출 됐습니다!');
+        setIsFeedback(true);
+      },
     },
   );
 
@@ -23,7 +28,7 @@ const useFeedback = (id) => {
     setValue('');
   };
 
-  return { value, onChange, submitCSFeedback };
+  return { value, onChange, submitCSFeedback, isFeedback };
 };
 
 export default useFeedback;

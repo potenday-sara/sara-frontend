@@ -18,12 +18,14 @@ QuestionCard.defaultProps = {
 };
 
 function Title({ label, type }) {
+  const string = label.length > 15 ? `${label.slice(0, 12)}...` : label;
   return (
     <Text
       className="card-title"
-      label={label}
-      color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
       bold="700"
+      size="16px"
+      label={string}
+      color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
     />
   );
 }
@@ -34,8 +36,8 @@ Title.propTypes = {
 };
 
 function Contents({ label }) {
-  const string = label.length > 50 ? `${label.slice(0, 80)}...` : label;
-  return <Text className="card-content" label={string} color={Theme.color.midGray} bold="500" />;
+  const string = label.length > 65 ? `${label.slice(0, 62)}...` : label;
+  return <Text label={string} className="card-content" size="14px" color={Theme.color.midGray} />;
 }
 
 Contents.propTypes = {

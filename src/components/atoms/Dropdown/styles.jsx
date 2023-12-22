@@ -10,7 +10,7 @@ const StyledDropdown = styled.div`
     overflow-y: scroll;
     overflow-x: hidden;
     left: 50%;
-    height: 110px;
+    height: 125px;
     /* top: 0px; */
     display: grid;
     grid-template-columns: auto;
