@@ -45,7 +45,6 @@ Text.propTypes = {
   size: PropTypes.string,
   color: PropTypes.string,
   label: PropTypes.string,
-  className: PropTypes.string,
   onClick: PropTypes.func,
   style: PropTypes.shape({}),
 };
@@ -55,7 +54,6 @@ Text.defaultProps = {
   bold: 'md',
   size: '',
   label: '',
-  className: '',
   onClick: undefined,
   style: {},
   color: 'black',
