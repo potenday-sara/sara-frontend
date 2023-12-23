@@ -18,8 +18,8 @@ const StyledSaramaraForm = styled.div`
     display: grid;
     align-items: center;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: auto;
-
+    grid-template-rows: 21px 72px 21px 106px 56px;
+    grid-auto-flow: row;
     .input {
       margin-top: 8px;
       grid-column: 1 / 3;
