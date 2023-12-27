@@ -8,7 +8,6 @@ const StyledSaramaraServiceTemplate = styled.section`
   gap: 24px;
   z-index: 10;
   width: 100%;
-  max-width: 368px;
   height: auto;
   min-height: 400px;
 

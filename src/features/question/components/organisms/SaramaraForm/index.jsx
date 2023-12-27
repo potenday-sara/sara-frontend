@@ -57,6 +57,11 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
       setContentError(false);
     }
   };
+
+  const checkDisabled = () => {
+    return !QuestionFormData.ItemValue && !QuestionFormData.ContentsValue;
+  };
+
   return (
     <StyledSaramaraForm>
       <Logo
@@ -101,18 +106,15 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
 
         <Form.Button>
           <Button
-            className={failedSubmit ? 'failed-submit' : ''}
+            className={
+              failedSubmit ? `${type}-basic failed-submit` : checkDisabled() ? `${type}-disabled` : `${type}-basic`
+            }
             h="56px"
-            bg={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
             type="submit"
+            disabled={checkDisabled()}
             onClick={onSubmit}
           >
-            <Text
-              label={`${QuestionFormData?.ItemValue || ''} 사야할까?`}
-              size="14px"
-              bold="700"
-              color={Theme.color.white}
-            />
+            <Text label="고민하는 물건을 사야할까?" size="14px" bold="700" color={Theme.color.white} />
           </Button>
         </Form.Button>
       </Form>

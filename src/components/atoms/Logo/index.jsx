@@ -6,8 +6,8 @@ import { ReactComponent as SaraTextOnly } from '../../../images/logos/SaraText.s
 import { ReactComponent as SaraTextWithCircleWhite } from '../../../images/logos/saracirclewhite.svg';
 import { ReactComponent as MaraTextWithCircleWhite } from '../../../images/logos/maracirclewhite.svg';
 
-import { ReactComponent as SaraTextWithCircleWithText } from '../../../images/logos/saratextlogo.svg';
-import { ReactComponent as MaraTextWithCircleWithText } from '../../../images/logos/maratextlogo.svg';
+import { ReactComponent as SaraTextWithCircleWithText } from '../../../images/logos/sara-new-main.svg';
+import { ReactComponent as MaraTextWithCircleWithText } from '../../../images/logos/mara-new-main.svg';
 import { ReactComponent as SaraCircleCharacter } from '../../../images/logos/SaraCircleCharacter.svg';
 import { ReactComponent as MaraCircleCharacter } from '../../../images/logos/MaraCircleCharacter.svg';
 import StyledLogoWrap from './styles';

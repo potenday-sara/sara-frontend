@@ -17,7 +17,7 @@ const StyledQuestionTemplate = styled.main`
     height: 100%;
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: auto minmax(368px, 395px) auto;
+    grid-template-columns: 1fr auto 1fr;
     gap: 54px;
     grid-row-gap: 10px;
     grid-auto-rows: auto;
