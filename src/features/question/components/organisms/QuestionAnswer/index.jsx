@@ -42,9 +42,11 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
         <AnswerContent type={type} answer={answer} />
         <div className="button-wrap">
           <Button
-            bg={Theme.color.saraSecondary}
+            bg={type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary}
             style={buttonStyle}
-            onClick={type === 'sara' ? () => QuestionNavigator('/question/sara') : QuestionNavigator('/question/mara')}
+            onClick={
+              type === 'sara' ? () => QuestionNavigator('/question/sara') : () => QuestionNavigator('/question/mara')
+            }
           >
             <Title>
               <Logo
@@ -53,7 +55,7 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
                 fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
               />
               <Text
-                color={Theme.color.saraPrimary}
+                color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
                 label={type === 'sara' ? '에게 물어보기' : '에게 물어보기'}
                 size="14px"
                 bold="700"
@@ -61,9 +63,11 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
             </Title>
           </Button>
           <Button
-            bg={Theme.color.maraSecondary}
+            bg={type === 'sara' ? Theme.color.maraSecondary : Theme.color.saraSecondary}
             style={buttonStyle}
-            onClick={type === 'sara' ? () => QuestionNavigator('/question/mara') : QuestionNavigator('/question/sara')}
+            onClick={
+              type === 'sara' ? () => QuestionNavigator('/question/mara') : () => QuestionNavigator('/question/sara')
+            }
           >
             <Title>
               <Logo
@@ -74,7 +78,7 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
               <Text
                 size="14px"
                 bold="700"
-                color={Theme.color.maraPrimary}
+                color={type === 'sara' ? Theme.color.maraPrimary : Theme.color.saraPrimary}
                 label={type === 'mara' ? '에게 물어보기' : '에게 물어보기'}
               />
             </Title>

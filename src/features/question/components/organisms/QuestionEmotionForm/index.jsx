@@ -13,62 +13,59 @@ export default function QuestionEmotionForm({ type, quesionId }) {
   const firstChar = type.charAt(0).toUpperCase() + type.slice(1);
   const { value: CScontent, onChange, submitCSFeedback, isFeedback } = useFeedback(quesionId);
 
+  const checkDisabled = () => {
+    return !!!CScontent?.length;
+  };
+
+  const checkCSLenght = (e) => {
+    if (e.target?.value.length <= 500) onChange(e);
+    else return;
+  };
   return (
     <StyledFeedback>
-      <Text
-        label={`${firstChar} 가 도움이 되셨나요?`}
-        bold="700"
-        size="16px"
-        color={Theme.color.midGray}
-        style={{ marginBottom: 12 }}
-      />
-      <FeedbackSelect type={type} quesionId={quesionId} />
-      <Form
-        style={{
-          position: 'relative',
-          marginTop: 24,
-        }}
-        onSubmit={(e) => submitCSFeedback(e)}
-      >
+      <Form>
+        <Text
+          label={`${firstChar} 가 도움이 되셨나요?`}
+          bold="700"
+          size="16px"
+          color={Theme.color.midGray}
+          style={{ marginBottom: 12, textAlign: 'center' }}
+        />
+        <FeedbackSelect type={type} quesionId={quesionId} />
+      </Form>
+      <Form onSubmit={(e) => submitCSFeedback(e)}>
         <Form.Input>
           <Textarea
             id="feedback"
-            style={{ padding: '16px 100px 16px 16px' }}
+            className="feedback-text"
             isAutoHeight
             disabled={isFeedback}
             value={CScontent}
-            onChange={onChange}
-            ph={
-              isFeedback ? '의견이 제출 됐습니다' : `${firstChar}에게 바라는 점 / 하고싶은 얘기가 있다면 작성해주세요`
-            }
+            onChange={(e) => checkCSLenght(e)}
+            ph={isFeedback ? '의견이 제출 됐습니다' : `${firstChar}에게 바라는 점 하고싶은\n얘기가 있다면 작성해주세요`}
             rows={1}
             h={8}
           />
         </Form.Input>
-        <Form.Button>
-          <Button
-            type="submit"
-            className={isFeedback ? 'disabled' : ''}
-            disabled={isFeedback}
-            w="84px"
-            h="33px"
-            bg={type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary}
-            onClick={(e) => submitCSFeedback(e)}
-            style={{
-              position: 'absolute',
-              top: 12,
-              right: 12,
-              borderRadius: 12,
-            }}
-          >
-            <Text
-              label="의견 보내기"
-              color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-              size="14px"
-              bold="700"
-            />
-          </Button>
-        </Form.Button>
+        <div className="button-wrap">
+          <Text size="12px" label={`${CScontent?.length ? CScontent?.length : 0}/500`} color="#ddd" bold="500" />
+          <Form.Button>
+            <Button
+              type="submit"
+              className={checkDisabled() ? 'disable-button' : ''}
+              disabled={checkDisabled()}
+              bg={type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary}
+              onClick={(e) => submitCSFeedback(e)}
+            >
+              <Text
+                label="의견 보내기"
+                color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+                size="14px"
+                bold="700"
+              />
+            </Button>
+          </Form.Button>
+        </div>
       </Form>
     </StyledFeedback>
   );

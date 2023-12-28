@@ -1,13 +1,18 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import StyledTextarea from './styles';
 
 export default function Textarea({ ph, isAutoHeight, ...rest }) {
+  const [DefaultHeight, setDefaultHeight] = useState(0);
+
   const ref = useRef(null);
   useEffect(() => {
+    setDefaultHeight(ref.current.style.height);
+  }, []);
+  useEffect(() => {
     if (isAutoHeight) {
-      ref.current.style.height = 0;
-      ref.current.style.height = `${rest.h + ref.current.scrollHeight}px`;
+      ref.current.style.height = DefaultHeight;
+      ref.current.style.height = `${ref.current.scrollHeight}px`;
     }
   }, [rest.value]);
 
