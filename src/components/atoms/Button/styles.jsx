@@ -22,10 +22,12 @@ const StyledButton = styled.button`
   }
 
   &.sara-disabled {
+    height: 48px;
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%), #007bed;
   }
 
   &.mara-basic {
+    height: 48px;
     background: ${Theme.color.maraPrimary};
     &:hover {
       transition: all ease-out 300ms;
@@ -34,12 +36,25 @@ const StyledButton = styled.button`
   }
 
   &.mara-disabled {
+    height: 48px;
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%), #ef2b00;
   }
 
   ${Theme.deviceSize.large} {
     &.sara-basic {
       border-radius: 12px;
+      height: 52px;
+    }
+
+    &.sara-disabled {
+      height: 52px;
+    }
+    &.mara-basic {
+      border-radius: 12px;
+      height: 52px;
+    }
+
+    &.mara-disabled {
       height: 52px;
     }
   }
