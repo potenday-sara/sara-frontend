@@ -41,9 +41,9 @@ const getLogoByType = (logoType, fill) => {
  * Logo를 반환하는 함수
  * @param {logoType} Logo 형태 선택
  */
-export default function Logo({ fill, logoType, ...rest }) {
+export default function Logo({ fill, logoType, className, ...rest }) {
   return (
-    <StyledLogoWrap className="logo-wrap" {...rest}>
+    <StyledLogoWrap className={`${className} logo-wrap`} {...rest}>
       {getLogoByType(logoType, fill)}
     </StyledLogoWrap>
   );
@@ -66,9 +66,11 @@ Logo.propTypes = {
   h: PropTypes.string,
   m: PropTypes.string,
   style: PropTypes.shape({}),
+  className: PropTypes.string,
 };
 
 Logo.defaultProps = {
+  className: '',
   fill: '',
   w: '',
   h: '',

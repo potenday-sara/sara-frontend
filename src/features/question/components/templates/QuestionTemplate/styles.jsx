@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledQuestionTemplate = styled.main`
   width: auto;
-  min-width: 1400px;
+  min-width: 1200px;
   position: relative;
   background-color: ${({ bg }) => bg || null};
   padding-bottom: 80px;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Theme } from '../../../../../Styles';
 
 const StyledSaramaraServiceTemplate = styled.section`
   position: relative;
@@ -7,10 +8,8 @@ const StyledSaramaraServiceTemplate = styled.section`
   align-items: center;
   gap: 24px;
   z-index: 10;
-  width: 100%;
   height: auto;
   min-height: 400px;
-
   margin: auto;
   padding: 40px 24px;
   background-color: white;
@@ -21,6 +20,17 @@ const StyledSaramaraServiceTemplate = styled.section`
     background-color: red;
 
     left: 0px;
+  }
+
+  ${Theme.deviceSize.medium} {
+    width: calc(352px + (100vw - 1440px) / (195 - 144) * 3.5);
+    max-width: 395px;
+  }
+  ${Theme.deviceSize.large} {
+    width: 395px;
+  }
+  ${Theme.deviceSize.small} {
+    width: 352px;
   }
 `;
 

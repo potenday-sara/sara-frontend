@@ -8,6 +8,7 @@ export default function Input({ ph, id, onChange, value, ...rest }) {
 
 Input.propTypes = {
   value: PropTypes.string.isRequired,
+  className: PropTypes.string,
   onChange: PropTypes.func,
   w: PropTypes.string,
   h: PropTypes.string,
@@ -17,6 +18,7 @@ Input.propTypes = {
 
 Input.defaultProps = {
   onChange: undefined,
+  className: '',
   w: '',
   h: '',
   ph: '',
