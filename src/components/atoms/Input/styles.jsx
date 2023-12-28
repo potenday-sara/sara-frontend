@@ -7,7 +7,7 @@ const StyledInput = styled.input`
   text-align: center;
   font-size: 15px;
   border-radius: 12px;
-  border: 1px solid ${Theme.color.gray};
+  border: 1px solid #ddd;
   font-family: Pretendard;
   color: ${Theme.color.black};
   font-weight: 500;
@@ -24,7 +24,7 @@ const StyledInput = styled.input`
   }
 
   &::placeholder {
-    color: ${Theme.color.gray};
+    color: #ddd;
     font-family: Pretendard;
     font-size: 14px;
     font-weight: 500;

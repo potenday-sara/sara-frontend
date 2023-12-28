@@ -122,7 +122,6 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
             className={
               failedSubmit ? `${type}-basic failed-submit` : checkDisabled() ? `${type}-disabled` : `${type}-basic`
             }
-            h="56px"
             type="submit"
             disabled={checkDisabled()}
             onClick={onSubmit}
