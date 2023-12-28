@@ -14,7 +14,7 @@ const StyledSaramaraForm = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: calc(20px + 4 * (100vw - 1200px) / 750);
 
   .type-logo {
     width: 50%;
