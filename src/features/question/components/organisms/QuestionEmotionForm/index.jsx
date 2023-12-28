@@ -8,10 +8,11 @@ import Textarea from '../../../../../components/atoms/Textarea';
 import Button from '../../../../../components/atoms/Button';
 import { Theme } from '../../../../../Styles';
 import useFeedback from '../../../hooks/useFeedback';
+import Toast from '../../../../../components/molecules/Toast';
 
 export default function QuestionEmotionForm({ type, quesionId }) {
   const firstChar = type.charAt(0).toUpperCase() + type.slice(1);
-  const { value: CScontent, onChange, submitCSFeedback, isFeedback } = useFeedback(quesionId);
+  const { value: CScontent, onChange, submitCSFeedback, isFeedback, returnFeedback } = useFeedback(quesionId);
 
   const checkDisabled = () => {
     return !!!CScontent?.length;
@@ -22,7 +23,7 @@ export default function QuestionEmotionForm({ type, quesionId }) {
     else return;
   };
   return (
-    <StyledFeedback>
+    <StyledFeedback type={type}>
       <Form>
         <Text
           label={`${firstChar} 가 도움이 되셨나요?`}
@@ -33,39 +34,70 @@ export default function QuestionEmotionForm({ type, quesionId }) {
         />
         <FeedbackSelect type={type} quesionId={quesionId} />
       </Form>
-      <Form onSubmit={(e) => submitCSFeedback(e)}>
-        <Form.Input>
-          <Textarea
-            id="feedback"
-            className="feedback-text"
-            isAutoHeight
-            disabled={isFeedback}
-            value={CScontent}
-            onChange={(e) => checkCSLenght(e)}
-            ph={isFeedback ? '의견이 제출 됐습니다' : `${firstChar}에게 바라는 점 하고싶은\n얘기가 있다면 작성해주세요`}
-            rows={1}
-            h={8}
-          />
-        </Form.Input>
-        <div className="button-wrap">
-          <Text size="12px" label={`${CScontent?.length ? CScontent?.length : 0}/500`} color="#ddd" bold="500" />
-          <Form.Button>
-            <Button
-              type="submit"
-              className={checkDisabled() ? 'disable-button' : ''}
-              disabled={checkDisabled()}
-              bg={type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary}
-              onClick={(e) => submitCSFeedback(e)}
-            >
-              <Text
-                label="의견 보내기"
-                color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-                size="14px"
-                bold="700"
+      <Form onSubmit={(e) => submitCSFeedback(e)} className={isFeedback ? 'cs-form is-feedback' : 'cs-form'}>
+        {!isFeedback ? (
+          <>
+            <Form.Input>
+              <Textarea
+                id="feedback"
+                className="feedback-text"
+                isAutoHeight
+                disabled={isFeedback}
+                value={CScontent}
+                onChange={(e) => checkCSLenght(e)}
+                ph={
+                  isFeedback
+                    ? '의견이 제출 됐습니다'
+                    : `${firstChar}에게 바라는 점 하고싶은\n얘기가 있다면 작성해주세요`
+                }
+                rows={1}
+                h={8}
               />
-            </Button>
-          </Form.Button>
-        </div>
+            </Form.Input>
+            <div className="button-wrap">
+              <Text size="12px" label={`${CScontent?.length ? CScontent?.length : 0}/500`} color="#ddd" bold="500" />
+              <Form.Button>
+                <Button
+                  type="submit"
+                  className={checkDisabled() ? 'disable-button' : ''}
+                  disabled={checkDisabled()}
+                  bg={type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary}
+                  onClick={(e) => submitCSFeedback(e)}
+                >
+                  <Text
+                    label="의견 보내기"
+                    color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+                    size="14px"
+                    bold="700"
+                  />
+                </Button>
+              </Form.Button>
+            </div>
+          </>
+        ) : (
+          <Toast>
+            <div className="image" />
+            <Text
+              size="14px"
+              style={{ marginTop: 'auto' }}
+              bold="700"
+              color={Theme.color.black}
+              label={
+                type === 'sara'
+                  ? `${type.charAt(0).toUpperCase() + type.slice(1)} 에게 의견을 보내줘서 고맙샤`
+                  : `${type.charAt(0).toUpperCase() + type.slice(1)} 에게 의견을 보내줘서 고맙다먀`
+              }
+            />
+            <Text
+              label="의견 다시보내기"
+              style={{ marginBottom: 'auto', cursor: 'pointer' }}
+              color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+              size="12px"
+              bold="700"
+              onClick={returnFeedback}
+            />
+          </Toast>
+        )}
       </Form>
     </StyledFeedback>
   );

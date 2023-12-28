@@ -21,6 +21,9 @@ const useFeedback = (id) => {
     },
   );
 
+  const returnFeedback = () => {
+    setIsFeedback(false);
+  };
   const submitCSFeedback = (event) => {
     event.preventDefault();
     if (value.length < 1) return;
@@ -28,7 +31,7 @@ const useFeedback = (id) => {
     setValue('');
   };
 
-  return { value, onChange, submitCSFeedback, isFeedback };
+  return { value, onChange, submitCSFeedback, isFeedback, returnFeedback };
 };
 
 export default useFeedback;

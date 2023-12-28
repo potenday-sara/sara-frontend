@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { Theme } from '../../../../../Styles';
+import Sara from '../../../assets/sara3d.png';
+import Mara from '../../../assets/mara3d.png';
 
 const StyledFeedback = styled.div`
   width: 100%;
@@ -14,13 +16,14 @@ const StyledFeedback = styled.div`
     cursor: none;
   }
 
-  .form:nth-child(2) {
+  .cs-form {
     display: flex;
+    width: 100%;
+    overflow: hidden;
     flex-direction: column;
     border: 1px solid #ddd;
     border-radius: 12px;
     background-color: #ddd;
-    overflow: hidden;
     gap: 1px;
     position: relative;
 
@@ -68,6 +71,42 @@ const StyledFeedback = styled.div`
         }
       }
     }
+
+    .toast {
+      display: grid;
+      align-items: center;
+      column-gap: 12px;
+      row-gap: 6px;
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 40px 1fr;
+      padding: 24px 20px;
+      width: 100%;
+      height: 104px;
+      border-radius: 96px;
+      background-color: ${Theme.color.white};
+      box-shadow: ${({ type }) =>
+        type === 'sara' ? '0px 4px 16px 0px rgba(0, 123, 237, 0.1)' : '0px 4px 16px 0px rgba(239, 43, 0, 0.10)'};
+
+      p {
+        line-height: 100%;
+      }
+      .image {
+        grid-area: 1 / 1 / 3 / 2;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        height: 100%;
+        background-image: ${({ type }) => (type === 'sara' ? `url(${Sara})` : `url(${Mara})`)};
+      }
+    }
+  }
+
+  .is-feedback {
+    overflow: visible;
+    min-height: 104px;
+    background-color: transparent;
+    border: none;
   }
 `;
 
