@@ -25,7 +25,7 @@ export default function SaramaraServiceTemplate({ type }) {
 
   return (
     <StyledSaramaraServiceTemplate>
-      {stage === 'initial' && (
+      {/* {stage === 'initial' && (
         <>
           <SaramaraForm type={type} QuestionFormData={QuestionFormData} SubmitQuestion={SubmitQuestion} />
           <Tag
@@ -65,7 +65,14 @@ export default function SaramaraServiceTemplate({ type }) {
           QuestionFormData={QuestionFormData}
           setRetryRequest={setRetryRequest}
         />
-      )}
+      )} */}
+      <QuestionAnwser
+        type={type}
+        answer={gptAnswer?.data?.content}
+        QuestionFormData={QuestionFormData}
+        quesionId={quesionId}
+        refreshForm={refreshForm}
+      />
     </StyledSaramaraServiceTemplate>
   );
 }

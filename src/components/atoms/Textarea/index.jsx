@@ -6,17 +6,20 @@ export default function Textarea({ ph, isAutoHeight, ...rest }) {
   const [DefaultHeight, setDefaultHeight] = useState(0);
 
   const ref = useRef(null);
+  const isRender = useRef(false);
   useEffect(() => {
-    setDefaultHeight(ref.current.style.height);
-  }, []);
+    console.log(ref.current.style.height);
+    setDefaultHeight(ref?.current?.style?.height);
+  }, [ref.current]);
   useEffect(() => {
     if (isAutoHeight) {
+      console.log(DefaultHeight);
       ref.current.style.height = DefaultHeight;
       ref.current.style.height = `${ref.current.scrollHeight}px`;
     }
   }, [rest.value]);
 
-  return <StyledTextarea placeholder={ph} ref={ref} {...rest} rows={1} />;
+  return <StyledTextarea placeholder={ph} ref={ref} {...rest} />;
 }
 
 Textarea.propTypes = {

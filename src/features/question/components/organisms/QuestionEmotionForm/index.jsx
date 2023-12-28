@@ -45,13 +45,13 @@ export default function QuestionEmotionForm({ type, quesionId }) {
                 disabled={isFeedback}
                 value={CScontent}
                 onChange={(e) => checkCSLenght(e)}
+                h="94px"
                 ph={
                   isFeedback
                     ? '의견이 제출 됐습니다'
                     : `${firstChar}에게 바라는 점 하고싶은\n얘기가 있다면 작성해주세요`
                 }
                 rows={1}
-                h={8}
               />
             </Form.Input>
             <div className="button-wrap">
