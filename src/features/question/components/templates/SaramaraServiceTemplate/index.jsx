@@ -25,7 +25,7 @@ export default function SaramaraServiceTemplate({ type }) {
 
   return (
     <StyledSaramaraServiceTemplate>
-      {/* {stage === 'initial' && (
+      {stage === 'initial' && (
         <>
           <SaramaraForm type={type} QuestionFormData={QuestionFormData} SubmitQuestion={SubmitQuestion} />
           <Tag
@@ -48,7 +48,6 @@ export default function SaramaraServiceTemplate({ type }) {
           />
         </>
       )}
-
       {stage === 'process' && <QuestionLoading type={type} QuestionFormData={QuestionFormData} progress={progress} />}
       {stage === 'finish' && (
         <QuestionAnwser
@@ -66,8 +65,8 @@ export default function SaramaraServiceTemplate({ type }) {
           QuestionFormData={QuestionFormData}
           setRetryRequest={setRetryRequest}
         />
-      )} */}
-      <QuestionFailed
+      )}
+      {/* <QuestionFailed
         retryForm={retryForm}
         type={type}
         QuestionFormData={QuestionFormData}
