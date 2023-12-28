@@ -8,13 +8,14 @@ import Logo from '../../../../../components/atoms/Logo';
 import { Theme } from '../../../../../Styles';
 import QuestionInfo from '../../molecules/QuestionInfo/index';
 import { ReactComponent as MaraCoupangRecommed } from '../../../assets/CoupangMixedTitle/MaraCoupang.svg';
+import { ReactComponent as SaraCoupangRecommed } from '../../../assets/CoupangMixedTitle/SaraCoupang.svg';
 import usePreventLeave from '../../../hooks/usePreventLeave';
 
 export default function QuestionLoading({ type, QuestionFormData, progress }) {
   const { onPreventLeave, offPreventLeave } = usePreventLeave();
   return (
     <StyledQuestionLoading {...onPreventLeave} {...offPreventLeave}>
-      <Logo w="148px" logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'} />
+      <Logo w="50%" logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'} />
       <LoadingLottie type={type} w="60%" h="auto" />
       <Progressbar
         progress={progress}
@@ -23,7 +24,11 @@ export default function QuestionLoading({ type, QuestionFormData, progress }) {
         h="14px"
       />
       <div className="recommend-coupang">
-        <MaraCoupangRecommed width="90%" height="auto" />
+        {type === 'sara' ? (
+          <SaraCoupangRecommed width="90%" height="auto" />
+        ) : (
+          <MaraCoupangRecommed width="90%" height="auto" />
+        )}
         <Text label="카테고리를 바꿔서 볼 수도 있어요" color={Theme.color.midGray} size="14px" bold="500" />
       </div>
       <QuestionInfo type={type} QuestionFormData={QuestionFormData} style={{ marginBottom: 24 }} />

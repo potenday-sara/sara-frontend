@@ -73,6 +73,7 @@ export default function SaramaraServiceTemplate({ type }) {
         QuestionFormData={QuestionFormData}
         setRetryRequest={setRetryRequest}
       />
+      {/* <QuestionLoading type={type} QuestionFormData={QuestionFormData} progress={progress} /> */}
     </StyledSaramaraServiceTemplate>
   );
 }

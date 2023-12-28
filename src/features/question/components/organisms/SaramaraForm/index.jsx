@@ -74,7 +74,6 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
           cursor: 'pointer',
         }}
         onClick={() => navigate('/')}
-        w="148px"
         logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'}
       />
       <Logo className="character-logo" logoType={type === 'sara' ? 'SaraCircleCharacter' : 'MaraCircleCharacter'} />
