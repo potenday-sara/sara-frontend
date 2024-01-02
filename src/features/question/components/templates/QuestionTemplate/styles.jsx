@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledQuestionTemplate = styled.main`
   width: auto;
-  min-width: 1400px;
+  min-width: 1200px;
   position: relative;
   background-color: ${({ bg }) => bg || null};
   padding-bottom: 80px;
@@ -17,7 +17,7 @@ const StyledQuestionTemplate = styled.main`
     height: 100%;
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: auto minmax(368px, 395px) auto;
+    grid-template-columns: 1fr auto 1fr;
     gap: 54px;
     grid-row-gap: 10px;
     grid-auto-rows: auto;

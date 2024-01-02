@@ -14,6 +14,17 @@ const StyledSaramaraForm = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: calc(20px + 4 * (100vw - 1200px) / 750);
+
+  .type-logo {
+    width: 50%;
+  }
+
+  .character-logo {
+    min-width: 180px;
+    max-width: 212px;
+    width: 65%;
+  }
   .form {
     display: grid;
     align-items: center;
@@ -40,9 +51,9 @@ const StyledSaramaraForm = styled.div`
 
   .input-error {
     &::placeholder {
-      color: #ff2e00;
+      color: #f00;
     }
-    color: #ff2e00;
+    color: #f00;
     outline: 1px solid #f00;
   }
 

@@ -7,7 +7,7 @@ const StyledProgressbar = styled.div`
   align-items: center;
   width: ${({ w }) => w || '100%'};
   height: ${({ h }) => h || '100%'};
-  background-color: ${({ bg }) => bg || Theme.color.gray};
+  background-color: #eee;
   position: relative;
   overflow: hidden;
   border-radius: 12px;
@@ -15,7 +15,7 @@ const StyledProgressbar = styled.div`
   .progress {
     position: absolute;
     border-radius: 12px;
-    left: 0px;
+    right: 0px;
     background-color: ${({ color }) => color};
     width: ${({ progress }) => (progress ? `${progress}%` : '0%')};
     height: 100%;

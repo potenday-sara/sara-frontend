@@ -9,6 +9,7 @@ import Button from '../../../../../components/atoms/Button';
 import { Theme } from '../../../../../Styles';
 import Text from '../../../../../components/atoms/Text';
 import QuestionFeedback from '../QuestionEmotionForm';
+import Title from '../../../../../components/molecules/Title';
 
 const buttonStyle = {
   display: 'flex',
@@ -41,32 +42,46 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
         <AnswerContent type={type} answer={answer} />
         <div className="button-wrap">
           <Button
-            h="56px"
-            bg={Theme.color.saraSecondary}
+            bg={type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary}
             style={buttonStyle}
-            onClick={() => QuestionNavigator('/question/sara')}
+            onClick={
+              type === 'sara' ? () => QuestionNavigator('/question/sara') : () => QuestionNavigator('/question/mara')
+            }
           >
-            <Logo w="74px" logoType="SaraTextWithCircleWhite" fill={Theme.color.saraPrimary} />
-            <Text
-              color={Theme.color.saraPrimary}
-              label={type === 'sara' ? '에게 다른것 묻기' : '에게 물어보기'}
-              size="14px"
-              bold="700"
-            />
+            <Title>
+              <Logo
+                w="73px"
+                logoType={type === 'sara' ? 'SaraTextOnly' : 'MaraTextOnly'}
+                fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+              />
+              <Text
+                color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+                label={type === 'sara' ? '에게 물어보기' : '에게 물어보기'}
+                size="14px"
+                bold="700"
+              />
+            </Title>
           </Button>
           <Button
-            h="56px"
-            bg={Theme.color.maraSecondary}
+            bg={type === 'sara' ? Theme.color.maraSecondary : Theme.color.saraSecondary}
             style={buttonStyle}
-            onClick={() => QuestionNavigator('/question/mara')}
+            onClick={
+              type === 'sara' ? () => QuestionNavigator('/question/mara') : () => QuestionNavigator('/question/sara')
+            }
           >
-            <Logo w="74px" logoType="MaraTextWithCircleWhite" fill={Theme.color.maraPrimary} />
-            <Text
-              size="14px"
-              bold="700"
-              color={Theme.color.maraPrimary}
-              label={type === 'mara' ? '에게 다른것 묻기' : '에게 물어보기'}
-            />
+            <Title>
+              <Logo
+                w="73px"
+                logoType={type === 'mara' ? 'SaraTextOnly' : 'MaraTextOnly'}
+                fill={type === 'mara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+              />
+              <Text
+                size="14px"
+                bold="700"
+                color={type === 'sara' ? Theme.color.maraPrimary : Theme.color.saraPrimary}
+                label={type === 'mara' ? '에게 물어보기' : '에게 물어보기'}
+              />
+            </Title>
           </Button>
         </div>
         <section className="answer-bottom">

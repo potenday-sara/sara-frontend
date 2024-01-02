@@ -7,38 +7,29 @@ import Text from '../../../../../components/atoms/Text/index';
 import Logo from '../../../../../components/atoms/Logo';
 import { Theme } from '../../../../../Styles';
 import QuestionInfo from '../../molecules/QuestionInfo/index';
-import Title from '../../../../../components/molecules/Title';
+import { ReactComponent as MaraCoupangRecommed } from '../../../assets/CoupangMixedTitle/MaraCoupang.svg';
+import { ReactComponent as SaraCoupangRecommed } from '../../../assets/CoupangMixedTitle/SaraCoupang.svg';
 import usePreventLeave from '../../../hooks/usePreventLeave';
 
 export default function QuestionLoading({ type, QuestionFormData, progress }) {
   const { onPreventLeave, offPreventLeave } = usePreventLeave();
   return (
     <StyledQuestionLoading {...onPreventLeave} {...offPreventLeave}>
-      <Logo w="148px" logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'} />
-      <LoadingLottie type={type} w="212px" h="212px" />
+      <Logo w="50%" logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'} />
+      <LoadingLottie type={type} w="60%" h="auto" />
       <Progressbar
         progress={progress}
-        label={<Text style={{ zIndex: 2 }} label="남은시간" bold="500" color="white" size="12px" />}
         color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-        w="212px"
-        h="20px"
+        w="60%"
+        h="14px"
       />
       <div className="recommend-coupang">
-        <Title style={{ padding: 0, justifyContent: 'center' }}>
-          <Logo
-            logoType={type === 'sara' ? 'SaraTextOnly' : 'MaraTextOnly'}
-            fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-            w="70px"
-            h="24px"
-          />
-          <Text
-            label="추천 인기상품도 둘러보세요!"
-            color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimarys}
-            bold="700"
-            size="18px"
-          />
-        </Title>
-        <Text label="카테고리를 바꿔서 볼 수도 있어요" color={Theme.color.darkGray} size="14px" bold="500" />
+        {type === 'sara' ? (
+          <SaraCoupangRecommed width="90%" height="auto" />
+        ) : (
+          <MaraCoupangRecommed width="90%" height="auto" />
+        )}
+        <Text label="카테고리를 바꿔서 볼 수도 있어요" color={Theme.color.midGray} size="14px" bold="500" />
       </div>
       <QuestionInfo type={type} QuestionFormData={QuestionFormData} style={{ marginBottom: 24 }} />
     </StyledQuestionLoading>
