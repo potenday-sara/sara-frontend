@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Theme } from '../../../Styles';
 
 const StyledProgressbar = styled.div`
   display: flex;

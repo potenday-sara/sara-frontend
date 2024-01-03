@@ -18,7 +18,7 @@ export default function QuestionPage() {
               <SaramaraServiceTemplate type="sara" />
             </QuestionTemplate>
             <NavigateGoogleForm type="sara" />
-            <Footer style={{ minWidth: 1200 }} />
+            <Footer />
           </>
         }
       />
@@ -31,7 +31,7 @@ export default function QuestionPage() {
               <SaramaraServiceTemplate type="mara" />
             </QuestionTemplate>
             <NavigateGoogleForm type="mara" />
-            <Footer style={{ minWidth: 1200 }} />
+            <Footer />
           </>
         }
       />

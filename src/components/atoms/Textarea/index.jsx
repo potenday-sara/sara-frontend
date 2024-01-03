@@ -6,9 +6,7 @@ export default function Textarea({ ph, isAutoHeight, ...rest }) {
   const [DefaultHeight, setDefaultHeight] = useState(0);
 
   const ref = useRef(null);
-  const isRender = useRef(false);
   useEffect(() => {
-    console.log(ref.current.style.height);
     setDefaultHeight(ref?.current?.style?.height);
   }, [ref.current]);
   useEffect(() => {

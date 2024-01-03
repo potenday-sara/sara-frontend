@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Theme } from '../../../Styles';
 
 const StyledFooter = styled.footer`
   background: transparent;
@@ -13,6 +14,9 @@ const StyledFooter = styled.footer`
     font-weight: 500;
     font-size: 10px;
     color: #0000004d;
+  }
+  ${Theme.deviceSize.small} {
+    min-width: auto;
   }
 `;
 
