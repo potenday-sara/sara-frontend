@@ -15,12 +15,11 @@ export default function QuestionEmotionForm({ type, quesionId }) {
   const { value: CScontent, onChange, submitCSFeedback, isFeedback, returnFeedback } = useFeedback(quesionId);
 
   const checkDisabled = () => {
-    return !!!CScontent?.length;
+    return !CScontent?.length;
   };
 
   const checkCSLenght = (e) => {
     if (e.target?.value.length <= 500) onChange(e);
-    else return;
   };
   return (
     <StyledFeedback type={type}>

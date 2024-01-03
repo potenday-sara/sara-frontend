@@ -8,7 +8,6 @@ import { ReactComponent as SaraFailedMix } from '../../../assets/sarafailedmixed
 import { ReactComponent as MaraFailedMix } from '../../../assets/marafailedmixed.svg';
 import Progressbar from '../../../../../components/atoms/Progressbar';
 import Text from '../../../../../components/atoms/Text';
-import Title from '../../../../../components/molecules/Title';
 import Button from '../../../../../components/atoms/Button';
 
 import { Theme } from '../../../../../Styles';

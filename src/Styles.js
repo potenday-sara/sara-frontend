@@ -5,7 +5,7 @@ export const colorPalete = ['saraPrimary', 'saraSecondary', 'maraPrimary', 'mara
 
 export const Theme = {
   deviceSize: {
-    small: '@media (max-width: 1440px)',
+    small: '@media (max-width: 1200px)',
     medium: '@media (max-width: 1919px)',
     large: '@media (min-width: 1920px)',
   },

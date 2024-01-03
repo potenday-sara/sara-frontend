@@ -16,6 +16,10 @@ const StyledQuestionNavbar = styled.nav`
     height: 100%;
     gap: 20px;
   }
+
+  ${Theme.deviceSize.small} {
+    min-width: auto;
+  }
 `;
 
 export default StyledQuestionNavbar;

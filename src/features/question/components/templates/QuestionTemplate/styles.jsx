@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Theme } from '../../../../../Styles';
 
 const StyledQuestionTemplate = styled.main`
   width: auto;
@@ -34,6 +35,20 @@ const StyledQuestionTemplate = styled.main`
     top: 50%;
     transform: translate(0, -50%);
     width: 100%;
+  }
+
+  ${Theme.deviceSize.small} {
+    min-width: 100%;
+
+    .grid {
+      width: 100%;
+      justify-content: center;
+      display: grid;
+      grid-template-rows: auto auto auto;
+      grid-template-columns: 100%;
+      justify-content: center;
+      gap: 8px;
+    }
   }
 `;
 
