@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Theme } from '../../../../../Styles';
 
 const StyledCard = styled.div`
   width: 152px;
@@ -11,10 +12,50 @@ const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  ${Theme.deviceSize.small} {
+    width: 332px;
+    height: 96px;
+    flex-direction: row;
+    padding: 10px;
+    gap: 16px;
+    && .contents {
+      width: auto;
+      gap: 6px;
+    }
+    .CoupangCard__Item {
+      width: 218px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      font-weight: 600;
+    }
+    .CoupangCard__Price {
+      font-family: Pretendard;
+      color: #333;
+      font-weight: 700;
+    }
+    .rocket {
+      width: 60.8px;
+      height: 16px;
+      background-size: cover;
+    }
+  }
+
   .image {
     width: 120px;
     height: 120px;
     background-size: cover;
+    ${Theme.deviceSize.small} {
+      width: 76px;
+      height: 76px;
+      border-radius: 8px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
   }
 
   .contents {

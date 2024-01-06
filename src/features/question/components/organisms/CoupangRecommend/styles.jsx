@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Theme } from '../../../../../Styles';
 
 const StyledCoupoangRecommend = styled.section`
   width: 344px;
@@ -9,6 +10,18 @@ const StyledCoupoangRecommend = styled.section`
   border-radius: 24px;
   padding: 24px 16px 40px;
   overflow: hidden;
+
+  ${Theme.deviceSize.medium} {
+    width: calc(352px + (100vw - 1440px) / (195 - 144) * 3.5);
+    margin: 0 auto;
+    height: auto;
+  }
+  ${Theme.deviceSize.large} {
+    width: 344px;
+  }
+  ${Theme.deviceSize.small} {
+    width: 362px;
+  }
 
   .bottom {
     width: 100%;
