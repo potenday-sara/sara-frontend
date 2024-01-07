@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Theme } from '../../../../../Styles';
 
-const StyledSlider = styled.div`
+const StyledHorizonSlider = styled.div`
   position: relative;
   overflow-y: hidden;
   background-color: #ddd;
@@ -39,4 +39,4 @@ const StyledSlider = styled.div`
   }
 `;
 
-export default StyledSlider;
+export default StyledHorizonSlider;

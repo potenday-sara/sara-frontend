@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Autoplay } from 'swiper';
 import 'swiper/swiper-bundle.css';
+import useResize from '../../../../../hooks/useResize';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import StyledHorizonSlider from './styles';
+import StyledSlider from './styles';
 import QuestionCard from '../../atoms/QuestionCard';
 
 function HorizonSlider({ datas, type }) {
   return (
-    <StyledHorizonSlider type={type}>
+    <StyledSlider type={type}>
       <Swiper
         modules={[Autoplay]}
         className="mySwiper"
@@ -20,7 +21,6 @@ function HorizonSlider({ datas, type }) {
           delay: 0,
           disableOnInteraction: false,
         }}
-        direction="vertical"
       >
         {datas?.map(({ content, product }, idx) => {
           return (
@@ -33,7 +33,7 @@ function HorizonSlider({ datas, type }) {
           );
         })}
       </Swiper>
-    </StyledHorizonSlider>
+    </StyledSlider>
   );
 }
 
