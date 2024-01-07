@@ -40,7 +40,7 @@ const StyledCard = styled.div`
     .rocket {
       width: 60.8px;
       height: 16px;
-      background-size: cover;
+      background-size: contain;
     }
   }
 
