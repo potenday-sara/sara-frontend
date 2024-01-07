@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { Theme } from '../../../../../Styles';
 
 const StyledCard = styled.div`
-  width: 152px;
+  width: 142px;
   cursor: pointer;
-  height: 239px;
+  height: 225px;
   border-radius: 16px;
-  padding: 16px;
+  padding: 8px;
   border: 1px solid #ddd;
 
   display: flex;
@@ -45,14 +45,13 @@ const StyledCard = styled.div`
   }
 
   .image {
-    width: 120px;
-    height: 120px;
+    width: 124px;
+    height: 124px;
     background-size: cover;
+    border-radius: 8px;
     ${Theme.deviceSize.small} {
       width: 76px;
       height: 76px;
-      border-radius: 8px;
-      background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
     }

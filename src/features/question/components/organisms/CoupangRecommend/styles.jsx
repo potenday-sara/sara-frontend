@@ -12,12 +12,8 @@ const StyledCoupoangRecommend = styled.section`
   overflow: hidden;
 
   ${Theme.deviceSize.medium} {
-    width: 320px;
     margin: 0 auto;
     height: auto;
-  }
-  ${Theme.deviceSize.large} {
-    width: 320px;
   }
   ${Theme.deviceSize.small} {
     width: 362px;
