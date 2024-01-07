@@ -11,7 +11,6 @@ import HorizonSlider from '../../molecules/HorizonSlider';
 export default function QuestionSlider({ type }) {
   const { data: OtherQuestions, isLoading: QuestionLoading } = useQuestions(type);
   const { sizeType } = useResize();
-  console.log(sizeType);
   return (
     <StyledQuestionSlider>
       <Text className="question-slider-title" label="다른 사람들의 고민" color={Theme.color.black} bold="700" />

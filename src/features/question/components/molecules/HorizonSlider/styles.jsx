@@ -5,24 +5,12 @@ const StyledHorizonSlider = styled.div`
   position: relative;
   overflow-y: hidden;
   background-color: #ddd;
+  width: 100%;
 
   .swiper-wrapper {
     transition-timing-function: linear;
     transition-duration: 0s;
     align-items: center;
-  }
-  ${Theme.deviceSize.medium} {
-    height: 563px;
-    .swiper-wrapper {
-      height: 563px;
-    }
-  }
-
-  ${Theme.deviceSize.large} {
-    height: 658px;
-    .swiper-wrapper {
-      height: 658px;
-    }
   }
 
   &::after {

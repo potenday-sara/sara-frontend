@@ -9,6 +9,15 @@ const StyledQuestionSlider = styled.section`
   background-color: ${Theme.color.white};
   box-shadow: 0px 4px 24px 0px rgba(0, 123, 237, 0.1);
   overflow: hidden;
+
+  ${Theme.deviceSize.large} {
+    width: 395px;
+    height: 683px;
+    .question-slider-title {
+      padding: 20px 16px;
+      font-size: 20px;
+    }
+  }
   ${Theme.deviceSize.medium} {
     width: 320px;
     height: 595px;
@@ -18,12 +27,14 @@ const StyledQuestionSlider = styled.section`
     }
   }
 
-  ${Theme.deviceSize.large} {
-    width: 395px;
-    height: 683px;
+  ${Theme.deviceSize.small} {
+    width: 100%;
+    height: auto;
+    border-radius: 0px;
+
     .question-slider-title {
-      padding: 20px 16px;
-      font-size: 20px;
+      font-size: 13px;
+      padding: 6px 16px;
     }
   }
 `;

@@ -2,14 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Autoplay } from 'swiper';
 import 'swiper/swiper-bundle.css';
-import useResize from '../../../../../hooks/useResize';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import StyledSlider from './styles';
+import StyledHorizonSlider from './styles';
 import QuestionCard from '../../atoms/QuestionCard';
 
 function HorizonSlider({ datas, type }) {
   return (
-    <StyledSlider type={type}>
+    <StyledHorizonSlider type={type}>
       <Swiper
         modules={[Autoplay]}
         className="mySwiper"
@@ -33,7 +32,7 @@ function HorizonSlider({ datas, type }) {
           );
         })}
       </Swiper>
-    </StyledSlider>
+    </StyledHorizonSlider>
   );
 }
 
