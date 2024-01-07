@@ -7,7 +7,6 @@ import Text from '../../atoms/Text';
 import StyledPagination from './styles';
 
 const paginationStyle = {
-  height: 32,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -37,7 +36,6 @@ function Pagination({ nowPage, maxPage, leftClick, rightClick, type }) {
         label={`${nowPage} / ${maxPage}`}
         size="14px"
         style={{
-          width: 40,
           textAlign: 'center',
         }}
         bold="500"
