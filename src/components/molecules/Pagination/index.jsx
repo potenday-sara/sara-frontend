@@ -1,14 +1,12 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import StyledPagination from './styles';
-import Text from '../../atoms/Text';
-import Button from '../../atoms/Button';
+import { Theme } from '../../../Styles';
 import { ReactComponent as LeftArrow } from '../../../images/svgs/leftArrow.svg';
 import { ReactComponent as RightArrow } from '../../../images/svgs/rightArrow.svg';
-import { Theme } from '../../../Styles';
+import Button from '../../atoms/Button';
+import Text from '../../atoms/Text';
+import StyledPagination from './styles';
 
 const paginationStyle = {
-  width: 32,
   height: 32,
   display: 'flex',
   justifyContent: 'center',

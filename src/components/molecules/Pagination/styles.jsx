@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Theme } from '../../../Styles';
 
 const StyledPagination = styled.div`
   margin-top: 12px;
@@ -9,6 +10,12 @@ const StyledPagination = styled.div`
 
   .disActive {
     opacity: 0.5;
+  }
+  .button {
+    width: 32px;
+    ${Theme.deviceSize.small} {
+      width: 56px;
+    }
   }
 `;
 
