@@ -2,22 +2,22 @@ import styled from 'styled-components';
 import { Theme } from '../../../../../Styles';
 
 const StyledCoupoangRecommend = styled.section`
-  width: 344px;
+  width: 320px;
   position: relative;
   height: 634.11px;
   background-color: white;
   margin-right: auto;
   border-radius: 24px;
-  padding: 24px 16px 40px;
+  padding: 16px 16px 40px;
   overflow: hidden;
 
   ${Theme.deviceSize.medium} {
-    width: calc(352px + (100vw - 1440px) / (195 - 144) * 3.5);
+    width: 320px;
     margin: 0 auto;
     height: auto;
   }
   ${Theme.deviceSize.large} {
-    width: 344px;
+    width: 320px;
   }
   ${Theme.deviceSize.small} {
     width: 362px;
@@ -33,6 +33,29 @@ const StyledCoupoangRecommend = styled.section`
     background: rgba(0, 123, 237, 0.05);
     left: 0px;
     bottom: 0px;
+  }
+
+  form {
+    width: 135px;
+    height: 36px;
+    input {
+      background-color: #fff;
+      color: #007bed;
+      height: 36px;
+      font-family: Pretendard;
+      font-size: 14px;
+      font-weight: 700;
+      border: 1px solid #ddd;
+    }
+    .icon {
+      path {
+        stroke: #ddd;
+      }
+    }
+  }
+
+  && .selects {
+    width: 135px;
   }
 `;
 

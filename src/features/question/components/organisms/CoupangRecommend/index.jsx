@@ -1,16 +1,15 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import StyledCounpoangRecommend from './styles';
-import Text from '../../../../../components/atoms/Text';
-import Logo from '../../../../../components/atoms/Logo';
-import Title from '../../../../../components/molecules/Title';
 import { Theme } from '../../../../../Styles';
-import Select from '../../../../../components/molecules/Select';
-import SelectInput from '../../../../../components/atoms/SelectInput';
-import Cards from '../../molecules/Cards';
-import useCoupang from '../../../hooks/useCoupang';
-import Pagination from '../../../../../components/molecules/Pagination';
 import Dropdown from '../../../../../components/atoms/Dropdown';
+import Logo from '../../../../../components/atoms/Logo';
+import SelectInput from '../../../../../components/atoms/SelectInput';
+import Text from '../../../../../components/atoms/Text';
+import Pagination from '../../../../../components/molecules/Pagination';
+import Select from '../../../../../components/molecules/Select';
+import Title from '../../../../../components/molecules/Title';
+import useCoupang from '../../../hooks/useCoupang';
+import Cards from '../../molecules/Cards';
+import StyledCounpoangRecommend from './styles';
 
 export default function CounpangRecommend({ type }) {
   const {
@@ -27,20 +26,15 @@ export default function CounpangRecommend({ type }) {
   } = useCoupang();
   return (
     <StyledCounpoangRecommend>
-      <Title style={{ gap: 0, padding: 0, marginBottom: 23 }}>
-        <Logo
-          w="77px"
-          logoType={type === 'sara' ? 'SaraTextOnly' : 'MaraTextOnly'}
-          fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-          style={{}}
-        />
-        <Text label=" , 요즘 많이 팔리는" size="16px" color={Theme.color.midGray} bold="700" />
+      <Title
+        style={{ gap: 0, padding: 0, height: 36, marginBottom: 12, justifyContent: 'flex-end', alignItems: 'center' }}
+      >
         {!categoryLoading && (
           <Select
             style={{
               position: 'absolute',
-              top: 14,
-              right: 14,
+              top: 16,
+              left: 16,
             }}
           >
             <Select.List>
@@ -65,6 +59,19 @@ export default function CounpangRecommend({ type }) {
             </Select.List>
           </Select>
         )}
+        <Text
+          label="바로&nbsp;&nbsp;"
+          size="16px"
+          color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+          bold="700"
+        />
+        <Logo
+          w="77px"
+          h="36px"
+          logoType={type === 'sara' ? 'SaraTextOnly' : 'MaraTextOnly'}
+          fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+          style={{}}
+        />
       </Title>
       <Cards datas={showingData} />
 
