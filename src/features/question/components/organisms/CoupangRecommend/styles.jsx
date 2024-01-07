@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { Theme } from '../../../../../Styles';
 
 const StyledCoupoangRecommend = styled.section`
-  width: 320px;
+  width: 372px;
   position: relative;
-  height: 634.11px;
+  height: auto;
   background-color: white;
   margin-right: auto;
   border-radius: 24px;
@@ -12,11 +12,24 @@ const StyledCoupoangRecommend = styled.section`
   overflow: hidden;
 
   ${Theme.deviceSize.medium} {
+    width: 320px;
     margin: 0 auto;
-    height: auto;
   }
   ${Theme.deviceSize.small} {
     width: 362px;
+  }
+
+  .title {
+    margin-bottom: 12px;
+    ${Theme.deviceSize.large} {
+      height: 44px;
+    }
+    ${Theme.deviceSize.medium} {
+      height: 36px;
+    }
+    ${Theme.deviceSize.small} {
+      margin-bottom: 8px;
+    }
   }
 
   .bottom {
@@ -32,17 +45,30 @@ const StyledCoupoangRecommend = styled.section`
   }
 
   form {
-    width: 135px;
-    height: 36px;
+    ${Theme.deviceSize.large} {
+      height: 44px;
+      width: 168px;
+    }
+    ${Theme.deviceSize.medium} {
+      height: 36px;
+      width: 135px;
+    }
     input {
       background-color: #fff;
       color: #007bed;
-      height: 36px;
+      ${Theme.deviceSize.large} {
+        height: 44px;
+        font-size: 16px;
+      }
+      ${Theme.deviceSize.medium} {
+        height: 36px;
+        font-size: 14px;
+      }
       font-family: Pretendard;
-      font-size: 14px;
       font-weight: 700;
       border: 1px solid #ddd;
     }
+
     .icon {
       path {
         stroke: #ddd;
@@ -51,7 +77,14 @@ const StyledCoupoangRecommend = styled.section`
   }
 
   && .selects {
-    width: 135px;
+    ${Theme.deviceSize.large} {
+      width: 168px;
+      font-size: 16px;
+    }
+    ${Theme.deviceSize.medium} {
+      width: 135px;
+      font-size: 14px;
+    }
   }
 `;
 

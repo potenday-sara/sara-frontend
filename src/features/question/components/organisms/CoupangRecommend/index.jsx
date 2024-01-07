@@ -26,9 +26,7 @@ export default function CounpangRecommend({ type }) {
   } = useCoupang();
   return (
     <StyledCounpoangRecommend>
-      <Title
-        style={{ gap: 0, padding: 0, height: 36, marginBottom: 12, justifyContent: 'flex-end', alignItems: 'center' }}
-      >
+      <Title style={{ gap: 0, padding: 0, justifyContent: 'flex-end', alignItems: 'center' }}>
         {!categoryLoading && (
           <Select
             style={{

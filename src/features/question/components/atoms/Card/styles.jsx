@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { Theme } from '../../../../../Styles';
 
 const StyledCard = styled.div`
-  width: 140px;
   cursor: pointer;
   height: 225px;
   border-radius: 16px;
@@ -16,14 +15,23 @@ const StyledCard = styled.div`
   .CoupangCard__Item {
     ${Theme.deviceSize.small} {
       width: 218px;
+      font-weight: 600;
     }
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
-    font-weight: 600;
     overflow: hidden;
     text-overflow: ellipsis;
     box-sizing: border-box;
+  }
+
+  ${Theme.deviceSize.large} {
+    width: 164px;
+    height: 261px;
+  }
+  ${Theme.deviceSize.medium} {
+    width: 140px;
+    height: 225px;
   }
 
   ${Theme.deviceSize.small} {
@@ -49,10 +57,16 @@ const StyledCard = styled.div`
   }
 
   .image {
-    width: 124px;
-    height: 124px;
     background-size: cover;
     border-radius: 8px;
+    ${Theme.deviceSize.large} {
+      width: 140px;
+      height: 140px;
+    }
+    ${Theme.deviceSize.medium} {
+      width: 124px;
+      height: 124px;
+    }
     ${Theme.deviceSize.small} {
       width: 76px;
       height: 76px;
@@ -69,7 +83,7 @@ const StyledCard = styled.div`
   }
 
   .rocket {
-    width: 68px;
+    width: 68.4px;
     height: 18px;
   }
 `;
