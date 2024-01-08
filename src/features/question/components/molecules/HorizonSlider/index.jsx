@@ -13,8 +13,8 @@ function HorizonSlider({ datas, type }) {
         modules={[Autoplay]}
         className="mySwiper"
         speed={3000}
-        slidesPerView={4.5}
-        spaceBetween={1}
+        slidesPerView="auto"
+        spaceBetween="1px"
         loop
         autoplay={{
           delay: 0,

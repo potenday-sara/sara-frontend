@@ -21,6 +21,7 @@ const StyledQuestionSlider = styled.section`
   ${Theme.deviceSize.medium} {
     width: 320px;
     height: 595px;
+
     .question-slider-title {
       padding: 16px;
       font-size: 16px;
@@ -31,8 +32,10 @@ const StyledQuestionSlider = styled.section`
     width: 100%;
     height: auto;
     border-radius: 0px;
+    height: 81px;
 
     .question-slider-title {
+      color: ${Theme.color.midGray};
       font-size: 13px;
       padding: 6px 16px;
     }

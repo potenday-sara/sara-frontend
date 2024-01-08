@@ -2,12 +2,10 @@ import styled from 'styled-components';
 import { Theme } from '../../../../../Styles';
 
 const StyledCard = styled.div`
-  max-width: 100%;
-  padding: 24px;
+  /* max-width: 100%; */
   background: #ffffff;
   display: flex;
   flex-direction: column;
-  gap: 8px;
   transition: 0ms;
 
   // 1950이상 디자인
@@ -39,7 +37,7 @@ const StyledCard = styled.div`
   }
   // 1200이상 디자인
   ${Theme.deviceSize.small} {
-    width: 204px;
+    width: 204px !important;
     height: 56px;
     padding: 10px;
     gap: 5px;
