@@ -49,4 +49,9 @@ export const StyledDropdownItem = styled.div`
   &:hover {
     background-color: #ddd;
   }
+  p {
+    font-family: Pretendard;
+    font-size: 14px;
+    font-weight: 700;
+  }
 `;
