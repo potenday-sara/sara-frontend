@@ -59,6 +59,11 @@ const StyledQuestionAnswer = styled.section`
       }
     }
   }
+  ${Theme.deviceSize.small} {
+    .logo {
+      width: 134px;
+    }
+  }
 `;
 
 export default StyledQuestionAnswer;

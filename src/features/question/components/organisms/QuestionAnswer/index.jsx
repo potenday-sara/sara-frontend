@@ -33,12 +33,18 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
           }}
           onClick={() => navigate('/')}
           w="148px"
+          className="logo"
           logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'}
         />
         <QuestionInfo type={type} QuestionFormData={QuestionFormData} style={{ marginBottom: 24 }} />
       </section>
       <section className="question-mid">
-        <Logo w="180px" m="24px" logoType={type === 'sara' ? 'SaraCircleCharacter' : 'MaraCircleCharacter'} />
+        <Logo
+          w="180px"
+          m="24px"
+          className="logo"
+          logoType={type === 'sara' ? 'SaraCircleCharacter' : 'MaraCircleCharacter'}
+        />
         <AnswerContent type={type} answer={answer} />
         <div className="button-wrap">
           <Button
