@@ -38,7 +38,7 @@ const StyledQuestionTemplate = styled.main`
   }
 
   ${Theme.deviceSize.small} {
-    min-width: 100%;
+    min-width: 362px;
 
     .grid {
       width: 100%;

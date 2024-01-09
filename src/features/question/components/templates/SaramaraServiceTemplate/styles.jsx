@@ -29,7 +29,7 @@ const StyledSaramaraServiceTemplate = styled.section`
     width: 395px;
   }
   ${Theme.deviceSize.small} {
-    width: 352px;
+    width: 95%;
   }
 `;
 
