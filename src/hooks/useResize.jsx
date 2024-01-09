@@ -5,7 +5,6 @@ const useResize = () => {
 
   useEffect(() => {
     const setSize = () => {
-      console.log('hi');
       if (window.innerWidth < 1200) setSizeType('small');
       else setSizeType('medium');
     };
