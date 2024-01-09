@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import StyledCard from './styles';
 import Text from '../../../../../components/atoms/Text';
 import { Theme } from '../../../../../Styles';
+import useResize from '../../../../../hooks/useResize';
 
 function QuestionCard({ children, ...rest }) {
   return <StyledCard {...rest}>{children}</StyledCard>;
@@ -36,7 +37,9 @@ Title.propTypes = {
 };
 
 function Contents({ label }) {
-  const string = label.length > 65 ? `${label.slice(0, 62)}...` : label;
+  const { sizeType } = useResize();
+  const textSlice = sizeType === 'small' ? 15 : 65;
+  const string = label.length > textSlice ? `${label.slice(0, textSlice - 3)}...` : label;
   return <Text label={string} className="card-content" size="14px" color={Theme.color.midGray} />;
 }
 

@@ -5,14 +5,17 @@ import Text from '../../../../../components/atoms/Text';
 import Slider from '../../molecules/Slider';
 import useQuestions from '../../../hooks/useQuestions';
 import { Theme } from '../../../../../Styles';
+import useResize from '../../../../../hooks/useResize';
+import HorizonSlider from '../../molecules/HorizonSlider';
 
 export default function QuestionSlider({ type }) {
   const { data: OtherQuestions, isLoading: QuestionLoading } = useQuestions(type);
-
+  const { sizeType } = useResize();
   return (
     <StyledQuestionSlider>
       <Text className="question-slider-title" label="다른 사람들의 고민" color={Theme.color.black} bold="700" />
-      {!QuestionLoading && <Slider datas={OtherQuestions} type={type} />}
+      {sizeType === 'medium' && !QuestionLoading && <Slider datas={OtherQuestions} type={type} />}
+      {sizeType === 'small' && !QuestionLoading && <HorizonSlider datas={OtherQuestions} type={type} />}
     </StyledQuestionSlider>
   );
 }

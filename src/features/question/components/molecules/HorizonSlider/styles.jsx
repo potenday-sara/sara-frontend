@@ -1,27 +1,19 @@
 import styled from 'styled-components';
 import { Theme } from '../../../../../Styles';
 
-const StyledSlider = styled.div`
+const StyledHorizonSlider = styled.div`
   position: relative;
   overflow-y: hidden;
   background-color: #ddd;
+  /* width: 100%; */
 
   .swiper-wrapper {
     transition-timing-function: linear;
     transition-duration: 0s;
     align-items: center;
-  }
-  ${Theme.deviceSize.medium} {
-    height: 563px;
-    .swiper-wrapper {
-      height: 563px;
-    }
-  }
 
-  ${Theme.deviceSize.large} {
-    height: 658px;
-    .swiper-wrapper {
-      height: 658px;
+    .swiper-slide {
+      width: auto;
     }
   }
 
@@ -29,8 +21,6 @@ const StyledSlider = styled.div`
     z-index: 999;
     top: 0px;
     content: '';
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
     box-shadow: 0px 0px 15px 5px
       ${({ type }) => (type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary)} inset;
     width: 100%;
@@ -39,4 +29,4 @@ const StyledSlider = styled.div`
   }
 `;
 
-export default StyledSlider;
+export default StyledHorizonSlider;
