@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Theme } from '../../../Styles';
 import { ReactComponent as LeftArrow } from '../../../images/svgs/leftArrow.svg';
