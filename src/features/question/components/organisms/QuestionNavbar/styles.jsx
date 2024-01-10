@@ -19,6 +19,7 @@ const StyledQuestionNavbar = styled.nav`
 
   ${Theme.deviceSize.small} {
     min-width: auto;
+    display: none;
   }
 `;
 
