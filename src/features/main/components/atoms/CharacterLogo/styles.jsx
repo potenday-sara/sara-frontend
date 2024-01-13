@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import getSelectedCss from '../../../styles/getSelectedStyle';
+import { Theme } from '../../../../../Styles';
 
 /**
  * $type을 바탕으로 css를 결정하는 함수입니다
@@ -27,6 +28,16 @@ const StyledCharacterLogo = styled.div`
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
+  }
+
+  ${Theme.deviceSize.small} {
+    width: 30%;
+    height: calc(30vw);
+    max-width: 270px;
+    svg {
+      width: 100%;
+      height: 100%;
+    }
   }
 `;
 

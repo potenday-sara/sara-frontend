@@ -36,6 +36,7 @@ export default function MainSection({ type, ...rest }) {
           gap: 8,
         }}
         bg={Theme.color.white}
+        className="main-button"
       >
         <Logo
           fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
