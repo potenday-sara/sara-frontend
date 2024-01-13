@@ -10,7 +10,9 @@ import StyledCharacterChat from './styles';
  */
 export default function CharacterChat({ type }) {
   return (
-    <StyledCharacterChat type={type}>{type === 'sara' ? <SaraTitleLines /> : <MaraTitleLines />}</StyledCharacterChat>
+    <StyledCharacterChat className="text" type={type}>
+      {type === 'sara' ? <SaraTitleLines /> : <MaraTitleLines />}
+    </StyledCharacterChat>
   );
 }
 

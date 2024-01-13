@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { Theme } from '../../../../../Styles';
 
 const getBubbleTypeStyle = ({ type }) => {
   return type === 'sara'
@@ -14,6 +15,11 @@ const getBubbleTypeStyle = ({ type }) => {
           right: 12%;
           border-left: 0px;
         }
+
+        ${Theme.deviceSize.small} {
+          /* height: 92px; */
+          border-radius: 20px;
+        }
       `
     : css`
         width: 390px;
@@ -25,6 +31,10 @@ const getBubbleTypeStyle = ({ type }) => {
         &:after {
           left: 12%;
           border-right: 0;
+        }
+        ${Theme.deviceSize.small} {
+          /* height: 92px; */
+          border-radius: 20px;
         }
       `;
 };
@@ -59,6 +69,21 @@ const StyledTextbubble = styled.div`
     margin-bottom: -28px;
   }
   ${(props) => getBubbleTypeStyle(props)}
+
+  ${Theme.deviceSize.small} {
+    width: 60%;
+    max-width: 440px;
+    padding: 20px;
+    height: auto;
+    .sub-title,
+    .caption {
+      display: none;
+    }
+    .text {
+      width: 100%;
+      height: 100%;
+    }
+  }
 `;
 
 export default StyledTextbubble;
