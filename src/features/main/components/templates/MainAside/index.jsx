@@ -13,7 +13,7 @@ export default function MainAside({ type }) {
   return (
     <StyledMainAside className="main-aside">
       <div className="aside-top">
-        <Logo logoType="MainLogo" w="148px" />
+        <Logo logoType="MainLogo" className="aside-logo" w="148px" />
       </div>
       <div className="aside-head">
         <RealtimeTrend />

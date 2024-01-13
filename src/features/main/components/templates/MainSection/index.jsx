@@ -10,6 +10,7 @@ import SaraMaraContext from '../../../stores/SaraMaraContext';
 import Logo from '../../../../../components/atoms/Logo';
 import Text from '../../../../../components/atoms/Text';
 import { Theme } from '../../../../../Styles';
+import Title from '../../../../../components/molecules/Title';
 
 /**
  * Onboarding 페이지의 세션 컴포넌트입니다
@@ -38,17 +39,19 @@ export default function MainSection({ type, ...rest }) {
         bg={Theme.color.white}
         className="main-button"
       >
-        <Logo
-          fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-          w="77px"
-          logoType={type === 'sara' ? 'SaraTextOnly' : 'MaraTextOnly'}
-        />
-        <Text
-          label="에게 물어보기"
-          color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-          size="16px"
-          bold="700"
-        />
+        <Title>
+          <Logo
+            fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+            w="77px"
+            logoType={type === 'sara' ? 'SaraTextOnly' : 'MaraTextOnly'}
+          />
+          <Text
+            label="에게 물어보기"
+            color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+            size="16px"
+            bold="700"
+          />
+        </Title>
       </Button>
     </StyledMainSection>
   );
