@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Theme } from '../../../../../Styles';
 import Text from '../../../../../components/atoms/Text';

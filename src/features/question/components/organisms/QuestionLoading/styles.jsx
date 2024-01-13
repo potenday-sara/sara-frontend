@@ -39,6 +39,11 @@ const StyledQuestionLoading = styled.main`
       padding-bottom: 24px;
     }
   }
+  ${Theme.deviceSize.small} {
+    .logo {
+      width: 134px;
+    }
+  }
 `;
 
 export default StyledQuestionLoading;

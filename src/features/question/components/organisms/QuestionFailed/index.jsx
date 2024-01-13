@@ -23,12 +23,16 @@ const buttonStyle = {
 export default function QuestionFailed({ retryForm, setRetryRequest, QuestionFormData, type }) {
   return (
     <StyledQuestionFailed>
-      <Logo w="50%" logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'} />
+      <Logo
+        w="50%"
+        className="logo"
+        logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'}
+      />
       <div
         className="failedCharacter"
         style={{ backgroundImage: type === 'sara' ? `url(${SaraFildedCharacter})` : `url(${MaraFildedCharacter})` }}
       />
-      <Progressbar w="60%" h="14px" />
+      <Progressbar w="60%" h="14px" className="logo" />
       {type === 'sara' ? <SaraFailedMix width="80%" /> : <MaraFailedMix width="80%" />}
       <div className="button-wrap">
         <Button

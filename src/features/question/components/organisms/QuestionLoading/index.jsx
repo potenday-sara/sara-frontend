@@ -15,13 +15,18 @@ export default function QuestionLoading({ type, QuestionFormData, progress }) {
   const { onPreventLeave, offPreventLeave } = usePreventLeave();
   return (
     <StyledQuestionLoading {...onPreventLeave} {...offPreventLeave}>
-      <Logo w="50%" logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'} />
-      <LoadingLottie type={type} w="60%" h="auto" />
+      <Logo
+        w="50%"
+        className="logo"
+        logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'}
+      />
+      <LoadingLottie className="logo" type={type} w="60%" h="auto" />
       <Progressbar
         progress={progress}
         color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
         w="60%"
         h="14px"
+        className="logo"
       />
       <div className="recommend-coupang">
         {type === 'sara' ? (
