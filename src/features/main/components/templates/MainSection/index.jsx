@@ -19,7 +19,7 @@ export default function MainSection({ type, ...rest }) {
   const { type: nowType } = useContext(SaraMaraContext);
   const navigate = useNavigate();
   return (
-    <StyledMainSection {...rest} $type={type}>
+    <StyledMainSection {...rest} $type={type} className="main-section">
       <TitleBubble type={type} />
       <CharacterLogo type={type} $isType={type === nowType} />
       <CharacterName type={type} />

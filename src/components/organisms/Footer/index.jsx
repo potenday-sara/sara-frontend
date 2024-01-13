@@ -5,7 +5,7 @@ import StyledFooter from './styles';
 
 export default function Footer({ ...rest }) {
   return (
-    <StyledFooter {...rest}>
+    <StyledFooter {...rest} className="footer">
       <p>Copyright 2023 SARA. All rights reserved</p>
       <FotterLogo />
       <p>Team SARA Contact. potenday.sara@gmail.com</p>

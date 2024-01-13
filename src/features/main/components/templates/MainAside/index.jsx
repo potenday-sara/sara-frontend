@@ -11,7 +11,7 @@ export default function MainAside({ type }) {
   const { setSara, setMara } = useContext(SaraMaraContext);
 
   return (
-    <StyledMainAside>
+    <StyledMainAside className="main-aside">
       <div className="aside-top">
         <Logo logoType="MainLogo" w="148px" />
       </div>
