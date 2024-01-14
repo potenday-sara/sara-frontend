@@ -21,7 +21,7 @@ const StyledFlatButton = styled.button`
   }
 
   ${Theme.deviceSize.small} {
-    height: 50px;
+    height: 40px;
   }
 `;
 

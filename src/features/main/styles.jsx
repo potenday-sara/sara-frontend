@@ -10,7 +10,7 @@ const StyledMain = styled.main`
 
   ${Theme.deviceSize.small} {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr auto;
+    grid-template-rows: minmax(252px, 50vh) minmax(252px, 50vh) auto;
 
     .main-aside {
       grid-row: 3 / 4;

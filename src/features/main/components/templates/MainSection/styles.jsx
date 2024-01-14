@@ -40,9 +40,16 @@ const StyledMainSection = styled.section`
       width: 80% !important;
       border-radius: 16px !important;
       max-width: 400px;
-      height: 50px;
+      height: 40px;
       padding: 0px !important;
       align-items: center !important;
+      flex-shrink: 0;
+      .logo-wrap {
+        width: 50px;
+      }
+      p {
+        font-size: 12px;
+      }
     }
 
     .title {

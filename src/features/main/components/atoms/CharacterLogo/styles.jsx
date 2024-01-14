@@ -32,6 +32,7 @@ const StyledCharacterLogo = styled.div`
 
   ${Theme.deviceSize.small} {
     display: flex;
+    margin-top: 30px;
     justify-content: center;
     .sara-character {
       width: 100%;
@@ -41,9 +42,8 @@ const StyledCharacterLogo = styled.div`
       width: 90%;
     }
 
-    height: calc(30vw);
     max-width: 270px;
-
+    height: 30%;
     .back {
       width: 200%;
       max-width: 90vw;
