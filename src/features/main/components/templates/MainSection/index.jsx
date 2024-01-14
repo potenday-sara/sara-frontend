@@ -10,16 +10,22 @@ import SaraMaraContext from '../../../stores/SaraMaraContext';
 import Logo from '../../../../../components/atoms/Logo';
 import Text from '../../../../../components/atoms/Text';
 import { Theme } from '../../../../../Styles';
+import Title from '../../../../../components/molecules/Title';
 
 /**
  * Onboarding 페이지의 세션 컴포넌트입니다
  * type ('sara', 'mara') 중 하나의 값을 받아 각 테마의 맞는 컴포넌트를 리턴합니다.
  */
 export default function MainSection({ type, ...rest }) {
-  const { type: nowType } = useContext(SaraMaraContext);
+  const { type: nowType, setSara, setMara } = useContext(SaraMaraContext);
   const navigate = useNavigate();
   return (
-    <StyledMainSection {...rest} $type={type}>
+    <StyledMainSection
+      {...rest}
+      $type={type}
+      className="main-section"
+      onClick={type === 'sara' ? () => setSara() : () => setMara()}
+    >
       <TitleBubble type={type} />
       <CharacterLogo type={type} $isType={type === nowType} />
       <CharacterName type={type} />
@@ -36,18 +42,21 @@ export default function MainSection({ type, ...rest }) {
           gap: 8,
         }}
         bg={Theme.color.white}
+        className="main-button"
       >
-        <Logo
-          fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-          w="77px"
-          logoType={type === 'sara' ? 'SaraTextOnly' : 'MaraTextOnly'}
-        />
-        <Text
-          label="에게 물어보기"
-          color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-          size="16px"
-          bold="700"
-        />
+        <Title>
+          <Logo
+            fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+            w="77px"
+            logoType={type === 'sara' ? 'SaraTextOnly' : 'MaraTextOnly'}
+          />
+          <Text
+            label="에게 물어보기"
+            color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+            size="16px"
+            bold="700"
+          />
+        </Title>
       </Button>
     </StyledMainSection>
   );

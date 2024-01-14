@@ -19,6 +19,10 @@ const StyledFlatButton = styled.button`
   &.non-activated {
     opacity: 0.4;
   }
+
+  ${Theme.deviceSize.small} {
+    height: 50px;
+  }
 `;
 
 export default StyledFlatButton;

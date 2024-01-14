@@ -33,6 +33,24 @@ const StyledMainSection = styled.section`
   @media screen and (${(props) => props.theme.desktopLarge}) {
     align-items: center;
   }
+
+  ${Theme.deviceSize.small} {
+    padding: 10px 0px;
+    .main-button {
+      width: 80% !important;
+      border-radius: 16px !important;
+      max-width: 400px;
+      height: 50px;
+      padding: 0px !important;
+      align-items: center !important;
+    }
+
+    .title {
+      justify-content: center;
+      align-items: center;
+      /* height: 100%; */
+    }
+  }
 `;
 
 export default StyledMainSection;
