@@ -17,10 +17,15 @@ import Title from '../../../../../components/molecules/Title';
  * type ('sara', 'mara') 중 하나의 값을 받아 각 테마의 맞는 컴포넌트를 리턴합니다.
  */
 export default function MainSection({ type, ...rest }) {
-  const { type: nowType } = useContext(SaraMaraContext);
+  const { type: nowType, setSara, setMara } = useContext(SaraMaraContext);
   const navigate = useNavigate();
   return (
-    <StyledMainSection {...rest} $type={type} className="main-section">
+    <StyledMainSection
+      {...rest}
+      $type={type}
+      className="main-section"
+      onClick={type === 'sara' ? () => setSara() : () => setMara()}
+    >
       <TitleBubble type={type} />
       <CharacterLogo type={type} $isType={type === nowType} />
       <CharacterName type={type} />

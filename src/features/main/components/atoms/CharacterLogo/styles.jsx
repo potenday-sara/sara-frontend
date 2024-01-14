@@ -31,16 +31,22 @@ const StyledCharacterLogo = styled.div`
   }
 
   ${Theme.deviceSize.small} {
-    width: 30%;
+    display: flex;
+    justify-content: center;
+    .sara-character {
+      width: 100%;
+    }
+
+    .mara-character {
+      width: 90%;
+    }
+
     height: calc(30vw);
     max-width: 270px;
-    svg {
-      width: 100%;
-      height: 100%;
-    }
 
     .back {
       width: 200%;
+      max-width: 90vw;
     }
   }
 `;
