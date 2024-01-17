@@ -1,13 +1,12 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import StyledSaramaraServiceTemplate from './styles';
-import SaramaraForm from '../../organisms/SaramaraForm';
-import QuestionLoading from '../../organisms/QuestionLoading';
-import QuestionAnwser from '../../organisms/QuestionAnswer';
 import useQuestion from '../../../hooks/useQuestion';
 import Tag from '../../atoms/Tag';
+import QuestionAnwser from '../../organisms/QuestionAnswer';
 import QuestionFailed from '../../organisms/QuestionFailed';
+import QuestionLoading from '../../organisms/QuestionLoading';
+import SaramaraForm from '../../organisms/SaramaraForm';
+import StyledSaramaraServiceTemplate from './styles';
 
 export default function SaramaraServiceTemplate({ type }) {
   const {
@@ -20,6 +19,7 @@ export default function SaramaraServiceTemplate({ type }) {
     quesionId,
     gptAnswer,
     setRetryRequest,
+    retryRequestCount,
   } = useQuestion(type);
   const navigate = useNavigate();
 
@@ -64,6 +64,8 @@ export default function SaramaraServiceTemplate({ type }) {
           type={type}
           QuestionFormData={QuestionFormData}
           setRetryRequest={setRetryRequest}
+          // TODO: 재질문 횟수 관련 기획 추가 시 주석 해제
+          // retryRequestCount={retryRequestCount}
         />
       )}
     </StyledSaramaraServiceTemplate>
