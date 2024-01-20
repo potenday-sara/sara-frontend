@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Theme } from '../../../../../Styles';
-import Form from '../../../../../components/molecules/Form';
-import Label from '../../../../../components/atoms/Label';
-import Input from '../../../../../components/atoms/Input';
-import Textarea from '../../../../../components/atoms/Textarea';
 import Button from '../../../../../components/atoms/Button';
-import Text from '../../../../../components/atoms/Text';
-import StyledSaramaraForm from './styles';
+import Input from '../../../../../components/atoms/Input';
+import Label from '../../../../../components/atoms/Label';
 import Logo from '../../../../../components/atoms/Logo';
+import Text from '../../../../../components/atoms/Text';
+import Textarea from '../../../../../components/atoms/Textarea';
+import Form from '../../../../../components/molecules/Form';
+import StyledSaramaraForm from './styles';
 
 const checkItemLength = (string) => string.length > 0 && string.length <= 30;
 const checkContentLegth = (string) => string.length > 4 && string.length <= 200;
@@ -81,7 +81,14 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
         <Form.Label>
           <Label
             htmlFor="item"
-            text={<Text bold="700" size="14px" label="어떤걸 사고싶어?" color={Theme.color.midGray} />}
+            text={
+              <Text
+                bold="700"
+                size="14px"
+                label={type === 'sara' ? '어떤 걸 사고싶샤?' : '뭘 사고 싶먀?'}
+                color={Theme.color.midGray}
+              />
+            }
           />
         </Form.Label>
         <Form.Error>{itemError ? <Text label="1자 ~ 30자 이내로 입력해주세요" size="13px" /> : null}</Form.Error>
@@ -98,7 +105,14 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
         <Form.Label className="second-input">
           <Label
             htmlFor="contents"
-            text={<Text bold="700" size="14px" label="왜 고민하고 있어?" color={Theme.color.midGray} />}
+            text={
+              <Text
+                bold="700"
+                size="14px"
+                label={type === 'sara' ? '왜 고민하고 있샤?' : '뭔데 고민하고 있먀?'}
+                color={Theme.color.midGray}
+              />
+            }
           />
         </Form.Label>
         <Form.Error>{contentError ? <Text label="5자 ~ 200자 이내로 입력해주세요" size="13px" /> : null}</Form.Error>
@@ -125,7 +139,12 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
             disabled={checkDisabled()}
             onClick={onSubmit}
           >
-            <Text label="고민하는 물건을 사야할까?" size="14px" bold="700" color={Theme.color.white} />
+            <Text
+              label={`고민하는 물건을 ${type === 'sara' ? '사고 싶샤?' : '사도 될 것 같먀?'}`}
+              size="14px"
+              bold="700"
+              color={Theme.color.white}
+            />
           </Button>
         </Form.Button>
       </Form>
