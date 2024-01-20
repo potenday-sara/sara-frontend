@@ -6,6 +6,7 @@ const StyledCard = styled.div`
   background: #ffffff;
   display: flex;
   flex-direction: column;
+  gap: 8px;
   transition: 0ms;
 
   // 1950이상 디자인
