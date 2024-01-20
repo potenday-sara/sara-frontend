@@ -12,7 +12,7 @@ const StyledSelectInput = styled.form`
     border-radius: 8px;
     gap: 8px;
     font-size: 16px;
-    color: ${Theme.color.white};
+    color: ${({ type }) => (type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary)} !important;
     background-color: ${({ bg }) => bg || 'blue'};
     outline: none;
     border: none;
