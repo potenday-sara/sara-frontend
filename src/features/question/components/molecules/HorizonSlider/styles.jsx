@@ -21,7 +21,7 @@ const StyledHorizonSlider = styled.div`
     z-index: 999;
     top: 0px;
     content: '';
-    box-shadow: 0px 0px 15px 5px
+    box-shadow: 0px 4px 12px 0px
       ${({ type }) => (type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary)} inset;
     width: 100%;
     height: 100%;
