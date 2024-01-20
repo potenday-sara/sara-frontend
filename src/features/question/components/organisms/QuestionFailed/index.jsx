@@ -53,7 +53,7 @@ export default function QuestionFailed({ retryForm, setRetryRequest, QuestionFor
           <Text
             size="14px"
             color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-            label="다시 물어보기"
+            label="질문 다시하기"
             bold="700"
           />
         </Button>
