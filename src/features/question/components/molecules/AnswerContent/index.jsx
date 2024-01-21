@@ -6,9 +6,9 @@ import { Theme } from '../../../../../Styles';
 import Text from '../../../../../components/atoms/Text';
 import Title from '../../../../../components/molecules/Title';
 
-export default function AnswerContent({ type, answer }) {
+export default function AnswerContent({ type, answer, ...rest }) {
   return (
-    <StyledAnswerContent>
+    <StyledAnswerContent {...rest}>
       <Title>
         <Logo
           w="78px"
@@ -25,8 +25,10 @@ export default function AnswerContent({ type, answer }) {
 AnswerContent.propTypes = {
   type: PropTypes.oneOf(['sara', 'mara']).isRequired,
   answer: PropTypes.string,
+  style: PropTypes.shape({}),
 };
 
 AnswerContent.defaultProps = {
   answer: '',
+  style: {},
 };

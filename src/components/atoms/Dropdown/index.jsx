@@ -30,7 +30,7 @@ function Dropdown({ trigger, children, ...rest }) {
 
 Dropdown.propTypes = {
   trigger: PropTypes.node.isRequired,
-  style: PropTypes.objectOf({}),
+  style: PropTypes.shape({}),
   children: PropTypes.node.isRequired,
 };
 
