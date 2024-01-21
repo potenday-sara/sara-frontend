@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Theme } from '../../../../../Styles';
 import Logo from '../../../../../components/atoms/Logo';
 import Progressbar from '../../../../../components/atoms/Progressbar';
@@ -25,6 +25,15 @@ export default function QuestionLoading({ type, QuestionFormData, progress }) {
     'Mara의 답변이 마음에 드신다면, 하단의 평가 버튼을 눌러주세요! 더 좋은 조언을 주는 데에 힘이 될 거예요!',
     '여기 어딘가에 정말 멋진 상품들이 있는 거 같아요! (속닥속닥)근데 Mara는 그게 영 못 마땅한가 봐요...!',
   ];
+  const [randomText, setRandomText] = useState('');
+  useEffect(() => {
+    if (type === 'sara') {
+      setRandomText(saraRandomTextArray[Math.floor(Math.random() * saraRandomTextArray.length)]);
+    } else {
+      setRandomText(maraRandomTextArray[Math.floor(Math.random() * saraRandomTextArray.length)]);
+    }
+  }, [type]);
+
   return (
     <StyledQuestionLoading {...onPreventLeave} {...offPreventLeave}>
       <Logo
@@ -46,16 +55,7 @@ export default function QuestionLoading({ type, QuestionFormData, progress }) {
         ) : (
           <MaraCoupangRecommed width="90%" height="auto" />
         )}
-        <Text
-          label={
-            type === 'sara'
-              ? saraRandomTextArray[Math.floor(Math.random() * saraRandomTextArray.length)]
-              : maraRandomTextArray[Math.floor(Math.random() * maraRandomTextArray.length)]
-          }
-          color={Theme.color.midGray}
-          size="14px"
-          bold="500"
-        />
+        <Text label={randomText} color={Theme.color.midGray} size="14px" bold="500" />
       </div>
       <QuestionInfo type={type} QuestionFormData={QuestionFormData} style={{ marginBottom: 24 }} />
     </StyledQuestionLoading>
