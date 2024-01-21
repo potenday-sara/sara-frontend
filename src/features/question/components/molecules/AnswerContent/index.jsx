@@ -12,13 +12,13 @@ export default function AnswerContent({ type, answer }) {
       <Title>
         {type === 'sara' ? (
           <>
-            <Logo w="78px" logoType="SaraTextOnly" fill={Theme.color.saraPrimary} />
+            <Logo h="20px" w="auto" logoType="SaraTextOnly" fill={Theme.color.saraPrimary} />
             <Text label="는 것이샤" color={Theme.color.midGray} size="15px" bold="700" />
           </>
         ) : (
           <>
             <Text label="사지 말라면" color={Theme.color.midGray} size="15px" bold="700" />
-            <Logo w="78px" logoType="MaraTextOnly" fill={Theme.color.maraPrimary} />
+            <Logo h="20px" w="auto" logoType="MaraTextOnly" fill={Theme.color.maraPrimary} />
           </>
         )}
       </Title>
