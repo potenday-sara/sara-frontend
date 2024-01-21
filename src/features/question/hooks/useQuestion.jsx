@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
 import useInput from '../../../hooks/useInput';
-import { getQuestionState, postQuestion } from '../apis/postQuestion';
 import getAnswer from '../apis/getAnswer';
+import { getQuestionState, postQuestion } from '../apis/postQuestion';
 
 // stage 상태
 const StageState = {
@@ -35,6 +35,7 @@ const useQuestion = (type) => {
   const [answerId, setAnswerId] = useState('');
   const [progress, setProgress] = useState(0);
   const [maxRequestCount, setMaxRequestCount] = useState(MaxRequestCount);
+  const [retryRequestCount, setRetryRequestCount] = useState(0);
 
   // questionID를 바뀌면, Question 응답을 True로 바꾸어 React Query를 작동시키는 코드(액션)
   const isMouted = useRef(false);
@@ -66,6 +67,7 @@ const useQuestion = (type) => {
     setRequestCount(0);
     setRequestQuestion(true);
     setStage(StageState.PROCESS);
+    setRetryRequestCount((prev) => prev + 1);
   };
 
   // 답변 받는 쿼리(액션)
@@ -164,6 +166,7 @@ const useQuestion = (type) => {
     gptAnswer,
     setRetryRequest,
     retryForm,
+    retryRequestCount,
   };
 };
 

@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { useNavigate } from 'react-router';
-import StyledQuestionAnswer from './styles';
-import Logo from '../../../../../components/atoms/Logo';
-import QuestionInfo from '../../molecules/QuestionInfo';
-import AnswerContent from '../../molecules/AnswerContent';
-import Button from '../../../../../components/atoms/Button';
 import { Theme } from '../../../../../Styles';
+import Button from '../../../../../components/atoms/Button';
+import Logo from '../../../../../components/atoms/Logo';
 import Text from '../../../../../components/atoms/Text';
-import QuestionFeedback from '../QuestionEmotionForm';
 import Title from '../../../../../components/molecules/Title';
 import useInterval from '../../../hooks/useInterval';
+import AnswerContent from '../../molecules/AnswerContent';
+import QuestionInfo from '../../molecules/QuestionInfo';
+import QuestionFeedback from '../QuestionEmotionForm';
+import StyledQuestionAnswer from './styles';
 
 const buttonStyle = {
   display: 'flex',
@@ -84,7 +85,7 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
               />
               <Text
                 color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-                label={type === 'sara' ? '에게 물어보기' : '에게 물어보기'}
+                label="에게 한번 더!"
                 size="14px"
                 bold="700"
               />
@@ -107,7 +108,7 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
                 size="14px"
                 bold="700"
                 color={type === 'sara' ? Theme.color.maraPrimary : Theme.color.saraPrimary}
-                label={type === 'mara' ? '에게 물어보기' : '에게 물어보기'}
+                label="에게도 물어볼까?"
               />
             </Title>
           </Button>

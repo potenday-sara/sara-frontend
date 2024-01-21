@@ -1,14 +1,14 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import StyledQuestionFailed from './styles';
+import React from 'react';
+import Button from '../../../../../components/atoms/Button';
 import Logo from '../../../../../components/atoms/Logo';
-import SaraFildedCharacter from '../../../assets/SaraQuestionFailed.png';
-import MaraFildedCharacter from '../../../assets/MaraQuestionFailed.png';
-import { ReactComponent as SaraFailedMix } from '../../../assets/sarafailedmixed.svg';
-import { ReactComponent as MaraFailedMix } from '../../../assets/marafailedmixed.svg';
 import Progressbar from '../../../../../components/atoms/Progressbar';
 import Text from '../../../../../components/atoms/Text';
-import Button from '../../../../../components/atoms/Button';
+import MaraFildedCharacter from '../../../assets/MaraQuestionFailed.png';
+import SaraFildedCharacter from '../../../assets/SaraQuestionFailed.png';
+import { ReactComponent as MaraFailedMix } from '../../../assets/marafailedmixed.svg';
+import { ReactComponent as SaraFailedMix } from '../../../assets/sarafailedmixed.svg';
+import StyledQuestionFailed from './styles';
 
 import { Theme } from '../../../../../Styles';
 import QuestionInfo from '../../molecules/QuestionInfo';
@@ -20,6 +20,7 @@ const buttonStyle = {
   gap: 8,
 };
 
+// TODO: retryRequestCount 추가 후 재질문 횟수에 맞게 화면 수정
 export default function QuestionFailed({ retryForm, setRetryRequest, QuestionFormData, type }) {
   return (
     <StyledQuestionFailed>
@@ -52,7 +53,7 @@ export default function QuestionFailed({ retryForm, setRetryRequest, QuestionFor
           <Text
             size="14px"
             color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-            label="다시 물어보기"
+            label="질문 다시하기"
             bold="700"
           />
         </Button>
@@ -72,4 +73,5 @@ QuestionFailed.propTypes = {
     ContentsValue: PropTypes.string,
     ContentsChange: PropTypes.func,
   }).isRequired,
+  // retryRequestCount: PropTypes.number.isRequired,
 };
