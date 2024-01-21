@@ -1,14 +1,14 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import StyledFeedback from './styles';
-import FeedbackSelect from '../../molecules/FeedbackSelect';
-import Text from '../../../../../components/atoms/Text';
-import Form from '../../../../../components/molecules/Form';
-import Textarea from '../../../../../components/atoms/Textarea';
-import Button from '../../../../../components/atoms/Button';
+import React from 'react';
 import { Theme } from '../../../../../Styles';
-import useFeedback from '../../../hooks/useFeedback';
+import Button from '../../../../../components/atoms/Button';
+import Text from '../../../../../components/atoms/Text';
+import Textarea from '../../../../../components/atoms/Textarea';
+import Form from '../../../../../components/molecules/Form';
 import Toast from '../../../../../components/molecules/Toast';
+import useFeedback from '../../../hooks/useFeedback';
+import FeedbackSelect from '../../molecules/FeedbackSelect';
+import StyledFeedback from './styles';
 
 export default function QuestionEmotionForm({ type, quesionId }) {
   const firstChar = type.charAt(0).toUpperCase() + type.slice(1);
@@ -25,7 +25,7 @@ export default function QuestionEmotionForm({ type, quesionId }) {
     <StyledFeedback type={type}>
       <Form>
         <Text
-          label={`${firstChar} 가 도움이 되셨나요?`}
+          label={type === 'sara' ? '도움됐샤?' : '도움됐먀?'}
           bold="700"
           size="16px"
           color={Theme.color.midGray}

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Theme } from '../../../../../Styles';
 
 const StyledAnswerContent = styled.section`
   margin-bottom: 24px;
@@ -7,7 +8,15 @@ const StyledAnswerContent = styled.section`
   .title {
     display: flex;
     justify-content: center;
-    gap: 4px;
+    ${Theme.deviceSize.large} {
+      gap: 8px;
+    }
+    ${Theme.deviceSize.medium} {
+      gap: 6px;
+    }
+    ${Theme.deviceSize.small} {
+      gap: 6px;
+    }
     align-items: flex-end;
     margin-bottom: 16px;
   }
