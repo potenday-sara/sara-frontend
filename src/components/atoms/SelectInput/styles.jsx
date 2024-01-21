@@ -17,6 +17,10 @@ const StyledSelectInput = styled.form`
     outline: none;
     border: none;
     z-index: 0;
+
+    ${Theme.deviceSize.medium} {
+      font-size: 14px;
+    }
   }
 
   .icon {

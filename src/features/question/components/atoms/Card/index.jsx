@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Theme } from '../../../../../Styles';
 import Text from '../../../../../components/atoms/Text';
-import rocket from '../../../assets/temp/rocket.jpg';
+import rocket from '../../../assets/temp/rocket.png';
 import StyledCard from './styles';
 
 function Card({

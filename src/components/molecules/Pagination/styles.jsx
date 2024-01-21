@@ -6,6 +6,7 @@ const StyledPagination = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 6px;
   ${Theme.deviceSize.large} {
     gap: 8px;
   }
@@ -17,8 +18,9 @@ const StyledPagination = styled.div`
     opacity: 0.5;
   }
   .button {
-    width: 32px;
-    ${Theme.deviceSize.large} {
+    width: 24px;
+    height: 24px;
+    /* ${Theme.deviceSize.large} {
       height: 33px;
     }
     ${Theme.deviceSize.medium} {
@@ -27,7 +29,7 @@ const StyledPagination = styled.div`
     ${Theme.deviceSize.small} {
       height: 32px;
       width: 56px;
-    }
+    } */
   }
 `;
 
