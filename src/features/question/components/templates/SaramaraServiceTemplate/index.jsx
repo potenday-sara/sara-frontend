@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import useQuestion from '../../../hooks/useQuestion';
@@ -25,7 +26,7 @@ export default function SaramaraServiceTemplate({ type }) {
   const navigate = useNavigate();
 
   return (
-    <StyledSaramaraServiceTemplate>
+    <StyledSaramaraServiceTemplate $type={type}>
       {stage === 'initial' && (
         <>
           <SaramaraForm type={type} QuestionFormData={QuestionFormData} SubmitQuestion={SubmitQuestion} />

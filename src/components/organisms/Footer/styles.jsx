@@ -3,20 +3,29 @@ import { Theme } from '../../../Styles';
 
 const StyledFooter = styled.footer`
   background: transparent;
-  width: 100%;
   height: 64px;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 30px;
+  display: grid;
+  grid-template-columns: auto 1fr;
 
-  p {
-    font-weight: 500;
-    font-size: 10px;
-    color: #0000004d;
+  /* justify-content: center; */
+  align-items: center;
+  column-gap: 24px;
+  margin-left: 40px;
+  .texts {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    span {
+      font-weight: 500;
+      font-size: 10px;
+      color: #0000004d;
+    }
   }
+
   ${Theme.deviceSize.small} {
     min-width: auto;
+    margin-left: 24px;
   }
 `;
 

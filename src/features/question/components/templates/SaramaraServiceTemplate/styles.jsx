@@ -11,10 +11,10 @@ const StyledSaramaraServiceTemplate = styled.section`
   height: auto;
   min-height: 400px;
   margin: auto;
-  padding: 40px 24px;
+  padding: 56px 12px;
   background-color: white;
   border-radius: 24px;
-  box-shadow: 0px 4px 24px 0px rgba(239, 43, 0, 0.1);
+  box-shadow: 0px 4px 24px 0px ${({ $type }) => ($type === 'sara' ? 'rgba(0, 123, 237, 0.1)' : 'rgba(239, 43, 0, 0.1)')};
   .tag {
     background-color: red;
 

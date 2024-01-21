@@ -121,9 +121,6 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
             className={isInputing(QuestionFormData.ContentsValue) ? `${type}-inputing ${type}-input` : `${type}-input`}
             id="contents"
             h="88px"
-            style={{
-              padding: '24px 32px',
-            }}
             value={QuestionFormData.ContentsValue}
             onChange={contentChange}
             ph="고민하고있는 이유를 알려주세요! &#13; ex)비싸서 / 유행인데 사도될까?"

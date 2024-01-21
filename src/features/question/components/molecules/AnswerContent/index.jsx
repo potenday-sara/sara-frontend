@@ -6,9 +6,9 @@ import Text from '../../../../../components/atoms/Text';
 import Title from '../../../../../components/molecules/Title';
 import StyledAnswerContent from './styles';
 
-export default function AnswerContent({ type, answer }) {
+export default function AnswerContent({ type, answer, ...rest }) {
   return (
-    <StyledAnswerContent>
+    <StyledAnswerContent {...rest}>
       <Title>
         {type === 'sara' ? (
           <>
@@ -30,8 +30,10 @@ export default function AnswerContent({ type, answer }) {
 AnswerContent.propTypes = {
   type: PropTypes.oneOf(['sara', 'mara']).isRequired,
   answer: PropTypes.string,
+  style: PropTypes.shape({}),
 };
 
 AnswerContent.defaultProps = {
   answer: '',
+  style: {},
 };

@@ -1,11 +1,13 @@
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import React from 'react';
+
 import { useNavigate } from 'react-router';
 import { Theme } from '../../../../../Styles';
 import Button from '../../../../../components/atoms/Button';
 import Logo from '../../../../../components/atoms/Logo';
 import Text from '../../../../../components/atoms/Text';
 import Title from '../../../../../components/molecules/Title';
+import useInterval from '../../../hooks/useInterval';
 import AnswerContent from '../../molecules/AnswerContent';
 import QuestionInfo from '../../molecules/QuestionInfo';
 import QuestionFeedback from '../QuestionEmotionForm';
@@ -19,11 +21,29 @@ const buttonStyle = {
 };
 
 export default function QuestionAnwser({ type, answer, QuestionFormData, quesionId, refreshForm }) {
+  const completedAnswer = answer;
+  const [landingAnswer, setLandingAnswer] = useState(answer);
+  const [count, setCount] = useState(0);
+
+  useInterval(() => {
+    if (count >= completedAnswer.length) {
+      return;
+    }
+
+    setLandingAnswer((prev) => {
+      const result = prev ? prev + completedAnswer[count] : completedAnswer[0];
+
+      setCount((prevCount) => prevCount + 1);
+      return result;
+    });
+  }, 50);
   const navigate = useNavigate('');
   const QuestionNavigator = (from) => {
     refreshForm();
     navigate(from);
   };
+
+  console.log(answer);
   return (
     <StyledQuestionAnswer>
       <section className="question-top">
@@ -45,7 +65,10 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
           className="logo"
           logoType={type === 'sara' ? 'SaraCircleCharacter' : 'MaraCircleCharacter'}
         />
-        <AnswerContent type={type} answer={answer} />
+        <div style={{ position: 'relative' }}>
+          <AnswerContent type={type} answer={landingAnswer} style={{ position: 'absolute' }} />
+          <AnswerContent type={type} answer={landingAnswer} style={{ visibility: 'hidden' }} />
+        </div>
         <div className="button-wrap">
           <Button
             bg={type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary}

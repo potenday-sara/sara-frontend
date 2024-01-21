@@ -26,7 +26,7 @@ export default function CounpangRecommend({ type }) {
     maxPage,
   } = useCoupang();
   return (
-    <StyledCounpoangRecommend>
+    <StyledCounpoangRecommend $type={type}>
       <Title style={{ gap: 0, padding: 0, justifyContent: 'flex-end', alignItems: 'center' }}>
         {!categoryLoading && (
           <Select
@@ -40,6 +40,7 @@ export default function CounpangRecommend({ type }) {
               <Dropdown
                 trigger={
                   <SelectInput
+                    type={type}
                     value={nowCategory.value}
                     bg={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
                   />
@@ -58,18 +59,21 @@ export default function CounpangRecommend({ type }) {
             </Select.List>
           </Select>
         )}
+
         <Text
-          label="바로&nbsp;&nbsp;"
+          className="title-text"
+          label={type === 'sara' ? '바로' : '사지'}
           size="16px"
           color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
           bold="700"
+          style={{ margin: '0px 6px 5px', alignSelf: 'flex-end' }}
         />
         <Logo
           w="77px"
-          h="36px"
+          h="50%"
           logoType={type === 'sara' ? 'SaraTextOnly' : 'MaraTextOnly'}
           fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-          style={{}}
+          style={{ alignSelf: 'flex-end', marginBottom: '5px' }}
         />
       </Title>
       <Cards datas={showingData} />

@@ -3,7 +3,7 @@ import { Theme } from '../../../../../Styles';
 
 const StyledQuestionAnswer = styled.section`
   width: 100%;
-
+  position: relative;
   .question-top {
     width: 100%;
     display: flex;

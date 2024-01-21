@@ -18,18 +18,18 @@ const StyledSaramaraForm = styled.div`
   gap: calc(20px + 4 * (100vw - 1200px) / 750);
 
   .type-logo {
-    width: 50%;
+    width: 55%;
   }
 
   .character-logo {
     min-width: 180px;
     max-width: 212px;
-    width: 65%;
+    width: 55%;
   }
   .form {
     display: grid;
     align-items: center;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: auto 1fr;
     grid-template-rows: 21px 72px 21px 106px 56px;
     grid-auto-flow: row;
     .input {
@@ -40,6 +40,10 @@ const StyledSaramaraForm = styled.div`
 
     .button {
       grid-column: 1 / 3;
+    }
+
+    textarea {
+      padding: 24px 32px;
     }
   }
 
@@ -61,6 +65,25 @@ const StyledSaramaraForm = styled.div`
   .failed-submit {
     animation: ${vibration} 0.1s alternate;
   }
+  ${Theme.deviceSize.medium} {
+    .form {
+      grid-template-rows: 19px 67px 19px 88px 56px;
+
+      input {
+        margin-bottom: 12px;
+        height: 49px;
+      }
+
+      textarea {
+        height: 66px;
+        padding: 16px 32px;
+      }
+    }
+
+    .button {
+      border-radius: 10px;
+    }
+  }
 
   ${Theme.deviceSize.small} {
     gap: 8px;
@@ -75,12 +98,10 @@ const StyledSaramaraForm = styled.div`
       display: grid;
       align-items: center;
       grid-template-columns: 1fr 2fr;
-      grid-template-rows: 21px 72px 21px 106px 56px;
       grid-auto-flow: row;
       .input {
         margin-top: 8px;
         grid-column: 1 / 3;
-        margin-bottom: 16px;
       }
 
       .button {
