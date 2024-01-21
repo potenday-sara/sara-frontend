@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { useNavigate } from 'react-router';
@@ -21,10 +21,13 @@ const buttonStyle = {
 };
 
 export default function QuestionAnwser({ type, answer, QuestionFormData, quesionId, refreshForm }) {
-  const completedAnswer = answer;
-  const [landingAnswer, setLandingAnswer] = useState(answer);
+  const [completedAnswer, setCompletedAnswer] = useState('');
+  const [landingAnswer, setLandingAnswer] = useState('');
   const [count, setCount] = useState(0);
 
+  useEffect(() => {
+    setCompletedAnswer(answer);
+  }, [answer]);
   useInterval(() => {
     if (count >= completedAnswer.length) {
       return;
@@ -32,7 +35,6 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
 
     setLandingAnswer((prev) => {
       const result = prev ? prev + completedAnswer[count] : completedAnswer[0];
-
       setCount((prevCount) => prevCount + 1);
       return result;
     });
@@ -43,7 +45,6 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
     navigate(from);
   };
 
-  console.log(answer);
   return (
     <StyledQuestionAnswer>
       <section className="question-top">

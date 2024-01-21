@@ -45,6 +45,10 @@ const StyledSaramaraForm = styled.div`
     textarea {
       padding: 24px 32px;
     }
+
+    p {
+      white-space: nowrap !important;
+    }
   }
 
   .alert {
