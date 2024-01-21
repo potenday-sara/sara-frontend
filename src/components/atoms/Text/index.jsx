@@ -16,30 +16,10 @@ export const getBoldCode = (bold) => {
   }
 };
 
-const getTextSize = (size) => {
-  switch (size) {
-    case 'xs':
-      return '14px';
-    case 'sm':
-      return '16px';
-
-    case 'md':
-      return '18px';
-    case 'lg':
-      return '20px';
-
-    case 'xl':
-      return '24px';
-
-    default:
-      return size;
-  }
-};
-
 const StyledText = styled.p`
   color: ${({ color }) => color || Theme.color.black};
   font-weight: ${({ bold }) => getBoldCode(bold)};
-  font-size: ${({ size }) => getTextSize(size)};
+  font-size: ${({ size }) => size || 'inherit'};
   font-family: Pretendard;
   white-space: pre-line;
 `;
@@ -60,20 +40,20 @@ export default function Text({ label, ...rest }) {
 }
 
 Text.propTypes = {
+  className: PropTypes.string,
   bold: PropTypes.string,
   size: PropTypes.string,
   color: PropTypes.string,
   label: PropTypes.string,
-  className: PropTypes.string,
   onClick: PropTypes.func,
   style: PropTypes.shape({}),
 };
 
 Text.defaultProps = {
-  bold: 'md',
-  size: 'md',
-  label: '',
   className: '',
+  bold: 'md',
+  size: '',
+  label: '',
   onClick: undefined,
   style: {},
   color: 'black',

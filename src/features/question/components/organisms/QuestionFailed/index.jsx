@@ -1,13 +1,14 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import StyledQuestionFailed from './styles';
+import React from 'react';
+import Button from '../../../../../components/atoms/Button';
 import Logo from '../../../../../components/atoms/Logo';
-import SaraFildedCharacter from '../../../assets/SaraQuestionFailled.png';
-import MaraFildedCharacter from '../../../assets/MaraFildedCharacter.png';
 import Progressbar from '../../../../../components/atoms/Progressbar';
 import Text from '../../../../../components/atoms/Text';
-import Title from '../../../../../components/molecules/Title';
-import Button from '../../../../../components/atoms/Button';
+import MaraFildedCharacter from '../../../assets/MaraQuestionFailed.png';
+import SaraFildedCharacter from '../../../assets/SaraQuestionFailed.png';
+import { ReactComponent as MaraFailedMix } from '../../../assets/marafailedmixed.svg';
+import { ReactComponent as SaraFailedMix } from '../../../assets/sarafailedmixed.svg';
+import StyledQuestionFailed from './styles';
 
 import { Theme } from '../../../../../Styles';
 import QuestionInfo from '../../molecules/QuestionInfo';
@@ -19,35 +20,24 @@ const buttonStyle = {
   gap: 8,
 };
 
+// TODO: retryRequestCount 추가 후 재질문 횟수에 맞게 화면 수정
 export default function QuestionFailed({ retryForm, setRetryRequest, QuestionFormData, type }) {
   return (
     <StyledQuestionFailed>
-      <Logo w="148px" logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'} />
-      <img src={type === 'sara' ? SaraFildedCharacter : MaraFildedCharacter} alt="사라 질문 실패 이미지" />
-      <Progressbar
-        w="212px"
-        h="20px"
-        label={<Text style={{ zIndex: 2, fontSize: 10 }} label="남은시간" bold="sm" color="white" size="xs" />}
+      <Logo
+        w="50%"
+        className="logo"
+        logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'}
       />
-      <Title style={{ justifyContent: 'center', padding: '8 0 10' }}>
-        <Logo
-          w="60px"
-          logoType={type === 'sara' ? 'SaraTextOnly' : 'MaraTextOnly'}
-          style={{
-            marginBottom: 2,
-          }}
-          fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-        />
-        <Text
-          label="가 아직 생각할 시간이 부족하대요..!"
-          size="16px"
-          bold="700"
-          color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-        />
-      </Title>
+      <div
+        className="failedCharacter"
+        style={{ backgroundImage: type === 'sara' ? `url(${SaraFildedCharacter})` : `url(${MaraFildedCharacter})` }}
+      />
+      <Progressbar w="60%" h="14px" className="logo" />
+      {type === 'sara' ? <SaraFailedMix width="80%" /> : <MaraFailedMix width="80%" />}
       <div className="button-wrap">
         <Button
-          h="56px"
+          h="49px"
           bg={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
           style={buttonStyle}
           onClick={setRetryRequest}
@@ -55,7 +45,7 @@ export default function QuestionFailed({ retryForm, setRetryRequest, QuestionFor
           <Text size="14px" color={Theme.color.white} label="10초 더 주기" bold="700" />
         </Button>
         <Button
-          h="56px"
+          h="49px"
           onClick={retryForm}
           bg={type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary}
           style={buttonStyle}
@@ -63,7 +53,7 @@ export default function QuestionFailed({ retryForm, setRetryRequest, QuestionFor
           <Text
             size="14px"
             color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-            label="다시 물어보기"
+            label="질문 다시하기"
             bold="700"
           />
         </Button>
@@ -83,4 +73,5 @@ QuestionFailed.propTypes = {
     ContentsValue: PropTypes.string,
     ContentsChange: PropTypes.func,
   }).isRequired,
+  // retryRequestCount: PropTypes.number.isRequired,
 };

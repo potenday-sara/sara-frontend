@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Theme } from '../../../../../Styles';
 
 const StyledQuestionLoading = styled.main`
   display: flex;
@@ -22,6 +23,26 @@ const StyledQuestionLoading = styled.main`
   .flex {
     display: flex;
     align-items: flex-end;
+  }
+
+  ${Theme.deviceSize.medium} {
+    gap: 20px;
+    .recommend-coupang {
+      gap: 10px;
+      padding-bottom: 20px;
+    }
+  }
+  ${Theme.deviceSize.large} {
+    gap: 24px;
+    .recommend-coupang {
+      gap: 12px;
+      padding-bottom: 24px;
+    }
+  }
+  ${Theme.deviceSize.small} {
+    .logo {
+      width: 134px;
+    }
   }
 `;
 

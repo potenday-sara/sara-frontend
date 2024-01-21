@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import StyledDropdown, { StyledDropdownItem } from './styles';
 import Text from '../Text';
 
-function Dropdown({ trigger, children }) {
+function Dropdown({ trigger, children, ...rest }) {
   const [showDropdown, setShowDropdown] = useState(false);
   useEffect(() => {
     const clickBody = () => {
@@ -21,7 +21,7 @@ function Dropdown({ trigger, children }) {
     setShowDropdown((prev) => !prev);
   };
   return (
-    <StyledDropdown>
+    <StyledDropdown {...rest}>
       {cloneElement(trigger, { onClick: clickTrigger })}
       {showDropdown && <div className="selects">{children}</div>}
     </StyledDropdown>
@@ -30,7 +30,12 @@ function Dropdown({ trigger, children }) {
 
 Dropdown.propTypes = {
   trigger: PropTypes.node.isRequired,
+  style: PropTypes.shape({}),
   children: PropTypes.node.isRequired,
+};
+
+Dropdown.defaultProps = {
+  style: {},
 };
 
 function Item({ label, ...rest }) {

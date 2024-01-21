@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StyledCard from './styles';
-import rocket from '../../../assets/temp/rocket.jpg';
-import Text from '../../../../../components/atoms/Text';
 import { Theme } from '../../../../../Styles';
+import Text from '../../../../../components/atoms/Text';
+import rocket from '../../../assets/temp/rocket.png';
+import StyledCard from './styles';
 
 function Card({
   is_rocket: isRocket,
@@ -13,7 +13,6 @@ function Card({
   product_url: productUrl,
   ...rest
 }) {
-  const sliceTitle = (str) => (str.length > 20 ? `${str.slice(0, 20)}...` : str);
   const localePrice = price.toLocaleString();
   return (
     <StyledCard onClick={() => rest.onClick(productUrl)}>
@@ -25,8 +24,14 @@ function Card({
       />
 
       <div className="contents">
-        <Text label={sliceTitle(label)} color={Theme.color.midGray} size="14px" bold="700" />
-        <Text label={`${localePrice}원`} color={Theme.color.darkGray} size="16px" bold="500" />
+        <Text className="CoupangCard__Item" label={label} color={Theme.color.midGray} size="14px" bold="700" />
+        <Text
+          className="CoupangCard__Price"
+          label={`${localePrice}원`}
+          color={Theme.color.darkGray}
+          size="16px"
+          bold="500"
+        />
         {isRocket && (
           <div
             className="rocket"

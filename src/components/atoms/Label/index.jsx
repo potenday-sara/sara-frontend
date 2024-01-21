@@ -13,11 +13,12 @@ export default function Label({ htmlFor, text, ...rest }) {
 Label.propTypes = {
   text: PropTypes.node,
   htmlFor: PropTypes.string.isRequired,
-  m: PropTypes.string.isRequired,
+  m: PropTypes.string,
   className: PropTypes.string,
 };
 
 Label.defaultProps = {
   text: null,
+  m: '',
   className: '',
 };

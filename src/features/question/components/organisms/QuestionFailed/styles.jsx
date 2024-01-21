@@ -7,15 +7,26 @@ const StyledQuestionFailed = styled.main`
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 18px;
 
+  .failedCharacter {
+    width: 60%;
+    background-size: cover;
+    aspect-ratio: 1 / 1;
+  }
   .button-wrap {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 5px;
     padding-bottom: 18px;
     border-bottom: 1px solid ${Theme.color.gray};
+  }
+
+  ${Theme.deviceSize.medium} {
+    gap: 20px;
+  }
+  ${Theme.deviceSize.large} {
+    gap: 24px;
   }
 `;
 

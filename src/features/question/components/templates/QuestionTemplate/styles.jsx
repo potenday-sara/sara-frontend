@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { Theme } from '../../../../../Styles';
 
 const StyledQuestionTemplate = styled.main`
   width: auto;
-  min-width: 1400px;
+  min-width: 1200px;
   position: relative;
   background-color: ${({ bg }) => bg || null};
   padding-bottom: 80px;
@@ -17,7 +18,7 @@ const StyledQuestionTemplate = styled.main`
     height: 100%;
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: minmax(auto, 1fr) minmax(368px, 1fr) 1fr;
+    grid-template-columns: 1fr auto 1fr;
     gap: 54px;
     grid-row-gap: 10px;
     grid-auto-rows: auto;
@@ -34,6 +35,20 @@ const StyledQuestionTemplate = styled.main`
     top: 50%;
     transform: translate(0, -50%);
     width: 100%;
+  }
+
+  ${Theme.deviceSize.small} {
+    min-width: 362px;
+
+    .grid {
+      width: 100%;
+      justify-content: center;
+      display: grid;
+      grid-template-rows: auto auto auto;
+      grid-template-columns: 100%;
+      justify-content: center;
+      gap: 8px;
+    }
   }
 `;
 

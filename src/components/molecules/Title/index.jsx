@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import StyledTitle from './styles';
 
 function Title({ children, ...rest }) {
-  return <StyledTitle {...rest}>{children}</StyledTitle>;
+  return (
+    <StyledTitle {...rest} className="title">
+      {children}
+    </StyledTitle>
+  );
 }
 
 Title.propTypes = {

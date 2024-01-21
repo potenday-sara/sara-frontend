@@ -7,7 +7,7 @@ import Text from '../../../../../components/atoms/Text';
 
 function MainNavbar({ ...rest }) {
   return (
-    <StyledNavbar {...rest}>
+    <StyledNavbar {...rest} className="navbar">
       <div className="navbar-left" />
       <div className="navbar-center" />
       <div className="navbar-right">

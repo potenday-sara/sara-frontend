@@ -18,6 +18,7 @@ Progressbar.propTypes = {
   color: PropTypes.string,
   progress: PropTypes.number,
   label: PropTypes.node,
+  className: PropTypes.string,
 };
 
 Progressbar.defaultProps = {
@@ -26,5 +27,6 @@ Progressbar.defaultProps = {
   bg: '',
   color: '',
   label: '',
+  className: '',
   progress: 0,
 };

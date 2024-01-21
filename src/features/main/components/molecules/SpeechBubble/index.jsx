@@ -20,8 +20,15 @@ export default function TitleBubble({ type }) {
       <TitleLines type={type} />
       {type === 'sara' ? (
         <>
-          <Text label="사야할 것과 망설이는 이유를 말해주세요!" size="md" bold="lg" color={Theme.color.saraPrimary} />
           <Text
+            className="sub-title"
+            label="사야할 것과 망설이는 이유를 말해주세요!"
+            size="md"
+            bold="lg"
+            color={Theme.color.saraPrimary}
+          />
+          <Text
+            className="caption"
             style={textStyles}
             size="xs"
             bold="sm"
@@ -32,12 +39,14 @@ export default function TitleBubble({ type }) {
       ) : (
         <>
           <Text
+            className="sub-title"
             label="사지 말아야 할 것과 망설이는 이유를 말해주세요."
             size="md"
             bold="lg"
             color={Theme.color.maraPrimary}
           />
           <Text
+            className="caption"
             style={textStyles}
             label={`Mara가 객관적인 정보와 기준을 토대로,\n불매 결정을 내리는 데 도움을 줄 거예요!`}
             size="xs"

@@ -14,7 +14,11 @@ export default function CharacterLogo({ ...rest }) {
     <StyledCharacterLogo {...rest}>
       {rest.$isType && rest.type === 'sara' ? <SaraBackText className="back back-sara" /> : null}
       {rest.$isType && rest.type === 'mara' ? <MaraBackText className="back back-mara" /> : null}
-      {rest.type === 'sara' ? <CharacterSara /> : <CharacterMara />}
+      {rest.type === 'sara' ? (
+        <CharacterSara className="sara-character" />
+      ) : (
+        <CharacterMara className="mara-character" />
+      )}
     </StyledCharacterLogo>
   );
 }

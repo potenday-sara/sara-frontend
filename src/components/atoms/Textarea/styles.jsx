@@ -23,6 +23,38 @@ const StyledTextarea = styled.textarea`
     font-size: 14px;
     font-weight: 500;
   }
+  &.sara-input {
+    &:focus {
+      outline: 1.5px solid #007bed;
+    }
+  }
+
+  &.mara-input {
+    &:focus {
+      outline: 1.5px solid #ef2b00;
+    }
+  }
+
+  &.sara-inputing {
+    letter-spacing: 0cm;
+    font-weight: 700;
+    border: 1px solid #007bed;
+  }
+
+  &.sara-input {
+    letter-spacing: 0cm;
+    &:focus {
+      letter-spacing: 0cm;
+      font-weight: 500;
+      outline: 1.5px solid #007bed;
+    }
+  }
+
+  &.mara-input {
+    &:focus {
+      outline: 1.5px solid #ef2b00;
+    }
+  }
 `;
 
 export default StyledTextarea;

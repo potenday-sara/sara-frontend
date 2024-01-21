@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { Theme } from '../../../../../Styles';
 
 const StyledQuestionAnswer = styled.section`
   width: 100%;
-
+  position: relative;
   .question-top {
     width: 100%;
     display: flex;
@@ -30,10 +31,38 @@ const StyledQuestionAnswer = styled.section`
     justify-content: center;
     align-items: center;
     gap: 8px;
+    .title {
+      justify-content: center;
+      p {
+        line-height: 95%;
+      }
+    }
   }
   .answer-bottom {
     width: 100%;
     margin: 24px 0px 0px;
+  }
+
+  ${Theme.deviceSize.large} {
+    .button-wrap {
+      .button {
+        border-radius: 12px;
+        height: 52px;
+      }
+    }
+  }
+  ${Theme.deviceSize.medium} {
+    .button-wrap {
+      .button {
+        border-radius: 10px;
+        height: 48px;
+      }
+    }
+  }
+  ${Theme.deviceSize.small} {
+    .logo {
+      width: 134px;
+    }
   }
 `;
 

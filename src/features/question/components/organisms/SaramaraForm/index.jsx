@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Theme } from '../../../../../Styles';
-import Form from '../../../../../components/molecules/Form';
-import Label from '../../../../../components/atoms/Label';
-import Input from '../../../../../components/atoms/Input';
-import Textarea from '../../../../../components/atoms/Textarea';
 import Button from '../../../../../components/atoms/Button';
-import Text from '../../../../../components/atoms/Text';
-import StyledSaramaraForm from './styles';
+import Input from '../../../../../components/atoms/Input';
+import Label from '../../../../../components/atoms/Label';
 import Logo from '../../../../../components/atoms/Logo';
+import Text from '../../../../../components/atoms/Text';
+import Textarea from '../../../../../components/atoms/Textarea';
+import Form from '../../../../../components/molecules/Form';
+import StyledSaramaraForm from './styles';
 
 const checkItemLength = (string) => string.length > 0 && string.length <= 30;
 const checkContentLegth = (string) => string.length > 4 && string.length <= 200;
@@ -57,42 +57,70 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
       setContentError(false);
     }
   };
+
+  const checkDisabled = () => {
+    return !QuestionFormData.ItemValue && !QuestionFormData.ContentsValue;
+  };
+
+  const isInputing = (text) => {
+    return !!text.length;
+  };
+
   return (
     <StyledSaramaraForm>
       <Logo
+        className="type-logo"
         style={{
           cursor: 'pointer',
         }}
         onClick={() => navigate('/')}
-        w="148px"
         logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'}
       />
-      <Logo w="180px" m="24px" logoType={type === 'sara' ? 'SaraCircleCharacter' : 'MaraCircleCharacter'} />
+      <Logo className="character-logo" logoType={type === 'sara' ? 'SaraCircleCharacter' : 'MaraCircleCharacter'} />
       <Form onSubmit={(e) => onSubmit(e)}>
         <Form.Label>
           <Label
             htmlFor="item"
-            text={<Text bold="700" size="14px" label="어떤걸 사고싶어?" color={Theme.color.midGray} />}
+            text={
+              <Text
+                bold="700"
+                size="14px"
+                label={type === 'sara' ? '어떤 걸 사고싶샤?' : '뭘 사고 싶먀?'}
+                color={Theme.color.midGray}
+              />
+            }
           />
         </Form.Label>
         <Form.Error>{itemError ? <Text label="1자 ~ 30자 이내로 입력해주세요" size="13px" /> : null}</Form.Error>
         <Form.Input isError={itemError}>
-          <Input id="item" h="56px" ph="블루투스 이어폰" value={QuestionFormData.ItemValue} onChange={ItemChange} />
+          <Input
+            id="item"
+            h="56px"
+            ph="블루투스 이어폰"
+            className={isInputing(QuestionFormData.ItemValue) ? `${type}-inputing ${type}-input` : `${type}-input`}
+            value={QuestionFormData.ItemValue}
+            onChange={ItemChange}
+          />
         </Form.Input>
         <Form.Label className="second-input">
           <Label
             htmlFor="contents"
-            text={<Text bold="700" size="14px" label="왜 고민하고 있어?" color={Theme.color.midGray} />}
+            text={
+              <Text
+                bold="700"
+                size="14px"
+                label={type === 'sara' ? '왜 고민하고 있샤?' : '뭔데 고민하고 있먀?'}
+                color={Theme.color.midGray}
+              />
+            }
           />
         </Form.Label>
         <Form.Error>{contentError ? <Text label="5자 ~ 200자 이내로 입력해주세요" size="13px" /> : null}</Form.Error>
         <Form.Input isError={contentError}>
           <Textarea
+            className={isInputing(QuestionFormData.ContentsValue) ? `${type}-inputing ${type}-input` : `${type}-input`}
             id="contents"
             h="88px"
-            style={{
-              padding: '24px 32px',
-            }}
             value={QuestionFormData.ContentsValue}
             onChange={contentChange}
             ph="고민하고있는 이유를 알려주세요! &#13; ex)비싸서 / 유행인데 사도될까?"
@@ -101,14 +129,15 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
 
         <Form.Button>
           <Button
-            className={failedSubmit ? 'failed-submit' : ''}
-            h="56px"
-            bg={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+            className={
+              failedSubmit ? `${type}-basic failed-submit` : checkDisabled() ? `${type}-disabled` : `${type}-basic`
+            }
             type="submit"
+            disabled={checkDisabled()}
             onClick={onSubmit}
           >
             <Text
-              label={`${QuestionFormData?.ItemValue || ''} 사야할까?`}
+              label={`고민하는 물건을 ${type === 'sara' ? '사고 싶샤?' : '사도 될 것 같먀?'}`}
               size="14px"
               bold="700"
               color={Theme.color.white}

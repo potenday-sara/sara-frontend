@@ -1,25 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Autoplay } from 'swiper';
+import 'swiper/swiper-bundle.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import StyledSlider from './styles';
+import StyledHorizonSlider from './styles';
 import QuestionCard from '../../atoms/QuestionCard';
 
-function Slider({ datas, type }) {
+function HorizonSlider({ datas, type }) {
   return (
-    <StyledSlider>
+    <StyledHorizonSlider type={type}>
       <Swiper
+        modules={[Autoplay]}
+        className="mySwiper"
         speed={3000}
-        slidesPerView={4}
+        slidesPerView={4.5}
+        spaceBetween={1}
         loop
-        touchRatio={0}
         autoplay={{
           delay: 0,
           disableOnInteraction: false,
         }}
         direction="vertical"
-        modules={[Autoplay]}
-        className="mySwiper"
       >
         {datas?.map(({ content, product }, idx) => {
           return (
@@ -32,11 +33,11 @@ function Slider({ datas, type }) {
           );
         })}
       </Swiper>
-    </StyledSlider>
+    </StyledHorizonSlider>
   );
 }
 
-Slider.propTypes = {
+HorizonSlider.propTypes = {
   type: PropTypes.oneOf(['sara', 'mara']).isRequired,
   datas: PropTypes.arrayOf(
     PropTypes.shape({
@@ -49,7 +50,7 @@ Slider.propTypes = {
   ),
 };
 
-Slider.defaultProps = {
+HorizonSlider.defaultProps = {
   datas: [],
 };
-export default Slider;
+export default HorizonSlider;

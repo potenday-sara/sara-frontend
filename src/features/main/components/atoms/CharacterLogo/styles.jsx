@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import getSelectedCss from '../../../styles/getSelectedStyle';
+import { Theme } from '../../../../../Styles';
 
 /**
  * $type을 바탕으로 css를 결정하는 함수입니다
@@ -27,6 +28,26 @@ const StyledCharacterLogo = styled.div`
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
+  }
+
+  ${Theme.deviceSize.small} {
+    display: flex;
+    margin-top: 30px;
+    justify-content: center;
+    .sara-character {
+      width: 100%;
+    }
+
+    .mara-character {
+      width: 90%;
+    }
+
+    max-width: 270px;
+    height: 30%;
+    .back {
+      width: 200%;
+      max-width: 90vw;
+    }
   }
 `;
 

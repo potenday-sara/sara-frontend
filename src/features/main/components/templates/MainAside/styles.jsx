@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Theme } from '../../../../../Styles';
 
 const StyledMainAside = styled.aside`
   position: relative;
@@ -9,6 +10,19 @@ const StyledMainAside = styled.aside`
   height: auto;
   .aside-top {
     margin: 40px 0px;
+  }
+
+  ${Theme.deviceSize.small} {
+    .aside-top,
+    .aside-head {
+      width: 100%;
+    }
+    .activated,
+    .aside-logo,
+    .aside-top,
+    .non-activated {
+      display: none;
+    }
   }
 `;
 
