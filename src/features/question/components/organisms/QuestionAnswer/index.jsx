@@ -67,7 +67,6 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
         />
         <div style={{ position: 'relative' }}>
           <AnswerContent type={type} answer={landingAnswer} style={{ position: 'absolute' }} />
-          <AnswerContent type={type} answer={landingAnswer} style={{ visibility: 'hidden' }} />
         </div>
         <div className="button-wrap">
           <Button
