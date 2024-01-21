@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import React from 'react';
+
 import { useNavigate } from 'react-router';
 import { Theme } from '../../../../../Styles';
 import Button from '../../../../../components/atoms/Button';

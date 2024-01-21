@@ -3,7 +3,6 @@ import { Theme } from '../../../Styles';
 
 const StyledFooter = styled.footer`
   background: transparent;
-  width: 100%;
   height: 64px;
   align-items: center;
   display: grid;
