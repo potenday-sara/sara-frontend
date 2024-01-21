@@ -26,7 +26,7 @@ export default function CounpangRecommend({ type }) {
     maxPage,
   } = useCoupang();
   return (
-    <StyledCounpoangRecommend>
+    <StyledCounpoangRecommend $type={type}>
       <Title style={{ gap: 0, padding: 0, justifyContent: 'flex-end', alignItems: 'center' }}>
         {!categoryLoading && (
           <Select
@@ -61,6 +61,7 @@ export default function CounpangRecommend({ type }) {
         )}
 
         <Text
+          className="title-text"
           label={type === 'sara' ? '바로' : '사지'}
           size="16px"
           color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}

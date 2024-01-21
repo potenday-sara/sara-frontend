@@ -6,7 +6,7 @@ const StyledCard = styled.div`
   height: 225px;
   border-radius: 16px;
   padding: 8px;
-  border: 1px solid #ddd;
+  border: 1px solid #eee;
 
   display: flex;
   flex-direction: column;
@@ -23,6 +23,7 @@ const StyledCard = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     box-sizing: border-box;
+    line-height: 17px;
   }
 
   ${Theme.deviceSize.large} {
@@ -32,6 +33,7 @@ const StyledCard = styled.div`
   ${Theme.deviceSize.medium} {
     width: 140px;
     height: 225px;
+    border-radius: 10px;
   }
 
   ${Theme.deviceSize.small} {
@@ -46,8 +48,12 @@ const StyledCard = styled.div`
     }
     .CoupangCard__Price {
       font-family: Pretendard;
-      color: #333;
+      color: #666;
       font-weight: 700;
+
+      ${Theme.deviceSize.medium} {
+        color: 14px;
+      }
     }
     .rocket {
       width: 60.8px;
@@ -66,6 +72,7 @@ const StyledCard = styled.div`
     ${Theme.deviceSize.medium} {
       width: 124px;
       height: 124px;
+      border: 8px;
     }
     ${Theme.deviceSize.small} {
       width: 76px;
@@ -85,6 +92,9 @@ const StyledCard = styled.div`
   .rocket {
     width: 68.4px;
     height: 18px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
   }
 `;
 

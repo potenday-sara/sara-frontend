@@ -24,7 +24,7 @@ export default function SaramaraServiceTemplate({ type }) {
   const navigate = useNavigate();
 
   return (
-    <StyledSaramaraServiceTemplate>
+    <StyledSaramaraServiceTemplate $type={type}>
       {stage === 'initial' && (
         <>
           <SaramaraForm type={type} QuestionFormData={QuestionFormData} SubmitQuestion={SubmitQuestion} />
