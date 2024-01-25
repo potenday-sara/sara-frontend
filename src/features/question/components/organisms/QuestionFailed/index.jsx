@@ -57,6 +57,7 @@ export default function QuestionFailed({ retryForm, setRetryRequest, QuestionFor
       <Progressbar w="60%" h="14px" className="logo" />
       <Text
         size="18px"
+        style={{ textAlign: 'center' }}
         label={type === 'sara' ? getRandomFailText(saraFailedTextArray) : getRandomFailText(maraFailedTextArray)}
         bold="700"
       />
