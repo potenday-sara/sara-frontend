@@ -20,8 +20,7 @@ export default function SaramaraServiceTemplate({ type }) {
     quesionId,
     gptAnswer,
     setRetryRequest,
-    // TODO: 재질문 횟수 관련 기획 추가 시 주석 해제
-    // retryRequestCount,
+    retryRequestCount,
   } = useQuestion(type);
   const navigate = useNavigate();
 
@@ -66,8 +65,7 @@ export default function SaramaraServiceTemplate({ type }) {
           type={type}
           QuestionFormData={QuestionFormData}
           setRetryRequest={setRetryRequest}
-          // TODO: 재질문 횟수 관련 기획 추가 시 주석 해제
-          // retryRequestCount={retryRequestCount}
+          retryRequestCount={retryRequestCount}
         />
       )}
     </StyledSaramaraServiceTemplate>

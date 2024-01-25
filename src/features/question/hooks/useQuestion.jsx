@@ -153,6 +153,7 @@ const useQuestion = (type) => {
     setStage(StageState.INITIAL);
     setRequestCount(0);
     setProgress(0);
+    setRetryRequestCount(0);
   };
 
   return {

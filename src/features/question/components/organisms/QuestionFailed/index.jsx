@@ -6,8 +6,6 @@ import Progressbar from '../../../../../components/atoms/Progressbar';
 import Text from '../../../../../components/atoms/Text';
 import MaraFildedCharacter from '../../../assets/MaraQuestionFailed.png';
 import SaraFildedCharacter from '../../../assets/SaraQuestionFailed.png';
-import { ReactComponent as MaraFailedMix } from '../../../assets/marafailedmixed.svg';
-import { ReactComponent as SaraFailedMix } from '../../../assets/sarafailedmixed.svg';
 import StyledQuestionFailed from './styles';
 
 import { Theme } from '../../../../../Styles';
@@ -19,9 +17,32 @@ const buttonStyle = {
   alignItems: 'center',
   gap: 8,
 };
+const MAX_RETRY_COUNT = 3;
 
-// TODO: retryRequestCount 추가 후 재질문 횟수에 맞게 화면 수정
-export default function QuestionFailed({ retryForm, setRetryRequest, QuestionFormData, type }) {
+export default function QuestionFailed({ retryForm, setRetryRequest, QuestionFormData, retryRequestCount, type }) {
+  const saraFailedTextArray = [
+    [
+      '이번엔 진짜 답을 줄 거예요...!',
+      '딱 10초면 진짜 답을 줄 거예요...!',
+      '(샤피셜)Sara에게 10초를 더 줬을 때,\n답변을 받을 확률은 97%!',
+    ],
+    ['어라라...? 뭔가 이상한 거 같기도...?'],
+    ['Sara에게 무슨 일이 있나봐요 ㅠ\n다시 질문해주실래요...?'],
+  ];
+  const maraFailedTextArray = [
+    [
+      '이번엔 진짜 답을 줄 거예요...!',
+      '딱 10초면 진짜 답을 줄 거예요...!',
+      '(먀피셜)Sara에게 10초를 더 줬을 때,\n답변을 받을 확률은 97% 입니다!',
+    ],
+    ['어라라...? 뭔가 이상한 거 같기도...?'],
+    ['Mara에게 무슨 일이 있나봐요 ㅠ\n다시 질문해주실래요...?'],
+  ];
+  const getRandomFailText = (arr) => {
+    const retryIndex = Math.min(retryRequestCount, MAX_RETRY_COUNT - 1);
+    return arr[retryIndex][Math.floor(Math.random() * arr[retryIndex].length)];
+  };
+
   return (
     <StyledQuestionFailed>
       <Logo
@@ -34,7 +55,12 @@ export default function QuestionFailed({ retryForm, setRetryRequest, QuestionFor
         style={{ backgroundImage: type === 'sara' ? `url(${SaraFildedCharacter})` : `url(${MaraFildedCharacter})` }}
       />
       <Progressbar w="60%" h="14px" className="logo" />
-      {type === 'sara' ? <SaraFailedMix width="80%" /> : <MaraFailedMix width="80%" />}
+      <Text
+        size="18px"
+        style={{ textAlign: 'center' }}
+        label={type === 'sara' ? getRandomFailText(saraFailedTextArray) : getRandomFailText(maraFailedTextArray)}
+        bold="700"
+      />
       <div className="button-wrap">
         <Button
           h="49px"
@@ -73,5 +99,5 @@ QuestionFailed.propTypes = {
     ContentsValue: PropTypes.string,
     ContentsChange: PropTypes.func,
   }).isRequired,
-  // retryRequestCount: PropTypes.number.isRequired,
+  retryRequestCount: PropTypes.number.isRequired,
 };

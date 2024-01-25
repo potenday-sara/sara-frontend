@@ -137,7 +137,9 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
             onClick={onSubmit}
           >
             <Text
-              label={`고민하는 물건을 ${type === 'sara' ? '사고 싶샤?' : '사도 될 것 같먀?'}`}
+              label={`${QuestionFormData.ItemValue || '고민되는 물건을 '} ${
+                type === 'sara' ? '사고 싶샤?' : '사도 될 것 같먀?'
+              }`}
               size="14px"
               bold="700"
               color={Theme.color.white}
