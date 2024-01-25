@@ -4,12 +4,10 @@ import { Theme } from '../../../../../Styles';
 import Logo from '../../../../../components/atoms/Logo';
 import Progressbar from '../../../../../components/atoms/Progressbar';
 import Text from '../../../../../components/atoms/Text/index';
-import { ReactComponent as MaraCoupangRecommed } from '../../../assets/CoupangMixedTitle/MaraCoupang.svg';
-import { ReactComponent as SaraCoupangRecommed } from '../../../assets/CoupangMixedTitle/SaraCoupang.svg';
 import usePreventLeave from '../../../hooks/usePreventLeave';
 import LoadingLottie from '../../atoms/LoadingLottie/index';
 import QuestionInfo from '../../molecules/QuestionInfo/index';
-import StyledQuestionLoading from './styles';
+import StyledQuestionLoading, { TipChip } from './styles';
 
 export default function QuestionLoading({ type, QuestionFormData, progress }) {
   const { onPreventLeave, offPreventLeave } = usePreventLeave();
@@ -50,11 +48,7 @@ export default function QuestionLoading({ type, QuestionFormData, progress }) {
         className="logo"
       />
       <div className="recommend-coupang">
-        {type === 'sara' ? (
-          <SaraCoupangRecommed width="90%" height="auto" />
-        ) : (
-          <MaraCoupangRecommed width="90%" height="auto" />
-        )}
+        <TipChip $color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}>질문 팁</TipChip>
         <Text label={randomText} color={Theme.color.midGray} style={{ textAlign: 'center' }} size="18px" bold="700" />
       </div>
       <QuestionInfo type={type} QuestionFormData={QuestionFormData} style={{ marginBottom: 24 }} />
