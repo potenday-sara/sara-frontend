@@ -7,7 +7,7 @@ import Button from '../../../../../components/atoms/Button';
 import Logo from '../../../../../components/atoms/Logo';
 import Text from '../../../../../components/atoms/Text';
 import Title from '../../../../../components/molecules/Title';
-import useInterval from '../../../hooks/useInterval';
+import useInterval from '../../../../../hooks/useInterval';
 import AnswerContent from '../../molecules/AnswerContent';
 import QuestionInfo from '../../molecules/QuestionInfo';
 import QuestionFeedback from '../QuestionEmotionForm';

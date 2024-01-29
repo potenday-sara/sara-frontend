@@ -18,7 +18,7 @@ const StyledProgressbar = styled.div`
     background-color: ${({ color }) => color};
     width: ${({ progress }) => (progress ? `${progress}%` : '0%')};
     height: 100%;
-    transition: all 1s ease-in-out;
+    transition: all 0s linear;
   }
 `;
 
