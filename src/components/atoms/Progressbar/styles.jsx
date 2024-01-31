@@ -1,4 +1,9 @@
+// import { css } from '@emotion/react';
 import styled from 'styled-components';
+
+// const progressDirection = () => css`
+//   left: 0%;
+// `;
 
 const StyledProgressbar = styled.div`
   display: flex;
@@ -14,11 +19,11 @@ const StyledProgressbar = styled.div`
   .progress {
     position: absolute;
     border-radius: 12px;
-    right: 0px;
+    ${({ direction }) => `${direction} : 0%`};
     background-color: ${({ color }) => color};
     width: ${({ progress }) => (progress ? `${progress}%` : '0%')};
     height: 100%;
-    transition: all 0s linear;
+    transition: ${({ transition }) => transition};
   }
 `;
 

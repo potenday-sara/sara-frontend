@@ -22,9 +22,10 @@ export default function MainAside({ type }) {
           <Logo logoType="SaraTextWithCircleWhite" fill={Theme.color.white} />
         </FlatButton>
         <Progressbar
-          h="10px"
+          h="3px"
           progress={(count / 300) * 100}
           color={type === 'sara' ? Theme.color.maraPrimary : Theme.color.saraPrimary}
+          transition="all 0s linear"
         />
         <FlatButton type="mara" activated={type === 'mara'} onClick={setMara}>
           <Logo logoType="MaraTextWithCircleWhite" fill={Theme.color.white} />

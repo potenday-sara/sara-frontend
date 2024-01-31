@@ -17,8 +17,10 @@ Progressbar.propTypes = {
   bg: PropTypes.string,
   color: PropTypes.string,
   progress: PropTypes.number,
+  direction: PropTypes.oneOf('right', 'left'),
   label: PropTypes.node,
   className: PropTypes.string,
+  transition: PropTypes.string,
 };
 
 Progressbar.defaultProps = {
@@ -29,4 +31,6 @@ Progressbar.defaultProps = {
   label: '',
   className: '',
   progress: 0,
+  direction: 'left',
+  transition: 'all 1s ease-in-out',
 };
