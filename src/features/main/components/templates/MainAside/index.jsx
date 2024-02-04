@@ -6,9 +6,10 @@ import StyledMainAside from './styles';
 import FlatButton from '../../atoms/FlatButton';
 import SaraMaraContext from '../../../stores/SaraMaraContext';
 import { Theme } from '../../../../../Styles';
+import Progressbar from '../../../../../components/atoms/Progressbar';
 
 export default function MainAside({ type }) {
-  const { setSara, setMara } = useContext(SaraMaraContext);
+  const { setSara, setMara, count } = useContext(SaraMaraContext);
 
   return (
     <StyledMainAside className="main-aside">
@@ -20,6 +21,12 @@ export default function MainAside({ type }) {
         <FlatButton type="sara" activated={type === 'sara'} onClick={setSara}>
           <Logo logoType="SaraTextWithCircleWhite" fill={Theme.color.white} />
         </FlatButton>
+        <Progressbar
+          h="3px"
+          progress={(count / 300) * 100}
+          color={type === 'sara' ? Theme.color.maraPrimary : Theme.color.saraPrimary}
+          transition="all 0s linear"
+        />
         <FlatButton type="mara" activated={type === 'mara'} onClick={setMara}>
           <Logo logoType="MaraTextWithCircleWhite" fill={Theme.color.white} />
         </FlatButton>
