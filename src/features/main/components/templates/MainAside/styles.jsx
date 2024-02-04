@@ -23,6 +23,10 @@ const StyledMainAside = styled.aside`
     .non-activated {
       display: none;
     }
+
+    .aside-progress-bar {
+      display: none;
+    }
   }
 `;
 

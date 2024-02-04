@@ -6,6 +6,8 @@ import SaraMaraContext from './stores/SaraMaraContext';
 import Footer from '../../components/organisms/Footer';
 import Navbar from './components/organisms/MainNavbar';
 import useInterval from '../../hooks/useInterval';
+import { Theme } from '../../Styles';
+import Progressbar from '../../components/atoms/Progressbar';
 
 /**
  * 온보딩페에지의 기본 레이아웃입니다.
@@ -44,6 +46,13 @@ export default function Main() {
       <SaraMaraContext.Provider value={saramaraStore}>
         <OnboardingSectionLayout type="sara" />
         <MainAside type={type} />
+        <Progressbar
+          className="main-progress-bar"
+          h="3px"
+          progress={(count / 300) * 100}
+          color={type === 'sara' ? Theme.color.maraPrimary : Theme.color.saraPrimary}
+          transition="all 0s linear"
+        />
         <OnboardingSectionLayout type="mara" />
       </SaraMaraContext.Provider>
       <Footer

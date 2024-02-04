@@ -22,6 +22,7 @@ export default function MainAside({ type }) {
           <Logo logoType="SaraTextWithCircleWhite" fill={Theme.color.white} />
         </FlatButton>
         <Progressbar
+          className="aside-progress-bar"
           h="3px"
           progress={(count / 300) * 100}
           color={type === 'sara' ? Theme.color.maraPrimary : Theme.color.saraPrimary}
