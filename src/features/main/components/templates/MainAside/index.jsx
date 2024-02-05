@@ -29,7 +29,10 @@ export default function MainAside({ type }) {
           transition="all 0s linear"
         />
         <FlatButton type="mara" activated={type === 'mara'} onClick={setMara}>
-          <Logo logoType="MaraTextWithCircleWhite" fill={Theme.color.white} />
+          <Logo
+            logoType="MaraTextWithCircleWhite"
+            fill={type === 'sara' ? Theme.color.maraSecondary : Theme.color.white}
+          />
         </FlatButton>
       </div>
     </StyledMainAside>

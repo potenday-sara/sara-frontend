@@ -29,21 +29,7 @@ export default function MainSection({ type, ...rest }) {
       <TitleBubble type={type} />
       <CharacterLogo type={type} $isType={type === nowType} />
       <CharacterName type={type} />
-      <Button
-        onClick={() => navigate(`/question/${type}`)}
-        style={{
-          display: 'flex',
-          width: 256,
-          padding: 24,
-          justifyContent: 'center',
-          alignItems: 'flex-end',
-          marginTop: 20,
-          borderRadius: 0,
-          gap: 8,
-        }}
-        bg={Theme.color.white}
-        className="main-button"
-      >
+      <Button onClick={() => navigate(`/question/${type}`)} style={{}} bg={Theme.color.white} className="main-button">
         <Title>
           <Logo
             fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}

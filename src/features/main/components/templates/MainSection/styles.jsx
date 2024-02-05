@@ -30,32 +30,38 @@ const StyledMainSection = styled.section`
   /* .section-box {
   } */
 
-  @media screen and (${(props) => props.theme.desktopLarge}) {
-    align-items: center;
+  .main-button {
+    display: 'flex';
+    width: 360px;
+    padding: 28px 0px;
+    justify-content: 'center';
+    align-items: 'flex-end';
+    margin-top: 24px;
+    border-radius: 16px;
+    gap: 8;
+
+    .title {
+      justify-content: center;
+    }
+  }
+
+  ${Theme.deviceSize.medium} {
+    .main-button {
+      width: 320px;
+      border-radius: 12px;
+      padding: 20px;
+      align-items: flex-end;
+    }
   }
 
   ${Theme.deviceSize.small} {
     padding: 10px 0px;
     .main-button {
-      width: 80% !important;
-      border-radius: 16px !important;
-      max-width: 400px;
-      height: 40px;
-      padding: 0px !important;
-      align-items: center !important;
-      flex-shrink: 0;
-      .logo-wrap {
-        width: 50px;
-      }
-      p {
-        font-size: 12px;
-      }
-    }
-
-    .title {
-      justify-content: center;
+      width: 362px;
+      max-width: 90%;
+      border-radius: 12px;
+      padding: 16px;
       align-items: center;
-      /* height: 100%; */
     }
   }
 `;

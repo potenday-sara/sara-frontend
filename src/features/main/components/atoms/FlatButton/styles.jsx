@@ -17,7 +17,7 @@ const StyledFlatButton = styled.button`
   }
 
   &.non-activated {
-    opacity: 0.4;
+    opacity: 0.3;
   }
 
   ${Theme.deviceSize.small} {
