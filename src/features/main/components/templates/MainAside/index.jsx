@@ -19,7 +19,10 @@ export default function MainAside({ type }) {
       <div className="aside-head">
         <RealtimeTrend />
         <FlatButton type="sara" activated={type === 'sara'} onClick={setSara}>
-          <Logo logoType="SaraTextWithCircleWhite" fill={Theme.color.white} />
+          <Logo
+            logoType="SaraTextWithCircleWhite"
+            fill={type === 'sara' ? Theme.color.white : Theme.color.saraPrimary50}
+          />
         </FlatButton>
         <Progressbar
           className="aside-progress-bar"
@@ -31,7 +34,7 @@ export default function MainAside({ type }) {
         <FlatButton type="mara" activated={type === 'mara'} onClick={setMara}>
           <Logo
             logoType="MaraTextWithCircleWhite"
-            fill={type === 'sara' ? Theme.color.maraSecondary : Theme.color.white}
+            fill={type === 'sara' ? Theme.color.maraPrimary50 : Theme.color.white}
           />
         </FlatButton>
       </div>
