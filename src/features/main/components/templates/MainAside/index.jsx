@@ -18,25 +18,27 @@ export default function MainAside({ type }) {
       </div>
       <div className="aside-head">
         <RealtimeTrend />
-        <FlatButton type="sara" activated={type === 'sara'} onClick={setSara}>
-          <Logo
-            logoType="SaraTextWithCircleWhite"
-            fill={type === 'sara' ? Theme.color.white : Theme.color.saraPrimary50}
+        <div className="aside-buttonwrap">
+          <FlatButton type="sara" activated={type === 'sara'} onClick={setSara}>
+            <Logo
+              logoType="SaraTextWithCircleWhite"
+              fill={type === 'sara' ? Theme.color.white : Theme.color.saraPrimary50}
+            />
+          </FlatButton>
+          <Progressbar
+            className="aside-progress-bar"
+            h="3px"
+            progress={(count / 300) * 100}
+            color={type === 'sara' ? Theme.color.maraPrimary : Theme.color.saraPrimary}
+            transition="all 0s linear"
           />
-        </FlatButton>
-        <Progressbar
-          className="aside-progress-bar"
-          h="3px"
-          progress={(count / 300) * 100}
-          color={type === 'sara' ? Theme.color.maraPrimary : Theme.color.saraPrimary}
-          transition="all 0s linear"
-        />
-        <FlatButton type="mara" activated={type === 'mara'} onClick={setMara}>
-          <Logo
-            logoType="MaraTextWithCircleWhite"
-            fill={type === 'sara' ? Theme.color.maraPrimary50 : Theme.color.white}
-          />
-        </FlatButton>
+          <FlatButton type="mara" activated={type === 'mara'} onClick={setMara}>
+            <Logo
+              logoType="MaraTextWithCircleWhite"
+              fill={type === 'sara' ? Theme.color.maraPrimary50 : Theme.color.white}
+            />
+          </FlatButton>
+        </div>
       </div>
     </StyledMainAside>
   );
