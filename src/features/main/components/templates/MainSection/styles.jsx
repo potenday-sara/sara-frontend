@@ -55,7 +55,7 @@ const StyledMainSection = styled.section`
   }
 
   ${Theme.deviceSize.small} {
-    padding: 10px 0px;
+    padding: 5px 0px;
     .main-button {
       width: 362px;
       max-width: 90%;

@@ -16,7 +16,7 @@ const StyledMain = styled.main`
   }
   ${Theme.deviceSize.small} {
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(252px, 50vh) auto minmax(252px, 50vh) auto;
+    grid-template-rows: 310px auto 310px auto;
     .main-progress-bar {
       display: block;
       grid-row: 2 / 3;

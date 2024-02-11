@@ -68,6 +68,11 @@ const StyledTextbubble = styled.div`
     border-top-color: rgba(255, 255, 255, 0.65);
     border-bottom: 0;
     margin-bottom: -28px;
+
+    ${Theme.deviceSize.small} {
+      border-width: 15px;
+      margin-bottom: -15px;
+    }
   }
   ${(props) => getBubbleTypeStyle(props)}
 
