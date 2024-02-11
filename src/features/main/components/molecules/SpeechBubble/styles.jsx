@@ -40,6 +40,7 @@ const getBubbleTypeStyle = ({ type }) => {
 };
 
 const StyledTextbubble = styled.div`
+  opacity: ${({ isNowType }) => (isNowType ? 1 : 0.35)};
   position: relative;
   height: 207px;
   z-index: 2;
