@@ -16,14 +16,14 @@ import Title from '../../../../../components/molecules/Title';
  * Onboarding 페이지의 세션 컴포넌트입니다
  * type ('sara', 'mara') 중 하나의 값을 받아 각 테마의 맞는 컴포넌트를 리턴합니다.
  */
-export default function MainSection({ type, ...rest }) {
+export default function MainSection({ type, className, ...rest }) {
   const { type: nowType, setSara, setMara } = useContext(SaraMaraContext);
   const navigate = useNavigate();
   return (
     <StyledMainSection
       {...rest}
       $type={type}
-      className="main-section"
+      className={`main-section ${className}`}
       onClick={type === 'sara' ? () => setSara() : () => setMara()}
     >
       <TitleBubble type={type} />
@@ -51,8 +51,10 @@ export default function MainSection({ type, ...rest }) {
 MainSection.propTypes = {
   type: PropTypes.oneOf(['sara', 'mara']).isRequired,
   setIsSelected: PropTypes.func,
+  className: PropTypes.string,
 };
 
 MainSection.defaultProps = {
   setIsSelected: undefined,
+  className: '',
 };

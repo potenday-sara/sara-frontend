@@ -53,13 +53,9 @@ export default function Main() {
           color={type === 'sara' ? Theme.color.maraPrimary : Theme.color.saraPrimary}
           transition="all 0s linear"
         />
-        <OnboardingSectionLayout type="mara" />
+        <OnboardingSectionLayout type="mara" className="mara-section" />
       </SaraMaraContext.Provider>
-      <Footer
-        style={{
-          gridArea: '3 / 1 / 4 / 4',
-        }}
-      />
+      <Footer />
     </StyledMain>
   );
 }

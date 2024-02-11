@@ -11,12 +11,19 @@ const StyledMain = styled.main`
   .main-progress-bar {
     display: none;
   }
+  .footer {
+    grid-area: 3 / 1 / 4 / 4;
+  }
   ${Theme.deviceSize.medium} {
     grid-template-columns: minmax(512px, 4fr) 208px minmax(512px, 4fr);
   }
   ${Theme.deviceSize.small} {
+    height: auto;
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto;
+    .mara-section {
+      grid-row: 3 / 4;
+    }
     .main-progress-bar {
       display: block;
       grid-row: 2 / 3;
@@ -28,7 +35,7 @@ const StyledMain = styled.main`
       display: none;
     }
     .footer {
-      display: none;
+      grid-row: 5 / 6;
     }
   }
 `;
