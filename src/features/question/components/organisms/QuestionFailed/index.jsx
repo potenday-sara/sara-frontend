@@ -48,6 +48,7 @@ export default function QuestionFailed({ retryForm, setRetryRequest, QuestionFor
       <Logo
         w="50%"
         className="logo"
+        fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
         logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'}
       />
       <div

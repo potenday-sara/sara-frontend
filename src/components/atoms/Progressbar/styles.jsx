@@ -20,6 +20,7 @@ const StyledProgressbar = styled.div`
     position: absolute;
     border-radius: 12px;
     ${({ direction }) => `${direction} : 0%`};
+    right: 0px;
     background-color: ${({ color }) => color};
     width: ${({ progress }) => (progress ? `${progress}%` : '0%')};
     height: 100%;

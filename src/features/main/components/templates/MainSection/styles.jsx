@@ -64,6 +64,31 @@ const StyledMainSection = styled.section`
       align-items: center;
     }
   }
+
+  ${Theme.deviceSize.small} {
+    padding: 10px 0px;
+    .main-button {
+      width: 80% !important;
+      border-radius: 16px !important;
+      max-width: 400px;
+      height: 40px;
+      padding: 0px !important;
+      align-items: center !important;
+      flex-shrink: 0;
+      .logo-wrap {
+        width: 50px;
+      }
+      p {
+        font-size: 12px;
+      }
+    }
+
+    .title {
+      justify-content: center;
+      align-items: center;
+      /* height: 100%; */
+    }
+  }
 `;
 
 export default StyledMainSection;

@@ -59,6 +59,7 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
             cursor: 'pointer',
           }}
           onClick={() => navigate('/')}
+          fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
           w="148px"
           className="logo"
           logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'}

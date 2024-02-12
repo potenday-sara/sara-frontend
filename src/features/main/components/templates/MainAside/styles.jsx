@@ -41,6 +41,19 @@ const StyledMainAside = styled.aside`
       width: 100%;
     }
   }
+
+  ${Theme.deviceSize.small} {
+    .aside-top,
+    .aside-head {
+      width: 100%;
+    }
+    .activated,
+    .aside-logo,
+    .aside-top,
+    .non-activated {
+      display: none;
+    }
+  }
 `;
 
 export default StyledMainAside;

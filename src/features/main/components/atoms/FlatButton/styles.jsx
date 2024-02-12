@@ -24,6 +24,10 @@ const StyledFlatButton = styled.button`
     height: 56px;
     padding: 10px;
   }
+
+  ${Theme.deviceSize.small} {
+    height: 40px;
+  }
 `;
 
 export default StyledFlatButton;
