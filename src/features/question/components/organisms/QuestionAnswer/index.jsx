@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import React, { useContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { useNavigate } from 'react-router';
 import { Theme } from '../../../../../Styles';
