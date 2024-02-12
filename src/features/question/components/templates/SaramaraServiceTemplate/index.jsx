@@ -1,6 +1,7 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SaraMaraContext from '../../../../main/stores/SaraMaraContext';
 import useQuestion from '../../../hooks/useQuestion';
 import Tag from '../../atoms/Tag';
 import QuestionAnwser from '../../organisms/QuestionAnswer';
@@ -23,6 +24,11 @@ export default function SaramaraServiceTemplate({ type }) {
     retryRequestCount,
   } = useQuestion(type);
   const navigate = useNavigate();
+
+  const { setStageValue } = useContext(SaraMaraContext);
+  useEffect(() => {
+    setStageValue(stage);
+  }, [stage]);
 
   return (
     <StyledSaramaraServiceTemplate $type={type}>

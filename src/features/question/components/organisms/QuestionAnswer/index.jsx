@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { useContext, useEffect, useState } from 'react';
 
 import { useNavigate } from 'react-router';
 import { Theme } from '../../../../../Styles';
@@ -13,6 +14,8 @@ import QuestionInfo from '../../molecules/QuestionInfo';
 import QuestionFeedback from '../QuestionEmotionForm';
 import StyledQuestionAnswer from './styles';
 
+import SaraMaraContext from '../../../../main/stores/SaraMaraContext';
+
 const buttonStyle = {
   display: 'flex',
   justifyContent: 'center',
@@ -24,6 +27,7 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
   const [completedAnswer, setCompletedAnswer] = useState('');
   const [landingAnswer, setLandingAnswer] = useState('');
   const [count, setCount] = useState(0);
+  const { setKeyword } = useContext(SaraMaraContext);
 
   useEffect(() => {
     setCompletedAnswer(answer);
@@ -44,6 +48,9 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
     refreshForm();
     navigate(from);
   };
+  useEffect(() => {
+    setKeyword(QuestionFormData.ItemValue);
+  }, [QuestionFormData.ItemValue]);
 
   return (
     <StyledQuestionAnswer>
