@@ -6,10 +6,16 @@ const StyledMainAside = styled.aside`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-end;
   height: auto;
   .aside-top {
-    margin: 40px 0px;
+    margin: 0px 0px;
+    margin-bottom: auto;
+  }
+
+  .aside-head {
+    display: flex;
+    flex-direction: column;
   }
 
   ${Theme.deviceSize.small} {
@@ -17,11 +23,22 @@ const StyledMainAside = styled.aside`
     .aside-head {
       width: 100%;
     }
-    .activated,
-    .aside-logo,
-    .aside-top,
-    .non-activated {
+
+    .aside-top {
       display: none;
+    }
+
+    .aside-progress-bar {
+      display: none;
+    }
+
+    .aside-buttonwrap {
+      order: -1;
+      display: flex;
+
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
     }
   }
 `;

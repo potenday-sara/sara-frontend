@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StyledTrendLabel from './styles';
+import { StyledTrendNumber, StyledTrendLabel } from './styles';
 import Text from '../../../../../components/atoms/Text';
 import { Theme } from '../../../../../Styles';
 
@@ -18,12 +18,14 @@ TrendLabel.defaultProps = {
 
 function LabelNum({ children, type }) {
   return (
-    <Text
-      label={children}
-      size="14px"
-      bold="700"
-      color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-    />
+    <StyledTrendNumber type={type}>
+      <Text
+        label={children}
+        size="14px"
+        bold="700"
+        color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+      />
+    </StyledTrendNumber>
   );
 }
 LabelNum.propTypes = {

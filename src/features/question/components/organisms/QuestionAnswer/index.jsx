@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import React, { useContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { useNavigate } from 'react-router';
 import { Theme } from '../../../../../Styles';
@@ -7,7 +7,7 @@ import Button from '../../../../../components/atoms/Button';
 import Logo from '../../../../../components/atoms/Logo';
 import Text from '../../../../../components/atoms/Text';
 import Title from '../../../../../components/molecules/Title';
-import useInterval from '../../../hooks/useInterval';
+import useInterval from '../../../../../hooks/useInterval';
 import AnswerContent from '../../molecules/AnswerContent';
 import QuestionInfo from '../../molecules/QuestionInfo';
 import QuestionFeedback from '../QuestionEmotionForm';
@@ -23,11 +23,14 @@ const buttonStyle = {
 };
 
 export default function QuestionAnwser({ type, answer, QuestionFormData, quesionId, refreshForm }) {
-  const completedAnswer = answer;
-  const [landingAnswer, setLandingAnswer] = useState(answer);
+  const [completedAnswer, setCompletedAnswer] = useState('');
+  const [landingAnswer, setLandingAnswer] = useState('');
   const [count, setCount] = useState(0);
   const { setKeyword } = useContext(SaraMaraContext);
 
+  useEffect(() => {
+    setCompletedAnswer(answer);
+  }, [answer]);
   useInterval(() => {
     if (count >= completedAnswer.length) {
       return;
@@ -35,7 +38,6 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
 
     setLandingAnswer((prev) => {
       const result = prev ? prev + completedAnswer[count] : completedAnswer[0];
-
       setCount((prevCount) => prevCount + 1);
       return result;
     });
@@ -71,8 +73,7 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
           logoType={type === 'sara' ? 'SaraCircleCharacter' : 'MaraCircleCharacter'}
         />
         <div style={{ position: 'relative' }}>
-          <AnswerContent type={type} answer={landingAnswer} style={{ position: 'absolute' }} />
-          <AnswerContent type={type} answer={landingAnswer} style={{ visibility: 'hidden' }} />
+          <AnswerContent type={type} answer={landingAnswer} />
         </div>
         <div className="button-wrap">
           <Button

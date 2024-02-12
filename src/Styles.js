@@ -13,7 +13,9 @@ export const Theme = {
     // 테마 색깔
     maraPrimary: '#ef2b00',
     maraSecondary: '#fddfd9',
+    maraPrimary50: '#F79580',
     saraPrimary: '#007bed',
+    saraPrimary50: '#80BDF6',
     saraSecondary: '#d9ebfc',
     // 기본색깔
     gray: '#ccc',
