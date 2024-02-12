@@ -12,6 +12,7 @@ const apis = {
 
   getCategories: `${SHOP}/categories/`,
   getItemsByCategories: (id) => `${SHOP}/categories/${id}/goods/`,
+  getItemsByKeyword: `${SHOP}/search/`,
 };
 
 export default apis;
