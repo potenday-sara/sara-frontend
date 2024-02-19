@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
+import { useSearchParams } from 'react-router-dom';
 import useInput from '../../../hooks/useInput';
 import getAnswer from '../apis/getAnswer';
 import { getQuestionState, postQuestion } from '../apis/postQuestion';
@@ -36,9 +37,11 @@ const useQuestion = (type) => {
   const [progress, setProgress] = useState(0);
   const [maxRequestCount, setMaxRequestCount] = useState(MaxRequestCount);
   const [retryRequestCount, setRetryRequestCount] = useState(0);
-
+  const [searchParams, setSearchParams] = useSearchParams();
+  const routeAnswerId = searchParams.get('answerId');
   // questionID를 바뀌면, Question 응답을 True로 바꾸어 React Query를 작동시키는 코드(액션)
   const isMouted = useRef(false);
+
   useEffect(() => {
     if (isMouted.current) {
       if (quesionId) {
@@ -71,11 +74,29 @@ const useQuestion = (type) => {
   };
 
   // 답변 받는 쿼리(액션)
-  const { data: gptAnswer } = useQuery({
-    queryKey: ['getAnswer', answerId],
-    queryFn: () => getAnswer(answerId),
-    enabled: !!answerId,
+  const { data: gptAnswer, isError } = useQuery({
+    queryKey: ['getAnswer', answerId, routeAnswerId],
+    queryFn: async () => {
+      const router = new URLSearchParams(searchParams);
+      router.set('answerId', routeAnswerId || answerId);
+      setSearchParams(router);
+      try {
+        const data = await getAnswer(routeAnswerId || answerId);
+        return data;
+      } catch (error) {
+        setStage(StageState.INITIAL);
+        setSearchParams({});
+        return error;
+      }
+    },
+    enabled: !!routeAnswerId || !!answerId,
   });
+
+  useEffect(() => {
+    if (routeAnswerId) {
+      setStage(StageState.FINISH);
+    }
+  }, [routeAnswerId]);
 
   // 답변 생성 여부 확인 쿼리(액션)
   const { remove: DeleteAnswer } = useQuery({
@@ -89,6 +110,7 @@ const useQuestion = (type) => {
       if (data?.answer?.length > 0) {
         // 답 저장 후 로직 종료
         setAnswerId(data.answer);
+
         setRequestQuestion(false);
         setTimeout(() => {
           setStage(StageState.FINISH);
@@ -158,6 +180,7 @@ const useQuestion = (type) => {
 
   return {
     stage,
+    setStage,
     refreshForm,
     QuestionFormData,
     SubmitQuestion,
@@ -168,6 +191,7 @@ const useQuestion = (type) => {
     setRetryRequest,
     retryForm,
     retryRequestCount,
+    isError,
   };
 };
 

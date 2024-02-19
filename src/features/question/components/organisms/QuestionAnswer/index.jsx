@@ -12,7 +12,7 @@ import AnswerContent from '../../molecules/AnswerContent';
 import QuestionInfo from '../../molecules/QuestionInfo';
 import QuestionFeedback from '../QuestionEmotionForm';
 import StyledQuestionAnswer from './styles';
-
+import { ReactComponent as Share } from '../../../assets/Share.svg';
 import SaraMaraContext from '../../../../main/stores/SaraMaraContext';
 
 const buttonStyle = {
@@ -122,6 +122,17 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
         </div>
         <section className="answer-bottom">
           <QuestionFeedback type={type} quesionId={quesionId} />
+        </section>
+        <section className="share">
+          <Text size="14px" label="공유하기" />
+          <Share
+            fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+            style={{ cursor: 'pointer' }}
+            onClick={() => {
+              const url = window.location.href;
+              navigator.clipboard.writeText(url);
+            }}
+          />
         </section>
       </section>
     </StyledQuestionAnswer>

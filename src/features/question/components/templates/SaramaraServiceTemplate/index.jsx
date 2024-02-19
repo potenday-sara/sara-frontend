@@ -23,6 +23,7 @@ export default function SaramaraServiceTemplate({ type }) {
     setRetryRequest,
     retryRequestCount,
   } = useQuestion(type);
+
   const navigate = useNavigate();
 
   const { setStageValue } = useContext(SaraMaraContext);
