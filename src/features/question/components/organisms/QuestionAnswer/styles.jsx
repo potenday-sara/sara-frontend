@@ -40,7 +40,7 @@ const StyledQuestionAnswer = styled.section`
   }
   .answer-bottom {
     width: 100%;
-    margin: 24px 0px 0px;
+    margin: 0px 0px 0px;
   }
 
   ${Theme.deviceSize.large} {
