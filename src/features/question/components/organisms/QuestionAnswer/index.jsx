@@ -20,13 +20,6 @@ import Textarea from '../../../../../components/atoms/Textarea';
 import Toast from '../../../../../components/molecules/Toast';
 import StyledFeedback from '../QuestionEmotionForm/styles';
 
-const buttonStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  gap: 8,
-};
-
 export default function QuestionAnwser({ type, answer, QuestionFormData, quesionId, refreshForm }) {
   const [completedAnswer, setCompletedAnswer] = useState('');
   const [landingAnswer, setLandingAnswer] = useState('');
@@ -97,14 +90,13 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
         <div className="button-wrap">
           <Button
             bg={type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary}
-            style={buttonStyle}
             onClick={
               type === 'sara' ? () => QuestionNavigator('/question/sara') : () => QuestionNavigator('/question/mara')
             }
           >
             <Title>
               <Logo
-                w="73px"
+                w="80px"
                 logoType={type === 'sara' ? 'SaraTextOnly' : 'MaraTextOnly'}
                 fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
               />
@@ -118,7 +110,6 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
           </Button>
           <Button
             bg={type === 'sara' ? Theme.color.maraSecondary : Theme.color.saraSecondary}
-            style={buttonStyle}
             onClick={
               type === 'sara' ? () => QuestionNavigator('/question/mara') : () => QuestionNavigator('/question/sara')
             }
@@ -141,14 +132,23 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
 
         <section className="share">
           <Text size="14px" label="공유하기" />
-          <Share
-            fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-            style={{ cursor: 'pointer' }}
-            onClick={() => {
-              const url = window.location.href;
-              navigator.clipboard.writeText(url);
-            }}
-          />
+          <div className="buttons">
+            <div className="share-button-wrap">
+              <Button className="share-button" bg="#f4f4f4">
+                <Share
+                  fill={Theme.color.white}
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => {
+                    const url = window.location.href;
+                    navigator.clipboard.writeText(url).then(() => {
+                      alert('링크가 복사되었습니다');
+                    });
+                  }}
+                />
+              </Button>
+              <Text size="12px" label="링크 복사" color={Theme.color.darkGray} />
+            </div>
+          </div>
         </section>
         <StyledFeedback>
           <Form onSubmit={(e) => submitCSFeedback(e)} className={isFeedback ? 'cs-form is-feedback' : 'cs-form'}>
