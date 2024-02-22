@@ -7,9 +7,11 @@ const StyledQuestionFailed = styled.main`
   display: flex;
   align-items: center;
   flex-direction: column;
-
+  .logo {
+    width: 179px;
+  }
   .failedCharacter {
-    width: 60%;
+    width: 179px;
     background-size: cover;
     aspect-ratio: 1 / 1;
   }
@@ -23,9 +25,21 @@ const StyledQuestionFailed = styled.main`
   }
 
   ${Theme.deviceSize.medium} {
+    .logo {
+      width: 156px;
+    }
+    .failedCharacter {
+      width: 156px;
+    }
     gap: 20px;
   }
   ${Theme.deviceSize.large} {
+    .logo {
+      width: 134px;
+    }
+    .failedCharacter {
+      width: 134px;
+    }
     gap: 24px;
   }
 `;

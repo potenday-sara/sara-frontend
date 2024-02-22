@@ -6,6 +6,9 @@ const StyledQuestionAnswer = styled.section`
   position: relative;
   display: flex;
   flex-direction: column;
+  .logo {
+    width: 179px;
+  }
   .question-top {
     width: 100%;
     display: flex;
@@ -84,6 +87,9 @@ const StyledQuestionAnswer = styled.section`
   }
 
   ${Theme.deviceSize.large} {
+    .logo {
+      width: 179px;
+    }
     .button-wrap {
       .button {
         border-radius: 12px;
@@ -92,6 +98,9 @@ const StyledQuestionAnswer = styled.section`
     }
   }
   ${Theme.deviceSize.medium} {
+    .logo {
+      width: 156px;
+    }
     .button-wrap {
       .button {
         border-radius: 10px;
