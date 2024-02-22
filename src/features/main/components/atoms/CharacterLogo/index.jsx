@@ -1,9 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import { ReactComponent as CharacterSara } from '../../../../../images/logos/sara_new.svg';
-import { ReactComponent as CharacterMara } from '../../../../../images/logos/mara.svg';
-import { ReactComponent as SaraBackText } from '../../../../../images/logos/SaraBackText.svg';
+import React from 'react';
 import { ReactComponent as MaraBackText } from '../../../../../images/logos/MaraBackText.svg';
+import { ReactComponent as SaraBackText } from '../../../../../images/logos/SaraBackText.svg';
+import { ReactComponent as CharacterMara } from '../../../../../images/logos/mara_new.svg';
+import { ReactComponent as CharacterSara } from '../../../../../images/logos/sara_new.svg';
 import StyledCharacterLogo from './styles';
 
 /**
