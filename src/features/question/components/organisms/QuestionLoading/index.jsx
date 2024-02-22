@@ -50,7 +50,13 @@ export default function QuestionLoading({ type, QuestionFormData, progress }) {
       />
       <div className="recommend-coupang">
         <TipChip $color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}>질문 팁</TipChip>
-        <Text label={randomText} color={Theme.color.midGray} style={{ textAlign: 'center' }} size="18px" bold="700" />
+        <Text
+          label={randomText}
+          color={Theme.color.midGray}
+          style={{ textAlign: 'center', lineHeight: '130%' }}
+          size="18px"
+          bold="700"
+        />
       </div>
       <QuestionInfo type={type} QuestionFormData={QuestionFormData} style={{ marginBottom: 24 }} />
     </StyledQuestionLoading>
