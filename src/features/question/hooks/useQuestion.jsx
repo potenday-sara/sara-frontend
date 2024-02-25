@@ -82,6 +82,8 @@ const useQuestion = (type) => {
       setSearchParams(router);
       try {
         const data = await getAnswer(routeAnswerId || answerId);
+        setItemValue(data.data.product);
+        setContentsValue(data.data.question);
         return data;
       } catch (error) {
         setStage(StageState.INITIAL);

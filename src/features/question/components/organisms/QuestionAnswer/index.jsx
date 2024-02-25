@@ -60,7 +60,7 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
     if (e.target?.value.length <= 500) onChange(e);
   };
   return (
-    <StyledQuestionAnswer>
+    <StyledQuestionAnswer type={type}>
       <section className="question-top">
         <Logo
           style={{
@@ -150,7 +150,7 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
             </div>
           </div>
         </section>
-        <StyledFeedback>
+        <StyledFeedback type={type}>
           <Form onSubmit={(e) => submitCSFeedback(e)} className={isFeedback ? 'cs-form is-feedback' : 'cs-form'}>
             {!isFeedback ? (
               <>

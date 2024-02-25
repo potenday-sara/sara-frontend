@@ -42,12 +42,11 @@ export default function QuestionLoading({ type, QuestionFormData, progress }) {
   return (
     <StyledQuestionLoading {...onPreventLeave} {...offPreventLeave}>
       <Logo
-        w="50%"
         className="logo"
         fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
         logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'}
       />
-      <LoadingLottie className="logo" type={type} w="60%" h="auto" />
+      <LoadingLottie className="logo" type={type} h="auto" />
       <Progressbar
         progress={progress}
         color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
