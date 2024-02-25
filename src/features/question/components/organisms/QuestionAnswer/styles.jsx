@@ -6,6 +6,7 @@ const StyledQuestionAnswer = styled.section`
   position: relative;
   display: flex;
   flex-direction: column;
+
   .logo {
     width: 179px;
   }
@@ -21,7 +22,7 @@ const StyledQuestionAnswer = styled.section`
 
   .question-mid {
     width: 100%;
-    gap: 14px;
+    gap: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -90,6 +91,9 @@ const StyledQuestionAnswer = styled.section`
     .logo {
       width: 179px;
     }
+    .question-mid {
+      gap: 24px;
+    }
     .button-wrap {
       .button {
         border-radius: 12px;
@@ -101,6 +105,9 @@ const StyledQuestionAnswer = styled.section`
     .logo {
       width: 156px;
     }
+    .question-mid {
+      gap: 18px;
+    }
     .button-wrap {
       .button {
         border-radius: 10px;
@@ -109,6 +116,9 @@ const StyledQuestionAnswer = styled.section`
     }
   }
   ${Theme.deviceSize.small} {
+    .question-mid {
+      gap: 12px;
+    }
     .logo {
       width: 134px;
     }
