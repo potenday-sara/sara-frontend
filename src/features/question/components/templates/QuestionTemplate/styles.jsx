@@ -14,7 +14,6 @@ const StyledQuestionTemplate = styled.main`
   justify-content: center;
   align-items: center;
   .grid {
-    align-items: center;
     height: 100%;
     display: grid;
     grid-template-rows: 1fr;

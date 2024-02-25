@@ -23,14 +23,21 @@ export default function QuestionLoading({ type, QuestionFormData, progress }) {
     'Mara의 답변이 마음에 드신다면,\n하단의 평가 버튼을 눌러주세요!\n더 좋은 조언을 주는 데에 힘이 될 거예요!',
     '여기 어딘가에 정말 멋진 상품들이\n있는 거 같아요! (속닥속닥)근데 Mara는 그게 영 못 마땅한가 봐요...!',
   ];
-  const [randomText, setRandomText] = useState('');
+  const [randomIndex, setRandomIndex] = useState('');
   useEffect(() => {
+    setRandomIndex(Math.floor(Math.random() * saraRandomTextArray.length));
+  }, [QuestionFormData.ItemValue]);
+
+  const getRandomText = () => {
     if (type === 'sara') {
-      setRandomText(saraRandomTextArray[Math.floor(Math.random() * saraRandomTextArray.length)]);
-    } else {
-      setRandomText(maraRandomTextArray[Math.floor(Math.random() * saraRandomTextArray.length)]);
+      return saraRandomTextArray[randomIndex];
     }
-  }, [type]);
+    return maraRandomTextArray[randomIndex];
+  };
+  const getChipText = () => {
+    if (randomIndex < 2) return '질문 팁';
+    return '사용 팁';
+  };
 
   return (
     <StyledQuestionLoading {...onPreventLeave} {...offPreventLeave}>
@@ -48,8 +55,14 @@ export default function QuestionLoading({ type, QuestionFormData, progress }) {
         className="logo"
       />
       <div className="recommend-coupang">
-        <TipChip $color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}>질문 팁</TipChip>
-        <Text label={randomText} color={Theme.color.midGray} style={{ textAlign: 'center' }} size="18px" bold="700" />
+        <TipChip $color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}>{getChipText()}</TipChip>
+        <Text
+          label={getRandomText()}
+          color={Theme.color.midGray}
+          style={{ textAlign: 'center', lineHeight: '130%' }}
+          size="18px"
+          bold="700"
+        />
       </div>
       <QuestionInfo type={type} QuestionFormData={QuestionFormData} style={{ marginBottom: 24 }} />
     </StyledQuestionLoading>

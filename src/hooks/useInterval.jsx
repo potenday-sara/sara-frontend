@@ -11,9 +11,11 @@ const useInterval = (callback, interval) => {
     function tick() {
       savedCallback.current();
     }
-
-    const id = setInterval(tick, interval);
-    return () => clearInterval(id);
+    if (interval !== null) {
+      const id = setInterval(tick, interval);
+      return () => clearInterval(id);
+    }
+    return () => {};
   }, [interval]);
 };
 
