@@ -1,28 +1,37 @@
 import React, { useMemo, useState } from 'react';
-import OnboardingSectionLayout from './components/templates/MainSection';
-import MainAside from './components/templates/MainAside';
-import StyledMain from './styles';
-import SaraMaraContext from './stores/SaraMaraContext';
-import Footer from '../../components/organisms/Footer';
-import Navbar from './components/organisms/MainNavbar';
-import useInterval from '../../hooks/useInterval';
 import { Theme } from '../../Styles';
 import Progressbar from '../../components/atoms/Progressbar';
+import Footer from '../../components/organisms/Footer';
+import useInterval from '../../hooks/useInterval';
+import Navbar from './components/organisms/MainNavbar';
+import MainAside from './components/templates/MainAside';
+import OnboardingSectionLayout from './components/templates/MainSection';
+import SaraMaraContext from './stores/SaraMaraContext';
+import StyledMain from './styles';
 
 /**
  * 온보딩페에지의 기본 레이아웃입니다.
  */
-const DELAY = 10;
 
 export default function Main() {
   const [type, setType] = useState('sara');
   const [count, setCount] = useState(0);
-  const setSara = () => setType('sara');
-  const setMara = () => setType('mara');
+  const [delay, setDelay] = useState(10);
+  const setSara = () => {
+    setType('sara');
+    setDelay(null);
+    setCount(0);
+  };
+  const setMara = () => {
+    setType('mara');
+    setDelay(null);
+    setCount(0);
+  };
 
-  /** 3000초마다 SARA / MARA를 바꾸는 함수 */
+  /** 3000밀리초마다 SARA / MARA를 바꾸는 함수 */
   const intervalSaraMara = () => {
-    if (count < 3000 / DELAY) {
+    if (delay === null) return;
+    if (count < 3000 / delay) {
       setCount(count + 1);
     } else {
       setType((prev) => (prev === 'sara' ? 'mara' : 'sara'));
