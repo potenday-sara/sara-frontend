@@ -17,15 +17,11 @@ const StyledSaramaraForm = styled.div`
   align-items: center;
   gap: calc(20px + 4 * (100vw - 1200px) / 750);
 
-  .type-logo {
-    width: 55%;
+  .type-logo,
+  .character-logo {
+    width: 179px;
   }
 
-  .character-logo {
-    min-width: 180px;
-    max-width: 212px;
-    width: 55%;
-  }
   .form {
     display: grid;
     align-items: center;
@@ -44,10 +40,6 @@ const StyledSaramaraForm = styled.div`
 
     textarea {
       padding: 24px 32px;
-    }
-
-    p {
-      white-space: nowrap !important;
     }
   }
 
@@ -70,6 +62,10 @@ const StyledSaramaraForm = styled.div`
     animation: ${vibration} 0.1s alternate;
   }
   ${Theme.deviceSize.medium} {
+    .type-logo,
+    .character-logo {
+      width: 156px;
+    }
     .form {
       grid-template-rows: 19px 67px 19px 88px 56px;
 
@@ -91,13 +87,10 @@ const StyledSaramaraForm = styled.div`
 
   ${Theme.deviceSize.small} {
     gap: 8px;
-    .type-logo {
+    .type-logo .character-logo {
       width: 134px;
     }
 
-    .character-logo {
-      width: 148px;
-    }
     .form {
       display: grid;
       align-items: center;

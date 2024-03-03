@@ -22,6 +22,15 @@ const getItemsByCategory = async (id, callback) => {
   return data.data;
 };
 
+const getItemsByKeyword = async (keyword, callback) => {
+  if (!keyword) return null;
+  const data = await axios.get(apis.getItemsByKeyword, { params: { keyword } });
+  if (data.status === 200) {
+    callback(Math.ceil(data.data.length / 4));
+  }
+  return data?.data;
+};
+
 const usePage = () => {
   const [nowPage, setNowPage] = useState(1);
   const [maxPage, setMaxPage] = useState(8);
@@ -39,7 +48,10 @@ const usePage = () => {
 
 const useCoupang = () => {
   const [nowCategory, setNowCategory] = useState({});
+  const [keyword, setKeyword] = useState('');
   const { nowPage, setNowPage, setNextPage, setPrevPage, setMaxPage, maxPage } = usePage();
+  const [items, setItems] = useState([]);
+  const [itemLoading, setItemLoading] = useState({});
 
   const changeNowCategory = (id, value) => {
     setNowPage(1);
@@ -54,10 +66,16 @@ const useCoupang = () => {
     staleTime: Infinity,
   });
 
-  const { data: items, isLoading: itemLoading } = useQuery({
+  const { data: categoryItem, isLoading: categoryItemLoading } = useQuery({
     queryKey: ['CoupangItemsByCategory', nowCategory.id],
     queryFn: () => getItemsByCategory(nowCategory.id, setMaxPage),
     enabled: !!nowCategory?.id,
+    staleTime: Infinity,
+  });
+
+  const { data: keywordItem, isLoading: keywordLoading } = useQuery({
+    queryKey: ['CoupangItemsByKeyword', keyword],
+    queryFn: () => getItemsByKeyword(keyword, setMaxPage),
     staleTime: Infinity,
   });
 
@@ -84,6 +102,32 @@ const useCoupang = () => {
     }
   }, [categories]);
 
+  // TODO: 구조 개선 필요
+  // category - keyword 양쪽 데이터를 item에 담기 위한 처리
+  useEffect(() => {
+    setItems(categoryItem);
+  }, [categoryItem]);
+
+  useEffect(() => {
+    setItemLoading(categoryItemLoading);
+  }, [categoryItemLoading]);
+
+  useEffect(() => {
+    if (keyword) {
+      setItems(keywordItem);
+    } else {
+      setItems(categoryItem);
+    }
+  }, [keywordItem]);
+
+  useEffect(() => {
+    setItemLoading(keywordLoading);
+  }, [keywordLoading]);
+
+  const updateKeyword = (newKeyword) => {
+    setKeyword(newKeyword);
+  };
+
   const showingData = (items || []).slice((nowPage - 1) * 4, nowPage * 4);
 
   return {
@@ -97,6 +141,7 @@ const useCoupang = () => {
     setNextPage,
     setPrevPage,
     maxPage,
+    updateKeyword,
   };
 
   // return { Ca };

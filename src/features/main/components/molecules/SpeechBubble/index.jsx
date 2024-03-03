@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import TitleLines from '../../atoms/CharacterChat';
 import Text from '../../../../../components/atoms/Text';
 import StyledTextbubble from './styles';
 import { Theme } from '../../../../../Styles';
+import SaraMaraContext from '../../../stores/SaraMaraContext';
 
 const textStyles = {
   opacity: 0.65,
@@ -15,8 +16,9 @@ const textStyles = {
  * @returns {React.ReactComponentElement}
  */
 export default function TitleBubble({ type }) {
+  const { type: nowType } = useContext(SaraMaraContext);
   return (
-    <StyledTextbubble type={type}>
+    <StyledTextbubble type={type} isNowType={nowType === type}>
       <TitleLines type={type} />
       {type === 'sara' ? (
         <>

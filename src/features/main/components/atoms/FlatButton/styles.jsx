@@ -13,11 +13,16 @@ const StyledFlatButton = styled.button`
   background-color: ${({ type }) => (type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary)};
 
   &.activated {
-    opacity: 1;
+    background-color: ${({ type }) => (type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary)};
   }
 
   &.non-activated {
-    opacity: 0.4;
+    background-color: ${({ type }) => (type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary)};
+  }
+
+  ${Theme.deviceSize.small} {
+    height: 56px;
+    padding: 10px;
   }
 
   ${Theme.deviceSize.small} {

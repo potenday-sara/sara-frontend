@@ -4,7 +4,7 @@ import { Theme } from '../../../../../Styles';
 const StyledCoupoangRecommend = styled.section`
   width: 372px;
   position: relative;
-  height: auto;
+  height: fit-content;
   background-color: white;
   margin-right: auto;
   border-radius: 24px;

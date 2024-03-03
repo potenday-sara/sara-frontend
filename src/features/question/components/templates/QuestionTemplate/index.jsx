@@ -15,20 +15,20 @@ export default function QuestionTemplate({ type, children }) {
         <CoupangRecommend type={type} />
       </div>
       <div className="design">
-        <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="40" viewBox="0 0 1920 40" fill="none">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="40" fill="none">
           <path
             fillRule="evenodd"
             clipRule="evenodd"
-            d="M1920 40H0V0H1920V40Z"
+            d="M1920 40H0V0H4000V40Z"
             fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
             fillOpacity="0.03"
           />
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="80" viewBox="0 0 1920 80" fill="none">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="80" fill="none">
           <path
             fillRule="evenodd"
             clipRule="evenodd"
-            d="M1920 80H0V0H1920V80Z"
+            d="M1920 80H0V0H4000V80Z"
             fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
             fillOpacity="0.03"
           />

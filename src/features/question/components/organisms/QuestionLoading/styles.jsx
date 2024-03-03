@@ -9,6 +9,9 @@ const StyledQuestionLoading = styled.main`
   gap: 24px;
   width: 100%;
 
+  .logo {
+    width: 179px;
+  }
   .recommend-coupang {
     width: 100%;
     display: flex;
@@ -27,6 +30,9 @@ const StyledQuestionLoading = styled.main`
 
   ${Theme.deviceSize.medium} {
     gap: 20px;
+    .logo {
+      width: 156px;
+    }
     .recommend-coupang {
       gap: 10px;
       padding-bottom: 20px;
@@ -46,4 +52,15 @@ const StyledQuestionLoading = styled.main`
   }
 `;
 
+const TipChip = styled.div`
+  user-select: none;
+  border-radius: 6px;
+  border: 1px solid ${(props) => props.$color};
+  font-size: 12px;
+  font-weight: 700;
+  color: ${(props) => props.$color};
+  padding: 6px;
+`;
+
 export default StyledQuestionLoading;
+export { TipChip };

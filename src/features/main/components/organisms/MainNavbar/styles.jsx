@@ -4,7 +4,7 @@ import { Theme } from '../../../../../Styles';
 const StyledNavbar = styled.nav`
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: minmax(512px, 4fr) minmax(220px, 1fr) minmax(512px, 4fr);
+  grid-template-columns: minmax(512px, 4fr) 240px minmax(512px, 4fr);
   height: 100%;
   width: 100%;
 
@@ -25,6 +25,9 @@ const StyledNavbar = styled.nav`
       height: 100%;
       gap: 20px;
     }
+  }
+  ${Theme.deviceSize.medium} {
+    grid-template-columns: minmax(512px, 4fr) 208px minmax(512px, 4fr);
   }
 `;
 

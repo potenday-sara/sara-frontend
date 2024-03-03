@@ -5,17 +5,17 @@ const useInterval = (callback, interval) => {
 
   useEffect(() => {
     savedCallback.current = callback;
-  });
+  }, [callback]);
 
   useEffect(() => {
     function tick() {
-      if (savedCallback.current) {
-        savedCallback.current();
-      }
+      savedCallback.current();
     }
-
-    const id = setInterval(tick, interval);
-    return () => clearInterval(id);
+    if (interval !== null) {
+      const id = setInterval(tick, interval);
+      return () => clearInterval(id);
+    }
+    return () => {};
   }, [interval]);
 };
 
