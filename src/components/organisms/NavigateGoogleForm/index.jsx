@@ -33,11 +33,7 @@ function NavigateGoogleForm({ type }) {
     <StyledNavigateGoogleForm type={type}>
       <div ref={ref}>
         <Button
-          onClick={() =>
-            window.open(
-              'https://docs.google.com/forms/d/e/1FAIpQLSeqz5u-Y_X_wC_IUbwrcQeEaT0ebp6DcVrw2dn4rBS4osT18g/viewform?usp=sf_link',
-            )
-          }
+          onClick={() => window.open('https://forms.gle/wZ6r3Vo5E4vBLsGz7')}
           className={isHovered ? 'hover-ani' : 'non-hover-ani'}
           style={googleFormButtonStyle}
           bg={type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary}
