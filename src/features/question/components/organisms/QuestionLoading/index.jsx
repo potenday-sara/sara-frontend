@@ -7,7 +7,7 @@ import Text from '../../../../../components/atoms/Text/index';
 import usePreventLeave from '../../../hooks/usePreventLeave';
 import LoadingLottie from '../../atoms/LoadingLottie/index';
 import QuestionInfo from '../../molecules/QuestionInfo/index';
-import StyledQuestionLoading, { TipChip } from './styles';
+import StyledQuestionLoading from './styles';
 
 export default function QuestionLoading({ type, QuestionFormData, progress }) {
   const { onPreventLeave, offPreventLeave } = usePreventLeave();
@@ -40,7 +40,7 @@ export default function QuestionLoading({ type, QuestionFormData, progress }) {
   };
 
   return (
-    <StyledQuestionLoading {...onPreventLeave} {...offPreventLeave}>
+    <StyledQuestionLoading {...onPreventLeave} {...offPreventLeave} type={type}>
       <Logo
         className="logo"
         fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
@@ -55,7 +55,9 @@ export default function QuestionLoading({ type, QuestionFormData, progress }) {
         className="logo"
       />
       <div className="recommend-coupang">
-        <TipChip $color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}>{getChipText()}</TipChip>
+        <div className="tip-chip">
+          <Text label={getChipText()} color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary} />
+        </div>
         <Text
           label={getRandomText()}
           color={Theme.color.midGray}
