@@ -14,7 +14,7 @@ const StageState = {
 };
 
 // 최대 요청 시도 횟수
-const MaxRequestCount = 15;
+const MaxRequestCount = 18;
 
 // 재시도 시 질문 최대 재시도 횟수
 const MaxRequestCountOfRetry = 10;
