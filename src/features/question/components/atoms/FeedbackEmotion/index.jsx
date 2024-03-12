@@ -7,17 +7,19 @@ import { Theme } from '../../../../../Styles';
 function FeedbackEmotion({ emotion, isActivated, type, children, ...rest }) {
   return (
     <StyledFeedbackEmotion {...rest}>
-      {cloneElement(emotion, {
-        fill: `${
-          type === 'sara'
-            ? isActivated
-              ? Theme.color.saraPrimary
-              : Theme.color.saraSecondary
-            : isActivated
-              ? Theme.color.maraPrimary
-              : Theme.color.maraSecondary
-        }`,
-      })}
+      <div className="svg">
+        {cloneElement(emotion, {
+          stroke: `${
+            type === 'sara'
+              ? isActivated
+                ? Theme.color.saraPrimary
+                : Theme.color.saraSecondary
+              : isActivated
+                ? Theme.color.maraPrimary
+                : Theme.color.maraSecondary
+          }`,
+        })}
+      </div>
       {children}
     </StyledFeedbackEmotion>
   );
