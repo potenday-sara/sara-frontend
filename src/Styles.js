@@ -14,6 +14,7 @@ export const Theme = {
     maraPrimary: '#ef2b00',
     maraSecondary: '#fddfd9',
     maraPrimary50: '#F79580',
+
     saraPrimary: '#007bed',
     saraPrimary50: '#80BDF6',
     saraSecondary: '#d9ebfc',
