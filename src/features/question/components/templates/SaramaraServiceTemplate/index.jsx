@@ -22,6 +22,7 @@ export default function SaramaraServiceTemplate({ type }) {
     gptAnswer,
     setRetryRequest,
     retryRequestCount,
+    answerId,
   } = useQuestion(type);
 
   const navigate = useNavigate();
@@ -64,6 +65,7 @@ export default function SaramaraServiceTemplate({ type }) {
           QuestionFormData={QuestionFormData}
           quesionId={quesionId}
           refreshForm={refreshForm}
+          answerId={answerId}
         />
       )}
       {stage === 'error' && (
