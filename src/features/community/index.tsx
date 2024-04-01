@@ -1,5 +1,11 @@
 import React from 'react';
+import Navbar from './components/molecules/navbar';
 
 export default function Community() {
-  return <div>안녕하dd세요</div>;
+  return (
+    <>
+      <Navbar />
+      <div>안녕하dd세요</div>;
+    </>
+  );
 }
