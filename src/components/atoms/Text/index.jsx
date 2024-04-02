@@ -22,6 +22,7 @@ const StyledText = styled.p`
   font-size: ${({ size }) => size || 'inherit'};
   font-family: Pretendard;
   white-space: pre-line;
+  line-height: 1.3;
 `;
 
 /**
