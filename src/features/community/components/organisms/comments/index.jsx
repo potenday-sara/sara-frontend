@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Text from '../../../../../components/atoms/Text';
+import Comment from '../../molecules/comment';
 
 const StyledComments = styled.div`
   width: 100%;
@@ -19,7 +20,11 @@ export default function CommentList({ comments, type }) {
   return (
     <StyledComments>
       <Text bold="700" label="댓글" size="14px" />
-      <div className="wrapper">{comments.map((comment) => comment.id)}</div>
+      <div className="wrapper">
+        {comments.map((comment) => (
+          <Comment comment={comment} />
+        ))}
+      </div>
     </StyledComments>
   );
 }
