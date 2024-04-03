@@ -1,8 +1,9 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { GlobalStyles } from './Styles';
-import QuestionPage from './features/question';
+import LoungePage from './features/lounge';
 import Onboarding from './features/main';
+import QuestionPage from './features/question';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Onboarding />} />
         <Route path="/question/*" element={<QuestionPage />} />
+        <Route path="/lounge" element={<LoungePage />} />
       </Routes>
     </>
   );
