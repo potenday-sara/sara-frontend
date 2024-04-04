@@ -7,8 +7,12 @@ import CommentList from './components/organisms/comments';
 import { ReactComponent as SaraCharacter } from './assets/saracharacter.svg';
 import { ReactComponent as SaraTitle } from './assets/saratitle.svg';
 import { ReactComponent as MaraTitle } from './assets/maratitle.svg';
+
 import Text from '../../components/atoms/Text';
 import { Theme } from '../../Styles';
+import Kakao from './components/atoms/button/Kakao';
+import Share from './components/atoms/button/Share';
+import Like from './components/atoms/button/Like';
 
 const COMMENTS_LIST = [
   {
@@ -50,7 +54,18 @@ const StyledQuestionAnswer = styled.div`
   svg {
     margin-bottom: 20px;
   }
-  border-bottom: 1px solid #ddd;
+`;
+
+const StyledQuestionButtons = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 0;
+
+  .buttons {
+    display: flex;
+    gap: 8px;
+  }
 `;
 
 export default function Community() {
@@ -69,6 +84,13 @@ export default function Community() {
           <SaraCharacter />
           <Text style={{ lineHeight: '22.4px' }} label="ㅋㄷㅋㄷ" size="14px" bold="500" color={Theme.color.darkGray} />
         </StyledQuestionAnswer>
+        <StyledQuestionButtons>
+          <Like />
+          <div className="buttons">
+            <Share />
+            <Kakao />
+          </div>
+        </StyledQuestionButtons>
 
         <CommentList comments={COMMENTS_LIST} type="sara" />
         <MaraTitle />
