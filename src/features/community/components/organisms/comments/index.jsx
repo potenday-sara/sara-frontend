@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Text from '../../../../../components/atoms/Text';
 import Comment from '../../molecules/comment';
+import Pagination from '../../../../../components/molecules/Pagination';
 
 const StyledComments = styled.div`
   width: 100%;
@@ -12,6 +13,10 @@ const StyledComments = styled.div`
     display: flex;
     flex-direction: column;
     gap: 24px;
+  }
+
+  .comments-pagination {
+    justify-content: left;
   }
 `;
 
@@ -25,6 +30,7 @@ export default function CommentList({ comments, type }) {
           <Comment comment={comment} />
         ))}
       </div>
+      <Pagination className="comments-pagination" type="sara" nowPage={1} maxPage={5} />
     </StyledComments>
   );
 }
