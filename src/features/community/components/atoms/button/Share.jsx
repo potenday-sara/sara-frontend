@@ -9,7 +9,8 @@ const StyledShare = styled.div`
   justify-content: center;
   align-items: center;
   gap: 8px;
-  padding: 12px;
+  padding: 0 12px;
+  height: 44px;
   border-radius: 36px;
 
   background-color: #f4f4f4;

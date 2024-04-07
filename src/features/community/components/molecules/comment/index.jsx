@@ -29,7 +29,7 @@ export default function Comment({ comment, type }) {
       <div className="contents">
         <Text label={comment.name} size="12px" color="#999" />
         <Text label={comment.content} size="12px" />
-        <Text label={comment.date} size="12px" color="#999" bold="700" />
+        <Text label={comment.date} size="12px" color="#999" />
       </div>
     </StyledComment>
   );

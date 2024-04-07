@@ -7,8 +7,9 @@ import { Theme } from '../../../../../Styles';
 const StyledLikeButton = styled.div`
   display: flex;
   align-items: center;
+  height: 44px;
+  padding: 0px 12px;
   gap: 8px;
-  padding: 12px;
   border-radius: 36px;
   border: 1px solid #ddd;
 `;

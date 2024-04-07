@@ -19,7 +19,7 @@ export default function CommentList({ comments, type }) {
   console.log('type', type);
   return (
     <StyledComments>
-      <Text bold="700" label="댓글" size="14px" />
+      <Text bold="700" label={`${comments.length} 댓글 `} size="14px" />
       <div className="wrapper">
         {comments.map((comment) => (
           <Comment comment={comment} />

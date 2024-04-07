@@ -6,13 +6,15 @@ import CommentList from './components/organisms/comments';
 
 import { ReactComponent as SaraCharacter } from './assets/saracharacter.svg';
 import { ReactComponent as SaraTitle } from './assets/saratitle.svg';
-import { ReactComponent as MaraTitle } from './assets/maratitle.svg';
+import { ReactComponent as SaraComment } from './assets/sara.svg';
+import { ReactComponent as MaraComment } from './assets/mara.svg';
 
 import Text from '../../components/atoms/Text';
 import { Theme } from '../../Styles';
 import Kakao from './components/atoms/button/Kakao';
 import Share from './components/atoms/button/Share';
 import Like from './components/atoms/button/Like';
+import Button from '../../components/atoms/Button';
 
 const COMMENTS_LIST = [
   {
@@ -42,7 +44,7 @@ const StyledQuestionInformation = styled.div`
 
   padding-bottom: 20px;
   padding-top: 20px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #dddddd;
 `;
 
 const StyledQuestionAnswer = styled.div`
@@ -51,21 +53,30 @@ const StyledQuestionAnswer = styled.div`
   align-items: center;
   gap: 12px;
   padding: 20px 0;
-  svg {
+  .svg {
     margin-bottom: 20px;
   }
+
+  border-bottom: 1px solid #dddddd;
 `;
 
-const StyledQuestionButtons = styled.div`
+const StyledShareButtons = styled.div`
   display: flex;
+  width: 100%;
   justify-content: space-between;
   gap: 12px;
-  padding: 20px 0;
+  padding: 12px 0;
 
   .buttons {
     display: flex;
     gap: 8px;
   }
+`;
+
+const StyledQuestionButtons = styled.div`
+  width: 100%;
+  display: flex;
+  gap: 8px;
 `;
 
 export default function Community() {
@@ -81,19 +92,51 @@ export default function Community() {
           </div>
         </StyledQuestionInformation>
         <StyledQuestionAnswer>
-          <SaraCharacter />
+          <SaraCharacter className=".svg" />
           <Text style={{ lineHeight: '22.4px' }} label="ㅋㄷㅋㄷ" size="14px" bold="500" color={Theme.color.darkGray} />
+          <StyledShareButtons>
+            <Like />
+            <div className="buttons">
+              <Share />
+              <Kakao />
+            </div>
+          </StyledShareButtons>
+          <StyledQuestionButtons>
+            <Button
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                padding: '12px',
+                backgroundColor: Theme.color.saraSecondary,
+                gap: '6px',
+                borderRadius: '8px',
+              }}
+            >
+              <SaraComment />
+              <Text label="에게 나도 질문하기" size="13px" bold="700" color={Theme.color.saraPrimary} />
+            </Button>
+            <Button
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                padding: '12px',
+                gap: '6px',
+                backgroundColor: Theme.color.maraSecondary,
+                borderRadius: '8px',
+              }}
+            >
+              <MaraComment />
+              <Text label="에게 물어볼까?" size="13px" bold="700" color={Theme.color.maraPrimary} />
+            </Button>
+          </StyledQuestionButtons>
         </StyledQuestionAnswer>
-        <StyledQuestionButtons>
-          <Like />
-          <div className="buttons">
-            <Share />
-            <Kakao />
-          </div>
-        </StyledQuestionButtons>
 
         <CommentList comments={COMMENTS_LIST} type="sara" />
-        <MaraTitle />
+        {/* <MaraTitle /> */}
       </Layout>
     </>
   );
