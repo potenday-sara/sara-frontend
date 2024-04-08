@@ -25,7 +25,7 @@ export default function TypeButton({ selected, type }) {
   };
 
   return (
-    <StyledTypeButton $selected={selected} onClick={buttonHandler()} $color={getButtonColor}>
+    <StyledTypeButton $selected={selected} $type={type} onClick={buttonHandler()} $color={getButtonColor}>
       {buttonContent()}
     </StyledTypeButton>
   );
