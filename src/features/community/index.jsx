@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
+import { useSearchParams } from 'react-router-dom';
 import Navbar from './components/molecules/navbar';
 import Layout from './components/molecules/layout';
 import CommentList from './components/organisms/comments';
@@ -15,6 +16,7 @@ import Kakao from './components/atoms/button/Kakao';
 import Share from './components/atoms/button/Share';
 import Like from './components/atoms/button/Like';
 import Button from '../../components/atoms/Button';
+import useCommunityQuestion from './hooks/useCommunityQuestion';
 
 const COMMENTS_LIST = [
   {
@@ -80,6 +82,15 @@ const StyledQuestionButtons = styled.div`
 `;
 
 export default function Community() {
+  const [searchParams] = useSearchParams();
+  const questionId = useMemo(() => searchParams.get('id'), [searchParams]);
+
+  console.log('questionId', questionId);
+  const { QuestionData, answerData } = useCommunityQuestion('96c646d2-2bd2-4a1c-8e92-1e6c32505c18');
+
+  console.log('QuestionFormData', QuestionData);
+  console.log('answerData', answerData);
+
   return (
     <>
       <Navbar />
@@ -87,13 +98,19 @@ export default function Community() {
         <StyledQuestionInformation>
           <SaraTitle />
           <div className="text">
-            <Text label="안녕하세요" size="20px" bold="700" />
-            <Text label="이미 잃어버려쎴는데 어쩌구 저쩌구" size="14px" style={{ marginTop: '3px' }} />
+            <Text label={QuestionData.product} size="20px" bold="700" />
+            <Text label={QuestionData.content} size="14px" style={{ marginTop: '3px' }} />
           </div>
         </StyledQuestionInformation>
         <StyledQuestionAnswer>
           <SaraCharacter className=".svg" />
-          <Text style={{ lineHeight: '22.4px' }} label="ㅋㄷㅋㄷ" size="14px" bold="500" color={Theme.color.darkGray} />
+          <Text
+            style={{ lineHeight: '22.4px' }}
+            label={answerData.content}
+            size="14px"
+            bold="500"
+            color={Theme.color.darkGray}
+          />
           <StyledShareButtons>
             <Like />
             <div className="buttons">
