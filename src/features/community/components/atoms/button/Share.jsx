@@ -12,23 +12,21 @@ const StyledShare = styled.div`
   padding: 0 12px;
   height: 44px;
   border-radius: 36px;
-
+  cursor: pointer;
   background-color: #f4f4f4;
 `;
 
 export default function Share() {
   return (
-    <StyledShare>
-      <ShareIcon
-        fill={Theme.color.white}
-        style={{ cursor: 'pointer' }}
-        onClick={() => {
-          const url = window.location.href;
-          navigator.clipboard.writeText(url).then(() => {
-            alert('링크가 복사되었습니다');
-          });
-        }}
-      />
+    <StyledShare
+      onClick={() => {
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+          alert('링크가 복사되었습니다');
+        });
+      }}
+    >
+      <ShareIcon fill={Theme.color.white} />
       <Text size="12px" label="공유하기" color={Theme.color.black} />
     </StyledShare>
   );

@@ -76,7 +76,7 @@ export default function CommentList({ type, questionId }) {
   console.log('type:', type);
   const textareaRef = useRef(null);
   const [value, setValue] = useState('');
-  const { handleCreateComment, showingComments, commentsData, page, handlePageChange, maxPage } =
+  const { handleCreateComment, showingComments, commentsData, page, handlePageChange, maxPage, commentsLoading } =
     useComment(questionId);
   const adjustTextareaHeight = () => {
     const textarea = textareaRef.current;
@@ -104,8 +104,10 @@ export default function CommentList({ type, questionId }) {
     <StyledComments>
       <Text bold="700" label={`${commentsData?.length} 댓글 `} size="14px" />
       <div className="wrapper">
-        {showingComments.length > 0 && showingComments.map((comment) => <Comment comment={comment} />)}
-        {commentsData.length === 0 && (
+        {!commentsLoading &&
+          showingComments.length > 0 &&
+          showingComments.map((comment) => <Comment comment={comment} />)}
+        {!commentsLoading && commentsData.length === 0 && (
           <div className="empty">
             <EmpaySara />
           </div>

@@ -28,7 +28,13 @@ export default function Comment({ comment, type }) {
       </div>
       <div className="contents">
         <Text label={comment.nickname} size="12px" color="#999" />
-        <Text label={comment.content} size="12px" />
+        <Text
+          label={comment.content}
+          size="12px"
+          style={{
+            wordBreak: 'break-all',
+          }}
+        />
         {/* <Text label={comment.date} size="12px" color="#999" /> */}
       </div>
     </StyledComment>

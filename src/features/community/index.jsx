@@ -81,7 +81,7 @@ const StyledQuestionButtons = styled.div`
 `;
 
 export default function Community() {
-  const { QuestionData, answerData, isLoading, questionId } = useCommunityQuestion();
+  const { QuestionData, answerData, isLoading, questionId, handleLike, like } = useCommunityQuestion();
   return (
     <>
       <Navbar />
@@ -107,7 +107,7 @@ export default function Community() {
                 color={Theme.color.darkGray}
               />
               <StyledShareButtons>
-                <Like />
+                <Like count={QuestionData.like_count} onClick={handleLike} isLike={like} />
                 <div className="buttons">
                   <Share />
                   <Kakao />
