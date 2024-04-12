@@ -1,6 +1,5 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { useSearchParams } from 'react-router-dom';
 import Navbar from './components/molecules/navbar';
 import Layout from './components/molecules/layout';
 import CommentList from './components/organisms/comments';
@@ -82,78 +81,77 @@ const StyledQuestionButtons = styled.div`
 `;
 
 export default function Community() {
-  const [searchParams] = useSearchParams();
-  const questionId = useMemo(() => searchParams.get('id'), [searchParams]);
-
-  console.log('questionId', questionId);
-  const { QuestionData, answerData } = useCommunityQuestion('96c646d2-2bd2-4a1c-8e92-1e6c32505c18');
-
-  console.log('QuestionFormData', QuestionData);
-  console.log('answerData', answerData);
-
+  const { QuestionData, answerData, isLoading, questionId } = useCommunityQuestion();
   return (
     <>
       <Navbar />
       <Layout>
-        <StyledQuestionInformation>
-          <SaraTitle />
-          <div className="text">
-            <Text label={QuestionData.product} size="20px" bold="700" />
-            <Text label={QuestionData.content} size="14px" style={{ marginTop: '3px' }} />
-          </div>
-        </StyledQuestionInformation>
-        <StyledQuestionAnswer>
-          <SaraCharacter className=".svg" />
-          <Text
-            style={{ lineHeight: '22.4px' }}
-            label={answerData.content}
-            size="14px"
-            bold="500"
-            color={Theme.color.darkGray}
-          />
-          <StyledShareButtons>
-            <Like />
-            <div className="buttons">
-              <Share />
-              <Kakao />
-            </div>
-          </StyledShareButtons>
-          <StyledQuestionButtons>
-            <Button
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                padding: '12px',
-                backgroundColor: Theme.color.saraSecondary,
-                gap: '6px',
-                borderRadius: '8px',
-              }}
-            >
-              <SaraComment />
-              <Text label="에게 나도 질문하기" size="13px" bold="700" color={Theme.color.saraPrimary} />
-            </Button>
-            <Button
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                padding: '12px',
-                gap: '6px',
-                backgroundColor: Theme.color.maraSecondary,
-                borderRadius: '8px',
-              }}
-            >
-              <MaraComment />
-              <Text label="에게 물어볼까?" size="13px" bold="700" color={Theme.color.maraPrimary} />
-            </Button>
-          </StyledQuestionButtons>
-        </StyledQuestionAnswer>
+        {isLoading ? (
+          <div>로딩중</div>
+        ) : (
+          <>
+            <StyledQuestionInformation>
+              <SaraTitle />
+              <div className="text">
+                <Text label={QuestionData.product} size="20px" bold="700" />
+                <Text label={QuestionData.content} size="14px" style={{ marginTop: '3px' }} />
+              </div>
+            </StyledQuestionInformation>
+            <StyledQuestionAnswer>
+              <SaraCharacter className=".svg" />
+              <Text
+                style={{ lineHeight: '22.4px' }}
+                label={answerData.content}
+                size="14px"
+                bold="500"
+                color={Theme.color.darkGray}
+              />
+              <StyledShareButtons>
+                <Like />
+                <div className="buttons">
+                  <Share />
+                  <Kakao />
+                </div>
+              </StyledShareButtons>
+              <StyledQuestionButtons>
+                <Button
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    padding: '12px',
+                    backgroundColor: Theme.color.saraSecondary,
+                    gap: '6px',
+                    borderRadius: '8px',
+                  }}
+                >
+                  <SaraComment />
+                  <Text label="에게 나도 질문하기" size="13px" bold="700" color={Theme.color.saraPrimary} />
+                </Button>
+                <Button
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    padding: '12px',
+                    gap: '6px',
+                    backgroundColor: Theme.color.maraSecondary,
+                    borderRadius: '8px',
+                  }}
+                >
+                  <MaraComment />
+                  <Text label="에게 물어볼까?" size="13px" bold="700" color={Theme.color.maraPrimary} />
+                </Button>
+              </StyledQuestionButtons>
+            </StyledQuestionAnswer>
 
-        <CommentList comments={COMMENTS_LIST} type="sara" />
-        {/* <MaraTitle /> */}
+            <CommentList comments={COMMENTS_LIST} type="sara" questionId={questionId} />
+
+            {/* <MaraTitle /> */}
+          </>
+        )}
       </Layout>
     </>
   );

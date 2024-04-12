@@ -27,9 +27,9 @@ export default function Comment({ comment, type }) {
         <SaraComment />
       </div>
       <div className="contents">
-        <Text label={comment.name} size="12px" color="#999" />
+        <Text label={comment.nickname} size="12px" color="#999" />
         <Text label={comment.content} size="12px" />
-        <Text label={comment.date} size="12px" color="#999" />
+        {/* <Text label={comment.date} size="12px" color="#999" /> */}
       </div>
     </StyledComment>
   );
@@ -38,7 +38,7 @@ export default function Comment({ comment, type }) {
 Comment.propTypes = {
   comment: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
+    nickname: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
   }).isRequired,
