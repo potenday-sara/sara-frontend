@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import Navbar from './components/molecules/navbar';
 import Layout from './components/molecules/layout';
 import CommentList from './components/organisms/comments';
@@ -82,6 +83,7 @@ const StyledQuestionButtons = styled.div`
 
 export default function Community() {
   const { QuestionData, answerData, isLoading, questionId, handleLike, like } = useCommunityQuestion();
+  const navigate = useNavigate();
   return (
     <>
       <Navbar />
@@ -115,6 +117,7 @@ export default function Community() {
               </StyledShareButtons>
               <StyledQuestionButtons>
                 <Button
+                  onClick={() => navigate('/question/sara')}
                   style={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -130,6 +133,7 @@ export default function Community() {
                   <Text label="에게 나도 질문하기" size="13px" bold="700" color={Theme.color.saraPrimary} />
                 </Button>
                 <Button
+                  onClick={() => navigate('/question/mara')}
                   style={{
                     display: 'flex',
                     flexDirection: 'column',
