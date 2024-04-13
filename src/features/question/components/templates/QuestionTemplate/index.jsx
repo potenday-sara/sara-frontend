@@ -4,6 +4,7 @@ import StyledQuestionTemplate from './styles';
 import QuestionSlider from '../../organisms/QuestionSlider';
 import CoupangRecommend from '../../organisms/CoupangRecommend';
 import { Theme } from '../../../../../Styles';
+import KakaoAdFit from '../../../../../components/organisms/KaKaoAdfit.jsx';
 // import Footer from '../../../../../components/organisms/Footer';
 
 export default function QuestionTemplate({ type, children }) {
@@ -33,6 +34,9 @@ export default function QuestionTemplate({ type, children }) {
             fillOpacity="0.03"
           />
         </svg>
+      </div>
+      <div className="kakao-add">
+        <KakaoAdFit unit="DAN-O3RcvViZRn5L18RJ" width={728} height={90} />
       </div>
     </StyledQuestionTemplate>
   );

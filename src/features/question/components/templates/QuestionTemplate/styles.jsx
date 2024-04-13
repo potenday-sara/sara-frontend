@@ -23,7 +23,13 @@ const StyledQuestionTemplate = styled.main`
     grid-auto-rows: auto;
     justify-content: center;
   }
-
+  .kakao-add {
+    transform: translate(-50%, 0);
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+    height: 90px;
+  }
   .design {
     position: absolute;
     gap: 30px;
