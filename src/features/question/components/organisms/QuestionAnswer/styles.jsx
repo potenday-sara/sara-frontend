@@ -73,6 +73,7 @@ const StyledQuestionAnswer = styled.section`
       align-items: center;
       justify-content: center;
 
+      gap: 20px;
       .share-button-wrap {
         display: flex;
         flex-direction: column;
