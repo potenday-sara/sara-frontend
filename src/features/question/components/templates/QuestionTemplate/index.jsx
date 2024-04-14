@@ -13,7 +13,13 @@ export default function QuestionTemplate({ type, children }) {
       <div className="grid">
         <QuestionSlider type={type} />
         {children}
+        <div className="kakao-ad-a">
+          <KakaoAdFit disabled={false} height={50} width={320} unit="DAN-FK6YA47rI1C6QYtZ" />
+        </div>
         <CoupangRecommend type={type} />
+        <div className="kakao-ad-b">
+          <KakaoAdFit disabled={false} height={250} width={300} unit="DAN-aWKDV8g54CO6nffE" />
+        </div>
       </div>
       <div className="design">
         <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="40" fill="none">
@@ -35,6 +41,7 @@ export default function QuestionTemplate({ type, children }) {
           />
         </svg>
       </div>
+
       <div className="kakao-add">
         <KakaoAdFit unit="DAN-O3RcvViZRn5L18RJ" width={728} height={90} />
       </div>
