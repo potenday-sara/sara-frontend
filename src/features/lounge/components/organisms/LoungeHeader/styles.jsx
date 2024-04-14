@@ -2,9 +2,10 @@ import styled from 'styled-components';
 import { Theme } from '../../../../../Styles';
 
 export const StyledLoungeHeader = styled.div`
-  width: 100%;
   height: 56px;
+  width: 100%;
   display: flex;
+  padding: 8px 16px;
   align-items: center;
   justify-content: center;
   background-color: ${() => Theme.color.white};
