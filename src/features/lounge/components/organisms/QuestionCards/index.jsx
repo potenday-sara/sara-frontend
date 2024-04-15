@@ -14,12 +14,11 @@ function QuestionCards() {
     return 'rgba(255, 205, 77, 0.5)';
   };
 
-  // console.log('data:', type, questionDatas);
   return (
     <StyledQuestionCards $backColor={getBackColor()}>
       {!questionLoading &&
-        questionDatas?.map((data, idx) => {
-          return <QuestionCard questionData={data} key={[data.id, idx]} />;
+        questionDatas?.results.map((data, idx) => {
+          return <QuestionCard questionData={data} idx={idx} key={[data.id, idx]} />;
         })}
     </StyledQuestionCards>
   );
