@@ -6,6 +6,7 @@ export const StyledQuestionBottom = styled.div`
   display: inline-flex;
   margin-top: 16px;
   justify-content: space-between;
+  color: ${() => Theme.color.black};
   .question-date {
     color: ${() => Theme.color.gray};
   }

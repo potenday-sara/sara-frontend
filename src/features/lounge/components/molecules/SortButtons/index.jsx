@@ -8,8 +8,8 @@ export default function SortButtons() {
 
   return (
     <StyledSortButtons>
-      <SortButton type="recent" text="최신" selected={sortType === 'recent'} />
-      <SortButton type="best" text="베스트" selected={sortType === 'best'} />
+      <SortButton type="time" text="최신" selected={sortType === 'time'} />
+      <SortButton type="like" text="베스트" selected={sortType === 'like'} />
     </StyledSortButtons>
   );
 }

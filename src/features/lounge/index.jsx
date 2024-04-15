@@ -7,7 +7,7 @@ import LoungeContext from './stores/LoungeStore';
 
 export default function LoungePage() {
   const [type, setType] = useState('all');
-  const [sortType, setSortType] = useState('recent');
+  const [sortType, setSortType] = useState('time');
 
   const setAll = () => {
     setType('all');

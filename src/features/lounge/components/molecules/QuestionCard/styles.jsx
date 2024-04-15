@@ -11,7 +11,7 @@ export const StyledQuestionCard = styled.div`
   border: 1px solid;
   font-family: Pretendard;
   ${(props) => {
-    if (props.$sortType !== 'best' || props.$rank > 3)
+    if (props.$sortType !== 'like' || props.$rank > 3)
       return `border-color: ${Theme.color.gray}; background-color: ${Theme.color.white};`;
     switch (props.$rank) {
       case 1:

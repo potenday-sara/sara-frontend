@@ -7,8 +7,8 @@ export default function SortButton({ selected, text }) {
   const { setSort } = useContext(LoungeContext);
 
   const buttonHandler = () => {
-    if (text === '베스트') return () => setSort('best');
-    if (text === '최신') return () => setSort('recent');
+    if (text === '베스트') return () => setSort('like');
+    if (text === '최신') return () => setSort('time');
     return () => {};
   };
 
