@@ -87,6 +87,9 @@ const StyledQuestionAnswer = styled.section`
       }
     }
   }
+  .kakao-ad-a {
+    width: 100%;
+  }
 
   ${Theme.deviceSize.large} {
     .logo {

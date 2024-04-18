@@ -102,7 +102,7 @@ const useQuestion = (type) => {
   }, [routeAnswerId]);
 
   // 답변 생성 여부 확인 쿼리(액션)
-  const { remove: DeleteAnswer } = useQuery({
+  const { data: QuestionData, remove: DeleteAnswer } = useQuery({
     queryKey: ['getId', quesionId, type],
     queryFn: async () => {
       const { data } = await getQuestionState(quesionId);
@@ -129,6 +129,7 @@ const useQuestion = (type) => {
         setRequestQuestion(false);
         setStage(StageState.ERROR);
       }
+
       return data;
     },
 
@@ -195,6 +196,7 @@ const useQuestion = (type) => {
     retryForm,
     retryRequestCount,
     isError,
+    QuestionData,
   };
 };
 

@@ -24,9 +24,9 @@ const maraPaginationStyle = {
   backgroundColor: Theme.color.maraSecondary,
 };
 
-function Pagination({ nowPage, maxPage, leftClick, rightClick, type }) {
+function Pagination({ nowPage, maxPage, leftClick, rightClick, type, ...rest }) {
   return (
-    <StyledPagination>
+    <StyledPagination {...rest}>
       <Button style={type === 'sara' ? saraPaginationStyle : maraPaginationStyle} onClick={leftClick}>
         <LeftArrow
           className={nowPage === 1 ? 'disActive' : null}
@@ -55,6 +55,7 @@ function Pagination({ nowPage, maxPage, leftClick, rightClick, type }) {
 
 Pagination.propTypes = {
   type: PropTypes.string,
+  className: PropTypes.string,
   nowPage: PropTypes.number.isRequired,
   leftClick: PropTypes.func.isRequired,
   rightClick: PropTypes.func.isRequired,
@@ -63,6 +64,7 @@ Pagination.propTypes = {
 
 Pagination.defaultProps = {
   type: '',
+  className: '',
 };
 
 export default Pagination;
