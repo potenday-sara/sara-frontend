@@ -25,7 +25,7 @@ const StyledSlider = styled.div`
     }
   }
 
-  &::after {
+  /* &::after {
     z-index: 999;
     top: 0px;
     content: '';
@@ -36,7 +36,7 @@ const StyledSlider = styled.div`
     width: 100%;
     height: 100%;
     position: absolute;
-  }
+  } */
 `;
 
 export default StyledSlider;
