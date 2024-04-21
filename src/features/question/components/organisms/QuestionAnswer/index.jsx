@@ -65,7 +65,6 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
   const qId = searchParams.get('questionId');
   const aId = searchParams.get('answerId');
 
-  console.log('qId', qId, aId, type);
   const checkCSLenght = (e) => {
     if (e.target?.value.length <= 500) onChange(e);
   };

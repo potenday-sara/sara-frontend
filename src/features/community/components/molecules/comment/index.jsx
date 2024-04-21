@@ -19,8 +19,7 @@ const StyledComment = styled.div`
   }
 `;
 
-export default function Comment({ comment, type }) {
-  console.log('type', type);
+export default function Comment({ comment }) {
   return (
     <StyledComment>
       <div className="img">
@@ -48,5 +47,4 @@ Comment.propTypes = {
     content: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
   }).isRequired,
-  type: PropTypes.string.isRequired,
 };

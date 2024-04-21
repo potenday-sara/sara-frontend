@@ -61,4 +61,15 @@ const StyledQuestionLoading = styled.main`
   }
 `;
 
+const TipChip = styled.div`
+  user-select: none;
+  border-radius: 6px;
+  border: 1px solid ${(props) => props.$color};
+  font-size: 12px;
+  font-weight: 700;
+  color: ${(props) => props.$color};
+  padding: 6px;
+`;
+
 export default StyledQuestionLoading;
+export { TipChip };

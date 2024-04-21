@@ -38,6 +38,7 @@ const useQuestion = (type) => {
   const [progress, setProgress] = useState(0);
   const [maxRequestCount, setMaxRequestCount] = useState(MaxRequestCount);
   const [retryRequestCount, setRetryRequestCount] = useState(0);
+
   const routeAnswerId = searchParams.get('answerId');
   // questionID를 바뀌면, Question 응답을 True로 바꾸어 React Query를 작동시키는 코드(액션)
   const isMouted = useRef(false);
