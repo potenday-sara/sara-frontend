@@ -8,6 +8,7 @@ import MainAside from './components/templates/MainAside';
 import OnboardingSectionLayout from './components/templates/MainSection';
 import SaraMaraContext from './stores/SaraMaraContext';
 import StyledMain from './styles';
+import KakaoAdFit from '../../components/organisms/KaKaoAdfit.jsx';
 
 /**
  * 온보딩페에지의 기본 레이아웃입니다.
@@ -62,7 +63,14 @@ export default function Main() {
           color={type === 'sara' ? Theme.color.maraPrimary : Theme.color.saraPrimary}
           transition="all 0s linear"
         />
+
         <OnboardingSectionLayout type="mara" className="mara-section" />
+        <div className="kakao-ad-a">
+          <KakaoAdFit disabled={false} height={50} width={320} unit="DAN-FK6YA47rI1C6QYtZ" />
+        </div>
+        <div className="kakao-ad-b">
+          <KakaoAdFit disabled={false} height={250} width={300} unit="DAN-aWKDV8g54CO6nffE" />
+        </div>
       </SaraMaraContext.Provider>
       <Footer />
     </StyledMain>

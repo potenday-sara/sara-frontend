@@ -14,7 +14,7 @@ const StageState = {
 };
 
 // 최대 요청 시도 횟수
-const MaxRequestCount = 15;
+const MaxRequestCount = 18;
 
 // 재시도 시 질문 최대 재시도 횟수
 const MaxRequestCountOfRetry = 10;
@@ -27,17 +27,18 @@ const computeProgress = (nowProgress, maxProgress) => Math.max(100 - Math.floor(
  * @returns QuestionFormData
  */
 const useQuestion = (type) => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [stage, setStage] = useState(StageState.INITIAL);
   const { value: ItemValue, onChange: ItemChange, setValue: setItemValue } = useInput('');
   const { value: ContentsValue, onChange: ContentsChange, setValue: setContentsValue } = useInput('');
-  const [quesionId, setQuestionId] = useState('');
+  const [quesionId, setQuestionId] = useState(searchParams.get('questionId') || '');
   const [requestQuestion, setRequestQuestion] = useState(false);
   const [requestCount, setRequestCount] = useState(0);
   const [answerId, setAnswerId] = useState('');
   const [progress, setProgress] = useState(0);
   const [maxRequestCount, setMaxRequestCount] = useState(MaxRequestCount);
   const [retryRequestCount, setRetryRequestCount] = useState(0);
-  const [searchParams, setSearchParams] = useSearchParams();
+
   const routeAnswerId = searchParams.get('answerId');
   // questionID를 바뀌면, Question 응답을 True로 바꾸어 React Query를 작동시키는 코드(액션)
   const isMouted = useRef(false);
@@ -79,6 +80,7 @@ const useQuestion = (type) => {
     queryFn: async () => {
       const router = new URLSearchParams(searchParams);
       router.set('answerId', routeAnswerId || answerId);
+      router.set('questionId', quesionId);
       setSearchParams(router);
       try {
         const data = await getAnswer(routeAnswerId || answerId);
@@ -101,7 +103,7 @@ const useQuestion = (type) => {
   }, [routeAnswerId]);
 
   // 답변 생성 여부 확인 쿼리(액션)
-  const { remove: DeleteAnswer } = useQuery({
+  const { data: QuestionData, remove: DeleteAnswer } = useQuery({
     queryKey: ['getId', quesionId, type],
     queryFn: async () => {
       const { data } = await getQuestionState(quesionId);
@@ -128,6 +130,7 @@ const useQuestion = (type) => {
         setRequestQuestion(false);
         setStage(StageState.ERROR);
       }
+
       return data;
     },
 
@@ -194,6 +197,7 @@ const useQuestion = (type) => {
     retryForm,
     retryRequestCount,
     isError,
+    QuestionData,
   };
 };
 

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { useSearchParams } from 'react-router-dom';
 import { useNavigate } from 'react-router';
 import { Theme } from '../../../../../Styles';
 import Button from '../../../../../components/atoms/Button';
@@ -19,6 +20,9 @@ import Form from '../../../../../components/molecules/Form';
 import Textarea from '../../../../../components/atoms/Textarea';
 import Toast from '../../../../../components/molecules/Toast';
 import StyledFeedback from '../QuestionEmotionForm/styles';
+import shareKakao from '../../../utils/shareKakao';
+import { ReactComponent as KaKaoShare } from '../../../assets/kakaoShare.svg';
+import KakaoAdFit from '../../../../../components/organisms/KaKaoAdfit.jsx';
 
 export default function QuestionAnwser({ type, answer, QuestionFormData, quesionId, refreshForm }) {
   const [completedAnswer, setCompletedAnswer] = useState('');
@@ -55,6 +59,11 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
   const checkDisabled = () => {
     return !CScontent?.length;
   };
+
+  const [searchParams] = useSearchParams();
+
+  const qId = searchParams.get('questionId');
+  const aId = searchParams.get('answerId');
 
   const checkCSLenght = (e) => {
     if (e.target?.value.length <= 500) onChange(e);
@@ -148,8 +157,17 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
               </Button>
               <Text size="12px" label="링크 복사" color={Theme.color.darkGray} />
             </div>
+            <div className="share-button-wrap">
+              <Button className="share-button" bg="#f4f4f4">
+                <KaKaoShare style={{ cursor: 'pointer' }} onClick={() => shareKakao(aId, qId, type)} />
+              </Button>
+              <Text size="12px" label="카카오톡" color={Theme.color.darkGray} />
+            </div>
           </div>
         </section>
+        <div className="kakao-ad-a">
+          <KakaoAdFit disabled={false} height={50} width={320} unit="DAN-FK6YA47rI1C6QYtZ" />
+        </div>
         <StyledFeedback type={type}>
           <Form onSubmit={(e) => submitCSFeedback(e)} className={isFeedback ? 'cs-form is-feedback' : 'cs-form'}>
             {!isFeedback ? (

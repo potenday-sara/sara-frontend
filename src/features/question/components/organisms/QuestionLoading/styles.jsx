@@ -12,6 +12,15 @@ const StyledQuestionLoading = styled.main`
   .logo {
     width: 179px;
   }
+
+  .tip-chip {
+    user-select: none;
+    border-radius: 6px;
+    border: 1px solid ${({ type }) => (type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary)};
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px;
+  }
   .recommend-coupang {
     width: 100%;
     display: flex;

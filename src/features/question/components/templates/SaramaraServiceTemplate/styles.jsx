@@ -11,6 +11,7 @@ const StyledSaramaraServiceTemplate = styled.section`
   height: auto;
   min-height: 400px;
   margin: auto;
+  margin-bottom: 70px;
   padding: 56px 12px;
   background-color: white;
   border-radius: 24px;
@@ -22,6 +23,7 @@ const StyledSaramaraServiceTemplate = styled.section`
   }
 
   ${Theme.deviceSize.medium} {
+    margin-bottom: 0px;
     width: calc(352px + (100vw - 1440px) / (195 - 144) * 3.5);
     max-width: 395px;
   }

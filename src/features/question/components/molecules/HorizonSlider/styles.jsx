@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Theme } from '../../../../../Styles';
 
 const StyledHorizonSlider = styled.div`
   position: relative;
@@ -15,17 +14,6 @@ const StyledHorizonSlider = styled.div`
     .swiper-slide {
       width: auto;
     }
-  }
-
-  &::after {
-    z-index: 999;
-    top: 0px;
-    content: '';
-    box-shadow: 0px 4px 12px 0px
-      ${({ type }) => (type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary)} inset;
-    width: 100%;
-    height: 100%;
-    position: absolute;
   }
 `;
 

@@ -48,7 +48,7 @@ const StyledCoupoangRecommend = styled.section`
     align-items: center;
     justify-content: center;
     position: absolute;
-    background: rgba(0, 123, 237, 0.05);
+    background-color: ${({ $type }) => ($type === 'sara' ? 'rgba(0, 123, 237, 0.05)' : '#fdeae5')};
     left: 0px;
     bottom: 0px;
   }
