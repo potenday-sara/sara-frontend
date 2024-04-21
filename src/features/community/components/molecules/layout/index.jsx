@@ -8,7 +8,6 @@ const StyledLayout = styled.div`
   padding: 16px;
   width: 100%;
   max-width: 600px;
-  border: 1px solid red;
 `;
 
 export default function Layout({ children }) {
