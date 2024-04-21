@@ -9,7 +9,7 @@ const shareKakao = (answerId, questionId, type) => {
     kakao.Share.sendCustom({
       templateId: 105401,
       templateArgs: {
-        url: `question/${type}?answerId=${answerId}&questionId=${questionId}`,
+        url: `community?type=${type}&answerId=${answerId}&questionId=${questionId}`,
       },
     });
   }
