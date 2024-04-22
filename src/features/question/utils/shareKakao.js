@@ -2,7 +2,6 @@ const shareKakao = (answerId, questionId, type) => {
   if (window.Kakao) {
     const kakao = window.Kakao;
 
-    console.log(answerId, questionId, type);
     if (!kakao.isInitialized()) {
       kakao.init(process.env.REACT_APP_KAKAO_JS_KEY);
     }

@@ -21,11 +21,11 @@ const StyledKakao = styled.button`
 `;
 
 export default function Kakao() {
-  const qid = useSearchParams('questionId');
-  const type = useSearchParams('type');
+  const [seachParams] = useSearchParams();
+  const qid = seachParams.get('questionId');
 
   return (
-    <StyledKakao onClick={() => shareKakao(type, qid, type)}>
+    <StyledKakao onClick={() => shareKakao('sara', qid, '')}>
       <KaKaoShare style={{ cursor: 'pointer' }} />
       <Text size="12px" label="카카오톡 공유" color={Theme.color.black} />
     </StyledKakao>
