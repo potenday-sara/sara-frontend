@@ -1,21 +1,21 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import Navbar from './components/molecules/navbar';
+import styled from 'styled-components';
 import Layout from './components/molecules/layout';
 import CommentList from './components/organisms/comments';
 
+import { ReactComponent as MaraComment } from './assets/mara.svg';
+import { ReactComponent as SaraComment } from './assets/sara.svg';
 import { ReactComponent as SaraCharacter } from './assets/saracharacter.svg';
 import { ReactComponent as SaraTitle } from './assets/saratitle.svg';
-import { ReactComponent as SaraComment } from './assets/sara.svg';
-import { ReactComponent as MaraComment } from './assets/mara.svg';
 
-import Text from '../../components/atoms/Text';
 import { Theme } from '../../Styles';
-import Kakao from './components/atoms/button/Kakao';
-import Share from './components/atoms/button/Share';
-import Like from './components/atoms/button/Like';
 import Button from '../../components/atoms/Button';
+import Text from '../../components/atoms/Text';
+import Kakao from './components/atoms/button/Kakao';
+import Like from './components/atoms/button/Like';
+import Share from './components/atoms/button/Share';
+import CommunityQuestionCards from './components/organisms/questionCards';
 import useCommunityQuestion from './hooks/useCommunityQuestion';
 
 const COMMENTS_LIST = [
@@ -45,7 +45,7 @@ const StyledQuestionInformation = styled.div`
   gap: 12px;
 
   padding-bottom: 20px;
-  padding-top: 20px;
+  // padding-top: 20px;
   border-bottom: 1px solid #dddddd;
 `;
 
@@ -86,7 +86,7 @@ export default function Community() {
   const navigate = useNavigate();
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Layout>
         {isLoading ? (
           <div>로딩중</div>
@@ -152,6 +152,7 @@ export default function Community() {
             </StyledQuestionAnswer>
 
             <CommentList comments={COMMENTS_LIST} type="sara" questionId={questionId} />
+            <CommunityQuestionCards />
 
             {/* <MaraTitle /> */}
           </>
