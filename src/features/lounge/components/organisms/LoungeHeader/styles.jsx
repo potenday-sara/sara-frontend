@@ -8,6 +8,8 @@ export const StyledLoungeHeader = styled.div`
   padding: 8px 16px;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  top: 0;
   background-color: ${() => Theme.color.white};
   p {
     font-family: Pretendard;

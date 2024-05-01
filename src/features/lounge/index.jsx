@@ -1,9 +1,21 @@
 import React, { useMemo, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Community from '../community';
 import SortButtons from './components/molecules/SortButtons';
 import TypeButtons from './components/molecules/TypeButtons';
 import LoungeHeader from './components/organisms/LoungeHeader';
 import QuestionCards from './components/organisms/QuestionCards';
 import LoungeContext from './stores/LoungeStore';
+
+export function LoungeMain() {
+  return (
+    <>
+      <SortButtons />
+      <TypeButtons />
+      <QuestionCards />
+    </>
+  );
+}
 
 export default function LoungePage() {
   const [type, setType] = useState('all');
@@ -30,9 +42,10 @@ export default function LoungePage() {
     <div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
       <LoungeContext.Provider value={loungeStore}>
         <LoungeHeader type={type} />
-        <SortButtons />
-        <TypeButtons />
-        <QuestionCards />
+        <Routes>
+          <Route path="/community" element={<Community />} />
+          <Route exact path="/" element={<LoungeMain />} />
+        </Routes>
       </LoungeContext.Provider>
     </div>
   );

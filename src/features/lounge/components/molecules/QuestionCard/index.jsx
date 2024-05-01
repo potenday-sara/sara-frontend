@@ -26,7 +26,7 @@ export default function QuestionCard({ questionData, idx }) {
   const navigate = useNavigate('');
 
   return (
-    <S.StyledQuestionCard $sortType={sortType} $rank={idx + 1} onClick={() => navigate(`/question/${id}`)}>
+    <S.StyledQuestionCard $sortType={sortType} $rank={idx + 1} onClick={() => navigate(`community/question/${id}`)}>
       <S.StyledQuestionName>
         {idx < 3 && sortType === 'like' && <S.StyledRanknumber $rank={idx + 1}>{idx + 1}</S.StyledRanknumber>}
         <p>{product}</p>
