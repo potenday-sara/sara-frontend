@@ -3,7 +3,7 @@ import { Theme } from '../../../../../Styles';
 
 export const StyledQuestionCard = styled.div`
   height: 108px;
-  width: 343px;
+  width: 100%;
   padding: 16px;
   border-radius: 12px;
   display: flex;

@@ -15,6 +15,7 @@ import Text from '../../components/atoms/Text';
 import Kakao from './components/atoms/button/Kakao';
 import Like from './components/atoms/button/Like';
 import Share from './components/atoms/button/Share';
+import CommunityQuestionCards from './components/organisms/questionCards';
 import useCommunityQuestion from './hooks/useCommunityQuestion';
 
 const COMMENTS_LIST = [
@@ -151,6 +152,7 @@ export default function Community() {
             </StyledQuestionAnswer>
 
             <CommentList comments={COMMENTS_LIST} type="sara" questionId={questionId} />
+            <CommunityQuestionCards />
 
             {/* <MaraTitle /> */}
           </>
