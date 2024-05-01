@@ -8,8 +8,8 @@ export default function LoungeHeader() {
   const { pathname } = useLocation();
 
   const handleNavigate = () => {
-    if (pathname?.includes('lounge')) navigate('/');
-    if (pathname?.includes('question')) navigate(-1);
+    if (pathname?.endsWith('lounge')) navigate('/');
+    if (pathname?.includes('community')) navigate('/lounge');
   };
   return (
     <S.StyledLoungeHeader>

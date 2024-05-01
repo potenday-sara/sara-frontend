@@ -39,7 +39,7 @@ export default function LoungePage() {
   }, [type, sortType]);
 
   return (
-    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', paddingTop: '56px' }}>
       <LoungeContext.Provider value={loungeStore}>
         <LoungeHeader type={type} />
         <Routes>
