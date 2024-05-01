@@ -72,8 +72,7 @@ const StyledCommentSubmitButton = styled.button`
   border: none;
 `;
 
-export default function CommentList({ type, questionId }) {
-  console.log('type:', type);
+export default function CommentList({ questionId }) {
   const textareaRef = useRef(null);
   const [value, setValue] = useState('');
   const { handleCreateComment, showingComments, commentsData, page, handlePageChange, maxPage, commentsLoading } =
@@ -98,15 +97,15 @@ export default function CommentList({ type, questionId }) {
     setValue('');
   };
 
-  console.log('comments:', commentsData);
-  console.log('showingComments:', showingComments);
   return (
     <StyledComments>
       <Text bold="700" label={`${commentsData?.length} 댓글 `} size="14px" />
       <div className="wrapper">
         {!commentsLoading &&
           showingComments.length > 0 &&
-          showingComments.map((comment) => <Comment comment={comment} />)}
+          showingComments.map((comment) => (
+            <Comment comment={comment} key={comment.id || String(Math.random()) + comment.content} />
+          ))}
         {!commentsLoading && commentsData.length === 0 && (
           <div className="empty">
             <EmpaySara />
@@ -135,6 +134,5 @@ export default function CommentList({ type, questionId }) {
 }
 
 CommentList.propTypes = {
-  type: PropTypes.string.isRequired,
   questionId: PropTypes.string.isRequired,
 };

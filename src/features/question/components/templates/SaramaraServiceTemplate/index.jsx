@@ -2,13 +2,13 @@ import PropTypes from 'prop-types';
 import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SaraMaraContext from '../../../../main/stores/SaraMaraContext';
-import useQuestion from '../../../hooks/useQuestion';
 import Tag from '../../atoms/Tag';
 import QuestionAnwser from '../../organisms/QuestionAnswer';
 import QuestionFailed from '../../organisms/QuestionFailed';
 import QuestionLoading from '../../organisms/QuestionLoading';
 import SaramaraForm from '../../organisms/SaramaraForm';
 import StyledSaramaraServiceTemplate from './styles';
+import useQuestion from '../../../hooks/useQuestion';
 
 export default function SaramaraServiceTemplate({ type }) {
   const {
