@@ -45,7 +45,7 @@ const StyledQuestionInformation = styled.div`
   gap: 12px;
 
   padding-bottom: 20px;
-  padding-top: 20px;
+  // padding-top: 20px;
   border-bottom: 1px solid #dddddd;
 `;
 

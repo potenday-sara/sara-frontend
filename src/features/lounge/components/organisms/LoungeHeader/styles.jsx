@@ -9,6 +9,7 @@ export const StyledLoungeHeader = styled.div`
   align-items: center;
   justify-content: center;
   position: fixed;
+  z-index: 10;
   top: 0;
   background-color: ${() => Theme.color.white};
   p {
