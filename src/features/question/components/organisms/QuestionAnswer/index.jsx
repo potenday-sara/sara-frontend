@@ -22,6 +22,7 @@ import Toast from '../../../../../components/molecules/Toast';
 import StyledFeedback from '../QuestionEmotionForm/styles';
 import shareKakao from '../../../utils/shareKakao';
 import { ReactComponent as KaKaoShare } from '../../../assets/kakaoShare.svg';
+import KakaoAdFit from '../../../../../components/organisms/KaKaoAdfit.jsx';
 
 export default function QuestionAnwser({ type, answer, QuestionFormData, quesionId, refreshForm }) {
   const [completedAnswer, setCompletedAnswer] = useState('');
@@ -165,6 +166,9 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
             </div>
           </div>
         </section>
+        <div className="kakao-ad-a">
+          <KakaoAdFit disabled={false} height={50} width={320} unit="DAN-FK6YA47rI1C6QYtZ" />
+        </div>
         <StyledFeedback type={type}>
           <Form onSubmit={(e) => submitCSFeedback(e)} className={isFeedback ? 'cs-form is-feedback' : 'cs-form'}>
             {!isFeedback ? (

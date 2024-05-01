@@ -6,13 +6,20 @@ const StyledQuestionTemplate = styled.main`
   min-width: 1200px;
   position: relative;
   background-color: ${({ bg }) => bg || null};
-  padding-bottom: 80px;
+  padding-bottom: 100px;
   min-height: calc(100vh - 144px);
   height: 100%;
   z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  .kakao-ad-a {
+    display: none;
+  }
+  .kakao-ad-b {
+    display: none;
+    margin: 0 auto;
+  }
   .grid {
     height: 100%;
     display: grid;
@@ -23,7 +30,13 @@ const StyledQuestionTemplate = styled.main`
     grid-auto-rows: auto;
     justify-content: center;
   }
-
+  .kakao-add {
+    transform: translate(-50%, 0);
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+    height: 90px;
+  }
   .design {
     position: absolute;
     gap: 30px;
@@ -38,7 +51,23 @@ const StyledQuestionTemplate = styled.main`
 
   ${Theme.deviceSize.small} {
     min-width: 362px;
-
+    .kakao-ad-a {
+      display: block;
+    }
+    .kakao-ad-b {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      grid-row: 6 / 7;
+    }
+    .kakao-add {
+      display: none;
+      transform: translate(-50%, 0);
+      position: absolute;
+      left: 50%;
+      bottom: 0px;
+      height: 90px;
+    }
     .grid {
       width: 100%;
       justify-content: center;
