@@ -24,7 +24,6 @@ export default function Kakao() {
   const [seachParams] = useSearchParams();
   const qid = seachParams.get('questionId');
 
-  console.log('qid', qid);
   return (
     <StyledKakao onClick={() => shareKakao('sara', qid, '')}>
       <KaKaoShare style={{ cursor: 'pointer' }} />

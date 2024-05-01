@@ -1,11 +1,11 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import { Autoplay } from 'swiper';
-import 'swiper/swiper-bundle.css';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import StyledHorizonSlider from './styles';
+import { Autoplay } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css';
 import QuestionCard from '../../atoms/QuestionCard';
+import StyledHorizonSlider from './styles';
 
 function HorizonSlider({ datas, type }) {
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ function HorizonSlider({ datas, type }) {
         direction="vertical"
       >
         {datas?.map(({ content, product, id, type: ttype }, idx) => {
-          const navigte = () => navigate(`/community?questionId=${id}&type=${ttype}`);
+          const navigte = () => navigate(`/lounge/community?questionId=${id}&type=${ttype}`);
 
           return (
             <SwiperSlide key={('slider', [idx])}>
