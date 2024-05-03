@@ -1,11 +1,14 @@
 import React, { useMemo, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import styled from 'styled-components';
 import Community from '../community';
 import SortButtons from './components/molecules/SortButtons';
 import TypeButtons from './components/molecules/TypeButtons';
-import LoungeHeader from './components/organisms/LoungeHeader';
+// import LoungeHeader from './components/organisms/LoungeHeader';
 import QuestionCards from './components/organisms/QuestionCards';
 import LoungeContext from './stores/LoungeStore';
+import Navbar from '../../components/organisms/Navbar/Navbar';
+import { Theme } from '../../Styles';
 
 export function LoungeMain() {
   return (
@@ -38,15 +41,30 @@ export default function LoungePage() {
     return { type, sortType, setAll, setSara, setMara, setSort };
   }, [type, sortType]);
 
+  const StyledMain = styled.div`
+    .body {
+      padding-top: 60px;
+    }
+
+    ${Theme.deviceSize.small} {
+      .body {
+        padding-top: 0;
+      }
+    }
+  `;
+
   return (
-    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', paddingTop: '56px' }}>
+    <StyledMain style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
       <LoungeContext.Provider value={loungeStore}>
-        <LoungeHeader type={type} />
-        <Routes>
-          <Route path="/community" element={<Community />} />
-          <Route exact path="/" element={<LoungeMain />} />
-        </Routes>
+        <Navbar />
+        {/* <LoungeHeader type={type} /> */}
+        <div className="body">
+          <Routes>
+            <Route path="/community" element={<Community />} />
+            <Route exact path="/" element={<LoungeMain />} />
+          </Routes>
+        </div>
       </LoungeContext.Provider>
-    </div>
+    </StyledMain>
   );
 }

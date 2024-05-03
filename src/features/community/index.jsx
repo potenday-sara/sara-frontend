@@ -18,32 +18,10 @@ import Share from './components/atoms/button/Share';
 import CommunityQuestionCards from './components/organisms/questionCards';
 import useCommunityQuestion from './hooks/useCommunityQuestion';
 
-const COMMENTS_LIST = [
-  {
-    id: 1,
-    name: '프리미엄 스파게티머니 5932',
-    content: '안녕하세요',
-    date: '2021-08-10',
-  },
-  {
-    id: 2,
-    name: '프리미엄 스파게티머니 5932',
-    content: '안녕하세요',
-    date: '2021-08-10',
-  },
-  {
-    id: 3,
-    name: '프리미엄 스파게티머니 5932',
-    content: '안녕하세요',
-    date: '2021-08-10',
-  },
-];
-
 const StyledQuestionInformation = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-
   padding-bottom: 20px;
   // padding-top: 20px;
   border-bottom: 1px solid #dddddd;
@@ -151,7 +129,7 @@ export default function Community() {
               </StyledQuestionButtons>
             </StyledQuestionAnswer>
 
-            <CommentList comments={COMMENTS_LIST} type="sara" questionId={questionId} />
+            <CommentList type="sara" questionId={questionId} />
             <CommunityQuestionCards />
 
             {/* <MaraTitle /> */}

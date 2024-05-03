@@ -5,11 +5,19 @@ import QuestionSlider from '../../organisms/QuestionSlider';
 import CoupangRecommend from '../../organisms/CoupangRecommend';
 import { Theme } from '../../../../../Styles';
 import KakaoAdFit from '../../../../../components/organisms/KaKaoAdfit.jsx';
+import Navbar from '../../../../../components/organisms/Navbar/Navbar';
 // import Footer from '../../../../../components/organisms/Footer';
 
 export default function QuestionTemplate({ type, children }) {
   return (
     <StyledQuestionTemplate type={type} bg={type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary}>
+      <Navbar
+        style={{
+          left: 0,
+          top: 0,
+        }}
+      />
+
       <div className="grid">
         <QuestionSlider type={type} />
         {children}

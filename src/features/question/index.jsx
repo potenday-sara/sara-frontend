@@ -23,7 +23,6 @@ export default function QuestionPage() {
           path="/sara"
           element={
             <>
-              <QuestionNavbar type="sara" />
               <QuestionTemplate type="sara">
                 <SaramaraServiceTemplate type="sara" />
               </QuestionTemplate>
