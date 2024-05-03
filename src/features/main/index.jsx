@@ -3,12 +3,12 @@ import { Theme } from '../../Styles';
 import Progressbar from '../../components/atoms/Progressbar';
 import Footer from '../../components/organisms/Footer';
 import useInterval from '../../hooks/useInterval';
-import Navbar from './components/organisms/MainNavbar';
 import MainAside from './components/templates/MainAside';
 import OnboardingSectionLayout from './components/templates/MainSection';
 import SaraMaraContext from './stores/SaraMaraContext';
 import StyledMain from './styles';
 import KakaoAdFit from '../../components/organisms/KaKaoAdfit.jsx';
+import Navbar from '../../components/organisms/Navbar/Navbar';
 
 /**
  * 온보딩페에지의 기본 레이아웃입니다.
@@ -48,12 +48,8 @@ export default function Main() {
 
   return (
     <StyledMain>
-      <Navbar
-        style={{
-          gridArea: '1 / 1 / 2 / 4',
-        }}
-      />
       <SaraMaraContext.Provider value={saramaraStore}>
+        <Navbar />
         <OnboardingSectionLayout type="sara" />
         <MainAside type={type} />
         <Progressbar

@@ -5,6 +5,7 @@ const StyledQuestionTemplate = styled.main`
   width: auto;
   min-width: 1200px;
   position: relative;
+
   background-color: ${({ bg }) => bg || null};
   padding-bottom: 100px;
   min-height: calc(100vh - 144px);
@@ -22,6 +23,7 @@ const StyledQuestionTemplate = styled.main`
   }
   .grid {
     height: 100%;
+    padding-top: 60px;
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr auto 1fr;
