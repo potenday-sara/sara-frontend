@@ -12,7 +12,7 @@ export default function QuestionSlider({ type }) {
   const { data: OtherQuestions, isLoading: QuestionLoading } = useQuestions(type);
   const { sizeType } = useResize();
   return (
-    <StyledQuestionSlider>
+    <StyledQuestionSlider $type={type}>
       <Text
         className="question-slider-title"
         label={type === 'sara' ? '다른 사람들은 어떠샤?' : '다른 사람들은 어떠먀?'}

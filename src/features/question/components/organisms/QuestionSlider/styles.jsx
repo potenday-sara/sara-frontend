@@ -9,6 +9,21 @@ const StyledQuestionSlider = styled.section`
   background-color: ${Theme.color.white};
   box-shadow: 0px 4px 24px 0px rgba(0, 123, 237, 0.1);
   overflow: hidden;
+  .question-slider-title {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      box-shadow: 0px 8px 12px 0px
+        ${(props) => (props.$type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary)};
+      opacity: 0.15;
+    }
+  }
 
   ${Theme.deviceSize.large} {
     width: 395px;
