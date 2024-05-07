@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom';
 import Footer from '../../components/organisms/Footer';
 import NavigateGoogleForm from '../../components/organisms/NavigateGoogleForm';
 import SaraMaraContext from '../main/stores/SaraMaraContext';
-import QuestionNavbar from './components/organisms/QuestionNavbar';
 import QuestionTemplate from './components/templates/QuestionTemplate';
 import SaramaraServiceTemplate from './components/templates/SaramaraServiceTemplate';
 
@@ -35,7 +34,6 @@ export default function QuestionPage() {
           path="/mara"
           element={
             <>
-              <QuestionNavbar type="mara" />
               <QuestionTemplate type="mara">
                 <SaramaraServiceTemplate type="mara" />
               </QuestionTemplate>
