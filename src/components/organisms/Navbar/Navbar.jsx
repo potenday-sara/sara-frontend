@@ -2,8 +2,8 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router';
 import PropTypes from 'prop-types';
+import { useMemo } from 'react';
 import { ReactComponent as SaraLogo } from './asset/saralogo.svg';
-import { ReactComponent as SaraMaraText } from './asset/saramaratext.svg';
 import Button from '../../atoms/Button';
 import Text from '../../atoms/Text';
 import useGetRoute from '../../../hooks/useGetRoute';
@@ -17,6 +17,8 @@ const StyledNavbar = styled.div`
   background-color: transparent;
   gap: 8px;
   padding-left: 20px;
+  border-bottom: ${(props) => (props.isBorder ? `1px solid ${Theme.color.gray}` : 'none')};
+  width: 100%;
 
   ${Theme.deviceSize.small} {
     display: none;
@@ -27,64 +29,61 @@ export default function Navbar({ style }) {
   const nowRoute = useGetRoute()[0];
   const navigate = useNavigate();
 
+  const isBorder = useMemo(() => nowRoute !== '', [nowRoute]);
+
   return (
-    <StyledNavbar style={style}>
+    <StyledNavbar style={style} isBorder={isBorder}>
       <SaraLogo style={{ marginRight: '32px' }} />
       <Button
+        onClick={() => navigate('/')}
         type="text"
         style={{
+          height: '100%',
           width: 'auto',
           padding: '8px',
           display: 'flex',
+          borderRadius: '0px',
           alignItems: 'center',
           justifyContent: 'center',
-          borderRadius: '8px',
-          backgroundColor: 'white',
+          backgroundColor: 'transparent',
+          borderBottom: nowRoute === '' ? `2px solid black` : 'none',
         }}
       >
-        <Text label="로그인" size="16px" bold="700" />
+        <Text label="홈" size="16px" bold={nowRoute === '' ? '700' : '500'} />
       </Button>
       <Button
         onClick={() => navigate('/question/sara')}
         type="text"
         style={{
+          height: '100%',
           width: 'auto',
           padding: '8px',
           display: 'flex',
+          borderRadius: '0px',
           alignItems: 'center',
           justifyContent: 'center',
-          borderRadius: '8px',
-          backgroundColor: nowRoute === 'question' ? Theme.color.saraPrimary : 'white',
+          backgroundColor: 'transparent',
+          borderBottom: nowRoute === 'question' ? `2px solid black` : 'none',
         }}
       >
-        <Text
-          size="16px"
-          bold="700"
-          label="질문하기"
-          color={nowRoute === 'question' ? Theme.color.white : Theme.color.black}
-        />
+        <Text size="16px" bold={nowRoute === 'question' ? '700' : '500'} label="질문하기" />
       </Button>
       <Button
         onClick={() => navigate('/lounge')}
         type="text"
         style={{
+          height: '100%',
           width: 'auto',
           padding: '8px',
           display: 'flex',
-          justifyContent: 'center',
+          borderRadius: '0px',
           alignItems: 'center',
-          borderRadius: '8px',
-          gap: '4px',
-          backgroundColor: nowRoute === 'lounge' ? Theme.color.saraPrimary : 'white',
+          justifyContent: 'center',
+          backgroundColor: 'transparent',
+          borderBottom: nowRoute === 'lounge' ? `2px solid black` : 'none',
         }}
       >
-        <SaraMaraText color={nowRoute === 'lounge' ? Theme.color.white : Theme.color.black} />
-        <Text
-          label="라운지"
-          size="16px"
-          bold="700"
-          color={nowRoute === 'lounge' ? Theme.color.white : Theme.color.black}
-        />
+        <Text label="사라마라 라운지" size="16px" bold={nowRoute === 'lounge' ? '700' : '500'} />
       </Button>
     </StyledNavbar>
   );

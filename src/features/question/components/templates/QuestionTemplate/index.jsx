@@ -15,6 +15,10 @@ export default function QuestionTemplate({ type, children }) {
         style={{
           left: 0,
           top: 0,
+          zIndex: 100,
+          width: '100%',
+          position: 'static',
+          backgroundColor: type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary,
         }}
       />
 
