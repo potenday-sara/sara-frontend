@@ -43,12 +43,10 @@ export default function LoungePage() {
 
   const StyledMain = styled.div`
     .body {
-      padding-top: 60px;
     }
 
     ${Theme.deviceSize.small} {
       .body {
-        padding-top: 0;
       }
     }
   `;
@@ -56,7 +54,7 @@ export default function LoungePage() {
   return (
     <StyledMain style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
       <LoungeContext.Provider value={loungeStore}>
-        <Navbar />
+        <Navbar style={{ position: 'static' }} />
         {/* <LoungeHeader type={type} /> */}
         <div className="body">
           <Routes>

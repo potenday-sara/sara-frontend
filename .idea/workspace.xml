@@ -5,15 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="95263a53-de9a-4884-af80-6c7d93ff1b46" name="Changes" comment="feat : 네브바 디자인 수정">
+      <change afterPath="$PROJECT_DIR$/src/features/community/hooks/useNickname.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/question/components/templates/QuestionTemplate/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/question/components/templates/QuestionTemplate/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/question/components/templates/QuestionTemplate/styles.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/question/components/templates/QuestionTemplate/styles.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/question/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/question/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/community/apis/comments.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/community/apis/comments.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/community/hooks/useComment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/community/hooks/useComment.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/lounge/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/lounge/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="develop" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -43,7 +49,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "SAR-192-GNB",
+    "git-widget-placeholder": "SAR-204-random-nick",
     "js.linters.configure.manually.selectedeslint": "true",
     "last_opened_file_path": "/Users/heogeonnyeong/Desktop/Project/sara-frontend/src/components/organisms/Navbar/asset",
     "node.js.detected.package.eslint": "true",
@@ -133,7 +139,6 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/features/lounge/components/organisms/LoungeHeader/index.jsx</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
