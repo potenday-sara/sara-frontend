@@ -1,8 +1,10 @@
 import { useMemo, useState } from 'react';
 import { useGetComments, usePostComment } from '../apis/comments';
+import useNickname from './useNickname';
 
 export default function useComment(questionId) {
-  const { mutate: createComment } = usePostComment();
+  const { nickName } = useNickname('nickname');
+  const { mutate: createComment } = usePostComment(nickName);
   const { data: commentsData, isLoading: commentsLoading } = useGetComments(questionId);
 
   const [page, setPage] = useState(1);
