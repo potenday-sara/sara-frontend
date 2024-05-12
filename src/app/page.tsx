@@ -1,2 +1,2 @@
 export default function page({}) {
-  return <>페이지</>;}
+  return <div className={'bg-sara-50% w-[100px] h-[100px] text-sara-25%'}>페이지</div>;}
