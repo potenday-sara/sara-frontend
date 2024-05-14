@@ -4,29 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95263a53-de9a-4884-af80-6c7d93ff1b46" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/organisms/Navbar/Navbar.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/organisms/Navbar/asset/saralogo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/organisms/Navbar/asset/saramaratext.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useGetRoute.jsx" afterDir="false" />
+    <list default="true" id="95263a53-de9a-4884-af80-6c7d93ff1b46" name="Changes" comment="feat : 네브바 디자인 수정">
+      <change afterPath="$PROJECT_DIR$/src/features/community/hooks/useNickname.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/community/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/community/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/community/apis/comments.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/community/apis/comments.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/community/hooks/useComment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/community/hooks/useComment.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/lounge/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/lounge/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/main/components/templates/MainAside/styles.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/main/components/templates/MainAside/styles.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/main/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/main/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/main/styles.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/main/styles.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/question/components/templates/QuestionTemplate/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/question/components/templates/QuestionTemplate/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/question/components/templates/QuestionTemplate/styles.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/question/components/templates/QuestionTemplate/styles.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/question/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/question/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="develop" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -56,7 +49,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "SAR-192-GNB",
+    "git-widget-placeholder": "SAR-204-random-nick",
     "js.linters.configure.manually.selectedeslint": "true",
     "last_opened_file_path": "/Users/heogeonnyeong/Desktop/Project/sara-frontend/src/components/organisms/Navbar/asset",
     "node.js.detected.package.eslint": "true",
@@ -98,8 +91,17 @@
       <option name="presentableId" value="Default" />
       <updated>1684653478617</updated>
       <workItem from="1714564877004" duration="116000" />
-      <workItem from="1714565028639" duration="14582000" />
+      <workItem from="1714565028639" duration="20667000" />
     </task>
+    <task id="LOCAL-00001" summary="feat : 네브바 디자인 수정">
+      <option name="closed" value="true" />
+      <created>1715085834927</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1715085834927</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,12 +130,15 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat : 네브바 디자인 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat : 네브바 디자인 수정" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/features/lounge/components/organisms/LoungeHeader/index.jsx</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

@@ -5,7 +5,7 @@ const StyledQuestionTemplate = styled.main`
   width: auto;
   min-width: 1200px;
   position: relative;
-
+  flex-direction: column;
   background-color: ${({ bg }) => bg || null};
   padding-bottom: 100px;
   min-height: calc(100vh - 144px);
@@ -72,6 +72,8 @@ const StyledQuestionTemplate = styled.main`
     }
     .grid {
       width: 100%;
+      padding-top: 0px;
+
       justify-content: center;
       display: grid;
       grid-template-rows: auto auto auto;
