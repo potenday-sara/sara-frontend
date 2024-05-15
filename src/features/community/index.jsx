@@ -17,6 +17,7 @@ import Like from './components/atoms/button/Like';
 import Share from './components/atoms/button/Share';
 import CommunityQuestionCards from './components/organisms/questionCards';
 import useCommunityQuestion from './hooks/useCommunityQuestion';
+import Navbar from '../../components/organisms/Navbar/Navbar';
 
 const StyledQuestionInformation = styled.div`
   display: flex;
@@ -59,17 +60,61 @@ const StyledQuestionButtons = styled.div`
   gap: 8px;
 `;
 
+const StyledMain = styled.main`
+  position: relative;
+  height: auto;
+
+  background-color: ${({ type }) => (type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary)};
+  .design {
+    position: absolute;
+    gap: 30px;
+    flex-direction: column;
+    overflow-x: hidden;
+    display: flex;
+    top: 50vh;
+    transform: translate(0, -50%);
+    width: 100%;
+  }
+`;
+
 export default function Community() {
   const { QuestionData, answerData, isLoading, questionId, handleLike, like } = useCommunityQuestion();
   const navigate = useNavigate();
+
+  const type = new URLSearchParams(window.location.search).get('type');
+
   return (
-    <>
-      {/* <Navbar /> */}
+    <StyledMain type={type}>
+      <Navbar style={{ position: 'static' }} />
+      <div className="design">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="40" fill="none">
+          <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M1920 40H0V0H4000V40Z"
+            fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+            fillOpacity="0.03"
+          />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="80" fill="none">
+          <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M1920 80H0V0H4000V80Z"
+            fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+            fillOpacity="0.03"
+          />
+        </svg>
+      </div>
       <Layout>
         {isLoading ? (
           <div>로딩중</div>
         ) : (
-          <>
+          <div
+            style={{
+              padding: '16px',
+            }}
+          >
             <StyledQuestionInformation>
               <SaraTitle />
               <div className="text">
@@ -133,9 +178,9 @@ export default function Community() {
             <CommunityQuestionCards />
 
             {/* <MaraTitle /> */}
-          </>
+          </div>
         )}
       </Layout>
-    </>
+    </StyledMain>
   );
 }
