@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import StyledQuestionTemplate from './styles';
 import QuestionSlider from '../../organisms/QuestionSlider';
@@ -6,9 +6,12 @@ import CoupangRecommend from '../../organisms/CoupangRecommend';
 import { Theme } from '../../../../../Styles';
 import KakaoAdFit from '../../../../../components/organisms/KaKaoAdfit.jsx';
 import Navbar from '../../../../../components/organisms/Navbar/Navbar';
+import SaraMaraContext from '../../../../main/stores/SaraMaraContext';
 // import Footer from '../../../../../components/organisms/Footer';
 
 export default function QuestionTemplate({ type, children }) {
+  const { stage } = useContext(SaraMaraContext);
+
   return (
     <StyledQuestionTemplate type={type} bg={type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary}>
       <Navbar
@@ -54,9 +57,11 @@ export default function QuestionTemplate({ type, children }) {
         </svg>
       </div>
 
-      <div className="kakao-add">
-        <KakaoAdFit unit="DAN-O3RcvViZRn5L18RJ" width={728} height={90} />
-      </div>
+      {stage !== 'finish' && (
+        <div className="kakao-add">
+          <KakaoAdFit unit="DAN-O3RcvViZRn5L18RJ" width={728} height={90} />
+        </div>
+      )}
     </StyledQuestionTemplate>
   );
 }
