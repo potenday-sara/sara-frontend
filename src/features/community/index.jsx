@@ -62,6 +62,8 @@ const StyledQuestionButtons = styled.div`
   gap: 8px;
 `;
 
+const StyledAd = styled.div``;
+
 const StyledMain = styled.main`
   position: relative;
   height: auto;
@@ -90,6 +92,18 @@ const StyledMain = styled.main`
     flex-direction: column;
     gap: 24px;
     padding-top: 60px;
+  }
+
+  ${Theme.deviceSize.small} {
+    .design {
+      display: none;
+    }
+    .ad {
+      display: none;
+    }
+    .coupang {
+      display: none;
+    }
   }
 `;
 
@@ -199,6 +213,7 @@ export default function Community() {
                     <Text label="에게 물어볼까?" size="13px" bold="700" color={Theme.color.maraPrimary} />
                   </Button>
                 </StyledQuestionButtons>
+                <KakaoAdFit unit="DAN-YhXsa3BBPzUc1OHF" width="320" disabled={false} height="50" />
               </StyledQuestionAnswer>
 
               <CommentList type="sara" questionId={questionId} />
