@@ -1,41 +1,40 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
 
     // Or if using `src` directory:
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
-      colors : {
-        mara : {
-          'primary': '#EF2B00',
+      colors: {
+        mara: {
+          primary: '#EF2B00',
           '50%': '#F79580',
           '25%': '#FBCABF',
-          'secondary': '#FDEAE5',
+          secondary: '#FDEAE5',
         },
-        sara :  {
-          'primary': '#007BED',
+        sara: {
+          primary: '#007BED',
           '50%': '#808DF6',
           '25%': '#BFDEFB',
-          'secondary': '#E5F2FD',
+          secondary: '#E5F2FD',
         },
-        black : {
-          '900' : '#333333',
-          '800' : '#666666',
-          '700' : '#999999',
-          '600' : '#CCCCCC',
-          '500' : '#dddddd',
-          '400' : '#EEEEEE',
-          '300' : '#F4F4F4',
+        black: {
+          '#333': '#333333',
+          '#666': '#666666',
+          '#999': '#999999',
+          '#ccc': '#CCCCCC',
+          '#ddd': '#dddddd',
+          '#eee': '#EEEEEE',
+          '#f4': '#F4F4F4',
         },
-        error : '#FF4040',
+        error: '#FF4040',
       },
-
     },
   },
   plugins: [],
-}
+};
