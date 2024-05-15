@@ -159,7 +159,7 @@ export default function CounpangRecommend({ type }) {
       </StyledCounpoangRecommend>
       {stage === 'finish' && (
         <StyledKaKao>
-          <KakaoAdFit unit="DAN-4NvFSKKwOQjCfU9E" width="320" disabled={false} height="50" />
+          <KakaoAdFit unit="DAN-EASB1d4UxiUU45bT" width="320" disabled={false} height="50" />
         </StyledKaKao>
       )}
     </div>

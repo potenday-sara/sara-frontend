@@ -28,12 +28,9 @@ export default function QuestionTemplate({ type, children }) {
       <div className="grid">
         <QuestionSlider type={type} />
         {children}
-        <div className="kakao-ad-a">
-          <KakaoAdFit disabled={false} height={50} width={320} unit="DAN-FK6YA47rI1C6QYtZ" />
-        </div>
         <CoupangRecommend type={type} />
         <div className="kakao-ad-b">
-          <KakaoAdFit disabled={false} height={250} width={300} unit="DAN-aWKDV8g54CO6nffE" />
+          <KakaoAdFit disabled={false} height={250} width={300} unit="DAN-5gXB0fawrx8Xhb5C" />
         </div>
       </div>
       <div className="design">

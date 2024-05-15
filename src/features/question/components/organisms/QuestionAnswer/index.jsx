@@ -165,9 +165,7 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
             </div>
           </div>
         </section>
-        <div className="kakao-ad-a">
-          <KakaoAdFit disabled={false} height={50} width={320} unit="DAN-FK6YA47rI1C6QYtZ" />
-        </div>
+
         <StyledFeedback type={type}>
           <Form onSubmit={(e) => submitCSFeedback(e)} className={isFeedback ? 'cs-form is-feedback' : 'cs-form'}>
             {!isFeedback ? (
@@ -240,6 +238,9 @@ export default function QuestionAnwser({ type, answer, QuestionFormData, quesion
             )}
           </Form>
         </StyledFeedback>
+        <div className="kakao-ad-a">
+          <KakaoAdFit disabled={false} height={50} width={320} unit="DAN-4NvFSKKwOQjCfU9E" />
+        </div>
       </section>
     </StyledQuestionAnswer>
   );
