@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="95263a53-de9a-4884-af80-6c7d93ff1b46" name="Changes" comment="feat : 네브바 디자인 수정">
-      <change afterPath="$PROJECT_DIR$/src/features/community/hooks/useNickname.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/community/apis/comments.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/community/apis/comments.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/community/hooks/useComment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/community/hooks/useComment.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/lounge/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/lounge/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/main/components/atoms/CharacterLogo/styles.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/main/components/atoms/CharacterLogo/styles.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/main/components/templates/MainSection/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/main/components/templates/MainSection/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/main/components/templates/MainSection/styles.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/main/components/templates/MainSection/styles.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/main/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/main/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +47,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "SAR-204-random-nick",
+    "git-widget-placeholder": "SAR-211-adfit-change",
     "js.linters.configure.manually.selectedeslint": "true",
     "last_opened_file_path": "/Users/heogeonnyeong/Desktop/Project/sara-frontend/src/components/organisms/Navbar/asset",
     "node.js.detected.package.eslint": "true",
@@ -61,6 +59,7 @@
     "node.js.selected.package.stylelint": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
+    "prettier.import.notification.dismissed": "true",
     "prettierjs.PrettierConfiguration.Package": "/Users/heogeonnyeong/Desktop/Project/sara-frontend/node_modules/prettier",
     "settings.editor.selected.configurable": "preferences.keymap",
     "ts.external.directory.path": "/Users/heogeonnyeong/Desktop/Project/sara-frontend/node_modules/typescript/lib",

@@ -21,24 +21,29 @@ const getSectionCssByType = ($type) => {
 };
 
 const StyledMainSection = styled.section`
-  height: 100%;
+  height: auto;
   ${({ $type }) => getSectionCssByType($type)}
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  padding-top: 100px;
   /* .section-box {
   } */
 
+  .kakao-ad-pc {
+    flex-grow: 1;
+    display: flex;
+    align-items: end;
+    margin-top: 24px;
+    width: 320px;
+    height: 90px;
+  }
+
   .main-button {
-    display: 'flex';
     width: 360px;
     padding: 28px 0px;
-    justify-content: 'center';
-    align-items: 'flex-end';
     margin-top: 24px;
     border-radius: 16px;
-    gap: 8;
 
     .title {
       justify-content: center;
@@ -83,6 +88,8 @@ const StyledMainSection = styled.section`
       }
     }
 
+    .kakao-ad-pc {display: none;}
+    }
     .title {
       justify-content: center;
       align-items: center;
