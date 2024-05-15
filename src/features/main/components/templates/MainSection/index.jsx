@@ -11,12 +11,13 @@ import Logo from '../../../../../components/atoms/Logo';
 import Text from '../../../../../components/atoms/Text';
 import { Theme } from '../../../../../Styles';
 import Title from '../../../../../components/molecules/Title';
+import KakaoAdFit from '../../../../../components/organisms/KaKaoAdfit.jsx';
 
 /**
  * Onboarding 페이지의 세션 컴포넌트입니다
  * type ('sara', 'mara') 중 하나의 값을 받아 각 테마의 맞는 컴포넌트를 리턴합니다.
  */
-export default function MainSection({ type, className, ...rest }) {
+export default function MainSection({ type, className, unit, ...rest }) {
   const { type: nowType, setSara, setMara } = useContext(SaraMaraContext);
   const navigate = useNavigate();
   return (
@@ -44,6 +45,9 @@ export default function MainSection({ type, className, ...rest }) {
           />
         </Title>
       </Button>
+      <div className="kakao-ad-pc">
+        <KakaoAdFit unit={unit} width="320" disabled={false} height="100" />
+      </div>
     </StyledMainSection>
   );
 }
@@ -52,9 +56,11 @@ MainSection.propTypes = {
   type: PropTypes.oneOf(['sara', 'mara']).isRequired,
   setIsSelected: PropTypes.func,
   className: PropTypes.string,
+  unit: PropTypes.string,
 };
 
 MainSection.defaultProps = {
   setIsSelected: undefined,
   className: '',
+  unit: '',
 };
