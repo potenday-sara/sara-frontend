@@ -9,6 +9,7 @@ import QuestionCards from './components/organisms/QuestionCards';
 import LoungeContext from './stores/LoungeStore';
 import Navbar from '../../components/organisms/Navbar/Navbar';
 import { Theme } from '../../Styles';
+import KakaoAdFit from '../../components/organisms/KaKaoAdfit.jsx';
 
 export function LoungeMain() {
   return (

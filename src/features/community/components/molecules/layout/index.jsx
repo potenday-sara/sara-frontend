@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 const StyledLayout = styled.div`
   position: relative;
-  margin: auto;
   padding: 16px;
   z-index: 1;
   width: 100%;
