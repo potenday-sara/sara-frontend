@@ -18,6 +18,9 @@
     "@types/node": "^20.12.2",
     "@types/react": "^18.2.73",
     "@types/react-dom": "^18.2.23",
+    "@types/ua-parser-js": "^0.7.39",
+    "@typescript-eslint/eslint-plugin": "^7.9.0",
+    "@typescript-eslint/parser": "^7.9.0",
     "@weknow/react-bubble-chart-d3": "^1.0.12",
     "axios": "^1.4.0",
     "eslint": "^7.32.0 || ^8.2.0",
@@ -39,6 +42,7 @@
     "sweetalert2": "^11.7.5",
     "swiper": "^9.0.0",
     "typescript": "^5.4.5",
+    "ua-parser-js": "^1.0.37",
     "web-vitals": "^2.1.4",
     "yarn": "^1.22.19"
   },
@@ -96,7 +100,7 @@
     "postcss": "^8.4.38",
     "prop-types": "^15.8.1",
     "tailwindcss": "^3.4.3",
-    "typescript-eslint": "^7.8.0",
+    "typescript-eslint": "^7.9.0",
     "webpack": "^5.83.1"
   },
   "readme": "ERROR: No README data found!",
