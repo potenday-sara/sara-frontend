@@ -20,8 +20,6 @@ const isMobileDevice = () => {
 export default function RootLayout({ children }: { children: ReactNode }) {
   try {
     const isMobile = isMobileDevice();
-
-    console.log(isMobile);
   } catch (error) {
     if (isDynamicServerError(error)) {
       throw error;

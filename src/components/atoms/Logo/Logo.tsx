@@ -7,13 +7,14 @@ const LOGO = {
 } as const;
 
 const SIZE = {
+  xxs: { width: 59, height: 31 },
   sm: { width: 134.18, height: 72 },
   md: { width: 156.55, height: 84 },
   lg: { width: 176, height: 96 },
 } as const;
 
 interface LogoProps {
-  size: 'sm' | 'md' | 'lg';
+  size: 'xxs' | 'sm' | 'md' | 'lg';
   type: keyof typeof LOGO;
 }
 
