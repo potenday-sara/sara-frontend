@@ -5,7 +5,8 @@ import Text from '../../../../../components/atoms/Text';
 import Comment from '../../molecules/comment';
 import Pagination from '../../../../../components/molecules/Pagination';
 import { ReactComponent as CommentIcon } from '../../../assets/comment.svg';
-import { ReactComponent as EmpaySara } from '../../../assets/emptysara.svg';
+import { ReactComponent as EmptySara } from '../../../assets/emptysara.svg';
+import { ReactComponent as EmptyMara } from '../../../assets/emptyMara.svg';
 import useComment from '../../../hooks/useComment';
 
 const StyledComments = styled.div`
@@ -72,7 +73,7 @@ const StyledCommentSubmitButton = styled.button`
   border: none;
 `;
 
-export default function CommentList({ questionId }) {
+export default function CommentList({ questionId, type }) {
   const textareaRef = useRef(null);
   const [value, setValue] = useState('');
   const { handleCreateComment, showingComments, commentsData, page, handlePageChange, maxPage, commentsLoading } =
@@ -104,12 +105,10 @@ export default function CommentList({ questionId }) {
         {!commentsLoading &&
           showingComments.length > 0 &&
           showingComments.map((comment) => (
-            <Comment comment={comment} key={comment.id || String(Math.random()) + comment.content} />
+            <Comment type={type} comment={comment} key={comment.id || String(Math.random()) + comment.content} />
           ))}
         {!commentsLoading && commentsData.length === 0 && (
-          <div className="empty">
-            <EmpaySara />
-          </div>
+          <div className="empty">{type === 'sara' ? <EmptySara /> : <EmptyMara />}</div>
         )}
       </div>
       <Pagination
@@ -135,4 +134,5 @@ export default function CommentList({ questionId }) {
 
 CommentList.propTypes = {
   questionId: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
 };

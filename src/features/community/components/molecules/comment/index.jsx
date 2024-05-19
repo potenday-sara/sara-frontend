@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { ReactComponent as SaraComment } from '../../../assets/saraComment.svg';
+import { ReactComponent as MaraComment } from '../../../assets/maraComment.svg';
 import Text from '../../../../../components/atoms/Text';
 
 const StyledComment = styled.div`
@@ -19,12 +20,10 @@ const StyledComment = styled.div`
   }
 `;
 
-export default function Comment({ comment }) {
+export default function Comment({ comment, type }) {
   return (
     <StyledComment>
-      <div className="img">
-        <SaraComment />
-      </div>
+      <div className="img">{type === 'mara' ? <MaraComment /> : <SaraComment />}</div>
       <div className="contents">
         <Text label={comment.nickname} size="12px" color="#999" />
         <Text
@@ -47,4 +46,5 @@ Comment.propTypes = {
     content: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
   }).isRequired,
+  type: PropTypes.string.isRequired,
 };
