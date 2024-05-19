@@ -7,7 +7,9 @@ import CommentList from './components/organisms/comments';
 import { ReactComponent as MaraComment } from './assets/mara.svg';
 import { ReactComponent as SaraComment } from './assets/sara.svg';
 import { ReactComponent as SaraCharacter } from './assets/saracharacter.svg';
+import { ReactComponent as MaraCharacter } from './assets/maracharacter.svg';
 import { ReactComponent as SaraTitle } from './assets/saratitle.svg';
+import { ReactComponent as MaraTitle } from './assets/maratitle.svg';
 
 import { Theme } from '../../Styles';
 import Button from '../../components/atoms/Button';
@@ -157,14 +159,14 @@ export default function Community() {
               }}
             >
               <StyledQuestionInformation>
-                <SaraTitle />
+                {type === 'sara' ? <SaraTitle /> : <MaraTitle />}
                 <div className="text">
                   <Text label={QuestionData.product} size="20px" bold="700" />
                   <Text label={QuestionData.content} size="14px" style={{ marginTop: '3px' }} />
                 </div>
               </StyledQuestionInformation>
               <StyledQuestionAnswer>
-                <SaraCharacter className=".svg" />
+                {type === 'sara' ? <SaraCharacter className=".svg" /> : <MaraCharacter className=".svg" />}
                 <Text
                   style={{ lineHeight: '22.4px' }}
                   label={answerData.content}
@@ -181,23 +183,28 @@ export default function Community() {
                 </StyledShareButtons>
                 <StyledQuestionButtons>
                   <Button
-                    onClick={() => navigate('/question/sara')}
+                    onClick={() => navigate(`/question/${type === 'sara' ? 'sara' : 'mara'}`)}
                     style={{
                       display: 'flex',
                       flexDirection: 'column',
                       justifyContent: 'center',
                       alignItems: 'center',
                       padding: '12px',
-                      backgroundColor: Theme.color.saraSecondary,
+                      backgroundColor: type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary,
                       gap: '6px',
                       borderRadius: '8px',
                     }}
                   >
-                    <SaraComment />
-                    <Text label="에게 나도 질문하기" size="13px" bold="700" color={Theme.color.saraPrimary} />
+                    {type === 'sara' ? <SaraComment /> : <MaraComment />}
+                    <Text
+                      label="에게 나도 질문하기"
+                      size="13px"
+                      bold="700"
+                      color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+                    />
                   </Button>
                   <Button
-                    onClick={() => navigate('/question/mara')}
+                    onClick={() => navigate(`/question/${type === 'sara' ? 'mara' : 'sara'}`)}
                     style={{
                       display: 'flex',
                       flexDirection: 'column',
@@ -205,18 +212,23 @@ export default function Community() {
                       alignItems: 'center',
                       padding: '12px',
                       gap: '6px',
-                      backgroundColor: Theme.color.maraSecondary,
+                      backgroundColor: type === 'sara' ? Theme.color.maraSecondary : Theme.color.saraSecondary,
                       borderRadius: '8px',
                     }}
                   >
-                    <MaraComment />
-                    <Text label="에게 물어볼까?" size="13px" bold="700" color={Theme.color.maraPrimary} />
+                    {type === 'sara' ? <MaraComment /> : <SaraComment />}
+                    <Text
+                      label="에게 물어볼까?"
+                      size="13px"
+                      bold="700"
+                      color={type === 'sara' ? Theme.color.maraPrimary : Theme.color.saraPrimary}
+                    />
                   </Button>
                 </StyledQuestionButtons>
                 <KakaoAdFit unit="DAN-YhXsa3BBPzUc1OHF" width="320" disabled={false} height="50" />
               </StyledQuestionAnswer>
 
-              <CommentList type="sara" questionId={questionId} />
+              <CommentList type={type} questionId={questionId} />
               <CommunityQuestionCards />
 
               {/* <MaraTitle /> */}
