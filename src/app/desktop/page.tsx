@@ -1,5 +1,11 @@
 interface pageProps {}
 
 export default function page({}: pageProps) {
-  return <>안녕</>;
+  return (
+    <div className="flex">
+      <main />
+      <article />
+      <main />
+    </div>
+  );
 }
