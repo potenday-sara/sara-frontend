@@ -9,6 +9,7 @@ import QuestionCards from './components/organisms/QuestionCards';
 import LoungeContext from './stores/LoungeStore';
 import Navbar from '../../components/organisms/Navbar/Navbar';
 import { Theme } from '../../Styles';
+import KakaoAdFit from '../../components/organisms/KaKaoAdfit.jsx';
 
 export function LoungeMain() {
   return (
@@ -51,10 +52,12 @@ export default function LoungePage() {
     }
   `;
 
+  const params = new URLSearchParams(window.location.search);
+  const paramType = params.get('type');
+
   return (
     <StyledMain style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
       <LoungeContext.Provider value={loungeStore}>
-        <Navbar style={{ position: 'static' }} />
         {/* <LoungeHeader type={type} /> */}
         <div className="body">
           <Routes>

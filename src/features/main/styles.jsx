@@ -42,9 +42,13 @@ const StyledMain = styled.main`
     }
     .kakao-ad-a {
       display: block;
+      width: 100%;
+      background-color: ${Theme.color.maraSecondary};
       grid-row: 4 / 5;
     }
     .kakao-ad-b {
+      width: 100%;
+      background-color: #f4f4f4;
       display: flex;
       justify-content: center;
       align-items: center;

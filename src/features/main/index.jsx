@@ -50,7 +50,7 @@ export default function Main() {
     <StyledMain>
       <SaraMaraContext.Provider value={saramaraStore}>
         <Navbar />
-        <OnboardingSectionLayout type="sara" />
+        <OnboardingSectionLayout type="sara" unit="DAN-8BISPTRb8USYEeOo" />
         <MainAside type={type} />
         <Progressbar
           className="main-progress-bar"
@@ -60,7 +60,7 @@ export default function Main() {
           transition="all 0s linear"
         />
 
-        <OnboardingSectionLayout type="mara" className="mara-section" />
+        <OnboardingSectionLayout type="mara" className="mara-section" unit="DAN-ZqgRhVaZFunt70fX" />
         <div className="kakao-ad-a">
           <KakaoAdFit disabled={false} height={50} width={320} unit="DAN-FK6YA47rI1C6QYtZ" />
         </div>
