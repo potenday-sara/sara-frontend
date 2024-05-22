@@ -3,6 +3,8 @@ import React, { useMemo, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import { Theme } from '../../Styles';
+import Footer from '../../components/organisms/Footer';
+import Navbar from '../../components/organisms/Navbar/Navbar';
 import Community from '../community';
 import SortButtons from './components/molecules/SortButtons';
 import TypeButtons from './components/molecules/TypeButtons';
@@ -50,6 +52,8 @@ export default function LoungePage() {
 
   const StyledMain = styled.div`
     ${Theme.deviceSize.large} {
+      width: 375px;
+      margin: 60px auto 0 auto;
       background-color: ${() => getBackgroundColor()};
       .body {
         ::-webkit-scrollbar {
@@ -71,7 +75,7 @@ export default function LoungePage() {
       background-color: ${() => getBackgroundColor()};
       .body {
         width: 375px;
-        margin: 0 auto;
+        margin: 60px auto 0 auto;
         ::-webkit-scrollbar {
           width: 10px;
           height: 20px;
@@ -92,6 +96,7 @@ export default function LoungePage() {
       .body {
         width: 100%;
         height: 100%;
+        margin: 0 auto;
       }
     }
   `;
@@ -101,6 +106,7 @@ export default function LoungePage() {
 
   return (
     <StyledMain style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <Navbar className="navbar" />
       <LoungeContext.Provider value={loungeStore}>
         {/* <LoungeHeader type={type} /> */}
         <div className="body">
@@ -110,6 +116,7 @@ export default function LoungePage() {
           </Routes>
         </div>
       </LoungeContext.Provider>
+      <Footer className="footer" />
     </StyledMain>
   );
 }
