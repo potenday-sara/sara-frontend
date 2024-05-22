@@ -3,13 +3,13 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { Theme } from '../../../../../Styles';
 import Text from '../../../../../components/atoms/Text';
+import KakaoAdFit from '../../../../../components/organisms/KaKaoAdfit.jsx';
 import useResize from '../../../../../hooks/useResize';
+import SaraMaraContext from '../../../../main/stores/SaraMaraContext';
 import useQuestions from '../../../hooks/useQuestions';
 import HorizonSlider from '../../molecules/HorizonSlider';
 import Slider from '../../molecules/Slider';
 import StyledQuestionSlider from './styles';
-import SaraMaraContext from '../../../../main/stores/SaraMaraContext';
-import KakaoAdFit from '../../../../../components/organisms/KaKaoAdfit.jsx';
 
 const StyledKaKao = styled.div`
   display: flex;
@@ -27,7 +27,7 @@ export default function QuestionSlider({ type }) {
 
   return (
     <div>
-      <StyledQuestionSlider>
+      <StyledQuestionSlider $type={type}>
         <Text
           className="question-slider-title"
           label={type === 'sara' ? '다른 사람들은 어떠샤?' : '다른 사람들은 어떠먀?'}

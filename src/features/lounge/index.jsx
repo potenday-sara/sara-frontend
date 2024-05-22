@@ -1,15 +1,15 @@
+/* eslint-disable react/prop-types */
 import React, { useMemo, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
+import { Theme } from '../../Styles';
+import Footer from '../../components/organisms/Footer';
+import Navbar from '../../components/organisms/Navbar/Navbar';
 import Community from '../community';
 import SortButtons from './components/molecules/SortButtons';
 import TypeButtons from './components/molecules/TypeButtons';
-// import LoungeHeader from './components/organisms/LoungeHeader';
 import QuestionCards from './components/organisms/QuestionCards';
 import LoungeContext from './stores/LoungeStore';
-import Navbar from '../../components/organisms/Navbar/Navbar';
-import { Theme } from '../../Styles';
-import KakaoAdFit from '../../components/organisms/KaKaoAdfit.jsx';
 
 export function LoungeMain() {
   return (
@@ -42,12 +42,73 @@ export default function LoungePage() {
     return { type, sortType, setAll, setSara, setMara, setSort };
   }, [type, sortType]);
 
+  const getBackgroundColor = () => {
+    if (sortType === 'like') return '#fffaed';
+    if (type === 'all') return '#f4f4f4';
+    if (type === 'sara') return '#e6f2fd';
+    if (type === 'mara') return '#fdeae6';
+    return '#f4f4f4';
+  };
+
   const StyledMain = styled.div`
-    .body {
+    ${Theme.deviceSize.large} {
+      background-color: ${() => getBackgroundColor()};
+      .body {
+        width: 375px;
+        margin: 60px auto 0 auto;
+        ::-webkit-scrollbar {
+          width: 5px;
+          height: 20px;
+        }
+        ::-webkit-scrollbar-button {
+          display: none;
+        }
+        ::-webkit-scrollbar-thumb {
+          border-radius: 8px;
+          background-color: ${Theme.color.gray};
+        }
+      }
+      .footer {
+        margin: 0;
+        padding-left: 40px;
+        background-color: #f4f4f4;
+      }
+    }
+    ${Theme.deviceSize.medium} {
+      background-color: ${() => getBackgroundColor()};
+      .body {
+        width: 375px;
+        margin: 60px auto 0 auto;
+        ::-webkit-scrollbar {
+          width: 5px;
+          height: 20px;
+        }
+        ::-webkit-scrollbar-button {
+          display: none;
+        }
+        ::-webkit-scrollbar-thumb {
+          border-radius: 8px;
+          background-color: ${Theme.color.gray};
+        }
+      }
+      .footer {
+        margin: 0;
+        padding-left: 40px;
+        background-color: #f4f4f4;
+      }
     }
 
     ${Theme.deviceSize.small} {
       .body {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+      }
+      .footer {
+        display: none;
+      }
+      .navbar {
+        display: none;
       }
     }
   `;
@@ -57,6 +118,7 @@ export default function LoungePage() {
 
   return (
     <StyledMain style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <Navbar className="navbar" />
       <LoungeContext.Provider value={loungeStore}>
         {/* <LoungeHeader type={type} /> */}
         <div className="body">
@@ -66,6 +128,7 @@ export default function LoungePage() {
           </Routes>
         </div>
       </LoungeContext.Provider>
+      <Footer className="footer" />
     </StyledMain>
   );
 }

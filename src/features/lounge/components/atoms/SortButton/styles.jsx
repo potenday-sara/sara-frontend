@@ -11,7 +11,7 @@ const StyledSortButton = styled.button`
   align-items: center;
   position: relative;
   justify-content: center;
-  background-color: ${() => Theme.color.white};
+  background-color: transparent;
   &:before {
     display: ${(props) => (props.$selected ? 'inline-block' : 'none')};
     content: '';

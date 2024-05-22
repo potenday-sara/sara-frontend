@@ -9,6 +9,19 @@ const StyledQuestionSlider = styled.section`
   background-color: ${Theme.color.white};
   box-shadow: 0px 4px 24px 0px rgba(0, 123, 237, 0.1);
   overflow: hidden;
+  .question-slider-title {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      opacity: 0.15;
+    }
+  }
 
   ${Theme.deviceSize.large} {
     width: 395px;
@@ -16,6 +29,10 @@ const StyledQuestionSlider = styled.section`
     .question-slider-title {
       padding: 20px 16px;
       font-size: 20px;
+      &::after {
+        box-shadow: 0px 8px 12px 0px
+          ${(props) => (props.$type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary)};
+      }
     }
   }
   ${Theme.deviceSize.medium} {
@@ -25,6 +42,10 @@ const StyledQuestionSlider = styled.section`
     .question-slider-title {
       padding: 16px;
       font-size: 16px;
+      &::after {
+        box-shadow: 0px 8px 12px 0px
+          ${(props) => (props.$type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary)};
+      }
     }
   }
 
@@ -38,6 +59,10 @@ const StyledQuestionSlider = styled.section`
       color: ${Theme.color.midGray};
       font-size: 13px;
       padding: 6px 16px;
+      &::after {
+        box-shadow: 0px 4px 12px 0px
+          ${(props) => (props.$type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary)};
+      }
     }
   }
 `;
