@@ -52,22 +52,20 @@ export default function LoungePage() {
 
   const StyledMain = styled.div`
     ${Theme.deviceSize.large} {
-      width: 375px;
-      margin: 60px auto 0 auto;
       background-color: ${() => getBackgroundColor()};
       .body {
+        width: 375px;
+        margin: 60px auto 0 auto;
         ::-webkit-scrollbar {
-          width: 10px;
+          width: 5px;
           height: 20px;
         }
         ::-webkit-scrollbar-button {
           display: none;
         }
-        ::-webkit-scrollbar-track-piece {
-          display: none;
-        }
         ::-webkit-scrollbar-thumb {
           border-radius: 8px;
+          background-color: ${Theme.color.gray};
         }
       }
     }
@@ -77,17 +75,15 @@ export default function LoungePage() {
         width: 375px;
         margin: 60px auto 0 auto;
         ::-webkit-scrollbar {
-          width: 10px;
+          width: 5px;
           height: 20px;
         }
         ::-webkit-scrollbar-button {
           display: none;
         }
-        ::-webkit-scrollbar-track-piece {
-          display: none;
-        }
         ::-webkit-scrollbar-thumb {
           border-radius: 8px;
+          background-color: ${Theme.color.gray};
         }
       }
     }
