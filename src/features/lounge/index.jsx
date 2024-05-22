@@ -68,6 +68,11 @@ export default function LoungePage() {
           background-color: ${Theme.color.gray};
         }
       }
+      .footer {
+        margin: 0;
+        padding-left: 40px;
+        background-color: #f4f4f4;
+      }
     }
     ${Theme.deviceSize.medium} {
       background-color: ${() => getBackgroundColor()};
@@ -86,6 +91,11 @@ export default function LoungePage() {
           background-color: ${Theme.color.gray};
         }
       }
+      .footer {
+        margin: 0;
+        padding-left: 40px;
+        background-color: #f4f4f4;
+      }
     }
 
     ${Theme.deviceSize.small} {
@@ -93,6 +103,12 @@ export default function LoungePage() {
         width: 100%;
         height: 100%;
         margin: 0 auto;
+      }
+      .footer {
+        display: none;
+      }
+      .navbar {
+        display: none;
       }
     }
   `;
