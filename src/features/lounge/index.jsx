@@ -1,15 +1,13 @@
+/* eslint-disable react/prop-types */
 import React, { useMemo, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
+import { Theme } from '../../Styles';
 import Community from '../community';
 import SortButtons from './components/molecules/SortButtons';
 import TypeButtons from './components/molecules/TypeButtons';
-// import LoungeHeader from './components/organisms/LoungeHeader';
 import QuestionCards from './components/organisms/QuestionCards';
 import LoungeContext from './stores/LoungeStore';
-import Navbar from '../../components/organisms/Navbar/Navbar';
-import { Theme } from '../../Styles';
-import KakaoAdFit from '../../components/organisms/KaKaoAdfit.jsx';
 
 export function LoungeMain() {
   return (
@@ -42,12 +40,58 @@ export default function LoungePage() {
     return { type, sortType, setAll, setSara, setMara, setSort };
   }, [type, sortType]);
 
+  const getBackgroundColor = () => {
+    if (sortType === 'like') return '#fffaed';
+    if (type === 'all') return '#f4f4f4';
+    if (type === 'sara') return '#e6f2fd';
+    if (type === 'mara') return '#fdeae6';
+    return '#f4f4f4';
+  };
+
   const StyledMain = styled.div`
-    .body {
+    ${Theme.deviceSize.large} {
+      background-color: ${() => getBackgroundColor()};
+      .body {
+        ::-webkit-scrollbar {
+          width: 10px;
+          height: 20px;
+        }
+        ::-webkit-scrollbar-button {
+          display: none;
+        }
+        ::-webkit-scrollbar-track-piece {
+          display: none;
+        }
+        ::-webkit-scrollbar-thumb {
+          border-radius: 8px;
+        }
+      }
+    }
+    ${Theme.deviceSize.medium} {
+      background-color: ${() => getBackgroundColor()};
+      .body {
+        width: 375px;
+        margin: 0 auto;
+        ::-webkit-scrollbar {
+          width: 10px;
+          height: 20px;
+        }
+        ::-webkit-scrollbar-button {
+          display: none;
+        }
+        ::-webkit-scrollbar-track-piece {
+          display: none;
+        }
+        ::-webkit-scrollbar-thumb {
+          border-radius: 8px;
+        }
+      }
     }
 
     ${Theme.deviceSize.small} {
       .body {
+        width: 100%;
+        height: 100%;
       }
     }
   `;

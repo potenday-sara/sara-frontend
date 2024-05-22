@@ -3,6 +3,9 @@ import { Theme } from '../../../../../Styles';
 
 const StyledQuestionCards = styled.div`
   height: calc(100vh - 156px);
+  ${Theme.deviceSize.small} {
+    height: calc(100vh - 100px);
+  }
   width: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
