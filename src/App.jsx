@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { GlobalStyles } from './Styles';
-import LoungePage from './features/lounge';
 import Onboarding from './features/main';
 import QuestionPage from './features/question';
+import LoungePage from './features/saramaraLounge';
 
 function App() {
   return (
