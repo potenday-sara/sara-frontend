@@ -5,12 +5,10 @@ export const StyledLoungeHeader = styled.div`
   height: 56px;
   width: 100%;
   display: flex;
+  position: relative;
   padding: 8px 16px;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  z-index: 10;
-  top: 0;
   background-color: ${() => Theme.color.white};
   p {
     font-family: Pretendard;

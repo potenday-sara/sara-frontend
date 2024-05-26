@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Theme } from '../../../../../../Styles';
 
 const StyledQuestionCards = styled.div`
-  height: calc(100vh - 216px);
+  height: calc(100vh - 276px);
   ${Theme.deviceSize.small} {
     height: calc(100vh - 100px);
   }

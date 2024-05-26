@@ -65,8 +65,6 @@ const StyledQuestionButtons = styled.div`
   gap: 8px;
 `;
 
-const StyledAd = styled.div``;
-
 const StyledMain = styled.main`
   position: relative;
   height: auto;
