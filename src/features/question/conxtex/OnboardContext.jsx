@@ -76,6 +76,7 @@ export function OnboardProvider({ children }) {
   }, []);
 
   useEffect(() => {
+    if (!firstItem.current) return;
     const rect = firstItem.current.getBoundingClientRect();
     const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -86,9 +87,10 @@ export function OnboardProvider({ children }) {
       width: rect.width,
       height: rect.height,
     });
-  }, [firstItem.current, windowWidth]);
+  }, [firstItem?.current, windowWidth]);
 
   useEffect(() => {
+    if (!secondItem.current) return;
     const rect = secondItem.current.getBoundingClientRect();
     const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -99,9 +101,10 @@ export function OnboardProvider({ children }) {
       width: rect.width,
       height: rect.height,
     });
-  }, [secondItem.current, windowWidth]);
+  }, [secondItem?.current, windowWidth]);
 
   useEffect(() => {
+    if (!thirdItem.current) return;
     const rect = thirdItem.current.getBoundingClientRect();
     const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -112,9 +115,10 @@ export function OnboardProvider({ children }) {
       width: rect.width,
       height: rect.height,
     });
-  }, [thirdItem.current, windowWidth]);
+  }, [thirdItem?.current, windowWidth]);
 
   useEffect(() => {
+    if (!forthItem.current) return;
     const rect = forthItem.current.getBoundingClientRect();
     const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -125,7 +129,7 @@ export function OnboardProvider({ children }) {
       width: rect.width,
       height: rect.height,
     });
-  }, [forthItem.current, windowWidth]);
+  }, [forthItem?.current, windowWidth]);
 
   return (
     // eslint-disable-next-line react/jsx-no-constructed-context-values
