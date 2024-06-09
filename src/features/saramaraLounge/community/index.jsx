@@ -4,24 +4,25 @@ import styled from 'styled-components';
 import Layout from './components/molecules/layout';
 import CommentList from './components/organisms/comments';
 
+import { Theme } from '../../../Styles';
 import { ReactComponent as MaraComment } from './assets/mara.svg';
+import { ReactComponent as MaraCharacter } from './assets/maracharacter.svg';
+import { ReactComponent as MaraTitle } from './assets/maratitle.svg';
 import { ReactComponent as SaraComment } from './assets/sara.svg';
 import { ReactComponent as SaraCharacter } from './assets/saracharacter.svg';
-import { ReactComponent as MaraCharacter } from './assets/maracharacter.svg';
 import { ReactComponent as SaraTitle } from './assets/saratitle.svg';
-import { ReactComponent as MaraTitle } from './assets/maratitle.svg';
-import { Theme } from '../../../Styles';
 
+import Button from '../../../components/atoms/Button';
+import Text from '../../../components/atoms/Text';
+import KakaoAdFit from '../../../components/organisms/KaKaoAdfit.jsx';
+import Navbar from '../../../components/organisms/Navbar/Navbar';
+import CounpangRecommend from '../../question/components/organisms/CoupangRecommend';
+import LoungeHeader from '../lounge/components/organisms/LoungeHeader';
 import Kakao from './components/atoms/button/Kakao';
 import Like from './components/atoms/button/Like';
 import Share from './components/atoms/button/Share';
 import CommunityQuestionCards from './components/organisms/questionCards';
 import useCommunityQuestion from './hooks/useCommunityQuestion';
-import KakaoAdFit from '../../../components/organisms/KaKaoAdfit.jsx';
-import Navbar from '../../../components/organisms/Navbar/Navbar';
-import Text from '../../../components/atoms/Text';
-import Button from '../../../components/atoms/Button';
-import CounpangRecommend from '../../question/components/organisms/CoupangRecommend';
 
 const StyledQuestionInformation = styled.div`
   display: flex;
@@ -152,86 +153,89 @@ export default function Community() {
           {isLoading ? (
             <div>로딩중</div>
           ) : (
-            <div
-              style={{
-                padding: '16px',
-              }}
-            >
-              <StyledQuestionInformation>
-                {type === 'sara' ? <SaraTitle /> : <MaraTitle />}
-                <div className="text">
-                  <Text label={QuestionData.product} size="20px" bold="700" />
-                  <Text label={QuestionData.content} size="14px" style={{ marginTop: '3px' }} />
-                </div>
-              </StyledQuestionInformation>
-              <StyledQuestionAnswer>
-                {type === 'sara' ? <SaraCharacter className=".svg" /> : <MaraCharacter className=".svg" />}
-                <Text
-                  style={{ lineHeight: '22.4px' }}
-                  label={answerData.content}
-                  size="14px"
-                  bold="500"
-                  color={Theme.color.darkGray}
-                />
-                <StyledShareButtons>
-                  <Like count={QuestionData.like_count} onClick={handleLike} isLike={like} />
-                  <div className="buttons">
-                    <Share />
-                    <Kakao />
+            <>
+              <LoungeHeader />
+              <div
+                style={{
+                  padding: '15px',
+                }}
+              >
+                <StyledQuestionInformation>
+                  {type === 'sara' ? <SaraTitle /> : <MaraTitle />}
+                  <div className="text">
+                    <Text label={QuestionData.product} size="20px" bold="700" />
+                    <Text label={QuestionData.content} size="14px" style={{ marginTop: '3px' }} />
                   </div>
-                </StyledShareButtons>
-                <StyledQuestionButtons>
-                  <Button
-                    onClick={() => navigate(`/question/${type === 'sara' ? 'sara' : 'mara'}`)}
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      padding: '12px',
-                      backgroundColor: type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary,
-                      gap: '6px',
-                      borderRadius: '8px',
-                    }}
-                  >
-                    {type === 'sara' ? <SaraComment /> : <MaraComment />}
-                    <Text
-                      label="에게 나도 질문하기"
-                      size="13px"
-                      bold="700"
-                      color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-                    />
-                  </Button>
-                  <Button
-                    onClick={() => navigate(`/question/${type === 'sara' ? 'mara' : 'sara'}`)}
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      padding: '12px',
-                      gap: '6px',
-                      backgroundColor: type === 'sara' ? Theme.color.maraSecondary : Theme.color.saraSecondary,
-                      borderRadius: '8px',
-                    }}
-                  >
-                    {type === 'sara' ? <MaraComment /> : <SaraComment />}
-                    <Text
-                      label="에게 물어볼까?"
-                      size="13px"
-                      bold="700"
-                      color={type === 'sara' ? Theme.color.maraPrimary : Theme.color.saraPrimary}
-                    />
-                  </Button>
-                </StyledQuestionButtons>
-                <KakaoAdFit unit="DAN-YhXsa3BBPzUc1OHF" width="320" disabled={false} height="50" />
-              </StyledQuestionAnswer>
+                </StyledQuestionInformation>
+                <StyledQuestionAnswer>
+                  {type === 'sara' ? <SaraCharacter className=".svg" /> : <MaraCharacter className=".svg" />}
+                  <Text
+                    style={{ lineHeight: '22.4px' }}
+                    label={answerData.content}
+                    size="14px"
+                    bold="500"
+                    color={Theme.color.darkGray}
+                  />
+                  <StyledShareButtons>
+                    <Like count={QuestionData.like_count} onClick={handleLike} isLike={like} />
+                    <div className="buttons">
+                      <Share />
+                      <Kakao />
+                    </div>
+                  </StyledShareButtons>
+                  <StyledQuestionButtons>
+                    <Button
+                      onClick={() => navigate(`/question/${type === 'sara' ? 'sara' : 'mara'}`)}
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        padding: '12px',
+                        backgroundColor: type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary,
+                        gap: '6px',
+                        borderRadius: '8px',
+                      }}
+                    >
+                      {type === 'sara' ? <SaraComment /> : <MaraComment />}
+                      <Text
+                        label="에게 나도 질문하기"
+                        size="13px"
+                        bold="700"
+                        color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+                      />
+                    </Button>
+                    <Button
+                      onClick={() => navigate(`/question/${type === 'sara' ? 'mara' : 'sara'}`)}
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        padding: '12px',
+                        gap: '6px',
+                        backgroundColor: type === 'sara' ? Theme.color.maraSecondary : Theme.color.saraSecondary,
+                        borderRadius: '8px',
+                      }}
+                    >
+                      {type === 'sara' ? <MaraComment /> : <SaraComment />}
+                      <Text
+                        label="에게 물어볼까?"
+                        size="13px"
+                        bold="700"
+                        color={type === 'sara' ? Theme.color.maraPrimary : Theme.color.saraPrimary}
+                      />
+                    </Button>
+                  </StyledQuestionButtons>
+                  <KakaoAdFit unit="DAN-YhXsa3BBPzUc1OHF" width="320" disabled={false} height="50" />
+                </StyledQuestionAnswer>
 
-              <CommentList type={type} questionId={questionId} />
-              <CommunityQuestionCards />
+                <CommentList type={type} questionId={questionId} />
+                <CommunityQuestionCards />
 
-              {/* <MaraTitle /> */}
-            </div>
+                {/* <MaraTitle /> */}
+              </div>
+            </>
           )}
         </Layout>
         <div className="coupang">

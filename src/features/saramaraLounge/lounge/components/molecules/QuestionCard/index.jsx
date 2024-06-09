@@ -29,7 +29,7 @@ export default function QuestionCard({ questionData, idx }) {
     <S.StyledQuestionCard
       $sortType={sortType}
       $rank={idx + 1}
-      onClick={() => navigate(`community?questionId=${id}&type=${type}`)}
+      onClick={() => navigate(`/lounge/community?questionId=${id}&type=${type}`)}
     >
       <S.StyledQuestionName>
         {idx < 3 && sortType === 'like' && <S.StyledRanknumber $rank={idx + 1}>{idx + 1}</S.StyledRanknumber>}
