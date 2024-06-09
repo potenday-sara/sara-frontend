@@ -10,6 +10,7 @@ import Text from '../../../../../components/atoms/Text';
 import Textarea from '../../../../../components/atoms/Textarea';
 import Form from '../../../../../components/molecules/Form';
 import StyledSaramaraForm from './styles';
+import { useOnboard } from '../../../conxtex/OnboardContext';
 
 const checkItemLength = (string) => string.length > 0 && string.length <= 30;
 const checkContentLegth = (string) => string.length > 4 && string.length <= 200;
@@ -66,17 +67,21 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
     return !!text.length;
   };
 
+  const { firstItem, secondItem, thirdItem, forthItem, fiftyItem } = useOnboard();
+
   return (
     <StyledSaramaraForm>
-      <Logo
-        className="type-logo"
-        style={{
-          cursor: 'pointer',
-        }}
-        fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-        onClick={() => navigate('/')}
-        logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'}
-      />
+      <div ref={forthItem}>
+        <Logo
+          className="type-logo"
+          style={{
+            cursor: 'pointer',
+          }}
+          fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+          onClick={() => navigate('/')}
+          logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'}
+        />
+      </div>
       <Logo className="character-logo" logoType={type === 'sara' ? 'SaraCircleCharacter' : 'MaraCircleCharacter'} />
       <Form onSubmit={(e) => onSubmit(e)}>
         <Form.Label>
@@ -93,16 +98,18 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
           />
         </Form.Label>
         <Form.Error>{itemError ? <Text label="1자 ~ 30자 이내로 입력해주세요" size="13px" /> : null}</Form.Error>
-        <Form.Input isError={itemError}>
-          <Input
-            id="item"
-            h="56px"
-            ph="블루투스 이어폰"
-            className={isInputing(QuestionFormData.ItemValue) ? `${type}-inputing ${type}-input` : `${type}-input`}
-            value={QuestionFormData.ItemValue}
-            onChange={ItemChange}
-          />
-        </Form.Input>
+        <div className="input" ref={firstItem}>
+          <Form.Input isError={itemError}>
+            <Input
+              id="item"
+              h="56px"
+              ph="블루투스 이어폰"
+              className={isInputing(QuestionFormData.ItemValue) ? `${type}-inputing ${type}-input` : `${type}-input`}
+              value={QuestionFormData.ItemValue}
+              onChange={ItemChange}
+            />
+          </Form.Input>
+        </div>
         <Form.Label className="second-input">
           <Label
             htmlFor="contents"
@@ -117,35 +124,40 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
           />
         </Form.Label>
         <Form.Error>{contentError ? <Text label="5자 ~ 200자 이내로 입력해주세요" size="13px" /> : null}</Form.Error>
-        <Form.Input isError={contentError}>
-          <Textarea
-            className={isInputing(QuestionFormData.ContentsValue) ? `${type}-inputing ${type}-input` : `${type}-input`}
-            id="contents"
-            h="88px"
-            value={QuestionFormData.ContentsValue}
-            onChange={contentChange}
-            ph="고민하고있는 이유를 알려주세요! &#13; ex)비싸서 / 유행인데 사도될까?"
-          />
-        </Form.Input>
-
-        <Form.Button>
-          <Button
-            className={
-              failedSubmit ? `${type}-basic failed-submit` : checkDisabled() ? `${type}-disabled` : `${type}-basic`
-            }
-            type="submit"
-            disabled={checkDisabled()}
-            onClick={onSubmit}
-          >
-            <Text
-              label={`${QuestionFormData.ItemValue || '고민되는 물건을 '} ${
-                type === 'sara' ? '사고 싶샤?' : '사도 될 것 같먀?'
-              }`}
-              size="14px"
-              bold="700"
-              color={Theme.color.white}
+        <div className="input" ref={secondItem}>
+          <Form.Input isError={contentError}>
+            <Textarea
+              className={
+                isInputing(QuestionFormData.ContentsValue) ? `${type}-inputing ${type}-input` : `${type}-input`
+              }
+              id="contents"
+              h="88px"
+              value={QuestionFormData.ContentsValue}
+              onChange={contentChange}
+              ph="고민하고있는 이유를 알려주세요! &#13; ex)비싸서 / 유행인데 사도될까?"
             />
-          </Button>
+          </Form.Input>
+        </div>
+        <Form.Button>
+          <div className="button" ref={thirdItem}>
+            <Button
+              className={
+                failedSubmit ? `${type}-basic failed-submit` : checkDisabled() ? `${type}-disabled` : `${type}-basic`
+              }
+              type="submit"
+              disabled={checkDisabled()}
+              onClick={onSubmit}
+            >
+              <Text
+                label={`${QuestionFormData.ItemValue || '고민되는 물건을 '} ${
+                  type === 'sara' ? '사고 싶샤?' : '사도 될 것 같먀?'
+                }`}
+                size="14px"
+                bold="700"
+                color={Theme.color.white}
+              />
+            </Button>
+          </div>
         </Form.Button>
       </Form>
     </StyledSaramaraForm>
