@@ -8,6 +8,7 @@ import KakaoAdFit from '../../../../../components/organisms/KaKaoAdfit.jsx';
 import Navbar from '../../../../../components/organisms/Navbar/Navbar';
 import SaraMaraContext from '../../../../main/stores/SaraMaraContext';
 import { OnboardProvider } from '../../../conxtex/OnboardContext';
+import NavigateGoogleForm from '../../../../../components/organisms/NavigateGoogleForm';
 // import Footer from '../../../../../components/organisms/Footer';
 
 export default function QuestionTemplate({ type, children }) {
@@ -61,6 +62,7 @@ export default function QuestionTemplate({ type, children }) {
           </div>
         )}
       </StyledQuestionTemplate>
+      <NavigateGoogleForm type={type} />
     </OnboardProvider>
   );
 }
