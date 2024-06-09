@@ -10,6 +10,7 @@
     "project": "./tsconfig.json"
   },
   "rules": {
+    "react/no-array-index-key": "off",
     "import/no-extraneous-dependencies": ["off", { "devDependencies": true }],
     "react/jsx-props-no-spreading": "off",
     "react/prop-types": "warn",
