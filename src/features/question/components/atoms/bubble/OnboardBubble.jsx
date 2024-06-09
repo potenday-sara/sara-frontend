@@ -47,10 +47,8 @@ const OnboardBubble = forwardRef(({ stage, children, onClick, offset = 0, offset
   useEffect(() => {
     if (ref?.current) {
       const { top, bottom, left } = ref.current.getBoundingClientRect();
-      console.log('top', top);
       const isBottomValue = window.innerHeight - bottom > top; // 뷰포트 기준으로 하단에 있는지 여부
       setIsBottom(isBottomValue);
-      console.log('isBottom', isBottomValue);
       setPosition({
         top: (isBottomValue ? bottom : top) - offset,
         left: left + offsetX,
@@ -81,7 +79,7 @@ const OnboardBubble = forwardRef(({ stage, children, onClick, offset = 0, offset
               alignItems: 'center',
             }}
           >
-            {[0, 1, 2, 3].map((value) => (
+            {[0, 1, 2].map((value) => (
               <div style={{ color: value <= stage ? Theme.color.saraPrimary : 'white' }}>
                 <Dot key={`${value}_dot`} />
               </div>

@@ -16,7 +16,7 @@ const OnBoardBackgroundStyled = styled.div`
   background-color: rgba(0, 0, 0, 0.2);
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 9999;
   mask: url(#mask);
   -webkit-mask: url(#mask); /* Safari용 */
 
@@ -86,7 +86,6 @@ export function OnboardProvider({ children }) {
       width: rect.width,
       height: rect.height,
     });
-    console.log('width', firstItemPosition);
   }, [firstItem.current, windowWidth]);
 
   useEffect(() => {
@@ -173,15 +172,15 @@ export function OnboardProvider({ children }) {
                       fill="black"
                     />
                   )}
-                  {stage === 3 && (
-                    <rect
-                      x={forthItemPosition.left - 102}
-                      y={forthItemPosition.top - 10}
-                      width={forthItemPosition.width + 205}
-                      height={forthItemPosition.height + 20}
-                      fill="black"
-                    />
-                  )}
+                  {/* {stage === 3 && ( */}
+                  {/*  <rect */}
+                  {/*    x={forthItemPosition.left - 5} */}
+                  {/*    y={forthItemPosition.top} */}
+                  {/*    width={forthItemPosition.width + 10} */}
+                  {/*    height={forthItemPosition.height} */}
+                  {/*    fill="black" */}
+                  {/*  /> */}
+                  {/* )} */}
                 </mask>
               </defs>
             </svg>
@@ -252,37 +251,6 @@ export function OnboardProvider({ children }) {
                     >
                       이전
                     </StyledButton>
-                    <StyledButton type="button" onClick={handleNext} bg={Theme.color.saraPrimary} color="white">
-                      다음
-                    </StyledButton>
-                  </div>
-                </div>
-              </OnboardBubble>
-            )}
-            {stage === 3 && (
-              <OnboardBubble stage={3} ref={forthItem} offset={-160} offsetX={-90} onClick={handleFinish}>
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  <Text color="white" label={`모르는 것이 있으면,\n여기 있는 '사라'를 눌러주세요!`} size="15px" />
-                  <Text
-                    style={{
-                      marginTop: '8px',
-                    }}
-                    label={`사야하는 물건을 걱정없이 살 수 있도록\n합당한 이유를 만들어 줄 거에요!`}
-                    size="12px"
-                    color="rgb(255,255,255,0.7)"
-                  />
-                  <div
-                    className="buttons"
-                    style={{ marginLeft: 'auto', marginTop: '10px', display: 'flex', gap: '8px' }}
-                  >
-                    <StyledButton
-                      type="button"
-                      onClick={handlePrev}
-                      bg={Theme.color.saraSecondary}
-                      color={Theme.color.saraPrimary}
-                    >
-                      이전
-                    </StyledButton>
                     <StyledButton type="button" onClick={handleFinish} bg={Theme.color.saraPrimary} color="white">
                       튜토리얼 완료
                     </StyledButton>
@@ -290,6 +258,37 @@ export function OnboardProvider({ children }) {
                 </div>
               </OnboardBubble>
             )}
+            {/* {stage === 3 && ( */}
+            {/*  <OnboardBubble stage={3} ref={forthItem} offset={-160} offsetX={-90} onClick={handleFinish}> */}
+            {/*    <div style={{ display: 'flex', flexDirection: 'column' }}> */}
+            {/*      <Text color="white" label={`모르는 것이 있으면,\n여기 있는 '사라'를 눌러주세요!`} size="15px" /> */}
+            {/*      <Text */}
+            {/*        style={{ */}
+            {/*          marginTop: '8px', */}
+            {/*        }} */}
+            {/*        label={`사야하는 물건을 걱정없이 살 수 있도록\n합당한 이유를 만들어 줄 거에요!`} */}
+            {/*        size="12px" */}
+            {/*        color="rgb(255,255,255,0.7)" */}
+            {/*      /> */}
+            {/*      <div */}
+            {/*        className="buttons" */}
+            {/*        style={{ marginLeft: 'auto', marginTop: '10px', display: 'flex', gap: '8px' }} */}
+            {/*      > */}
+            {/*        <StyledButton */}
+            {/*          type="button" */}
+            {/*          onClick={handlePrev} */}
+            {/*          bg={Theme.color.saraSecondary} */}
+            {/*          color={Theme.color.saraPrimary} */}
+            {/*        > */}
+            {/*          이전 */}
+            {/*        </StyledButton> */}
+            {/*        <StyledButton type="button" onClick={handleFinish} bg={Theme.color.saraPrimary} color="white"> */}
+            {/*          튜토리얼 완료 */}
+            {/*        </StyledButton> */}
+            {/*      </div> */}
+            {/*    </div> */}
+            {/*  </OnboardBubble> */}
+            {/* )} */}
           </OnBoardBackgroundStyled>
         )}
       </div>

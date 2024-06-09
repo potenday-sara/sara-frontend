@@ -67,21 +67,19 @@ export default function SaramaraForm({ type, QuestionFormData, SubmitQuestion })
     return !!text.length;
   };
 
-  const { firstItem, secondItem, thirdItem, forthItem, fiftyItem } = useOnboard();
+  const { firstItem, secondItem, thirdItem } = useOnboard();
 
   return (
     <StyledSaramaraForm>
-      <div ref={forthItem}>
-        <Logo
-          className="type-logo"
-          style={{
-            cursor: 'pointer',
-          }}
-          fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-          onClick={() => navigate('/')}
-          logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'}
-        />
-      </div>
+      <Logo
+        className="type-logo"
+        style={{
+          cursor: 'pointer',
+        }}
+        fill={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+        onClick={() => navigate('/')}
+        logoType={type === 'sara' ? 'SaraTextWithCircleWithText' : 'MaraTextWithCircleWithText'}
+      />
       <Logo className="character-logo" logoType={type === 'sara' ? 'SaraCircleCharacter' : 'MaraCircleCharacter'} />
       <Form onSubmit={(e) => onSubmit(e)}>
         <Form.Label>
