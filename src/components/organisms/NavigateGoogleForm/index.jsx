@@ -9,6 +9,7 @@ import MaraBeforeHover from '../../../images/logos/hoverCharacter/maraBeforeHove
 import MaraHover from '../../../images/logos/hoverCharacter/maraHover.png';
 import Button from '../../atoms/Button';
 import useHover from '../../../hooks/useHover';
+import { useOnboard } from '../../../features/question/conxtex/OnboardContext';
 
 const getText = (type, hovered) => {
   if (type === 'sara') {
@@ -29,24 +30,27 @@ function NavigateGoogleForm({ type }) {
   const googleFormButtonStyle = {};
 
   const [ref, isHovered] = useHover();
+  const { forthItem } = useOnboard();
   return (
     <StyledNavigateGoogleForm type={type}>
-      <div ref={ref}>
-        <Button
-          onClick={() => window.open('https://forms.gle/wZ6r3Vo5E4vBLsGz7')}
-          className={isHovered ? 'hover-ani' : 'non-hover-ani'}
-          style={googleFormButtonStyle}
-          bg={type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary}
-        >
-          <div
-            className={`icon sara ${isHovered ? null : 'image-show'}`}
-            style={{ backgroundImage: `url(${type === 'sara' ? SaraBeforeHover : MaraBeforeHover}` }}
-          />
-          <div
-            className={`icon icon-hover sara ${isHovered ? 'image-show' : null}`}
-            style={{ backgroundImage: `url(${type === 'sara' ? SaraHover : MaraHover}` }}
-          />
-        </Button>
+      <div ref={forthItem}>
+        <div ref={ref}>
+          <Button
+            onClick={() => window.open('https://forms.gle/wZ6r3Vo5E4vBLsGz7')}
+            className={isHovered ? 'hover-ani' : 'non-hover-ani'}
+            style={googleFormButtonStyle}
+            bg={type === 'sara' ? Theme.color.saraSecondary : Theme.color.maraSecondary}
+          >
+            <div
+              className={`icon sara ${isHovered ? null : 'image-show'}`}
+              style={{ backgroundImage: `url(${type === 'sara' ? SaraBeforeHover : MaraBeforeHover}` }}
+            />
+            <div
+              className={`icon icon-hover sara ${isHovered ? 'image-show' : null}`}
+              style={{ backgroundImage: `url(${type === 'sara' ? SaraHover : MaraHover}` }}
+            />
+          </Button>
+        </div>
       </div>
 
       <Text

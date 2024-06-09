@@ -25,7 +25,6 @@ export default function QuestionPage() {
               <QuestionTemplate type="sara">
                 <SaramaraServiceTemplate type="sara" />
               </QuestionTemplate>
-              <NavigateGoogleForm type="sara" />
               <Footer />
             </>
           }
@@ -37,7 +36,6 @@ export default function QuestionPage() {
               <QuestionTemplate type="mara">
                 <SaramaraServiceTemplate type="mara" />
               </QuestionTemplate>
-              <NavigateGoogleForm type="mara" />
               <Footer />
             </>
           }
