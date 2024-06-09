@@ -8,7 +8,7 @@ const StyledQuestionTemplate = styled.main`
   flex-direction: column;
   background-color: ${({ bg }) => bg || null};
   padding-bottom: 100px;
-  min-height: calc(100vh - 144px);
+  min-height: calc(100vh - 64px);
   height: 100%;
   z-index: 1;
   display: flex;
@@ -27,7 +27,9 @@ const StyledQuestionTemplate = styled.main`
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr auto 1fr;
+    flex-grow: 1;
     gap: 54px;
+    align-items: center;
     grid-row-gap: 10px;
     grid-auto-rows: auto;
     justify-content: center;
