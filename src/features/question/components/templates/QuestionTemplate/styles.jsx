@@ -78,7 +78,7 @@ const StyledQuestionTemplate = styled.main`
 
       justify-content: center;
       display: grid;
-      grid-template-rows: auto auto auto;
+      grid-template-rows: auto minmax(552px, auto) auto;
       grid-template-columns: 100%;
       justify-content: center;
       gap: 8px;
