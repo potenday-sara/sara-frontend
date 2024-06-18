@@ -47,7 +47,8 @@ export function OnboardProvider({ children }) {
   const [secondItemPosition, setSecondItemPosition] = useState({ top: 0, left: 0, width: 0, height: 0 });
   const [thirdItemPosition, setThirdItemPosition] = useState({ top: 0, left: 0, width: 0, height: 0 });
   const [forthItemPosition, setForthItemPosition] = useState({ top: 0, left: 0, width: 0, height: 0 });
-  const [isOnboard, setIsOnboard] = useState(() => window.localStorage.getItem('isOnboard') !== 'true');
+  // const [isOnboard, setIsOnboard] = useState(() => window.localStorage.getItem('isOnboard') !== 'true');
+  const [isOnboard, setIsOnboard] = useState(false);
 
   const [stage, setStage] = useState(0);
 
