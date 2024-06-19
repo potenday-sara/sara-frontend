@@ -10,8 +10,11 @@
     "project": "./tsconfig.json"
   },
   "rules": {
+    "react/no-array-index-key": "off",
     "import/no-extraneous-dependencies": ["off", { "devDependencies": true }],
     "react/jsx-props-no-spreading": "off",
+    "react/prop-types": "warn",
+    "no-unused-vars": "warn",
     "no-nested-ternary": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }]
   },

@@ -3,8 +3,7 @@ import { Theme } from '../../Styles';
 
 const StyledMain = styled.main`
   display: grid;
-
-  grid-template-rows: 80px auto 64px;
+  grid-template-rows: 1fr 64px;
   grid-template-columns: minmax(512px, 4fr) 240px minmax(512px, 4fr);
   min-height: 100vh;
   width: 100%;
@@ -19,7 +18,7 @@ const StyledMain = styled.main`
     display: none;
   }
   .footer {
-    grid-area: 3 / 1 / 4 / 4;
+    grid-area: 2 / 1 / 3 / 4;
   }
   ${Theme.deviceSize.medium} {
     grid-template-columns: minmax(512px, 4fr) 208px minmax(512px, 4fr);
@@ -43,9 +42,13 @@ const StyledMain = styled.main`
     }
     .kakao-ad-a {
       display: block;
+      width: 100%;
+      background-color: ${Theme.color.maraSecondary};
       grid-row: 4 / 5;
     }
     .kakao-ad-b {
+      width: 100%;
+      background-color: #f4f4f4;
       display: flex;
       justify-content: center;
       align-items: center;

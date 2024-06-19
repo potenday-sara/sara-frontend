@@ -19,6 +19,7 @@ const getCharacterLogoCss = (type) => {
 };
 
 const StyledCharacterLogo = styled.div`
+  flex-grow: 1;
   margin-top: 45px;
   position: relative;
   ${({ type }) => getCharacterLogoCss(type)}

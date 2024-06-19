@@ -5,9 +5,10 @@ const StyledQuestionTemplate = styled.main`
   width: auto;
   min-width: 1200px;
   position: relative;
+  flex-direction: column;
   background-color: ${({ bg }) => bg || null};
   padding-bottom: 100px;
-  min-height: calc(100vh - 144px);
+  min-height: calc(100vh - 64px);
   height: 100%;
   z-index: 1;
   display: flex;
@@ -22,10 +23,13 @@ const StyledQuestionTemplate = styled.main`
   }
   .grid {
     height: 100%;
+    padding-top: 60px;
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr auto 1fr;
+    flex-grow: 1;
     gap: 54px;
+    align-items: center;
     grid-row-gap: 10px;
     grid-auto-rows: auto;
     justify-content: center;
@@ -70,9 +74,11 @@ const StyledQuestionTemplate = styled.main`
     }
     .grid {
       width: 100%;
+      padding-top: 0px;
+
       justify-content: center;
       display: grid;
-      grid-template-rows: auto auto auto;
+      grid-template-rows: auto minmax(552px, auto) auto;
       grid-template-columns: 100%;
       justify-content: center;
       gap: 8px;

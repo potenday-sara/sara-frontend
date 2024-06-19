@@ -3,12 +3,12 @@ import { Theme } from '../../Styles';
 import Progressbar from '../../components/atoms/Progressbar';
 import Footer from '../../components/organisms/Footer';
 import useInterval from '../../hooks/useInterval';
-import Navbar from './components/organisms/MainNavbar';
 import MainAside from './components/templates/MainAside';
 import OnboardingSectionLayout from './components/templates/MainSection';
 import SaraMaraContext from './stores/SaraMaraContext';
 import StyledMain from './styles';
 import KakaoAdFit from '../../components/organisms/KaKaoAdfit.jsx';
+import Navbar from '../../components/organisms/Navbar/Navbar';
 
 /**
  * 온보딩페에지의 기본 레이아웃입니다.
@@ -48,13 +48,9 @@ export default function Main() {
 
   return (
     <StyledMain>
-      <Navbar
-        style={{
-          gridArea: '1 / 1 / 2 / 4',
-        }}
-      />
       <SaraMaraContext.Provider value={saramaraStore}>
-        <OnboardingSectionLayout type="sara" />
+        <Navbar />
+        <OnboardingSectionLayout type="sara" unit="DAN-8BISPTRb8USYEeOo" />
         <MainAside type={type} />
         <Progressbar
           className="main-progress-bar"
@@ -64,7 +60,7 @@ export default function Main() {
           transition="all 0s linear"
         />
 
-        <OnboardingSectionLayout type="mara" className="mara-section" />
+        <OnboardingSectionLayout type="mara" className="mara-section" unit="DAN-ZqgRhVaZFunt70fX" />
         <div className="kakao-ad-a">
           <KakaoAdFit disabled={false} height={50} width={320} unit="DAN-FK6YA47rI1C6QYtZ" />
         </div>

@@ -4,6 +4,7 @@ import { Theme } from '../../../../../Styles';
 const StyledMainAside = styled.aside`
   position: relative;
   display: flex;
+  padding-top: 60px;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
@@ -43,6 +44,7 @@ const StyledMainAside = styled.aside`
   }
 
   ${Theme.deviceSize.small} {
+    padding-top: 0;
     .aside-top,
     .aside-head {
       width: 100%;
