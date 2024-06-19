@@ -24,7 +24,20 @@ function Card({
       />
 
       <div className="contents">
-        <Text className="CoupangCard__Item" label={label} color={Theme.color.midGray} size="14px" bold="700" />
+        <Text
+          className="CoupangCard__Item"
+          label={label}
+          color={Theme.color.midGray}
+          size="14px"
+          bold="700"
+          style={{
+            display: 'block',
+            textOverflow: 'ellipsis',
+            overflow: 'hidden',
+            whiteSpace: 'nowrap',
+          }}
+        />
+
         <Text
           className="CoupangCard__Price"
           label={`${localePrice}원`}

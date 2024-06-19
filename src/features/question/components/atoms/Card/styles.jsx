@@ -87,6 +87,8 @@ const StyledCard = styled.div`
     width: 100%;
     flex-direction: column;
     gap: 4px;
+    flex-shrink: 0;
+    flex-grow: 0;
   }
 
   .rocket {
