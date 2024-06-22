@@ -2,24 +2,23 @@ import ClientAPIBuilder from '@/apis/ClientAPIBuilder';
 import { HTTPMethod } from '@/libs';
 import ServerAPIBuilder from '@/apis/ServerAPIBuilder';
 
-const apiHost = 'https://api.sara-mara.com/answers';
+const apiHost = 'https://api.sara-mara.com/rank';
 
-class ClientAnswerAPI extends ClientAPIBuilder {
+export class ClientRankAPI extends ClientAPIBuilder {
   constructor(method: HTTPMethod, url: string, data?: unknown) {
     super(method, url, data);
     this.baseURL(apiHost);
   }
 
-  static get = (url: string) => new ClientAnswerAPI('GET', url);
+  static get = (url: string) => new ClientRankAPI('GET', url);
 }
 
-export default ClientAnswerAPI;
 
-class SeverAnswerAPI extends ServerAPIBuilder {
+export class ServerRankAPI extends ServerAPIBuilder {
   constructor(method: HTTPMethod, url: string, data?: unknown) {
     super(method, url, data);
     this.baseURL(apiHost);
   }
 
-  static get = (url: string) => new SeverAnswerAPI('GET', url);
+  static get = (url: string) => new ServerRankAPI('GET', url);
 }
