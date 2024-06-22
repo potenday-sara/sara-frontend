@@ -9,7 +9,7 @@ export default class ServerAPI extends API {
   }
 
   call<T>(): Promise<T> {
-    const queryString = new URLSearchParams(this.params).toString();
+    const queryString = new URLSearchParams(this.params as string).toString();
     const URL = this.baseURL + this.url + (queryString ? `?${queryString}` : '');
     return fetch(URL, {
       body: JSON.stringify(this.data),
