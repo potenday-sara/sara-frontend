@@ -6,6 +6,7 @@ import MainSara from '@/asset/character/MainSara.svg';
 import MainMara from '@/asset/character/MainMara.svg';
 import { useSaraMara } from '@/feature/main/hooks/useSaraMara';
 import Button from '@/components/atoms/Button';
+import Logo from '@/components/atoms/Logo/Logo';
 
 type MainCharacterProps = {
   type: 'sara' | 'mara';
@@ -35,7 +36,16 @@ function MainCharacter({ type }: MainCharacterProps) {
   return (
     <div className={MainCharacterClassNames({ type })}>
       {type === 'sara' ? <MainSara /> : <MainMara />}
-      <Button className={MainButtonClassNames({ type })} onClick={() => null} label="에게 물어보기" />
+      <Button
+        className={MainButtonClassNames({ type })}
+        onClick={() => null}
+        label={
+          <div className="flex items-baseline font-15-title-100 gap-1">
+            <Logo logo={type} />
+            <div>에게 물어보기</div>
+          </div>
+        }
+      />
     </div>
   );
 }

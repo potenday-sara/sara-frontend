@@ -1,27 +1,21 @@
 import React from 'react';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 
-const LOGO = {
-  sara: '/svgs/logo/logo-sara.svg',
-  mara: '/svgs/logo/logo-mara.svg',
-} as const;
-
-const SIZE = {
-  xxs: { width: 59, height: 31 },
-  sm: { width: 134.18, height: 72 },
-  md: { width: 156.55, height: 84 },
-  lg: { width: 176, height: 96 },
-} as const;
+const LOGO_COMPONENT = {
+  sara: dynamic(() => import('@/asset/logo/sara.svg')) as React.ComponentType<any>,
+  mara: dynamic(() => import('@/asset/logo/mara.svg')) as React.ComponentType<any>,
+};
 
 interface LogoProps {
-  size: 'xxs' | 'sm' | 'md' | 'lg';
-  type: keyof typeof LOGO;
+  logo: keyof typeof LOGO_COMPONENT;
 }
 
-export default function Logo({ size, type }: LogoProps) {
+export default function Logo({ logo }: LogoProps) {
+  const RenderLogo = LOGO_COMPONENT[logo];
   return (
-    <div className="logo">
-      <Image src={LOGO[type]} alt="Logo" {...SIZE[size]} />
+    <div>
+      <RenderLogo logo={logo} />
     </div>
   );
 }
