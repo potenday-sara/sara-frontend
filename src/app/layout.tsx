@@ -11,7 +11,7 @@ export default function RootLayout({ children }: { children: ReactNode; params: 
         <title>Sara Mara</title>
         <meta name="description" content="Web site created..." />
       </head>
-      <body>
+      <body className={'max-w-[600px] box-border m-auto overflow-auto min-h-[100vh]'}>
         <div id="root">{children}</div>
       </body>
     </html>

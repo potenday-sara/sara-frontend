@@ -22,7 +22,7 @@
     "react/no-unused-prop-types" : "warn",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "@typescript-eslint/no-explicit-any" : "warn",
-    "no-underscore-dangle": "off",
+    "no-underscore-dangle": "off"
   },
   "plugins" : ["eslint-plugin-import", "@typescript-eslint"],
   "settings": {
