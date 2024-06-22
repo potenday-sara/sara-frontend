@@ -12,13 +12,13 @@ export default class ServerAPIBuilder {
     };
     this._instance.timeout = 5000;
     this._instance.withCredentials = false;
-    this._instance.options= {
+    this._instance.options = {
       cache: 'no-store',
       next: {
         revalidate: false,
         tage: [],
       },
-    }
+    };
   }
 
   baseURL(value: string): ServerAPIBuilder {
@@ -60,4 +60,3 @@ export default class ServerAPIBuilder {
     return this._instance;
   }
 }
-

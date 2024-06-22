@@ -1,6 +1,8 @@
 import { ServerRankAPI } from '@/apis/rank';
 import { RankResponse } from '@/apis/rank/rank';
 import MainCharacter from '@/feature/main/components/MainCharacter';
+import Progressbar from '@/components/atoms/Progressbar';
+import MainTemplate from '@/feature/main/components/MainTemplate';
 
 export default async function page() {
   async function fetchGetRank() {
@@ -14,5 +16,10 @@ export default async function page() {
       maraRank,
     };
   }
-  return null;
+
+  return (
+    <div>
+      <MainTemplate />
+    </div>
+  );
 }

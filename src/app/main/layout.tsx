@@ -1,11 +1,8 @@
 'use client';
 
-import { createContext, ReactNode, useCallback, useState } from 'react';
-import '../styles/global.scss';
+import { createContext, ReactNode, useCallback, useContext, useState } from 'react';
 import useInterval from '@/hooks/useInterval';
-
-type SARA = 'sara';
-type MARA = 'mara';
+import SaraMaraProvider from '@/feature/main/hooks/useSaraMara';
 
 export default function RootLayout({ children }: { children: ReactNode; params: { id: string } }) {
   return (
@@ -18,7 +15,9 @@ export default function RootLayout({ children }: { children: ReactNode; params: 
         <meta name="description" content="Web site created..." />
       </head>
       <body className="max-w-[600px] box-border m-auto overflow-auto min-h-[100vh]">
-        <div id="root">{children}</div>
+        <div id="root">
+          <SaraMaraProvider>{children}</SaraMaraProvider>
+        </div>
       </body>
     </html>
   );

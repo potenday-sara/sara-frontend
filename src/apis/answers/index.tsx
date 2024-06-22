@@ -1,10 +1,10 @@
 import ClientAPIBuilder from '@/apis/ClientAPIBuilder';
-import { HTTPMethod } from '@/libs';
 import ServerAPIBuilder from '@/apis/ServerAPIBuilder';
+import { HTTPMethod } from '@/libs';
 
 const apiHost = 'https://api.sara-mara.com/answers';
 
-class ClientAnswerAPI extends ClientAPIBuilder {
+export class ClientAnswerAPI extends ClientAPIBuilder {
   constructor(method: HTTPMethod, url: string, data?: unknown) {
     super(method, url, data);
     this.baseURL(apiHost);
@@ -15,7 +15,7 @@ class ClientAnswerAPI extends ClientAPIBuilder {
 
 export default ClientAnswerAPI;
 
-class SeverAnswerAPI extends ServerAPIBuilder {
+export class SeverAnswerAPI extends ServerAPIBuilder {
   constructor(method: HTTPMethod, url: string, data?: unknown) {
     super(method, url, data);
     this.baseURL(apiHost);

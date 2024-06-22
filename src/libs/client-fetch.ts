@@ -25,4 +25,3 @@ export default class ClientAPI extends API {
     return http.request({ ...this });
   }
 }
-
