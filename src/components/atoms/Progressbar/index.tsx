@@ -1,8 +1,5 @@
 import classNames from 'classnames';
-import { Simulate } from 'react-dom/test-utils';
-import progress = Simulate.progress;
 import React, { useEffect } from 'react';
-import { right } from '@popperjs/core';
 import { cva } from 'class-variance-authority';
 
 interface Props {

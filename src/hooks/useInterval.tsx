@@ -1,11 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-interface UseInterval {
-  (callback: () => void, interval: number): void;
-}
-
-const useInterval: UseInterval = (callback, interval) => {
+const useInterval = (callback, interval, flag) => {
   const savedCallback = useRef<(() => void) | null>(null);
+  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     savedCallback.current = callback;
@@ -18,8 +15,13 @@ const useInterval: UseInterval = (callback, interval) => {
       }
     }
     const id = setInterval(tick, interval);
+    setIntervalId(id);
     return () => clearInterval(id);
-  }, [interval]);
+  }, [interval, flag]);
+
+  return {
+    intervalId,
+  };
 };
 
 export default useInterval;
