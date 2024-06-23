@@ -3,6 +3,7 @@
 import { createContext, ReactNode, useCallback, useContext, useState } from 'react';
 import useInterval from '@/hooks/useInterval';
 import SaraMaraProvider from '@/feature/main/hooks/useSaraMara';
+import Footer from '@/components/organisms/Footer/Footer';
 
 export default function RootLayout({ children }: { children: ReactNode; params: { id: string } }) {
   return (
@@ -17,6 +18,7 @@ export default function RootLayout({ children }: { children: ReactNode; params: 
       <body className="max-w-[600px] box-border m-auto overflow-auto min-h-[100vh]">
         <div id="root">
           <SaraMaraProvider>{children}</SaraMaraProvider>
+          <Footer />
         </div>
       </body>
     </html>
