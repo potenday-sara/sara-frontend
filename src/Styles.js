@@ -137,6 +137,12 @@ export const GlobalStyles = createGlobalStyle`
   #root {
     position: relative;
   }
+  button {
+    cursor: pointer;
+    border: 0;
+    outline: none;
+  }
+  
   *, *::before, *::after {
     box-sizing: border-box;
     font-weight: 700;

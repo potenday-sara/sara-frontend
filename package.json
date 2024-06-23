@@ -69,7 +69,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.5.4",
+    "@babel/eslint-parser": "^7.24.7",
     "@storybook/addon-essentials": "^7.0.12",
     "@storybook/addon-interactions": "^7.0.12",
     "@storybook/addon-links": "^7.0.12",

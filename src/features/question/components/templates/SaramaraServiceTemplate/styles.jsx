@@ -31,6 +31,7 @@ const StyledSaramaraServiceTemplate = styled.section`
   }
   ${Theme.deviceSize.small} {
     width: 363px;
+    margin: auto;
     padding: 32px 16px 16px;
 
     /* max-width: 363px; */
