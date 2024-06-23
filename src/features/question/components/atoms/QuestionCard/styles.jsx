@@ -22,7 +22,9 @@ const StyledCard = styled.div`
       display: none;
     }
     .card-title {
-      font-size: 20px;
+      p {
+        font-size: 20px;
+      }
     }
     .card-content {
       line-height: 135%;
@@ -38,7 +40,9 @@ const StyledCard = styled.div`
       display: none;
     }
     .card-title {
-      font-size: 16px;
+      p {
+        font-size: 16px;
+      }
     }
     .card-content {
       font-size: 13px;
