@@ -1,9 +1,10 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import StyledCard from './styles';
-import Text from '../../../../../components/atoms/Text';
+import React from 'react';
 import { Theme } from '../../../../../Styles';
+import Text from '../../../../../components/atoms/Text';
 import useResize from '../../../../../hooks/useResize';
+import { ReactComponent as RightArrow } from '../../../../../images/svgs/rightArrow.svg';
+import StyledCard from './styles';
 
 function QuestionCard({ children, ...rest }) {
   return <StyledCard {...rest}>{children}</StyledCard>;
@@ -21,13 +22,15 @@ QuestionCard.defaultProps = {
 function Title({ label, type }) {
   const string = label.length > 15 ? `${label.slice(0, 12)}...` : label;
   return (
-    <Text
-      className="card-title"
-      bold="700"
-      size="16px"
-      label={string}
-      color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
-    />
+    <div className="card-title">
+      <Text
+        bold="700"
+        size="16px"
+        label={string}
+        color={type === 'sara' ? Theme.color.saraPrimary : Theme.color.maraPrimary}
+      />
+      <RightArrow width={16} height={16} className="questioncard-arrow" stroke={Theme.color.gray} />
+    </div>
   );
 }
 
