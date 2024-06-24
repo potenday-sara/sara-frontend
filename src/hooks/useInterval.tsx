@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-const useInterval = (callback, interval, flag) => {
+const useInterval = (callback, interval, flag): { intervalId } => {
   const savedCallback = useRef<(() => void) | null>(null);
   const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
 

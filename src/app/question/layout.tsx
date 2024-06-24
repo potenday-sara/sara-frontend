@@ -1,14 +1,9 @@
 'use client';
 
-import { createContext, ReactNode, useCallback, useState } from 'react';
-import '../styles/global.scss';
-import useInterval from '@/hooks/useInterval';
-import Footer from '@/components/organisms/Footer/Footer';
+import { ReactNode } from 'react';
+import { ThemeProvider } from '@/feature/question/ThemeContext';
 
-type SARA = 'sara';
-type MARA = 'mara';
-
-export default function RootLayout({ children }: { children: ReactNode; params: { id: string } }) {
+export default function layout({ children }: { children: ReactNode; params: { id: string } }) {
   return (
     <html lang="en">
       <head>
@@ -19,8 +14,9 @@ export default function RootLayout({ children }: { children: ReactNode; params: 
         <meta name="description" content="Web site created..." />
       </head>
       <body className="max-w-[600px] box-border m-auto overflow-auto min-h-[100vh]">
-        <div id="root">{children}</div>
-        <Footer />
+        <div id="root">
+          <ThemeProvider>{children}</ThemeProvider>
+        </div>
       </body>
     </html>
   );

@@ -28,21 +28,18 @@ const ThemeSelectButtonClassName = cva('flex-1 py-[19px] flex justify-center', {
   },
 });
 
-const TitleButtonClassName = cva(
-  'px-[15px] cursor-pointer py-2 rounded-[18px] font-14-title-100 text-white flex-shrink-0',
-  {
-    variants: {
-      selected: {
-        true: 'text-white',
-        false: 'bg-white text-black-#666',
-      },
-      theme: {
-        sara: 'bg-sara-primary',
-        mara: 'bg-mara-primary',
-      },
+const TitleButtonClassName = cva('px-[15px] cursor-pointer py-2 rounded-[18px] font-14-title-100 flex-shrink-0', {
+  variants: {
+    selected: {
+      true: 'text-white',
+      false: 'bg-white text-black-#666',
+    },
+    theme: {
+      sara: 'bg-sara-primary',
+      mara: 'bg-mara-primary',
     },
   },
-);
+});
 
 const TrendButtonClassName = cva('px-3 py-2 rounded-lg flex justify-center items-center  font-15-title-100', {
   variants: {
@@ -90,7 +87,7 @@ function MainRank({ theme, trend, handleThemeAction }: Props) {
         <ul className="w-full flex px-[15px] py-2 overflow-auto gap-1 hide-scrollbar">
           {trend[theme].map((item, index) => (
             <li
-              key={index}
+              key={item.title}
               onClick={() => handleClickTitle(index)}
               className={TitleButtonClassName({
                 selected: selectedIndex === index,
@@ -105,7 +102,7 @@ function MainRank({ theme, trend, handleThemeAction }: Props) {
           {trend[theme][selectedIndex].contents.map((trend, index) => (
             <li
               onClick={() => handleClickTrend(trend)}
-              key={index}
+              key={trend.product}
               className="flex bg-white items-center h-[64px] gap-3 px-4 font-14-title-100 cursor-pointer"
             >
               <div

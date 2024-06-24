@@ -1,44 +1,50 @@
 'use client';
 
-import { createContext, ReactNode, useCallback, useMemo, useState } from 'react';
+import { Ref, useCallback, useEffect, useRef, useState } from 'react';
 import useInterval from '@/hooks/useInterval';
 
-interface templateProps {
-  children: ReactNode;
-}
+export default function template({ children }) {
+  const carouselRef = useRef<HTMLDivElement | null>(null);
+  const [playing, setPlaying] = useState(false);
 
-export default function template({ children }: templateProps) {
-  const [type, setType] = useState<'sara' | 'mara'>('sara');
-  const [count, setCount] = useState<number>(0);
-  const [delay, setDelay] = useState<number | null>(10);
+  // 클로저
+  let scrollAmount = 0;
 
-  const setSara = () => {
-    setType('sara');
-    setDelay(null);
-    setCount(0);
-  };
-  const setMara = () => {
-    setType('mara');
-    setDelay(null);
-    setCount(0);
+  const scroll = () => {
+    if (!carouselRef.current) return;
+    scrollAmount += 30;
+
+    carouselRef.current.scrollTo({
+      left: scrollAmount,
+      behavior: 'smooth',
+    });
   };
 
-  const intervalSaraMara = useCallback(() => {
-    if (delay === null) return;
-    if (count < 3000 / delay) {
-      setCount(count + 1);
-    } else {
-      setType((prev) => (prev === 'sara' ? 'mara' : 'sara'));
-      setCount(0);
-    }
-  }, []);
+  const { intervalId } = useInterval(scroll, 20, playing);
 
-  const typeStore = useMemo(() => {
-    return { type };
-  }, [type]);
+  return (
+    <div>
+      <div className="carousel overflow-x-scroll hide-scrollbar" ref={carouselRef}>
+        <div className="flex whitespace-nowrap">
+          <div>
+            <div className="w-[200px] bg-sara-primary">이런</div>
+          </div>
+          <div>
+            <div className="w-[200px] bg-sara-primary">아나</div>
+          </div>
+          <div>
+            <div className="w-[200px] bg-sara-primary">가나</div>
+          </div>
+          <div>
+            <div className="w-[200px] bg-sara-primary">메롱</div>
+          </div>
+          <div>
+            <div className="w-[200px] bg-sara-primary">야호</div>
+          </div>
+        </div>
+      </div>
 
-  const TypeContext = createContext({ type: 'sara' });
-
-  useInterval(intervalSaraMara, 10);
-  return <TypeContext.Provider value={typeStore}>{children}</TypeContext.Provider>;
+      <div>{children}</div>
+    </div>
+  );
 }
