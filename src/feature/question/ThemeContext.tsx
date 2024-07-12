@@ -1,26 +1,30 @@
 // 사라마라 테마를 정할 수 있는 컨텍스트를 만들어보자.
-import React, { createContext, useCallback, useState } from 'react';
+import React, { createContext, useCallback, useMemo, useState } from 'react';
+import { useSearchParams, useRouter, useParams, usePathname } from 'next/navigation';
 
 export type Theme = 'sara' | 'mara';
 
 type ThemeContextType = {
   theme: Theme;
-  handleSetTheme: (theme: Theme) => void;
+  updateTheme: (theme: Theme) => void;
 };
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState<Theme>('sara');
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const theme = useMemo<Theme>(() => (searchParams?.get('theme') as Theme) || 'sara', [searchParams]);
+  const router = useRouter();
 
-  const handleSetTheme = useCallback(
+  const updateTheme = useCallback(
     (selectedTheme: Theme) => {
-      setTheme(selectedTheme);
+      router.push(`${pathname}?theme=${selectedTheme}`, { scroll: true });
     },
-    [setTheme],
+    [router, pathname, searchParams],
   );
 
-  return <ThemeContext.Provider value={{ theme, handleSetTheme }}>{children}</ThemeContext.Provider>;
+  return <ThemeContext.Provider value={{ theme, updateTheme }}>{children}</ThemeContext.Provider>;
 }
 
 export function useSaraMara() {

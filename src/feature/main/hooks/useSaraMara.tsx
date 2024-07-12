@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useCallback, useContext, useState } from 'react';
-import useInterval from '@/hooks/useInterval';
+import useInterval from '@/app/_hooks/useInterval';
 
 type SARA = 'sara';
 type MARA = 'mara';

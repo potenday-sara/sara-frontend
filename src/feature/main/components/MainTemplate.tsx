@@ -17,7 +17,7 @@ function MainTemplate({ trend }: Props) {
   return (
     <main>
       <MainCharacter type="sara" theme={theme} />
-      <Progressbar start="left" color={theme} height="3px" width="100%" progress={progress} />
+      <Progressbar transition="none" start="left" color={theme} height="3px" width="100%" progress={progress} />
       <MainCharacter type="mara" theme={theme} />
       <MainRank theme={theme} trend={trend} handleThemeAction={handleThemeAction} />
     </main>

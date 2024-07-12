@@ -2,7 +2,7 @@
 
 import { createContext, ReactNode, useCallback, useState } from 'react';
 import '../styles/global.scss';
-import useInterval from '@/hooks/useInterval';
+import useInterval from '@/app/_hooks/useInterval';
 import Footer from '@/components/organisms/Footer/Footer';
 
 type SARA = 'sara';

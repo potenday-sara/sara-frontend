@@ -11,6 +11,7 @@ export default class ServerAPI extends API {
   call<T>(): Promise<T> {
     const queryString = new URLSearchParams(this.params as string).toString();
     const URL = this.baseURL + this.url + (queryString ? `?${queryString}` : '');
+    console.log('URL', URL);
     return fetch(URL, {
       body: JSON.stringify(this.data),
       ...this,
@@ -19,7 +20,7 @@ export default class ServerAPI extends API {
         return res.json();
       })
       .catch((error) => {
-        return error.json();
+        return error;
       });
   }
 }

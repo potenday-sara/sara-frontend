@@ -1,26 +1,34 @@
-import classNames from 'classnames';
+'use client';
+
 import React, { useEffect } from 'react';
 import { cva } from 'class-variance-authority';
 
 interface Props {
-  progress?: number;
-  transition?: string;
   start: 'left' | 'right' | 'up' | 'down';
   width: string;
   height: string;
   color: 'sara' | 'mara';
+
+  reverse?: boolean;
+  className?: string;
   label?: string;
+  progress?: number;
+  transition?: string;
 }
 
 const ProgressBarClassNames = cva('flex items-center justify-center bg-');
 
-const waveAnimation = cva('absolute top-0 left-0 h-full w-full', {
+const waveAnimation = cva('absolute top-0 h-full w-full', {
   variants: {
     direction: {
       left: 'animate-wave-left',
       right: 'animate-wave-right',
       up: 'animate-wave-up',
       down: 'animate-wave-down',
+    },
+    reverse: {
+      true: 'right-0',
+      false: 'left-0',
     },
     color: {
       sara: 'bg-sara-primary',
@@ -29,20 +37,30 @@ const waveAnimation = cva('absolute top-0 left-0 h-full w-full', {
   },
 });
 
-function ProgressBar({ progress, label, width, height, color, start = 'left', transition = 'width 0.5s' }: Props) {
+function ProgressBar({
+  progress,
+  label,
+  width,
+  height,
+  color,
+  className,
+  reverse = false,
+  start = 'left',
+  transition = 'width 0.5s',
+}: Props) {
   return (
     <div
       style={{
         width,
         height,
       }}
-      className="flex items-center justify-center bg-black-#eee relative overflow-hidden"
+      className={`flex items-center justify-center bg-black-#eee relative overflow-hidden ${className}`}
     >
       <div
-        className={waveAnimation({ direction: start, color })}
+        className={`${waveAnimation({ direction: start, color, reverse })} ${className}`}
         style={{
           width: `${progress}%`,
-          // transition,
+          transition,
           backgroundColor: color,
         }}
       />

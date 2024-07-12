@@ -1,9 +1,12 @@
 'use client';
 
-import { ReactNode } from 'react';
-import { ThemeProvider } from '@/feature/question/ThemeContext';
+import { ReactNode, useMemo } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { Theme, ThemeProvider } from '@/feature/question/ThemeContext';
+import QuestionProvider from '@/feature/question/QuestionContext';
+import ReactQueryProviders from '@/feature/question/useReactQuery';
 
-export default function layout({ children }: { children: ReactNode; params: { id: string } }) {
+export default function layout({ children }: { children: ReactNode; params: { theme: Theme } }) {
   return (
     <html lang="en">
       <head>
@@ -15,7 +18,11 @@ export default function layout({ children }: { children: ReactNode; params: { id
       </head>
       <body className="max-w-[600px] box-border m-auto overflow-auto min-h-[100vh]">
         <div id="root">
-          <ThemeProvider>{children}</ThemeProvider>
+          {/* <ReactQueryProviders> */}
+          <ThemeProvider>
+            <QuestionProvider>{children}</QuestionProvider>
+          </ThemeProvider>
+          {/* </ReactQueryProviders> */}
         </div>
       </body>
     </html>
