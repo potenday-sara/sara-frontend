@@ -11,7 +11,7 @@ const StyledLikeButton = styled.div`
   padding: 0px 12px;
   gap: 8px;
   border-radius: 36px;
-  background-color: ${({ like }) => (like ? '#EF2B00' : 'white')};
+  background-color: ${({ like }) => (like ? '  ' : 'white')};
   border: 1px solid ${({ like }) => (like ? '#EF2B00' : '#dddddd')};
   cursor: pointer;
 `;

@@ -20,6 +20,7 @@ export default class ServerAPI extends API {
         return res.json();
       })
       .catch((error) => {
+        console.log('error', error);
         return error;
       });
   }

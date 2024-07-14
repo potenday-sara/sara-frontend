@@ -11,6 +11,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        yellow: {
+          kakao: '#fee500'
+        },
         mara: {
           primary: '#EF2B00',
           '50%': '#F79580',
@@ -48,6 +51,7 @@ module.exports = {
           '#4242': '#424242',
         },
         gray : {
+          '#ddd': '#dddddd',
           '#eaea': '#EAEAEA',
           '#f9f9': '#F9F9F9',
           '#f6f6': '#F6F6F6',

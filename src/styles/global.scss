@@ -47,6 +47,18 @@
     animation: slide 10s infinite linear;
   }
 
+  .truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .divider {
+    @apply h-[1px];
+    @apply w-full;
+    @apply bg-black-#ddd;
+  }
+
   .question-base-input {
     @apply w-full;
     @apply focus:outline-none;
