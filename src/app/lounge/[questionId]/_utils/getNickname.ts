@@ -193,6 +193,7 @@ export default function getNickname(key: string) {
   // 형용사에서 단어 하나 명사에서 단어 하나를 꺼내 조합해서 반환하는 함수
 
   const nickName = () => {
+    if (!localStorage) return;
     if (localStorage.getItem(key)) {
       return localStorage.getItem(key);
     }

@@ -13,6 +13,8 @@ import Logo from '@/components/atoms/Logo/Logo';
 import AnswerCommentList from '@/app/lounge/[questionId]/_components/AnswerCommentList';
 import getCommentList from '@/apis/question/getCommentList';
 import { Comment } from '@/app/lounge/[questionId]/_components/AnswerComment';
+import QueryProvider from '@/app/lounge/[questionId]/_components/QueryProvider';
+import PopularAnswerList from '@/app/lounge/[questionId]/_components/PopularAnswerList';
 
 interface Props {
   params: {
@@ -51,7 +53,7 @@ export default async function page({ params }: Props) {
         <Like count={answer.like_count} questionId={answer.id} />
         <div className="flex gap-2">
           <AnswerShare />
-          <AnswerKakaoShare />
+          <AnswerKakaoShare questionId={questionId} />
         </div>
       </div>
       <div className="flex gap-1 h-[70px] w-full">
@@ -72,6 +74,9 @@ export default async function page({ params }: Props) {
       </div>
       <div className="divider" />
       <AnswerCommentList type={answer.type} commentList={answer.commentList} questionId={questionId} />
+      <QueryProvider>
+        <PopularAnswerList />
+      </QueryProvider>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import QuestionList from '@/app/lounge/_components/QuestionList';
 
 export type Tab = '최신' | '베스트';
@@ -11,6 +11,10 @@ export default function page() {
   const handleClickTab = (tab: Tab) => {
     setActiveTab(tab);
   };
+
+  useEffect(() => {
+    console.log('시발');
+  }, []);
 
   return (
     <main className="flex flex-col flex-1 h-full">

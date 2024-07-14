@@ -7,6 +7,8 @@ import AnswerComment, { Comment } from '@/app/lounge/[questionId]/_components/An
 import CommentSubmit from '@/app/lounge/[questionId]/_asset/comment-submit.svg';
 import getCssByTheme from '@/app/_utils/getCssByTheme';
 import useComment from '@/app/lounge/[questionId]/_hooks/useComment';
+import SaraEmpty from '@/app/lounge/[questionId]/_asset/empty-sara.svg';
+import MaraEmpty from '@/app/lounge/[questionId]/_asset/empty-mara.svg';
 
 interface Props {
   type: Theme;
@@ -52,6 +54,11 @@ export default function AnswerCommentList({ type, commentList, questionId }: Pro
       <h2 className="font-14-medium-140">댓글 {commentListState.length}</h2>
       <div className="flex flex-col gap-[6px]">
         <div className="min-h-[140px] flex flex-col gap-5">
+          {commentListState.length === 0 && (
+            <div className="flex justify-center items-center h-full">
+              {type === 'sara' ? <SaraEmpty /> : <MaraEmpty />}
+            </div>
+          )}
           {displayCommentList.map((comment) => (
             <AnswerComment key={comment.id} comment={comment} type={type} />
           ))}
