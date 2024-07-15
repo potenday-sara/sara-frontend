@@ -9,6 +9,16 @@
 @layer utilities {
   @import "font";
 
+  .default-shadow {
+    box-shadow: 4px 4px 24px rgba(0, 0, 0, 0.1);
+
+  }
+
+  .temp {
+    transform: translate(0%, 10px);
+
+  }
+
   .hide-scrollbar {
     @apply overflow-auto;
     -ms-overflow-style: none; /* Internet Explorer 10+ */

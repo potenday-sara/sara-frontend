@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import getQuestionState from '@/apis/question/getQuestionState';
 import useInterval from '@/app/_hooks/useInterval';
-import { useQuestion } from '@/feature/question/QuestionContext';
+import { useQuestion } from '@/app/question/_context/QuestionContext';
 import { Theme } from '@/feature/question/ThemeContext';
 
 type Props = {

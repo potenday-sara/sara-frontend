@@ -7,7 +7,7 @@ import { Theme } from '@/feature/question/ThemeContext';
 import LoadingLottie from '@/app/question/progress/_components/Loading';
 import Progressbar from '@/components/atoms/Progressbar';
 import getCssByTheme from '@/app/_utils/getCssByTheme';
-import { useQuestion } from '@/feature/question/QuestionContext';
+import { useQuestion } from '@/app/question/_context/QuestionContext';
 import useQuestionLoading from '@/app/question/progress/_hooks/useQuestionLoading';
 import QuestionProgress from '@/app/question/progress/_components/QuestionProgress';
 

@@ -2,29 +2,28 @@
 
 import { ReactNode, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { Theme, ThemeProvider } from '@/feature/question/ThemeContext';
-import QuestionProvider from '@/feature/question/QuestionContext';
+import { Theme, ThemeProvider, useSaraMara } from '@/feature/question/ThemeContext';
+import QuestionProvider from '@/app/question/_context/QuestionContext';
 import ReactQueryProviders from '@/feature/question/useReactQuery';
+import Shop from '@/app/question/_components/Shop';
+import getCssByTheme from '@/app/_utils/getCssByTheme';
 
 export default function layout({ children }: { children: ReactNode; params: { theme: Theme } }) {
+  const searchParams = useSearchParams();
+  const theme = (searchParams?.get('theme') as Theme) || 'sara';
+
   return (
-    <html lang="en">
-      <head>
-        <meta charSet="UTF-8" />
-        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Sara Mara</title>
-        <meta name="description" content="Web site created..." />
-      </head>
-      <body className="max-w-[600px] box-border m-auto overflow-auto min-h-[100vh]">
-        <div id="root">
-          {/* <ReactQueryProviders> */}
-          <ThemeProvider>
-            <QuestionProvider>{children}</QuestionProvider>
-          </ThemeProvider>
-          {/* </ReactQueryProviders> */}
-        </div>
-      </body>
-    </html>
+    <div className={getCssByTheme(theme, ['bg-sara-secondary', 'bg-mara-secondary'], '')}>
+      {/* <ReactQueryProviders> */}
+      <ThemeProvider>
+        <QuestionProvider>
+          <div className="flex flex-col gap-5">
+            {children}
+            <Shop />
+          </div>
+        </QuestionProvider>
+      </ThemeProvider>
+      {/* </ReactQueryProviders> */}
+    </div>
   );
 }

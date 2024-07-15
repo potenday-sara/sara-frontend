@@ -10,7 +10,7 @@ import { Theme } from '@/feature/main/hooks/useSaraMara';
 import { CONSTANTS_TEXT } from '@/app/question/_constant';
 import postQuestion from '@/apis/question/mutateQuestion';
 import getCssByTheme from '@/app/_utils/getCssByTheme';
-import { useQuestion } from '@/feature/question/QuestionContext';
+import { useQuestion } from '@/app/question/_context/QuestionContext';
 
 type QuestionFormProps = {
   descriptionPlaceHolder: { title: string; contents: string }[];
@@ -98,8 +98,8 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
     {
       variants: {
         theme: {
-          sara: 'bg-sara-primary text-white bg-blue-100',
-          mara: 'bg-mara-primary text-white bg-red-100',
+          sara: 'bg-sara-primary text-white',
+          mara: 'bg-mara-primary text-white',
         },
       },
     },

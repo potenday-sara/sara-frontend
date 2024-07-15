@@ -53,8 +53,8 @@ export default function RootLayout({ children }: { children: ReactNode; params: 
         {/*  gtag('config', 'G-G3W9N0F90R'); */}
         {/* </script> */}
       </head>
-      <body className="max-w-[600px] box-border m-auto overflow-auto min-h-[100vh]">
-        <div id="root">{children}</div>
+      <body className="max-w-[600px] box-border m-auto overflow-auto">
+        {children}
         <div className="footer">
           <Footer />
         </div>

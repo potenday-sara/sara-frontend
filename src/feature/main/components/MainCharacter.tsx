@@ -1,11 +1,11 @@
 'use client';
 
 import { cva } from 'class-variance-authority';
-import { useEffect, useState, memo } from 'react';
-import { opacify } from 'polished';
+import { useState, memo } from 'react';
+import { useRouter } from 'next/navigation';
 import MainSara from '@/asset/character/MainSara.svg';
 import MainMara from '@/asset/character/MainMara.svg';
-import { Theme, useSaraMara } from '@/feature/main/hooks/useSaraMara';
+import { Theme } from '@/feature/main/hooks/useSaraMara';
 import Button from '@/components/atoms/Button';
 import Logo from '@/components/atoms/Logo/Logo';
 
@@ -33,7 +33,11 @@ const MainButtonClassNames = cva('py-4 flex justify-center bg-white w-[360px] ro
 });
 
 function MainCharacter({ type, theme }: MainCharacterProps) {
-  const [mounted, setMounted] = useState<boolean>(false);
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/question?theme=${type}`);
+  };
 
   return (
     <div className={MainCharacterClassNames({ type })}>
@@ -48,7 +52,7 @@ function MainCharacter({ type, theme }: MainCharacterProps) {
       )}
       <Button
         className={MainButtonClassNames({ type })}
-        onClick={() => null}
+        onClick={handleClick}
         label={
           <div className="flex items-baseline font-15-title-100 gap-1 op">
             <Logo logo={type} />
