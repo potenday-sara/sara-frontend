@@ -17,7 +17,12 @@ export interface GetCategoriesRequestTypes {
   language: Language;
 }
 
-const getItemByCategory = ({ id, language }: GetCategoriesRequestTypes) =>
-  ClientShopAPI.get(`/categories/${id}/goods/`).params({ language }).build().call<GetCategoriesResponseTypes>();
+const getItemByCategory = async ({ id, language }: GetCategoriesRequestTypes) => {
+  const res = await ClientShopAPI.get(`/categories/${id}/goods/`)
+    .params({ language })
+    .build()
+    .call<GetCategoriesResponseTypes[]>();
+  return res.data;
+};
 
 export default getItemByCategory;

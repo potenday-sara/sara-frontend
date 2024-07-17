@@ -3,7 +3,6 @@ const API_URL = process.env.API_URL || 'http://localhost:3000';
 const nextConfig = {
   distDir: './dist', // Changes the build output directory to `./dist/`.
   async rewrites() {
-    console.log("run rewrites", )
     return [
       {
         source: '/api/:path*',
