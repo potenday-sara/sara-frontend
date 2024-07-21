@@ -47,7 +47,7 @@ export default function template({ children }) {
 
   const { theme } = useSaraMara();
 
-  const QuestionTemplateClassName = cva('px-2', {
+  const QuestionTemplateClassName = cva('', {
     variants: {
       theme: {
         sara: 'bg-sara-secondary',

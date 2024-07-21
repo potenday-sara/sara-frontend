@@ -1,20 +1,23 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useQuery, useQueryClient } from 'react-query';
-import { useCategory, useItemsByCategory } from '@/app/question/_query/useShopQuery';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useCategory, useItemsByCategory, useItemsByKeyword } from '@/app/question/_query/useShopQuery';
+import { useQuestion } from '@/app/question/_context/QuestionContext';
 
-const usePage = () => {
+const usePage = (arr: unknown[]) => {
   const [nowPage, setNowPage] = useState(1);
-  const [maxPage, setMaxPage] = useState(8);
+  const [maxPage, setMaxPage] = useState(Math.ceil(arr.length / 4));
 
-  const setNextPage = () => {
+  console.log('maxPage', maxPage);
+
+  const handleSetNextPage = () => {
     if (nowPage + 1 <= maxPage) setNowPage((prev) => prev + 1);
   };
 
-  const setPrevPage = () => {
+  const handleSetPrevPage = () => {
     if (nowPage - 1 >= 1) setNowPage((prev) => prev - 1);
   };
 
-  return { nowPage, setNowPage, setNextPage, setPrevPage, setMaxPage, maxPage };
+  return { nowPage, setNowPage, handleSetNextPage, handleSetPrevPage, setMaxPage, maxPage };
 };
 
 type Category = {
@@ -29,24 +32,37 @@ const useShop = () => {
     label: '',
     code: '',
   });
-  const [keyword, setKeyword] = useState('');
-  const { nowPage, setNowPage, setNextPage, setPrevPage, setMaxPage, maxPage } = usePage();
   const [items, setItems] = useState([]);
   const [itemLoading, setItemLoading] = useState({});
+
+  const searchParams = useSearchParams();
+  const keyword = searchParams?.get('keyword') || '';
 
   const { data: categories, isLoading: categoryLoading } = useCategory();
   const { data: categoryItems, isLoading: categoryItemLoading } = useItemsByCategory({
     id: nowCategory.id,
     language: 'KO',
   });
+  const { data: keywordItem, isLoading: keywordLoading } = useItemsByKeyword({ keyword, language: 'KO' });
 
+  const nowShowing = useMemo(() => keywordItem || categoryItems || [], [keywordItem, categoryItems]);
+
+  const { nowPage, setNowPage, handleSetNextPage, handleSetPrevPage, setMaxPage, maxPage } = usePage(nowShowing);
   const displayItems = useMemo(() => {
     // 페이지당 4개씩 보여주기
+    if (keywordItem) {
+      return keywordItem.slice((nowPage - 1) * 4, nowPage * 4);
+    }
+
     if (categoryItems) {
       return categoryItems.slice((nowPage - 1) * 4, nowPage * 4);
     }
     return [];
   }, [categoryItems, nowPage]);
+
+  useEffect(() => {
+    setNowPage(1);
+  }, [keywordItem]);
 
   useEffect(() => {
     if (categories) {
@@ -67,7 +83,6 @@ const useShop = () => {
   // });
 
   const handleCategoryChange = (category: Category) => {
-    console.log('why');
     setNowCategory(category);
     setNowPage(1);
   };
@@ -78,12 +93,14 @@ const useShop = () => {
     categoryItems,
     displayItems,
     categoryLoading,
+    hasKeyword: !!keyword,
     nowCategory,
     itemLoading,
     nowPage,
-    setNextPage,
-    setPrevPage,
+    handleSetNextPage,
+    handleSetPrevPage,
     maxPage,
+    keyword,
   };
 
   // return { Ca };

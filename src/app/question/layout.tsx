@@ -15,7 +15,7 @@ export default function layout({ children }: { children: ReactNode; params: { th
   const [queryClient] = useState(() => new QueryClient());
 
   return (
-    <div className={getCssByTheme(theme, ['bg-sara-secondary', 'bg-mara-secondary'], '')}>
+    <div className={getCssByTheme(theme, ['bg-sara-secondary', 'bg-mara-secondary'], 'px-4')}>
       <ThemeProvider>
         <QuestionProvider>
           <QueryClientProvider client={queryClient}>

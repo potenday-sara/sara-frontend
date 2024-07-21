@@ -30,6 +30,13 @@ export const KEYS = {
           key: keys,
         };
       },
+      ITEMS_BY_KEYWORD(keyword: string) {
+        keys.push('ITEMS_BY_KEYWORD');
+        keys.push(keyword);
+        return {
+          key: keys,
+        };
+      },
     };
   },
 };

@@ -7,6 +7,7 @@ export interface GetCategoriesResponseTypes {
   name: string;
 }
 export interface GetCategoriesRequestTypes {
+  language: string;
   id: string;
 }
 

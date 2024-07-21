@@ -11,6 +11,7 @@ import { CONSTANTS_TEXT } from '@/app/question/_constant';
 import postQuestion from '@/apis/question/mutateQuestion';
 import getCssByTheme from '@/app/_utils/getCssByTheme';
 import { useQuestion } from '@/app/question/_context/QuestionContext';
+import useShop from '@/app/question/_hooks/useShop';
 
 type QuestionFormProps = {
   descriptionPlaceHolder: { title: string; contents: string }[];
@@ -44,7 +45,7 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
       handleSetItemName(res.data.product);
       handleSetQuestionId(res.data.id);
 
-      router.push(`/question/progress?type=${res.data.type}`);
+      router.push(`/question/progress?type=${res.data.type}&keyword=${res.data.product}`);
     } catch (e) {
       console.log('error', e);
     }
