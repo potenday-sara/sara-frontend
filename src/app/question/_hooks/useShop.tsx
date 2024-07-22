@@ -51,6 +51,7 @@ const useShop = () => {
   const displayItems = useMemo(() => {
     // 페이지당 4개씩 보여주기
     if (keywordItem) {
+      setMaxPage(Math.ceil(keywordItem.length / 4));
       return keywordItem.slice((nowPage - 1) * 4, nowPage * 4);
     }
 
