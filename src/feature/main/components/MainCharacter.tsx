@@ -8,6 +8,7 @@ import MainMara from '@/asset/character/MainMara.svg';
 import { Theme } from '@/feature/main/hooks/useSaraMara';
 import Button from '@/components/atoms/Button';
 import Logo from '@/components/atoms/Logo/Logo';
+import getCssByTheme from '@/app/_utils/getCssByTheme';
 
 type MainCharacterProps = {
   type: Theme;
@@ -54,8 +55,16 @@ function MainCharacter({ type, theme }: MainCharacterProps) {
         className={MainButtonClassNames({ type })}
         onClick={handleClick}
         label={
-          <div className="flex items-baseline font-15-title-100 gap-1 op">
-            <Logo logo={type} />
+          <div
+            className={getCssByTheme(
+              type,
+              ['text-sara-primary', 'text-mara-primary'],
+              'flex items-baseline font-15-title-100 gap-1 op',
+            )}
+          >
+            <div className="w-[64px]">
+              <Logo logo={type} />
+            </div>
             <div>에게 물어보기</div>
           </div>
         }

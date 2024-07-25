@@ -20,6 +20,7 @@ export default function useQuestionLoading({ questionId, theme }: Props) {
   const { handleSetAnswer } = useQuestion();
   const router = useRouter();
   const [requestCount, setRequestCount] = useState<number>(0);
+  const { itemName } = useQuestion();
 
   const progress = useMemo(() => computeProgress(requestCount, MAX_REQUEST_COUNT), [requestCount]);
 
@@ -29,7 +30,8 @@ export default function useQuestionLoading({ questionId, theme }: Props) {
       setRequestCount((prev) => prev + 1);
 
       if (response.data.answer !== null) {
-        router.push(`/question/answer/?theme=${theme}&answerId=${response.data.answer}&questionId=${questionId}`);
+        router.push(`/question/answer/?theme=${theme}&answerId=${response.data.answer}&questionId=${questionId}&keyword=${itemName}
+        `);
       }
     } catch (e) {
       console.log('e', e);

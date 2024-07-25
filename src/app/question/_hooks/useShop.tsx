@@ -45,6 +45,7 @@ const useShop = () => {
   });
   const { data: keywordItem, isLoading: keywordLoading } = useItemsByKeyword({ keyword, language: 'KO' });
 
+  console.log('keywordItem', keywordItem);
   const nowShowing = useMemo(() => keywordItem || categoryItems || [], [keywordItem, categoryItems]);
 
   const { nowPage, setNowPage, handleSetNextPage, handleSetPrevPage, setMaxPage, maxPage } = usePage(nowShowing);
@@ -56,10 +57,11 @@ const useShop = () => {
     }
 
     if (categoryItems) {
+      setMaxPage(Math.ceil(categoryItems.length / 4));
       return categoryItems.slice((nowPage - 1) * 4, nowPage * 4);
     }
     return [];
-  }, [categoryItems, nowPage]);
+  }, [categoryItems, nowPage, keywordItem]);
 
   useEffect(() => {
     setNowPage(1);

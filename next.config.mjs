@@ -11,6 +11,17 @@ const nextConfig = {
 
     ]
   },
+
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/main',
+        permanent: true,
+      },
+    ]
+  },
+
   trailingSlash: true,
 
   webpack(config, {dev, isServer}) {

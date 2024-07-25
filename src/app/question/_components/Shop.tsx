@@ -29,8 +29,6 @@ export default function Shop() {
     keyword,
   } = useShop();
 
-  console.log('categories', categories);
-
   if (!categories) {
     return <div>로딩 중</div>;
   }

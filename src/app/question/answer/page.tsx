@@ -14,7 +14,6 @@ import { Theme } from '@/feature/question/ThemeContext';
 import EmotionFeedback from '@/app/question/answer/_components/EmotionFeedback';
 import Logo from '@/components/atoms/Logo/Logo';
 import TextFeedback from '@/app/question/answer/_components/TextFeedback';
-import FloatingButton from '@/app/question/_components/FloatingButton';
 
 type Props = {
   searchParams: {
@@ -55,14 +54,18 @@ export default async function page({ searchParams }: Props) {
           type="button"
           className="text-sara-primary rounded-[10px] font-14-title-100 flex-1 bg-sara-secondary rounded-10 flex flex-col items-center justify-center gap-1"
         >
-          <Logo logo="sara" />
+          <div className="w-[64px]">
+            <Logo logo="sara" />
+          </div>
           <span>{theme === 'sara' ? '에게 한번 더!' : '에게도 물어볼까?'}</span>
         </button>
         <button
           type="button"
           className="text-mara-primary rounded-[10px] font-14-title-100 flex-1 bg-mara-secondary rounded-10 flex flex-col items-center justify-center gap-1"
         >
-          <Logo logo="mara" />
+          <div className="w-[64px]">
+            <Logo logo="mara" />
+          </div>
           <span>{theme === 'mara' ? '에게 한번 더!' : '에게도 물어볼까?'}</span>
         </button>
       </div>

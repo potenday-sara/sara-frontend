@@ -75,12 +75,20 @@ function MainRank({ theme, trend, handleThemeAction }: Props) {
         <Button
           className={ThemeSelectButtonClassName({ defaultSara: theme !== 'sara', themeSara: theme === 'sara' })}
           onClick={() => handleClickThemeSelectButton('sara')}
-          label={<Logo logo="sara" />}
+          label={
+            <div className="w-[64px]">
+              <Logo logo="sara" />
+            </div>
+          }
         />
         <Button
           className={ThemeSelectButtonClassName({ defaultMara: theme !== 'mara', themeMara: theme === 'mara' })}
           onClick={() => handleClickThemeSelectButton('mara')}
-          label={<Logo logo="mara" />}
+          label={
+            <div className="w-[64px]">
+              <Logo logo="mara" />
+            </div>
+          }
         />
       </div>
       <div className="bg-black-#f4">
