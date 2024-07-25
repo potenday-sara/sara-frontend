@@ -14,6 +14,7 @@ import { Theme } from '@/feature/question/ThemeContext';
 import EmotionFeedback from '@/app/question/answer/_components/EmotionFeedback';
 import Logo from '@/components/atoms/Logo/Logo';
 import TextFeedback from '@/app/question/answer/_components/TextFeedback';
+import FloatingButton from '@/app/question/_components/FloatingButton';
 
 type Props = {
   searchParams: {
@@ -33,7 +34,7 @@ export default async function page({ searchParams }: Props) {
   const data = await handleGetAnswer(searchParams.answerId);
 
   return (
-    <div className="w-full pt-8 px-4 pb-4 bg-white rounded-[20px] flex flex-col gap-4 items-center">
+    <div className="w-full pt-8 px-4 pb-4 bg-white rounded-[20px] flex flex-col gap-4 items-center relative">
       <div className="logo h-[64px]">{theme === 'sara' ? <SaraCircle /> : <MaraCircle />}</div>
       <div className="flex flex-col justify-center items-center gap-2">
         <h3 className="font-14-title-100 text-black-#666">나의 질문</h3>

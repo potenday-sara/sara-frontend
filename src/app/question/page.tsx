@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import React from 'react';
 import SaraCircle from '@/asset/logo/sara-circle.svg';
 import SaraCircleCharacter from '@/asset/logo/SaraCircleCharacter.svg';
 import MaraCircleCharacter from '@/asset/logo/MaraCircleCharacter.svg';
@@ -9,6 +10,7 @@ import { DESCRIPTION_CONSTANT, PLACEHOLDER_CONSTANT } from '@/app/question/_cons
 import QuestionForm from '@/app/question/_components/QuestionForm';
 import { Theme } from '@/feature/question/ThemeContext';
 import Tag from '@/app/question/_components/Tag';
+import FloatingButton from '@/app/question/_components/FloatingButton';
 // import useMutateQuestion from '@/query/question';
 
 export default function page({ searchParams }: { searchParams: { theme: Theme } }) {
@@ -27,6 +29,9 @@ export default function page({ searchParams }: { searchParams: { theme: Theme } 
     <>
       <Tag type="sara" isActive={theme === 'sara'} theme={theme} onClick={handleClickTag} />
       <Tag type="mara" isActive={theme === 'mara'} theme={theme} onClick={handleClickTag} />
+      <div className="z-50 absolute mt-[20px] left-0">
+        <FloatingButton theme={theme} />
+      </div>
       <div className="w-full pt-8 px-4 pb-4 bg-white rounded-[20px] flex flex-col gap-2 items-center relative">
         <div className="logo h-[64px]">
           <span className="cursor-pointer" onClick={handleClickLogo}>
