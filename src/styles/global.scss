@@ -103,6 +103,72 @@
     transition: height 0.3s ease;
   }
 
+  .border-x {
+    border-right: 1px solid #ddd;
+  }
+
+  .bubble-left-top,
+  .bubble-right-top,
+  .bubble-left-bottom,
+  .bubble-right-bottom {
+    position: relative;
+    border-radius: 10px !important;
+    padding: 10px;
+    z-index: 100;
+  }
+
+  .bubble-left-top::before,
+  .bubble-right-top::before,
+  .bubble-left-bottom::before,
+  .bubble-right-bottom::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: inherit;
+    transform: rotate(45deg);
+    z-index: -1;
+    border-left-width: 1px;
+    border-top-width: 1px;
+
+    border-color: inherit;
+
+  }
+
+  .bubble-left-top::before {
+    top: 2px;
+    left: 30px;
+    margin-left: -10px;
+    margin-top: -10px;
+  }
+
+  .bubble-right-top::after {
+    top: 0;
+    right: 30px;
+    border-bottom-color: inherit;
+    border-top: 0;
+    margin-right: -10px;
+    margin-top: -10px;
+  }
+
+  .bubble-left-bottom::after {
+    bottom: 0;
+    left: 30px;
+    border-top-color: inherit;
+    border-bottom: 0;
+    margin-left: -10px;
+    margin-bottom: -10px;
+  }
+
+  .bubble-right-bottom::after {
+    bottom: 0;
+    right: 30px;
+    border-top-color: inherit;
+    border-bottom: 0;
+    margin-right: -10px;
+    margin-bottom: -10px;
+  }
+
   .slider-shadow-sara {
     position: relative;
     box-shadow: 0px 4px 24px 0px rgba(0, 123, 237, 0.1);
