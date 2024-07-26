@@ -45,7 +45,7 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
       handleSetItemName(res.data.product);
       handleSetQuestionId(res.data.id);
 
-      router.push(`/question/progress?type=${res.data.type}&keyword=${res.data.product}`);
+      router.push(`/question/progress?theme=${res.data.type}&keyword=${res.data.product}`);
     } catch (e) {
       console.log('error', e);
     }

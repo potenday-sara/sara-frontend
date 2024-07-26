@@ -14,6 +14,9 @@ import { Theme } from '@/feature/question/ThemeContext';
 import EmotionFeedback from '@/app/question/answer/_components/EmotionFeedback';
 import Logo from '@/components/atoms/Logo/Logo';
 import TextFeedback from '@/app/question/answer/_components/TextFeedback';
+import shareKaKao from '@/app/_utils/shareKaKao';
+import AnswerKakaoShare from '@/app/lounge/[questionId]/_components/AnswerKakaoShare';
+import AnswerShare from '@/app/lounge/[questionId]/_components/AnswerShare';
 
 type Props = {
   searchParams: {
@@ -29,6 +32,7 @@ const handleGetAnswer = async (answerId: string) => {
 
 export default async function page({ searchParams }: Props) {
   const theme: Theme = searchParams.theme || 'sara';
+
   const { questionId } = searchParams;
   const data = await handleGetAnswer(searchParams.answerId);
 
@@ -49,45 +53,16 @@ export default async function page({ searchParams }: Props) {
       </div>
       <p className="font-14-medium-140 text-black-#333">{data.content}</p>
       <EmotionFeedback theme={theme} questionId={questionId} />
-      <div className="flex gap-1 h-[70px] w-full">
-        <button
-          type="button"
-          className="text-sara-primary rounded-[10px] font-14-title-100 flex-1 bg-sara-secondary rounded-10 flex flex-col items-center justify-center gap-1"
-        >
-          <div className="w-[64px]">
-            <Logo logo="sara" />
-          </div>
-          <span>{theme === 'sara' ? '에게 한번 더!' : '에게도 물어볼까?'}</span>
-        </button>
-        <button
-          type="button"
-          className="text-mara-primary rounded-[10px] font-14-title-100 flex-1 bg-mara-secondary rounded-10 flex flex-col items-center justify-center gap-1"
-        >
-          <div className="w-[64px]">
-            <Logo logo="mara" />
-          </div>
-          <span>{theme === 'mara' ? '에게 한번 더!' : '에게도 물어볼까?'}</span>
-        </button>
-      </div>
+
       <div className="share flex flex-col items-center gap-3">
         <h2 className="text-black-#666 font-14-title-100">공유하기</h2>
         <div className="flex gap-6 w-full">
           <div className="flex items-center flex-col justify-center gap-2">
-            <button
-              type="button"
-              className="flex-1 flex rounded-[12px] w-[56px] h-[56px] flex-col items-center justify-center gap-1 bg-black-#f4"
-            >
-              <LinkShare className="w-[32px] h-[32px]" />
-            </button>
+            <AnswerShare type="ONLY_LOGO" />
             <span className="font-12-medium-100 text-black-#999">링크 복사</span>
           </div>
           <div className="flex items-center flex-col justify-center gap-2">
-            <button
-              type="button"
-              className="bg-sky-50 rounded-[10px] flex-1 flex flex-col items-center justify-center gap-1"
-            >
-              <KaKaoShare />
-            </button>
+            <AnswerKakaoShare questionId={questionId} type="ONLY_LOGO" />
             <span className="font-12-medium-100 text-black-#999">카카오톡</span>
           </div>
         </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { cloneElement } from 'react';
+import { useRouter } from 'next/navigation';
 import getCssByTheme from '@/app/_utils/getCssByTheme';
 import { Theme } from '@/feature/question/ThemeContext';
 import { CONSTANTS_TEXT } from '@/app/question/answer/_constants';
@@ -20,6 +21,7 @@ import MaraBadSelect from '@/app/question/answer/_asset/feedback/mara/marabadsel
 import useToast from '@/app/_hooks/useToast';
 import Toast from '@/app/_components/toast';
 import postQuestionFeedback from '@/apis/question/postQuestionFeedback';
+import Logo from '@/components/atoms/Logo/Logo';
 
 type Props = {
   theme: Theme;
@@ -53,45 +55,71 @@ export default function EmotionFeedback({ theme, questionId }: Props) {
       console.log('e', e);
     }
   };
+
+  const router = useRouter();
   return (
-    <form
-      className={getCssByTheme(
-        theme,
-        ['bg-sky-50', 'bg-red-50'],
-        'flex flex-col gap-2 w-full items-center p-2 rounded-[12px]',
-      )}
-    >
-      <h3 className="font-12-title-100 text-black-#999">{CONSTANTS_TEXT.emotion_feedback_label[theme].ko}</h3>
-      {/* <FeedbackSelect type={type} quesionId={quesionId} /> */}
-      <Select onChange={() => {}} value="1">
-        <Select.List className="flex gap-6 items-center ">
-          {feedbackOptions.map(([icon, text, value, selectIcon]) => (
-            <div
-              onClick={() => handleEmotionClick(value as 0 | 1 | -1)}
-              className="relative flex gap-1 cursor-pointer flex-col items-center w-[68px] font-12-medium-100 text-black-#666"
-              key={text as string}
-            >
-              {cloneElement(selectValue === value ? (selectIcon as any) : (icon as any), {
-                stroke: `${
-                  theme === 'sara'
-                    ? value === selectValue
-                      ? '#007BED'
-                      : '#E5F2FD'
-                    : value === selectValue
-                      ? '#EF2B00'
-                      : '#FDEAE5'
-                }`,
-              })}
-              <span>{text}</span>
-              {isToast && selectValue === value && (
-                <Toast width={130}>
-                  <span className="text-white font-12-medium-100">평가가 반영되었어요!</span>
-                </Toast>
-              )}
-            </div>
-          ))}
-        </Select.List>
-      </Select>
-    </form>
+    <>
+      <form
+        className={getCssByTheme(
+          theme,
+          ['bg-sky-50', 'bg-red-50'],
+          'flex flex-col gap-2 w-full items-center p-2 rounded-[12px]',
+        )}
+      >
+        <h3 className="font-12-title-100 text-black-#999">{CONSTANTS_TEXT.emotion_feedback_label[theme].ko}</h3>
+        {/* <FeedbackSelect type={type} quesionId={quesionId} /> */}
+        <Select onChange={() => {}} value="1">
+          <Select.List className="flex gap-6 items-center ">
+            {feedbackOptions.map(([icon, text, value, selectIcon]) => (
+              <div
+                onClick={() => handleEmotionClick(value as 0 | 1 | -1)}
+                className="relative flex gap-1 cursor-pointer flex-col items-center w-[68px] font-12-medium-100 text-black-#666"
+                key={text as string}
+              >
+                {cloneElement(selectValue === value ? (selectIcon as any) : (icon as any), {
+                  stroke: `${
+                    theme === 'sara'
+                      ? value === selectValue
+                        ? '#007BED'
+                        : '#E5F2FD'
+                      : value === selectValue
+                        ? '#EF2B00'
+                        : '#FDEAE5'
+                  }`,
+                })}
+                <span>{text}</span>
+                {isToast && selectValue === value && (
+                  <Toast width={130}>
+                    <span className="text-white font-12-medium-100">평가가 반영되었어요!</span>
+                  </Toast>
+                )}
+              </div>
+            ))}
+          </Select.List>
+        </Select>
+      </form>
+      <div className="flex gap-1 h-[70px] w-full">
+        <button
+          type="button"
+          onClick={() => router.push('/question/?theme=sara')}
+          className="text-sara-primary rounded-[10px] font-14-title-100 flex-1 bg-sara-secondary rounded-10 flex flex-col items-center justify-center gap-1"
+        >
+          <div className="w-[64px]">
+            <Logo logo="sara" />
+          </div>
+          <span>{theme === 'sara' ? '에게 한번 더!' : '에게도 물어볼까?'}</span>
+        </button>
+        <button
+          type="button"
+          onClick={() => router.push('/question/?theme=mara')}
+          className="text-mara-primary rounded-[10px] font-14-title-100 flex-1 bg-mara-secondary rounded-10 flex flex-col items-center justify-center gap-1"
+        >
+          <div className="w-[64px]">
+            <Logo logo="mara" />
+          </div>
+          <span>{theme === 'mara' ? '에게 한번 더!' : '에게도 물어볼까?'}</span>
+        </button>
+      </div>
+    </>
   );
 }

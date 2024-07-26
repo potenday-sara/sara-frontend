@@ -45,7 +45,6 @@ const useShop = () => {
   });
   const { data: keywordItem, isLoading: keywordLoading } = useItemsByKeyword({ keyword, language: 'KO' });
 
-  console.log('keywordItem', keywordItem);
   const nowShowing = useMemo(() => keywordItem || categoryItems || [], [keywordItem, categoryItems]);
 
   const { nowPage, setNowPage, handleSetNextPage, handleSetPrevPage, setMaxPage, maxPage } = usePage(nowShowing);

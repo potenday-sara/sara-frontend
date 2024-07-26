@@ -50,9 +50,21 @@ export default function LoungeSlider({ theme }: Props) {
               'border border-solid font-16-title-100',
             )}
           >
-            <div className="flex items-center gap-3">
+            <div
+              className="flex items-center gap-3 relative "
+              style={{
+                zIndex: 999999999,
+              }}
+            >
               <div>다른사람들의 질문 더 보러가기</div>
-              <button onClick={handleCloseBalloon}>
+              <button
+                onClick={handleCloseBalloon}
+                className="relative"
+                type="button"
+                style={{
+                  zIndex: 999999999,
+                }}
+              >
                 <Close />
               </button>
             </div>

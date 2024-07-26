@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import SaraCircle from '@/asset/logo/sara-circle.svg';
 import MaraCircle from '@/asset/logo/mara-circle.svg';
 import { Theme } from '@/feature/question/ThemeContext';
@@ -35,11 +36,17 @@ const getChipText = (index: number) => {
   if (index < 2) return '질문 팁';
   return '사용 팁';
 };
-export default function page({ searchParams }: { searchParams: { type: Theme } }) {
-  const theme = searchParams.type;
+
+export default function page({ searchParams }: { searchParams: { theme: Theme } }) {
+  const theme = searchParams.theme || 'sara';
   const randomIndex = Math.floor(Math.random() * 4);
 
   const { itemName, itemDescription, questionId } = useQuestion();
+  const router = useRouter();
+
+  if (!itemName || !itemDescription || !questionId) {
+    router.push(`/question/?theme=${theme}`);
+  }
 
   return (
     <div className="w-full pt-8 px-4 pb-4 bg-white rounded-[20px] flex flex-col gap-4 items-center">

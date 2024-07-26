@@ -17,7 +17,6 @@ const computeProgress = (nowProgress: number, maxProgress: number) =>
   Math.max(100 - Math.floor((nowProgress / maxProgress) * 100), 0);
 
 export default function useQuestionLoading({ questionId, theme }: Props) {
-  const { handleSetAnswer } = useQuestion();
   const router = useRouter();
   const [requestCount, setRequestCount] = useState<number>(0);
   const { itemName } = useQuestion();
