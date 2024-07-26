@@ -36,7 +36,7 @@ export default function LoungeSlider({ theme }: Props) {
   };
 
   return (
-    <div className="relative w-full flex flex-col bg-white rounded-[10px]  ">
+    <div className="relative w-full flex flex-col bg-white rounded-[10px] ">
       {isBalloonVisible && !isLoading && (
         <div className="absolute top-[80px] left-1/2 -translate-x-1/2 z-50">
           <Balloon
@@ -75,17 +75,32 @@ export default function LoungeSlider({ theme }: Props) {
         className={getCssByTheme(
           theme,
           ['text-sara-primary slider-shadow-sara', 'text-mara-primary slider-shadow-mara'],
-          'flex p-[10px] items-center gap-1.5 ',
+          'flex justify-between overflow-hidden',
         )}
       >
-        <div className="w-12">
-          <Logo logo="sara" />
-        </div>
-        <div className="w-12">
-          <Logo logo="mara" />
-        </div>
+        <div className="flex p-[10px] items-center gap-1.5 ">
+          <div className="w-12">
+            <Logo logo="sara" />
+          </div>
+          <div className="w-12">
+            <Logo logo="mara" />
+          </div>
 
-        <h2 className="font-14-title-100">라운지</h2>
+          <h2 className="font-14-title-100">라운지</h2>
+        </div>
+        <div
+          onClick={() => router.push(`/lounge/`)}
+          style={{
+            zIndex: 999999999,
+          }}
+          className={getCssByTheme(
+            theme,
+            ['bg-sara-primary', 'bg-mara-primary'],
+            'relative cursor-pointer bg-sara-primary text-white flex items-center font-12-medium-100 px-3 py-[10px] rounded-tr-[10px]',
+          )}
+        >
+          더 보러가기
+        </div>
       </div>
       {isLoading ? null : (
         <div className="slider-container overflow-hidden">

@@ -156,14 +156,18 @@ export default function QuestionList({ tab }: Props) {
           onClick={() => handleClickFilter('사라')}
           className={TypeButtonClassNames({ 사라: activeFilter === '사라' })}
         >
-          <Logo logo="sara" />
+          <div className="w-[64px]">
+            <Logo logo="sara" />
+          </div>
         </button>
         <button
           type="button"
           onClick={() => handleClickFilter('마라')}
           className={TypeButtonClassNames({ 마라: activeFilter === '마라' })}
         >
-          <Logo logo="mara" />
+          <div className="w-[64px]">
+            <Logo logo="mara" />
+          </div>
         </button>
       </nav>
       <div

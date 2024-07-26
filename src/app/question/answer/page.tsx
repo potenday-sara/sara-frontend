@@ -1,4 +1,5 @@
 import React from 'react';
+import { redirect } from 'next/navigation';
 import getAnswer from '@/apis/answers/getAnswer';
 import SaraCircle from '@/asset/logo/sara-circle.svg';
 import MaraCircle from '@/asset/logo/mara-circle.svg';
@@ -34,6 +35,11 @@ export default async function page({ searchParams }: Props) {
   const theme: Theme = searchParams.theme || 'sara';
 
   const { questionId } = searchParams;
+
+  if (!questionId) {
+    redirect(`/question/?theme=${theme}`);
+  }
+
   const data = await handleGetAnswer(searchParams.answerId);
 
   return (
