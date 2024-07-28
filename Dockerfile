@@ -8,7 +8,7 @@ COPY . ./
 RUN yarn build
 
 # production environment
-FROM node:20 as production
+# FROM node:20 as production
 #COPY --from=build /app/build /usr/share/nginx/html
 #EXPOSE 80
 #CMD ["nginx", "-g", "daemon off;"]
