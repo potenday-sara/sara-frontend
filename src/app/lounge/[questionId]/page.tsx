@@ -53,7 +53,7 @@ export default async function page({ params }: Props) {
         <Like count={answer.like_count} questionId={answer.id} />
         <div className="flex gap-2">
           <AnswerShare />
-          <AnswerKakaoShare questionId={questionId} />
+          <AnswerKakaoShare questionId={questionId} type="HYBRID" />
         </div>
       </div>
       <div className="flex gap-1 h-[70px] w-full">

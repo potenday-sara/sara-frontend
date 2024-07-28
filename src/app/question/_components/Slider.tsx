@@ -35,6 +35,8 @@ export default function LoungeSlider({ theme }: Props) {
     setIsBalloonVisible(false);
   };
 
+  console.log('theme', theme);
+
   return (
     <div className="relative w-full flex flex-col bg-white rounded-[10px] ">
       {isBalloonVisible && !isLoading && (
@@ -96,7 +98,7 @@ export default function LoungeSlider({ theme }: Props) {
           className={getCssByTheme(
             theme,
             ['bg-sara-primary', 'bg-mara-primary'],
-            'relative cursor-pointer bg-sara-primary text-white flex items-center font-12-medium-100 px-3 py-[10px] rounded-tr-[10px]',
+            'relative cursor-pointer text-white flex items-center font-12-medium-100 px-3 py-[10px] rounded-tr-[10px]',
           )}
         >
           더 보러가기

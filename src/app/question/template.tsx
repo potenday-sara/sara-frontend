@@ -1,6 +1,6 @@
 'use client';
 
-import React, { forwardRef, Ref, useCallback, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, Ref, Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import { cva } from 'class-variance-authority';
 import useInterval from '@/app/_hooks/useInterval';
 import { useSaraMara } from '@/feature/question/ThemeContext';

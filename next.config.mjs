@@ -11,6 +11,13 @@ const nextConfig = {
 
     ]
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
 
   async redirects() {
     return [

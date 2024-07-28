@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, useMemo, useState } from 'react';
+import { ReactNode, Suspense, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Theme, ThemeProvider, useSaraMara } from '@/feature/question/ThemeContext';

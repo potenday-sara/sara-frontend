@@ -1,7 +1,7 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import React from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import React, { Suspense } from 'react';
 import SaraCircle from '@/asset/logo/sara-circle.svg';
 import SaraCircleCharacter from '@/asset/logo/SaraCircleCharacter.svg';
 import MaraCircleCharacter from '@/asset/logo/MaraCircleCharacter.svg';
@@ -13,8 +13,9 @@ import Tag from '@/app/question/_components/Tag';
 import FloatingButton from '@/app/question/_components/FloatingButton';
 // import useMutateQuestion from '@/query/question';
 
-export default function page({ searchParams }: { searchParams: { theme: Theme } }) {
-  const theme = searchParams.theme || 'sara';
+export default function page() {
+  const theme = useSearchParams()?.get('theme') as Theme;
+
   const router = useRouter();
 
   const handleClickLogo = () => {
@@ -26,7 +27,7 @@ export default function page({ searchParams }: { searchParams: { theme: Theme } 
   };
 
   return (
-    <>
+    <div>
       <Tag type="sara" isActive={theme === 'sara'} theme={theme} onClick={handleClickTag} />
       <Tag type="mara" isActive={theme === 'mara'} theme={theme} onClick={handleClickTag} />
       <div className="z-50 absolute mt-[20px] left-0">
@@ -49,6 +50,6 @@ export default function page({ searchParams }: { searchParams: { theme: Theme } 
           />
         </div>
       </div>
-    </>
+    </div>
   );
 }

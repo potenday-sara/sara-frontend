@@ -7,13 +7,11 @@ import Header from '@/app/lounge/_components/Header';
 export default function RootLayout({ children }: { children: any; params: { id: string } }) {
   const [queryClient] = useState(() => new QueryClient());
   return (
-    <html lang="en">
-      <body className="max-w-[600px] box-border m-auto overflow-auto min-h-[100vh] flex flex-col">
-        <Header />
-        <div className="root">
-          <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-        </div>
-      </body>
-    </html>
+    <div>
+      <Header />
+      <div className="root">
+        <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+      </div>
+    </div>
   );
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useRouter } from 'next/navigation';
 import SaraCircle from '@/asset/logo/sara-circle.svg';
 import MaraCircle from '@/asset/logo/mara-circle.svg';
@@ -49,34 +49,36 @@ export default function page({ searchParams }: { searchParams: { theme: Theme } 
   }
 
   return (
-    <div className="w-full pt-8 px-4 pb-4 bg-white rounded-[20px] flex flex-col gap-4 items-center">
-      <div className="logo h-[64px]">{theme === 'sara' ? <SaraCircle /> : <MaraCircle />}</div>
-      <div className="character w-[148px] flex gap-4 flex-col">
-        <LoadingLottie theme={theme} />
-        <QuestionProgress questionId={questionId} theme={theme} />
-      </div>
-      <div className="flex flex-col justify-center items-center gap-3 pb-6 border-b border-gray-100">
-        <div
-          className={getCssByTheme(
-            theme,
-            ['text-sara-primary', 'text-mara-primary'],
-            'rounded-[6px] border-[1px] border-solid font-12-title-100 p-[6px]',
-          )}
-        >
-          {getChipText(randomIndex)}
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className="w-full pt-8 px-4 pb-4 bg-white rounded-[20px] flex flex-col gap-4 items-center">
+        <div className="logo h-[64px]">{theme === 'sara' ? <SaraCircle /> : <MaraCircle />}</div>
+        <div className="character w-[148px] flex gap-4 flex-col">
+          <LoadingLottie theme={theme} />
+          <QuestionProgress questionId={questionId} theme={theme} />
         </div>
-        <div className="font-16-title-140 whitespace-pre-wrap break-keep text-center">
-          {getRandomText(theme, randomIndex)}
+        <div className="flex flex-col justify-center items-center gap-3 pb-6 border-b border-gray-100">
+          <div
+            className={getCssByTheme(
+              theme,
+              ['text-sara-primary', 'text-mara-primary'],
+              'rounded-[6px] border-[1px] border-solid font-12-title-100 p-[6px]',
+            )}
+          >
+            {getChipText(randomIndex)}
+          </div>
+          <div className="font-16-title-140 whitespace-pre-wrap break-keep text-center">
+            {getRandomText(theme, randomIndex)}
+          </div>
+        </div>
+        <div className="divide h-[1px] w-full bg-black-#ddd" />
+        <div className="flex flex-col justify-center items-center gap-1">
+          <h3 className="font-14-title-100 text-black-#666">나의 질문</h3>
+          <h2 className={getCssByTheme(theme, ['text-sara-primary', 'text-mara-primary'], 'font-18-title-100')}>
+            {itemName}
+          </h2>
+          <p className="font-14-medium-140 break-keep text-center">{itemDescription}</p>
         </div>
       </div>
-      <div className="divide h-[1px] w-full bg-black-#ddd" />
-      <div className="flex flex-col justify-center items-center gap-1">
-        <h3 className="font-14-title-100 text-black-#666">나의 질문</h3>
-        <h2 className={getCssByTheme(theme, ['text-sara-primary', 'text-mara-primary'], 'font-18-title-100')}>
-          {itemName}
-        </h2>
-        <p className="font-14-medium-140 break-keep text-center">{itemDescription}</p>
-      </div>
-    </div>
+    </Suspense>
   );
 }
