@@ -12,10 +12,12 @@ FROM node:20 as production
 #COPY --from=build /app/build /usr/share/nginx/html
 #EXPOSE 80
 #CMD ["nginx", "-g", "daemon off;"]
-WORKDIR /app
-COPY package.json ./
-COPY yarn.lock ./
 
+
+RUN apt-get update && \
+    apt-get install -y libpq-dev && \
+    apt-get install -y nginx && \
+    rm -rf /var/lib/apt/lists/*
 
 EXPOSE 3000
 CMD ["yarn", "start:next"]
