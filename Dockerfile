@@ -14,6 +14,7 @@ FROM nginx:stable-alpine
 #CMD ["nginx", "-g", "daemon off;"]
 WORKDIR /app
 COPY package.json ./
+COPY yarn.lock ./
 RUN yarn install --silent
 
 EXPOSE 3000
