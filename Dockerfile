@@ -6,7 +6,7 @@ COPY yarn.lock ./
 RUN yarn install --silent
 COPY . ./
 RUN yarn build:next
-RUN yarn start:next
+RUN #yarn start:next
 
 # production environment
 FROM nginx:stable-alpine
