@@ -5,11 +5,16 @@ COPY package.json ./
 COPY yarn.lock ./
 RUN yarn install --silent
 COPY . ./
-RUN yarn build:next
-RUN #yarn start:next
+RUN yarn build
 
 # production environment
 FROM nginx:stable-alpine
-COPY --from=build /src/app/build /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+#COPY --from=build /app/build /usr/share/nginx/html
+#EXPOSE 80
+#CMD ["nginx", "-g", "daemon off;"]
+WORKDIR /app
+COPY package.json ./
+RUN yarn install --silent
+
+EXPOSE 3000
+CMD ["yarn", "start:next"]
