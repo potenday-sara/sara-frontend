@@ -1,0 +1,16 @@
+
+
+.floating-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.3s;
+  opacity: 0;
+  z-index: 10000;
+}

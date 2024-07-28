@@ -13,7 +13,6 @@ function Select({ onChange, children, value, ...rest }) {
 
 Select.propTypes = {
   onChange: PropTypes.func,
-  style: PropTypes.shape({}),
   children: PropTypes.node,
   value: PropTypes.string,
 };

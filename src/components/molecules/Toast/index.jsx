@@ -4,7 +4,7 @@ import StyeldToast from './styles';
 
 function Toast({ children, ...rest }) {
   return (
-    <StyeldToast className="toast" {...rest}>
+    <StyeldToast  className="toast" {...rest}>
       {children}
     </StyeldToast>
   );

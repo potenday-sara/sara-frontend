@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { Theme } from '../../Styles';
 import Progressbar from '../../components/atoms/Progressbar';
 import Footer from '../../components/organisms/Footer';
-import useInterval from '../../hooks/useInterval';
+import useInterval from '../../app/_hooks/useInterval';
 import MainAside from './components/templates/MainAside';
 import OnboardingSectionLayout from './components/templates/MainSection';
 import SaraMaraContext from './stores/SaraMaraContext';
