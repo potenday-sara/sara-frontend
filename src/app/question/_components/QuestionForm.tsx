@@ -12,6 +12,7 @@ import postQuestion from '@/apis/question/mutateQuestion';
 import getCssByTheme from '@/app/_utils/getCssByTheme';
 import { useQuestion } from '@/app/question/_context/QuestionContext';
 import useShop from '@/app/question/_hooks/useShop';
+import { useOnboard } from '@/app/question/_context/OnboardContext';
 
 type QuestionFormProps = {
   descriptionPlaceHolder: { title: string; contents: string }[];
@@ -115,21 +116,25 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
     },
   });
 
+  const { firstItem, secondItem } = useOnboard();
+
   return (
     <div className="question-form flex flex-col gap-3 w-full">
       <div className="제품명 ">
-        <label className="flex flex-col gap-2" htmlFor="input">
+        <div className="flex flex-col gap-2">
           <h2 className="font-14-title-100">{CONSTANTS_TEXT.item_name_label[theme].ko}</h2>
           <div className="flex flex-col rounded-[10px] border border-solid border-gray-100 overflow-hidden">
-            <input
-              onChange={handleChangeItemName}
-              id="input"
-              type="text"
-              placeholder="사고싶은 물건을 입력해주세요"
-              value={itemName}
-              className="question-base-input p-[24px] align-middle"
-              autoComplete="off"
-            />
+            <div ref={firstItem}>
+              <input
+                onChange={handleChangeItemName}
+                id="input"
+                type="text"
+                placeholder="사고싶은 물건을 입력해주세요"
+                value={itemName}
+                className="question-base-input p-[24px] align-middle"
+                autoComplete="off"
+              />
+            </div>
             <div className="line w-full h-[1px] bg-gray-100" />
             <div className="flex w-full h-auto p-2 gap-2">
               <div className={RefreshButtonClassName({ theme })}>
@@ -160,10 +165,10 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
               </div>
             </div>
           </div>
-        </label>
+        </div>
       </div>
       <div className="고민이유">
-        <label className="flex flex-col gap-2" htmlFor="input">
+        <div className="flex flex-col gap-2" ref={secondItem}>
           <h2 className="font-14-title-100">{CONSTANTS_TEXT.item_description_label[theme].ko}</h2>
           <div className="flex flex-col rounded-[10px] border border-solid border-gray-100 overflow-hidden">
             <textarea
@@ -219,7 +224,7 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
               )}
             </div>
           </div>
-        </label>
+        </div>
       </div>
       <button
         type="submit"
