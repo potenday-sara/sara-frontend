@@ -116,7 +116,7 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
     },
   });
 
-  const { firstItem, secondItem } = useOnboard();
+  const { firstItem, secondItem, thirdItem } = useOnboard();
 
   return (
     <div className="question-form flex flex-col gap-3 w-full">
@@ -227,6 +227,7 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
         </div>
       </div>
       <button
+        ref={thirdItem}
         type="submit"
         onClick={handleSubmitQuestion}
         className={getCssByTheme(

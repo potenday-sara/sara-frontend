@@ -1,9 +1,9 @@
-import { createContext, React, ReactNode, useContext, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { createContext, ReactNode, useContext, useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 type OnboardContextType = {
   firstItem: React.RefObject<HTMLDivElement>;
   secondItem: React.RefObject<HTMLDivElement>;
-  thirdItem: React.RefObject<HTMLDivElement>;
+  thirdItem: React.RefObject<HTMLButtonElement>;
   forthItem: React.RefObject<HTMLDivElement>;
 };
 
@@ -14,14 +14,14 @@ export function OnboardProvider({ children }: { children: ReactNode }) {
 
   const firstItem = useRef<HTMLDivElement>(null);
   const secondItem = useRef<HTMLDivElement>(null);
-  const thirdItem = useRef<HTMLDivElement>(null);
+  const thirdItem = useRef<HTMLButtonElement>(null);
   const forthItem = useRef<HTMLDivElement>(null);
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [firstItemPosition, setFirstItemPosition] = useState({ top: 0, left: 0, width: 0, height: 0 });
-  const [secondItemPosition, setSecondItemPosition] = useState({ top: 0, left: 0, width: 0, height: 0 });
-  const [thirdItemPosition, setThirdItemPosition] = useState({ top: 0, left: 0, width: 0, height: 0 });
-  const [forthItemPosition, setForthItemPosition] = useState({ top: 0, left: 0, width: 0, height: 0 });
+  const [firstItemPosition, setFirstItemPosition] = useState({ top: 0, left: 0, height: 0 });
+  const [secondItemPosition, setSecondItemPosition] = useState({ top: 0, left: 0, height: 0 });
+  const [thirdItemPosition, setThirdItemPosition] = useState({ top: 0, left: 0, height: 0 });
+  const [forthItemPosition, setForthItemPosition] = useState({ top: 0, left: 0, height: 0 });
   const [scrollHeight, setScrollHeight] = useState<number>(0);
 
   const [stage, setStage] = useState<number>(0);
@@ -51,73 +51,49 @@ export function OnboardProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!firstItem.current) return;
 
-    const handleSetItemPosition = () => {
-      if (!firstItem.current) return;
-      const rect = firstItem.current.getBoundingClientRect();
-      const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-      console.log('hi');
+    const rect = firstItem.current.getBoundingClientRect();
 
-      setFirstItemPosition({
-        top: rect.top - 28,
-        left: 0,
-        width: '100%',
-        height: rect.height + 28,
-      });
-    };
-
-    const resizeObserver = new ResizeObserver(handleSetItemPosition);
-
-    resizeObserver.observe(firstItem.current);
-
-    return () => {
-      resizeObserver.disconnect();
-    };
+    setFirstItemPosition({
+      top: rect.top - 28,
+      left: 0,
+      height: rect.height + 28,
+    });
   }, [scrollHeight]);
 
   useEffect(() => {
     if (!secondItem.current) return;
     const rect = secondItem.current.getBoundingClientRect();
-    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
     setSecondItemPosition({
-      top: 0,
+      top: rect.top,
       left: 0,
-      width: rect.width,
       height: rect.height,
     });
-  }, [secondItem?.current, windowWidth]);
+  }, [scrollHeight]);
 
   useEffect(() => {
     if (!thirdItem.current) return;
     const rect = thirdItem.current.getBoundingClientRect();
-    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     setThirdItemPosition({
-      top: rect.top + scrollTop,
-      left: rect.left + scrollLeft,
-      width: '',
-      height: rect.height,
+      top: rect.top - 10,
+      left: 0,
+      height: rect.height + 20,
     });
-  }, [thirdItem?.current, windowWidth]);
+  }, [scrollHeight]);
 
   useEffect(() => {
     if (!forthItem.current) return;
     const rect = forthItem.current.getBoundingClientRect();
-    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     setForthItemPosition({
-      top: rect.top + scrollTop,
-      left: rect.left + scrollLeft,
-      width: rect.width,
-      height: rect.height,
+      top: rect.top - 10,
+      left: 0,
+      height: rect.height + 20,
     });
-  }, [forthItem?.current, windowWidth]);
+  }, [scrollHeight]);
 
   return (
     <OnboardContext.Provider
@@ -131,6 +107,7 @@ export function OnboardProvider({ children }: { children: ReactNode }) {
       {children}
       {isOnboard && (
         <div
+          onClick={handleSetNextStage}
           style={{
             position: 'absolute',
             top: 0,
@@ -154,44 +131,42 @@ export function OnboardProvider({ children }: { children: ReactNode }) {
             <defs>
               <mask id="mask" x="0" y="0" width="100%" height="100%">
                 <rect x="0" y="0" width="100%" height="100%" fill="white" />
-
                 {stage === 0 && (
                   <rect
                     x={firstItemPosition.left}
                     y={firstItemPosition.top}
-                    width={firstItemPosition.width}
+                    width="100%"
                     height={firstItemPosition.height}
-                    style={{}}
                     fill="black"
                   />
                 )}
-                {stage === 1 && (
+                {stage === 0 && (
                   <rect
-                    x={secondItemPosition.left - 16}
-                    y={secondItemPosition.top - 15}
-                    width={secondItemPosition.width + 32}
-                    height={secondItemPosition.height + 10}
+                    x={secondItemPosition.left}
+                    y={secondItemPosition.top}
+                    height={secondItemPosition.height}
+                    width="100%"
                     fill="black"
                   />
                 )}
-                {stage === 2 && (
+                {stage === 0 && (
                   <rect
-                    x={thirdItemPosition.left - 16}
-                    y={thirdItemPosition.top - 5}
-                    width={thirdItemPosition.width + 32}
-                    height={thirdItemPosition.height + 10}
+                    x={thirdItemPosition.left}
+                    y={thirdItemPosition.top}
+                    height={thirdItemPosition.height}
+                    width="100%"
                     fill="black"
                   />
                 )}
-                {/* {stage === 3 && ( */}
-                {/*  <rect */}
-                {/*    x={forthItemPosition.left - 5} */}
-                {/*    y={forthItemPosition.top} */}
-                {/*    width={forthItemPosition.width + 10} */}
-                {/*    height={forthItemPosition.height} */}
-                {/*    fill="black" */}
-                {/*  /> */}
-                {/* )} */}
+                {stage === 0 && (
+                  <rect
+                    x={forthItemPosition.left}
+                    y={forthItemPosition.top}
+                    height={forthItemPosition.height}
+                    width="100%"
+                    fill="black"
+                  />
+                )}
               </mask>
             </defs>
           </svg>
