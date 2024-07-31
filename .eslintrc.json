@@ -3,12 +3,12 @@
     "browser": true,
     "es2021": true
   },
-//  "parser": "@typescript-eslint/parser",
+  "parser": "@typescript-eslint/parser",
   "extends": ["airbnb", "plugin:prettier/recommended", "plugin:@typescript-eslint/recommended"],
   "parserOptions": {
     "ecmaVersion": "latest",
-    "sourceType": "module"
-//    "project": "./tsconfig.json"
+    "sourceType": "module",
+    "project": "./tsconfig.json"
   },
   "rules": {
     "import/no-extraneous-dependencies": ["off", { "devDependencies": true }],
@@ -27,7 +27,9 @@
     "jsx-a11y/no-static-element-interactions": "off",
     "jsx-a11y/click-events-have-key-events": "off",
     "react/require-default-props": "warn",
-    "jsx-a11y/control-has-associated-label": "off"
+    "jsx-a11y/control-has-associated-label": "off",
+    "consistent-return": "off",
+    "react/jsx-no-constructed-context-values": "off"
   },
   "plugins" : ["eslint-plugin-import", "@typescript-eslint"],
   "settings": {

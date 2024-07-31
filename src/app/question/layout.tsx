@@ -8,6 +8,7 @@ import QuestionProvider from '@/app/question/_context/QuestionContext';
 import Shop from '@/app/question/_components/Shop';
 import getCssByTheme from '@/app/_utils/getCssByTheme';
 import Slider from '@/app/question/_components/Slider';
+import { OnboardProvider } from '@/app/question/_context/OnboardContext';
 
 export default function layout({ children }: { children: ReactNode; params: { theme: Theme } }) {
   const searchParams = useSearchParams();
@@ -19,11 +20,13 @@ export default function layout({ children }: { children: ReactNode; params: { th
       <ThemeProvider>
         <QuestionProvider>
           <QueryClientProvider client={queryClient}>
-            <div className="flex flex-col gap-5">
-              <Slider theme={theme} />
-              {children}
-              <Shop />
-            </div>
+            <OnboardProvider theme={theme}>
+              <div className="flex flex-col gap-5">
+                <Slider theme={theme} />
+                {children}
+                <Shop />
+              </div>
+            </OnboardProvider>
           </QueryClientProvider>
         </QuestionProvider>
       </ThemeProvider>

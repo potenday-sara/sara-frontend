@@ -11,6 +11,7 @@ import QuestionForm from '@/app/question/_components/QuestionForm';
 import { Theme } from '@/feature/question/ThemeContext';
 import Tag from '@/app/question/_components/Tag';
 import FloatingButton from '@/app/question/_components/FloatingButton';
+import { useOnboard } from '@/app/question/_context/OnboardContext';
 // import useMutateQuestion from '@/query/question';
 
 export default function page() {
@@ -26,11 +27,13 @@ export default function page() {
     router.replace(`/question/?theme=${tagTheme}`);
   };
 
+  const { forthItem } = useOnboard();
+
   return (
     <div>
       <Tag type="sara" isActive={theme === 'sara'} theme={theme} onClick={handleClickTag} />
       <Tag type="mara" isActive={theme === 'mara'} theme={theme} onClick={handleClickTag} />
-      <div className="z-50 absolute mt-[20px] left-0">
+      <div className="z-50 absolute mt-[20px] left-0" ref={forthItem}>
         <FloatingButton theme={theme} />
       </div>
       <div className="w-full pt-8 px-4 pb-4 bg-white rounded-[20px] flex flex-col gap-2 items-center relative">
