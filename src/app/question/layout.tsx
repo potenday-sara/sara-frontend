@@ -20,7 +20,7 @@ export default function layout({ children }: { children: ReactNode; params: { th
       <ThemeProvider>
         <QuestionProvider>
           <QueryClientProvider client={queryClient}>
-            <OnboardProvider>
+            <OnboardProvider theme={theme}>
               <div className="flex flex-col gap-5">
                 <Slider theme={theme} />
                 {children}

@@ -7,9 +7,7 @@ interface Props {
 }
 
 function Balloon({ children, position, classNames }: Props) {
-  const positionClass = `bubble-${position}`;
-
-  return <div className={`${positionClass} ${classNames} ${position}`}>{children}</div>;
+  return <div className={`${classNames} ${position}`}>{children}</div>;
 }
 
 export default Balloon;

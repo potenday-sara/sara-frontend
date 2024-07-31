@@ -10,6 +10,7 @@ import MaraHover from '@/app/question/_asset/maraHover.png';
 import useHover from '@/app/_hooks/useHover';
 import { Theme } from '@/feature/question/ThemeContext';
 import getCssByTheme from '@/app/_utils/getCssByTheme';
+import { useOnboard } from '@/app/question/_context/OnboardContext';
 
 type Props = {
   theme: Theme;
@@ -17,6 +18,12 @@ type Props = {
 
 function FloatingButton({ theme }: Props) {
   const [isOpened, setIsOpened] = React.useState(false);
+  const { handleStartOnboard } = useOnboard();
+
+  const handleOnboardClick = () => {
+    handleStartOnboard();
+    setIsOpened(false);
+  };
   return (
     <div className="relative">
       <div
@@ -72,6 +79,7 @@ function FloatingButton({ theme }: Props) {
               문제가 있어 / 하고 싶은 말이 있어!
             </div>
             <div
+              onClick={handleOnboardClick}
               className={getCssByTheme(
                 theme,
                 ['bg-sara-25%', 'bg-mara-25%'],

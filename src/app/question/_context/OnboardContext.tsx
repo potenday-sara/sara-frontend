@@ -1,33 +1,39 @@
-import { createContext, ReactNode, useContext, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { createContext, ReactNode, useContext, useEffect, useRef, useState } from 'react';
+import OnboardBalloon from '@/app/question/_components/OnboardBallon';
+import { Theme } from '@/feature/question/ThemeContext';
 
 type OnboardContextType = {
   firstItem: React.RefObject<HTMLDivElement>;
   secondItem: React.RefObject<HTMLDivElement>;
   thirdItem: React.RefObject<HTMLButtonElement>;
   forthItem: React.RefObject<HTMLDivElement>;
+  handleStartOnboard: () => void;
 };
 
 export const OnboardContext = createContext<OnboardContextType | null>(null);
 
-export function OnboardProvider({ children }: { children: ReactNode }) {
-  const [isOnboard, setIsOnboard] = useState<boolean>(true);
+export function OnboardProvider({ children, theme }: { children: ReactNode; theme: Theme }) {
+  const [isOnboard, setIsOnboard] = useState<boolean>(() => {
+    const onboard = window.localStorage.getItem('onboard');
+    return !(onboard === 'true');
+  });
 
   const firstItem = useRef<HTMLDivElement>(null);
   const secondItem = useRef<HTMLDivElement>(null);
   const thirdItem = useRef<HTMLButtonElement>(null);
   const forthItem = useRef<HTMLDivElement>(null);
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [firstItemPosition, setFirstItemPosition] = useState({ top: 0, left: 0, height: 0 });
   const [secondItemPosition, setSecondItemPosition] = useState({ top: 0, left: 0, height: 0 });
   const [thirdItemPosition, setThirdItemPosition] = useState({ top: 0, left: 0, height: 0 });
-  const [forthItemPosition, setForthItemPosition] = useState({ top: 0, left: 0, height: 0 });
+  const [forthItemPosition, setForthItemPosition] = useState({ top: 0, bottom: 0, left: 0, height: 0 });
   const [scrollHeight, setScrollHeight] = useState<number>(0);
 
   const [stage, setStage] = useState<number>(0);
 
-  const handleSetNextStage = () => {
-    setStage((prev) => prev + 1);
+  const handleStartOnboard = () => {
+    setStage(0);
+    setIsOnboard(true);
   };
 
   const handleSetPrevStage = () => {
@@ -37,6 +43,14 @@ export function OnboardProvider({ children }: { children: ReactNode }) {
   const handleSetFinish = () => {
     setIsOnboard(false);
     window.localStorage.setItem('onboard', 'true');
+  };
+
+  const handleSetNextStage = () => {
+    if (stage === 3) {
+      handleSetFinish();
+      return;
+    }
+    setStage((prev) => prev + 1);
   };
 
   useEffect(() => {
@@ -90,6 +104,7 @@ export function OnboardProvider({ children }: { children: ReactNode }) {
 
     setForthItemPosition({
       top: rect.top - 10,
+      bottom: rect.bottom,
       left: 0,
       height: rect.height + 20,
     });
@@ -102,6 +117,7 @@ export function OnboardProvider({ children }: { children: ReactNode }) {
         secondItem,
         thirdItem,
         forthItem,
+        handleStartOnboard,
       }}
     >
       {children}
@@ -140,7 +156,7 @@ export function OnboardProvider({ children }: { children: ReactNode }) {
                     fill="black"
                   />
                 )}
-                {stage === 0 && (
+                {stage === 1 && (
                   <rect
                     x={secondItemPosition.left}
                     y={secondItemPosition.top}
@@ -149,7 +165,7 @@ export function OnboardProvider({ children }: { children: ReactNode }) {
                     fill="black"
                   />
                 )}
-                {stage === 0 && (
+                {stage === 2 && (
                   <rect
                     x={thirdItemPosition.left}
                     y={thirdItemPosition.top}
@@ -158,7 +174,7 @@ export function OnboardProvider({ children }: { children: ReactNode }) {
                     fill="black"
                   />
                 )}
-                {stage === 0 && (
+                {stage === 3 && (
                   <rect
                     x={forthItemPosition.left}
                     y={forthItemPosition.top}
@@ -170,6 +186,56 @@ export function OnboardProvider({ children }: { children: ReactNode }) {
               </mask>
             </defs>
           </svg>
+          {stage === 0 && (
+            <OnboardBalloon
+              theme={theme}
+              onClickCloseButton={handleSetFinish}
+              onClickNextButton={handleSetNextStage}
+              stage={0}
+              position="top"
+              top={firstItemPosition.top}
+              title="구매를 고민하고 있는 상품을 적어주세요."
+            />
+          )}
+          {stage === 1 && (
+            <OnboardBalloon
+              theme={theme}
+              onClickCloseButton={handleSetFinish}
+              title="구매를 망설이고 있는 이류를 적어주세요"
+              description={`고민을 자세히 적을수록 \n 좋은 답변을 받을 확률이 높아요!`}
+              onClickNextButton={handleSetNextStage}
+              onClickPrevButton={handleSetPrevStage}
+              stage={1}
+              position="top"
+              top={secondItemPosition.top}
+            />
+          )}
+          {stage === 2 && (
+            <OnboardBalloon
+              theme={theme}
+              onClickCloseButton={handleSetFinish}
+              title="모두 적었다면, '사라'에게 물어보세요."
+              description={`사야하는 물건을 걱정없이 살 수 있도록\n합당한 이유를 만들어 줄거에요!`}
+              onClickNextButton={handleSetNextStage}
+              onClickPrevButton={handleSetPrevStage}
+              stage={2}
+              position="top"
+              top={thirdItemPosition.top}
+            />
+          )}
+          {stage === 3 && (
+            <OnboardBalloon
+              theme={theme}
+              onClickCloseButton={handleSetFinish}
+              title={`모르는것이 있으면, \n여기 있는 '사라'를 눌러주세요!`}
+              description={`이 튜토리얼을 다시 볼 수 있고\n 다른 도움을 받을 수도 있어요!`}
+              onClickEndButton={handleSetFinish}
+              onClickPrevButton={handleSetPrevStage}
+              stage={3}
+              position="bottom"
+              top={forthItemPosition.bottom}
+            />
+          )}
         </div>
       )}
     </OnboardContext.Provider>
