@@ -39,7 +39,7 @@ RUN \
 
 
 # Rebuild the source code only when needed
-FROM node:20 AS production
+FROM node:20 AS builder
 
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
@@ -57,6 +57,8 @@ RUN yarn build:next
 
 # Production image, copy all the files and run next
 FROM node:20 AS production
+RUN apk add nginx
+
 WORKDIR /app
 
 ENV NODE_ENV production
