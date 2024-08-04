@@ -44,6 +44,7 @@ RUN \
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
+COPY test.conf ./
 COPY . .
 
 
@@ -61,15 +62,12 @@ RUN yarn build:next
 FROM base AS runner
 
 WORKDIR /app
-COPY test.conf ./
 RUN nginx -c /app/test.conf
 
 
 ENV NODE_ENV production
 # Uncomment the following line in case you want to disable telemetry during runtime.
 # ENV NEXT_TELEMETRY_DISABLED 1
-
-EXPOSE 80
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
