@@ -7,6 +7,10 @@ import { i18n } from '@/app/i18n/i18n.config';
 
 function getLocale(request: NextRequest): string | undefined {
   // Negotiator expects plain object so we need to transform headers
+
+  // 쿠키 값 확인
+  const { lang } = request.cookies;
+
   const negotiatorHeaders: Record<string, string> = {};
   request.headers.forEach((value: string, key: string) => (negotiatorHeaders[key] = value));
 
