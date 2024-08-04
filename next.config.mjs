@@ -2,7 +2,7 @@ const API_URL = process.env.API_URL || 'http://localhost:3000';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "standalone",
-  distDir: './dist', // Changes the build output directory to `./dist/`.
+  distDir: './.next', // Changes the build output directory to `./dist/`.
   async rewrites() {
     return [
       {
