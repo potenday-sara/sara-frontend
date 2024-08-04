@@ -44,7 +44,6 @@ RUN \
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
-COPY test.conf ./
 COPY . .
 
 
@@ -62,6 +61,7 @@ RUN yarn build:next
 FROM base AS runner
 
 WORKDIR /app
+COPY test.conf ./
 RUN nginx -c /app/test.conf
 
 
