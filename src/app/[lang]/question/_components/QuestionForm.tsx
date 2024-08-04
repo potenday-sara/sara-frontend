@@ -11,8 +11,8 @@ import { CONSTANTS_TEXT } from '@/app/[lang]/question/_constant';
 import postQuestion from '@/apis/question/mutateQuestion';
 import getCssByTheme from '@/app/_utils/getCssByTheme';
 import { useQuestion } from '@/app/[lang]/question/_context/QuestionContext';
-import useShop from '@/app/[lang]/question/_hooks/useShop';
 import { useOnboard } from '@/app/[lang]/question/_context/OnboardContext';
+import { useTranslation } from '@/app/_hooks/useTranslation';
 
 type QuestionFormProps = {
   descriptionPlaceHolder: { title: string; contents: string }[];
@@ -22,6 +22,7 @@ type QuestionFormProps = {
 
 export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, theme }: QuestionFormProps) {
   const router = useRouter();
+  const [{ t }, lang] = useTranslation('question');
 
   const [itemName, setItemName] = useState<string>('');
   const [itemDescription, setItemDescription] = useState<string>('');
@@ -122,14 +123,14 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
     <div className="question-form flex flex-col gap-3 w-full">
       <div className="제품명 ">
         <div className="flex flex-col gap-2">
-          <h2 className="font-14-title-100">{CONSTANTS_TEXT.item_name_label[theme].ko}</h2>
+          <h2 className="font-14-title-100">{t(`question_item_label_${theme}`)}</h2>
           <div className="flex flex-col rounded-[10px] border border-solid border-gray-100 overflow-hidden">
             <div ref={firstItem}>
               <input
                 onChange={handleChangeItemName}
                 id="input"
                 type="text"
-                placeholder="사고싶은 물건을 입력해주세요"
+                placeholder={t('question_item_label_placeholder')}
                 value={itemName}
                 className="question-base-input p-[24px] align-middle"
                 autoComplete="off"
@@ -169,13 +170,13 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
       </div>
       <div className="고민이유">
         <div className="flex flex-col gap-2" ref={secondItem}>
-          <h2 className="font-14-title-100">{CONSTANTS_TEXT.item_description_label[theme].ko}</h2>
+          <h2 className="font-14-title-100">{t(`question_reason_label_${theme}`)}</h2>
           <div className="flex flex-col rounded-[10px] border border-solid border-gray-100 overflow-hidden">
             <textarea
               ref={ref}
               onChange={handleChangeItemDescription}
               id="input"
-              placeholder="고민하고 있는 이유를 알려주세요"
+              placeholder={t('question_reason_placeholder')}
               value={itemDescription}
               rows={1}
               className="question-base-input resize-none font-14-medium-140 p-[24px] text-center"
@@ -183,7 +184,7 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
             <div className="line w-full h-[1px] bg-gray-100" />
             <div className="flex flex-col w-full h-auto height-transition">
               <div onClick={handleChangeToggle} className={DescriptionPlaceHolderClassName({ theme })}>
-                이렇게 질문해보세요!
+                {t(`tutorial_askingTip_open`)}
               </div>
               {isOpenToggle && (
                 <div className={getCssByTheme(theme, ['bg-primary-50', 'bg-secondary-50'], 'py-5 px-4')}>
@@ -236,7 +237,7 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
           'button h-[48px] rounded-[10px] text-white font-14-title-100 flex justify-center items-center',
         )}
       >
-        {CONSTANTS_TEXT.submit_button[theme].ko}
+        {t(`question_submit_${theme}`)}
       </button>
     </div>
   );

@@ -3,6 +3,7 @@
 import { cva } from 'class-variance-authority';
 import { useState, memo } from 'react';
 import { useRouter } from 'next/navigation';
+import { descriptions } from 'jest-config';
 import MainSara from '@/asset/character/MainSara.svg';
 import MainMara from '@/asset/character/MainMara.svg';
 import { Theme } from '@/feature/main/hooks/useSaraMara';
@@ -37,10 +38,10 @@ const MainButtonClassNames = cva('py-4 flex justify-center bg-white w-[360px] ro
 
 function MainCharacter({ type, theme }: MainCharacterProps) {
   const router = useRouter();
-  const { t } = useTranslation('main');
+  const [{ t }, lang] = useTranslation('main');
 
   const handleClick = () => {
-    router.push(`/question?theme=${type}`);
+    router.push(`/${lang}/question?theme=${type}`);
   };
 
   return (

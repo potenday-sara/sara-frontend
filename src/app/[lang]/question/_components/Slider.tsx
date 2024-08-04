@@ -11,6 +11,7 @@ import { Theme } from '@/feature/question/ThemeContext';
 import { useRandomQuestion } from '@/app/[lang]/question/_query/useQuestion';
 import Balloon from '@/app/_components/balloon/Ballon';
 import Close from '@/app/_asset/close.svg';
+import { useTranslation } from '@/app/_hooks/useTranslation';
 
 interface Props {
   theme: Theme;
@@ -35,7 +36,7 @@ export default function LoungeSlider({ theme }: Props) {
     setIsBalloonVisible(false);
   };
 
-  console.log('theme', theme);
+  const [{ t }, lang] = useTranslation('question');
 
   return (
     <div className="relative w-full flex flex-col bg-white rounded-[10px] ">
@@ -58,7 +59,7 @@ export default function LoungeSlider({ theme }: Props) {
                 zIndex: 999999999,
               }}
             >
-              <div>다른사람들의 질문 더 보러가기</div>
+              <div>{t('question_carousel_tooltip')}</div>
               <button
                 onClick={handleCloseBalloon}
                 className="relative"
@@ -88,7 +89,7 @@ export default function LoungeSlider({ theme }: Props) {
             <Logo logo="mara" />
           </div>
 
-          <h2 className="font-14-title-100">라운지</h2>
+          <h2 className="font-14-title-100">{t('question_carousel_title')}</h2>
         </div>
         <div
           onClick={() => router.push(`/lounge/`)}
@@ -101,7 +102,7 @@ export default function LoungeSlider({ theme }: Props) {
             'relative cursor-pointer text-white flex items-center font-12-medium-100 px-3 py-[10px] rounded-tr-[10px]',
           )}
         >
-          더 보러가기
+          {t('question_carousel_button')}
         </div>
       </div>
       {isLoading ? null : (

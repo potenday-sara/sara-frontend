@@ -35,9 +35,9 @@ i18next
 export function useTranslation<Ns extends FlatNamespace, KPrefix extends KeyPrefix<FallbackNs<Ns>> = undefined>(
   ns: Ns,
   options?: UseTranslationOptions<KPrefix>,
-): UseTranslationResponse<FallbackNs<Ns>, KPrefix> {
+): [UseTranslationResponse<FallbackNs<Ns>, KPrefix>, Locale] {
   const params = useParams<{ lang: Locale }>();
-  const { lang } = params;
+  const { lang } = params || { lang: 'ko' };
   const ret = useTranslationOrg(ns, options);
   const { i18n } = ret;
 
@@ -54,5 +54,5 @@ export function useTranslation<Ns extends FlatNamespace, KPrefix extends KeyPref
       i18n.changeLanguage(lang);
     }, [lang, i18n]);
   }
-  return ret;
+  return [ret, lang];
 }

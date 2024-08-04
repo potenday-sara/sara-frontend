@@ -12,19 +12,21 @@ import { Theme } from '@/feature/question/ThemeContext';
 import Tag from '@/app/[lang]/question/_components/Tag';
 import FloatingButton from '@/app/[lang]/question/_components/FloatingButton';
 import { useOnboard } from '@/app/[lang]/question/_context/OnboardContext';
+import { useTranslation } from '@/app/_hooks/useTranslation';
 // import useMutateQuestion from '@/query/question';
 
 export default function page() {
   const theme = useSearchParams()?.get('theme') as Theme;
 
   const router = useRouter();
+  const [_, lang] = useTranslation('question');
 
   const handleClickLogo = () => {
-    router.push('/main');
+    router.push(`/${lang}/main`);
   };
 
   const handleClickTag = (tagTheme: Theme) => {
-    router.replace(`/question/?theme=${tagTheme}`);
+    router.replace(`/${lang}/question/?theme=${tagTheme}`);
   };
 
   const { forthItem } = useOnboard();
