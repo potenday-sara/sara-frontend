@@ -45,7 +45,6 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN nginx -c /app/test.conf
 
 
 # Next.js collects completely anonymous telemetry data about general usage.
@@ -62,6 +61,9 @@ RUN yarn build:next
 FROM base AS runner
 
 WORKDIR /app
+COPY test.conf ./
+RUN nginx -c /app/test.conf
+
 
 ENV NODE_ENV production
 # Uncomment the following line in case you want to disable telemetry during runtime.
