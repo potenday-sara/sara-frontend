@@ -9,10 +9,12 @@ import { Theme } from '@/feature/main/hooks/useSaraMara';
 import Button from '@/components/atoms/Button';
 import Logo from '@/components/atoms/Logo/Logo';
 import getCssByTheme from '@/app/_utils/getCssByTheme';
+import { Locale } from '@/i18n.config';
 
 type MainCharacterProps = {
   type: Theme;
   theme: Theme;
+  lang: Locale;
 };
 
 const MainCharacterClassNames = cva('flex flex-col items-center py-[15px] gap-[15px] justify-center gap', {
@@ -33,7 +35,7 @@ const MainButtonClassNames = cva('py-4 flex justify-center bg-white w-[360px] ro
   },
 });
 
-function MainCharacter({ type, theme }: MainCharacterProps) {
+function MainCharacter({ type, theme, lang }: MainCharacterProps) {
   const router = useRouter();
 
   const handleClick = () => {

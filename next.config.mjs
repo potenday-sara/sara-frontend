@@ -3,6 +3,8 @@ const API_URL = process.env.API_URL || 'http://localhost:3000';
 const nextConfig = {
   output: "standalone",
   distDir: './.next', // Changes the build output directory to `./dist/`.
+
+
   async rewrites() {
     return [
       {
@@ -20,15 +22,15 @@ const nextConfig = {
     missingSuspenseWithCSRBailout: false,
   },
 
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/main',
-        permanent: true,
-      },
-    ]
-  },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: '/',
+  //       destination: '/main',
+  //       permanent: true,
+  //     },
+  //   ]
+  // },
 
   trailingSlash: true,
 
