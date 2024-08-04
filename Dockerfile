@@ -45,6 +45,8 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+RUN nginx -c /app/test.conf
+
 
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
@@ -66,7 +68,6 @@ ENV NODE_ENV production
 # ENV NEXT_TELEMETRY_DISABLED 1
 
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
