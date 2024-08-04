@@ -1,35 +1,11 @@
 {
-  "home_sara_button": {
-    "common": {
-      "ko": "에게 물어보기"
-    }
-  },
-  "home_mara_button": {
-    "common": {
-      "ko": "에게 물어보기",
-      "en": "Ask",
-      "jp": "に聞いてみる"
-    }
-  },
-  "home_trends": {
-    "common": {
-      "ko": "실시간 트렌드",
-      "en": "Trends Now",
-      "jp": "リアルタイム トレンド"
-    }
-  },
-  "question_item_label": {
-    "sara": {
-      "ko": "어떤 걸 사고 싶샤?",
-      "en": "What do you wanna buy?",
-      "jp": "何が買いたいの?"
-    },
-    "mara": {
-      "ko": "뭔데 사고 싶먀?",
-      "en": "What do you wanna buy?",
-      "jp": "何が買いたいんだ？"
-    }
-  },
+  "home_sara_button": "에게 물어보기",
+  "home_mara_button": "에게 물어보기",
+  "home_trends": "실시간 트렌드",
+  "question_item_label_sara": "어떤 걸 사고 싶샤?",
+  "question_item_label_mara": "뭔데 사고 싶먀?",
+
+
   "question_item_placeholder": {
     "common": {
       "ko": "사고 싶은 물건을 입력해주세요.",

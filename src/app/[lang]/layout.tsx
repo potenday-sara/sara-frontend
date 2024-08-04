@@ -2,7 +2,7 @@ import '../../styles/global.scss';
 import Script from 'next/script';
 import { ReactNode } from 'react';
 import Footer from '@/components/organisms/Footer/Footer';
-import { i18n, type Locale } from '@/i18n.config';
+import { i18n, type Locale } from '@/app/i18n/i18n.config';
 
 type SARA = 'sara';
 type MARA = 'mara';
