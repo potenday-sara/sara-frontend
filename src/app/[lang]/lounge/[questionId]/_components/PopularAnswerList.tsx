@@ -2,8 +2,8 @@
 
 import { Fragment, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import QuestionCard from '@/app/lounge/_components/QuestionCard';
-import useQuestionList from '@/app/lounge/_hooks/useInfinityQuestion';
+import QuestionCard from '@/app/[lang]/lounge/_components/QuestionCard';
+import useQuestionList from '@/app/[lang]/lounge/_hooks/useInfinityQuestion';
 
 export default function PopularAnswerList() {
   const router = useRouter();

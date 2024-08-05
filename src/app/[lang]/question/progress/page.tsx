@@ -11,6 +11,7 @@ import getCssByTheme from '@/app/_utils/getCssByTheme';
 import { useQuestion } from '@/app/[lang]/question/_context/QuestionContext';
 import useQuestionLoading from '@/app/[lang]/question/progress/_hooks/useQuestionLoading';
 import QuestionProgress from '@/app/[lang]/question/progress/_components/QuestionProgress';
+import { useTranslation } from '@/app/_hooks/useTranslation';
 
 const saraRandomTextArray = [
   '질문 내용을 자세하게 물어보면\n더 좋은 답변을 받을 수 있을 거예요!',
@@ -25,11 +26,19 @@ const maraRandomTextArray = [
   '여기 어딘가에 정말 멋진 상품들이\n있는 거 같아요! (속닥속닥)근데 Mara는 그게 영 못 마땅한가 봐요...!',
 ];
 
+const randomTextArray = [
+  'loading_tips_content1',
+  'loading_tips_content2',
+  'loading_tips_content3',
+  'loading_tips_content4',
+];
+
 const getRandomText = (theme: Theme, index: number) => {
-  if (theme === 'sara') {
-    return saraRandomTextArray[index];
-  }
-  return maraRandomTextArray[index];
+  // if (theme === 'sara') {
+  //   return saraRandomTextArray[index];
+  // }
+  // return maraRandomTextArray[index];
+  return randomTextArray[index];
 };
 
 const getChipText = (index: number) => {
@@ -41,11 +50,12 @@ export default function page({ searchParams }: { searchParams: { theme: Theme } 
   const theme = searchParams.theme || 'sara';
   const randomIndex = Math.floor(Math.random() * 4);
 
+  const [{ t }, lang] = useTranslation('progress');
   const { itemName, itemDescription, questionId } = useQuestion();
   const router = useRouter();
 
   if (!itemName || !itemDescription || !questionId) {
-    router.push(`/question/?theme=${theme}`);
+    router.push(`/${lang}/question/?theme=${theme}`);
   }
 
   return (
@@ -67,12 +77,12 @@ export default function page({ searchParams }: { searchParams: { theme: Theme } 
             {getChipText(randomIndex)}
           </div>
           <div className="font-16-title-140 whitespace-pre-wrap break-keep text-center">
-            {getRandomText(theme, randomIndex)}
+            {t(getRandomText(theme, randomIndex))}
           </div>
         </div>
         <div className="divide h-[1px] w-full bg-black-#ddd" />
         <div className="flex flex-col justify-center items-center gap-1">
-          <h3 className="font-14-title-100 text-black-#666">나의 질문</h3>
+          <h3 className="font-14-title-100 text-black-#666">{t('loading_question_label')}</h3>
           <h2 className={getCssByTheme(theme, ['text-sara-primary', 'text-mara-primary'], 'font-18-title-100')}>
             {itemName}
           </h2>

@@ -1,20 +1,20 @@
 import React from 'react';
 import getQuestion from '@/apis/question/getQuestion';
-import SaraTitle from '@/app/lounge/[questionId]/_asset/saratitle.svg';
-import MaraTitle from '@/app/lounge/[questionId]/_asset/maratitle.svg';
+import SaraTitle from '@/app/[lang]/lounge/[questionId]/_asset/saratitle.svg';
+import MaraTitle from '@/app/[lang]/lounge/[questionId]/_asset/maratitle.svg';
 import SaraCircleCharacter from '@/asset/logo/SaraCircleCharacter.svg';
 import MaraCircleCharacter from '@/asset/logo/MaraCircleCharacter.svg';
 import getAnswer from '@/apis/answers/getAnswer';
-import Like from '@/app/lounge/[questionId]/_components/Like';
-import AnswerShare from '@/app/lounge/[questionId]/_components/AnswerShare';
+import Like from '@/app/[lang]/lounge/[questionId]/_components/Like';
+import AnswerShare from '@/app/[lang]/lounge/[questionId]/_components/AnswerShare';
 import Kakao from '@/features/saramaraLounge/community/components/atoms/button/Kakao';
-import AnswerKakaoShare from '@/app/lounge/[questionId]/_components/AnswerKakaoShare';
+import AnswerKakaoShare from '@/app/[lang]/lounge/[questionId]/_components/AnswerKakaoShare';
 import Logo from '@/components/atoms/Logo/Logo';
-import AnswerCommentList from '@/app/lounge/[questionId]/_components/AnswerCommentList';
+import AnswerCommentList from '@/app/[lang]/lounge/[questionId]/_components/AnswerCommentList';
 import getCommentList from '@/apis/question/getCommentList';
-import { Comment } from '@/app/lounge/[questionId]/_components/AnswerComment';
-import QueryProvider from '@/app/lounge/[questionId]/_components/QueryProvider';
-import PopularAnswerList from '@/app/lounge/[questionId]/_components/PopularAnswerList';
+import { Comment } from '@/app/[lang]/lounge/[questionId]/_components/AnswerComment';
+import QueryProvider from '@/app/[lang]/lounge/[questionId]/_components/QueryProvider';
+import PopularAnswerList from '@/app/[lang]/lounge/[questionId]/_components/PopularAnswerList';
 
 interface Props {
   params: {

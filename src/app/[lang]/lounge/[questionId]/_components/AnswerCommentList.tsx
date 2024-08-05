@@ -3,12 +3,12 @@
 import { ChangeEvent, ChangeEventHandler, useEffect, useRef, useState } from 'react';
 import { Theme } from '@/feature/question/ThemeContext';
 import Pagination from '@/app/_components/pagination';
-import AnswerComment, { Comment } from '@/app/lounge/[questionId]/_components/AnswerComment';
-import CommentSubmit from '@/app/lounge/[questionId]/_asset/comment-submit.svg';
+import AnswerComment, { Comment } from '@/app/[lang]/lounge/[questionId]/_components/AnswerComment';
+import CommentSubmit from '@/app/[lang]/lounge/[questionId]/_asset/comment-submit.svg';
 import getCssByTheme from '@/app/_utils/getCssByTheme';
-import useComment from '@/app/lounge/[questionId]/_hooks/useComment';
-import SaraEmpty from '@/app/lounge/[questionId]/_asset/empty-sara.svg';
-import MaraEmpty from '@/app/lounge/[questionId]/_asset/empty-mara.svg';
+import useComment from '@/app/[lang]/lounge/[questionId]/_hooks/useComment';
+import SaraEmpty from '@/app/[lang]/lounge/[questionId]/_asset/empty-sara.svg';
+import MaraEmpty from '@/app/[lang]/lounge/[questionId]/_asset/empty-mara.svg';
 
 interface Props {
   type: Theme;

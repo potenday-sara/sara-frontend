@@ -47,7 +47,7 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
       handleSetItemName(res.data.product);
       handleSetQuestionId(res.data.id);
 
-      router.push(`/question/progress?theme=${res.data.type}&keyword=${res.data.product}`);
+      router.push(`/${lang}/question/progress?theme=${res.data.type}&keyword=${res.data.product}`);
     } catch (e) {
       console.log('error', e);
     }
@@ -198,7 +198,7 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
                             'font-12-title-100',
                           )}
                         >
-                          {item.title}
+                          {t(item.title)}
                         </div>
                         <div
                           className={getCssByTheme(
@@ -207,7 +207,7 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
                             'font-12-medium-140  whitespace-pre-rap break-keep',
                           )}
                         >
-                          {item.contents}
+                          {t(item.contents)}
                         </div>
                       </div>
                       {index !== 2 && (

@@ -4,6 +4,7 @@ import getQuestionState from '@/apis/question/getQuestionState';
 import useInterval from '@/app/_hooks/useInterval';
 import { useQuestion } from '@/app/[lang]/question/_context/QuestionContext';
 import { Theme } from '@/feature/question/ThemeContext';
+import { useTranslation } from '@/app/_hooks/useTranslation';
 
 type Props = {
   questionId: string;
@@ -20,6 +21,7 @@ export default function useQuestionLoading({ questionId, theme }: Props) {
   const router = useRouter();
   const [requestCount, setRequestCount] = useState<number>(0);
   const { itemName } = useQuestion();
+  const [_, lang] = useTranslation('progress');
 
   const progress = useMemo(() => computeProgress(requestCount, MAX_REQUEST_COUNT), [requestCount]);
 
@@ -29,7 +31,7 @@ export default function useQuestionLoading({ questionId, theme }: Props) {
       setRequestCount((prev) => prev + 1);
 
       if (response.data.answer !== null) {
-        router.push(`/question/answer/?theme=${theme}&answerId=${response.data.answer}&questionId=${questionId}&keyword=${itemName}
+        router.push(`/${lang}/question/answer/?theme=${theme}&answerId=${response.data.answer}&questionId=${questionId}&keyword=${itemName}
         `);
       }
     } catch (e) {

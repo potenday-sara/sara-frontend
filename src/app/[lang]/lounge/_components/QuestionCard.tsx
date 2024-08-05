@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
 import { Theme } from '@/feature/question/ThemeContext';
-import SaraChip from '@/app/lounge/_asset/SaraChip.svg';
-import MaraChip from '@/app/lounge/_asset/MaraChip.svg';
-import Comment from '@/app/lounge/_asset/QuestionComment.svg';
-import Heart from '@/app/lounge/_asset/QuestionHeart.svg';
+import SaraChip from '@/app/[lang]/lounge/_asset/SaraChip.svg';
+import MaraChip from '@/app/[lang]/lounge/_asset/MaraChip.svg';
+import Comment from '@/app/[lang]/lounge/_asset/QuestionComment.svg';
+import Heart from '@/app/[lang]/lounge/_asset/QuestionHeart.svg';
 
 interface Props {
   title: ReactNode;

@@ -117,47 +117,44 @@ export const PLACEHOLDER_CONSTANT: PLACEHOLDERTYPE[] = [
   },
 ];
 
-
 export const DESCRIPTION_CONSTANT = [
   {
     title: '',
-    contents: "아래 예시를 참고하여 자세히 질문해보세요!  사라에게 더 만족스러운 답변을 받을 수 있을 거예요!"
+    contents: 'tutorial_askingTip_content',
   },
   {
-    title: '✅ 이렇게 질문하면 좋아요!',
-    contents: '어떤 이유로 고민하게 되었는지, 고민의 원인을 자세히 적어주세요. (장/단점 등 예시)\n집에서 일하는 시간이 많아져서 좋은 의자를 살까 고민 중이야. 지금 쓰는 의자도 괜찮긴 한데, 인체공학적인 의자를 쓰면 허리도 덜 아프고 일할 때 더 편할 것 같아.'
+    title: 'tutorial_askingTip_titleGood',
+    contents: 'tutorial_askingTip_contentGood',
   },
   {
-    title: '❌ 이렇게 질문하는 건 피해주세요!',
-    contents: '너무 간단한 질문: "너무 비싸서", "잘 안 쓸 것 같아" \n' +
-      '구매할 수 없는 항목: “손흥민", “피타고라스 정리”\n' +
-      '구매와 관련이 없는 질문: “오늘 운세를 알려줘."'
-  }
-]
+    title: 'tutorial_askingTip_titleBad',
+    contents: 'tutorial_askingTip_contentBad',
+  },
+];
 
 export const CONSTANTS_TEXT = {
-  item_name_label : {
-    sara : {
-      ko: '뭘 사고 싶샤?'
+  item_name_label: {
+    sara: {
+      ko: '뭘 사고 싶샤?',
     },
-    mara : {
-      ko: '뭘 사고 싶먀?'
-    }
-  },
-  item_description_label : {
-    sara : {
-      ko: '왜 고민하고 있샤?'
+    mara: {
+      ko: '뭘 사고 싶먀?',
     },
-    mara : {
-      ko: '왜 고민하고 있먀?'
-    }
   },
-  submit_button : {
-    sara : {
-      ko: '고민하는 물건을 사고 싶샤?'
+  item_description_label: {
+    sara: {
+      ko: '왜 고민하고 있샤?',
     },
-    mara : {
-      ko: '고민하는 물건을 사고 싶먀?'
-    }
+    mara: {
+      ko: '왜 고민하고 있먀?',
+    },
   },
-}
+  submit_button: {
+    sara: {
+      ko: '고민하는 물건을 사고 싶샤?',
+    },
+    mara: {
+      ko: '고민하는 물건을 사고 싶먀?',
+    },
+  },
+};

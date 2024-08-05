@@ -1,8 +1,8 @@
 'use client';
 
 import { useCallback, useMemo, useState } from 'react';
-import { Comment } from '@/app/lounge/[questionId]/_components/AnswerComment';
-import getNickname from '@/app/lounge/[questionId]/_utils/getNickname';
+import { Comment } from '@/app/[lang]/lounge/[questionId]/_components/AnswerComment';
+import getNickname from '@/app/[lang]/lounge/[questionId]/_utils/getNickname';
 import postComment from '@/apis/question/postComment';
 
 const useComment = (questionId: string, commentList: Comment[]) => {

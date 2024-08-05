@@ -16,8 +16,8 @@ import EmotionFeedback from '@/app/[lang]/question/answer/_components/EmotionFee
 import Logo from '@/components/atoms/Logo/Logo';
 import TextFeedback from '@/app/[lang]/question/answer/_components/TextFeedback';
 import shareKaKao from '@/app/_utils/shareKaKao';
-import AnswerKakaoShare from '@/app/lounge/[questionId]/_components/AnswerKakaoShare';
-import AnswerShare from '@/app/lounge/[questionId]/_components/AnswerShare';
+import AnswerKakaoShare from '@/app/[lang]/lounge/[questionId]/_components/AnswerKakaoShare';
+import AnswerShare from '@/app/[lang]/lounge/[questionId]/_components/AnswerShare';
 
 type Props = {
   searchParams: {

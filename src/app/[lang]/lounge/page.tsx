@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import QuestionList from '@/app/lounge/_components/QuestionList';
+import QuestionList from '@/app/[lang]/lounge/_components/QuestionList';
 
 export type Tab = '최신' | '베스트';
 

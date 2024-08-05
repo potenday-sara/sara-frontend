@@ -2,7 +2,7 @@
 
 import { cva } from 'class-variance-authority';
 import React from 'react';
-import Share from '@/app/lounge/[questionId]/_asset/share.svg';
+import Share from '@/app/[lang]/lounge/[questionId]/_asset/share.svg';
 import LinkShare from '@/app/[lang]/question/answer/_asset/share/share.svg';
 
 type Prps = {

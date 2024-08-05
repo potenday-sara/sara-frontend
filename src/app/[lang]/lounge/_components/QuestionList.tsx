@@ -3,10 +3,10 @@
 import { cva } from 'class-variance-authority';
 import { Fragment, useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Tab } from '@/app/lounge/page';
+import { Tab } from '@/app/[lang]/lounge/page';
 import Logo from '@/components/atoms/Logo/Logo';
-import QuestionCard from '@/app/lounge/_components/QuestionCard';
-import useQuestionList, { LIMIT } from '@/app/lounge/_hooks/useInfinityQuestion';
+import QuestionCard from '@/app/[lang]/lounge/_components/QuestionCard';
+import useQuestionList, { LIMIT } from '@/app/[lang]/lounge/_hooks/useInfinityQuestion';
 
 type Props = {
   tab: Tab;

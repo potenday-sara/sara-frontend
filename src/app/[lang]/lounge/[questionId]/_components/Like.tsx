@@ -2,8 +2,8 @@
 
 import { cva } from 'class-variance-authority';
 import { useState } from 'react';
-import LineHeart from '@/app/lounge/[questionId]/_asset/line_heart.svg';
-import { getIsLike, handleSetIsLike } from '@/app/lounge/[questionId]/_utils/handleIsLike';
+import LineHeart from '@/app/[lang]/lounge/[questionId]/_asset/line_heart.svg';
+import { getIsLike, handleSetIsLike } from '@/app/[lang]/lounge/[questionId]/_utils/handleIsLike';
 import postIsLike from '@/apis/question/postIsLike';
 import deleteIsLike from '@/apis/question/deleteIsLike';
 

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Kakao from '@/app/lounge/[questionId]/_asset/kakao.svg';
+import Kakao from '@/app/[lang]/lounge/[questionId]/_asset/kakao.svg';
 import shareKaKao from '@/app/_utils/shareKaKao';
 import KaKaoShare from '@/app/[lang]/question/answer/_asset/share/kakao-share.svg';
 

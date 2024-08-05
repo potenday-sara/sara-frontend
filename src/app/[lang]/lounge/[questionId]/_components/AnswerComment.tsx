@@ -1,6 +1,6 @@
 import React from 'react';
-import MaraComment from '@/app/lounge/[questionId]/_asset/mara-comment.svg';
-import SaraComment from '@/app/lounge/[questionId]/_asset/sara-comment.svg';
+import MaraComment from '@/app/[lang]/lounge/[questionId]/_asset/mara-comment.svg';
+import SaraComment from '@/app/[lang]/lounge/[questionId]/_asset/sara-comment.svg';
 
 export type Comment = {
   id: string;
