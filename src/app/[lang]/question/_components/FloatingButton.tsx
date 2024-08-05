@@ -11,6 +11,7 @@ import useHover from '@/app/_hooks/useHover';
 import { Theme } from '@/feature/question/ThemeContext';
 import getCssByTheme from '@/app/_utils/getCssByTheme';
 import { useOnboard } from '@/app/[lang]/question/_context/OnboardContext';
+import { useTranslation } from '@/app/_hooks/useTranslation';
 
 type Props = {
   theme: Theme;
@@ -20,6 +21,7 @@ function FloatingButton({ theme }: Props) {
   const [isOpened, setIsOpened] = React.useState(false);
   const { handleStartOnboard } = useOnboard();
 
+  const [{ t }] = useTranslation('question');
   const handleOnboardClick = () => {
     handleStartOnboard();
     setIsOpened(false);

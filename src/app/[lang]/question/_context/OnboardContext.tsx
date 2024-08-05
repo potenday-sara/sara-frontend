@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useContext, useEffect, useRef, useState } from 'react';
 import OnboardBalloon from '@/app/[lang]/question/_components/OnboardBallon';
 import { Theme } from '@/feature/question/ThemeContext';
+import { useTranslation } from '@/app/_hooks/useTranslation';
 
 type OnboardContextType = {
   firstItem: React.RefObject<HTMLDivElement>;
@@ -17,6 +18,7 @@ export function OnboardProvider({ children, theme }: { children: ReactNode; them
     const onboard = window.localStorage.getItem('onboard');
     return !(onboard === 'true');
   });
+  const [{ t }] = useTranslation('question');
 
   const firstItem = useRef<HTMLDivElement>(null);
   const secondItem = useRef<HTMLDivElement>(null);
@@ -194,15 +196,15 @@ export function OnboardProvider({ children, theme }: { children: ReactNode; them
               stage={0}
               position="top"
               top={firstItemPosition.top}
-              title="구매를 고민하고 있는 상품을 적어주세요."
+              title={t('tutorial_item_title')}
             />
           )}
           {stage === 1 && (
             <OnboardBalloon
               theme={theme}
               onClickCloseButton={handleSetFinish}
-              title="구매를 망설이고 있는 이류를 적어주세요"
-              description={`고민을 자세히 적을수록 \n 좋은 답변을 받을 확률이 높아요!`}
+              title={t('tutorial_reason_title')}
+              description={t('tutorial_reason_content')}
               onClickNextButton={handleSetNextStage}
               onClickPrevButton={handleSetPrevStage}
               stage={1}
@@ -214,8 +216,8 @@ export function OnboardProvider({ children, theme }: { children: ReactNode; them
             <OnboardBalloon
               theme={theme}
               onClickCloseButton={handleSetFinish}
-              title="모두 적었다면, '사라'에게 물어보세요."
-              description={`사야하는 물건을 걱정없이 살 수 있도록\n합당한 이유를 만들어 줄거에요!`}
+              title={t('tutorial_action_title')}
+              description={t('tutorial_action_content')}
               onClickNextButton={handleSetNextStage}
               onClickPrevButton={handleSetPrevStage}
               stage={2}
@@ -227,8 +229,8 @@ export function OnboardProvider({ children, theme }: { children: ReactNode; them
             <OnboardBalloon
               theme={theme}
               onClickCloseButton={handleSetFinish}
-              title={`모르는것이 있으면, \n여기 있는 '사라'를 눌러주세요!`}
-              description={`이 튜토리얼을 다시 볼 수 있고\n 다른 도움을 받을 수도 있어요!`}
+              title={t('tutorial_cs_title')}
+              description={t('tutorial_cs_content')}
               onClickEndButton={handleSetFinish}
               onClickPrevButton={handleSetPrevStage}
               stage={3}

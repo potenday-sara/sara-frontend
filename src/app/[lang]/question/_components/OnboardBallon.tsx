@@ -4,6 +4,7 @@ import Dot from '@/app/_asset/dot.svg';
 import X from '@/app/_asset/x.svg';
 import getCssByTheme from '@/app/_utils/getCssByTheme';
 import { Theme } from '@/feature/question/ThemeContext';
+import { useTranslation } from '@/app/_hooks/useTranslation';
 
 interface Props {
   position: 'top' | 'bottom';
@@ -30,6 +31,7 @@ export default function OnboardBalloon({
   onClickEndButton,
   onClickNextButton,
 }: Props) {
+  const [{ t }] = useTranslation('question');
   const balloonPosition = position === 'top' ? 'bubble-left-bottom' : 'bubble-left-top';
   const handleClickNextButton = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -94,7 +96,7 @@ export default function OnboardBalloon({
                     'font-12-title-100 rounded-[6px]  py-[6px] px-2',
                   )}
                 >
-                  이전
+                  {t('tutorial_button_previous')}
                 </button>
               )}
               {onClickNextButton && (
@@ -107,7 +109,7 @@ export default function OnboardBalloon({
                     'font-12-title-100 rounded-[6px] py-[6px] px-2',
                   )}
                 >
-                  다음
+                  {t('tutorial_button_next')}
                 </button>
               )}
               {onClickEndButton && (
@@ -120,7 +122,7 @@ export default function OnboardBalloon({
                     'font-12-title-100 rounded-[6px] py-[6px] px-2',
                   )}
                 >
-                  튜토리얼 종료
+                  {t('tutorial_button_done')}
                 </button>
               )}
             </div>
