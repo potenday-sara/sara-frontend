@@ -25,13 +25,17 @@ type Props = {
     answerId: string;
     questionId: string;
   };
+  params: {
+    lang: 'ko' | 'en' | 'jp';
+  };
 };
 
 const handleGetAnswer = async (answerId: string) => {
   return getAnswer({ answerId });
 };
 
-export default async function page({ searchParams }: Props) {
+export default async function page({ searchParams, params }: Props) {
+  const { lang } = params;
   const theme: Theme = searchParams.theme || 'sara';
 
   const { questionId } = searchParams;
@@ -41,13 +45,22 @@ export default async function page({ searchParams }: Props) {
   }
 
   const data = await handleGetAnswer(searchParams.answerId);
+  const dictionary = {
+    ko: () => import('@/dictionaries/ko/answer.json').then((module) => module.default),
+    jp: () => import('@/dictionaries/jp/answer.json').then((module) => module.default),
+    en: () => import('@/dictionaries/en/answer.json').then((module) => module.default),
+  };
+
+  const getDict = async (lang: 'ko' | 'en' | 'jp') => dictionary[lang]();
+
+  const dict = await getDict(lang);
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className="w-full pt-8 px-4 pb-4 bg-white rounded-[20px] flex flex-col gap-4 items-center relative">
         <div className="logo h-[64px]">{theme === 'sara' ? <SaraCircle /> : <MaraCircle />}</div>
         <div className="flex flex-col justify-center items-center gap-2">
-          <h3 className="font-14-title-100 text-black-#666">나의 질문</h3>
+          <h3 className="font-14-title-100 text-black-#666">{dict.stucked_question_label}</h3>
           <h2 className={getCssByTheme(theme, ['text-sara-primary', 'text-mara-primary'], 'font-18-title-100')}>
             {data.product}
           </h2>
@@ -62,15 +75,15 @@ export default async function page({ searchParams }: Props) {
         <EmotionFeedback theme={theme} questionId={questionId} />
 
         <div className="share flex flex-col items-center gap-3">
-          <h2 className="text-black-#666 font-14-title-100">공유하기</h2>
+          <h2 className="text-black-#666 font-14-title-100">{dict.general_share_title}</h2>
           <div className="flex gap-6 w-full">
             <div className="flex items-center flex-col justify-center gap-2">
               <AnswerShare type="ONLY_LOGO" />
-              <span className="font-12-medium-100 text-black-#999">링크 복사</span>
+              <span className="font-12-medium-100 text-black-#999">{dict.general_share_copyLink}</span>
             </div>
             <div className="flex items-center flex-col justify-center gap-2">
               <AnswerKakaoShare questionId={questionId} type="ONLY_LOGO" />
-              <span className="font-12-medium-100 text-black-#999">카카오톡</span>
+              <span className="font-12-medium-100 text-black-#999">{dict.general_share_kakao}</span>
             </div>
           </div>
         </div>

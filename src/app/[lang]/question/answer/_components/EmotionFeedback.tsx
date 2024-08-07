@@ -22,26 +22,15 @@ import useToast from '@/app/_hooks/useToast';
 import Toast from '@/app/_components/toast';
 import postQuestionFeedback from '@/apis/question/postQuestionFeedback';
 import Logo from '@/components/atoms/Logo/Logo';
+import { useTranslation } from '@/app/_hooks/useTranslation';
 
 type Props = {
   theme: Theme;
   questionId: string;
 };
 
-const saraFeedbackOptions = [
-  [<SaraGood />, '도움이 됐어요', 1, <SaraGoodSelect />],
-  [<SaraSoso />, '그럭저럭..?!', 0, <SaraSosoSelect />],
-  [<SaraBad />, '영 별로에요', -1, <SaraBadSelect />],
-];
-
-const maraFeedbackOptions = [
-  [<MaraGood />, '도움이 됐어요', 1, <MaraGoodSelect />],
-  [<MaraSoso />, '그럭저럭..?!', 0, <MaraSosoSelect />],
-  [<MaraBad />, '영 별로에요', -1, <MaraBadSelect />],
-];
-
 export default function EmotionFeedback({ theme, questionId }: Props) {
-  const feedbackOptions = theme === 'sara' ? saraFeedbackOptions : maraFeedbackOptions;
+  const [{ t }] = useTranslation('answer');
 
   const [selectValue, setSelectValue] = React.useState(1);
   const { isToast, handleToastOpen } = useToast(800);
@@ -57,6 +46,19 @@ export default function EmotionFeedback({ theme, questionId }: Props) {
   };
 
   const router = useRouter();
+  const saraFeedbackOptions = [
+    [<SaraGood />, t('answer_feedback_good'), 1, <SaraGoodSelect />],
+    [<SaraSoso />, t('answer_feedback_normal'), 0, <SaraSosoSelect />],
+    [<SaraBad />, t('answer_feedback_bad'), -1, <SaraBadSelect />],
+  ];
+
+  const maraFeedbackOptions = [
+    [<MaraGood />, t('answer_feedback_good'), 1, <MaraGoodSelect />],
+    [<MaraSoso />, t('answer_feedback_normal'), 0, <MaraSosoSelect />],
+    [<MaraBad />, t('answer_feedback_bad'), -1, <MaraBadSelect />],
+  ];
+  const feedbackOptions = theme === 'sara' ? saraFeedbackOptions : maraFeedbackOptions;
+
   return (
     <>
       <form
@@ -90,7 +92,7 @@ export default function EmotionFeedback({ theme, questionId }: Props) {
                 <span>{text}</span>
                 {isToast && selectValue === value && (
                   <Toast width={130}>
-                    <span className="text-white font-12-medium-100">평가가 반영되었어요!</span>
+                    <span className="text-white font-12-medium-100">{t('answer_feedback_toast')}</span>
                   </Toast>
                 )}
               </div>
@@ -107,7 +109,7 @@ export default function EmotionFeedback({ theme, questionId }: Props) {
           <div className="w-[64px]">
             <Logo logo="sara" />
           </div>
-          <span>{theme === 'sara' ? '에게 한번 더!' : '에게도 물어볼까?'}</span>
+          <span>{theme === 'sara' ? t('answer_retry') : t('answer_opposite')}</span>
         </button>
         <button
           type="button"
@@ -117,7 +119,7 @@ export default function EmotionFeedback({ theme, questionId }: Props) {
           <div className="w-[64px]">
             <Logo logo="mara" />
           </div>
-          <span>{theme === 'mara' ? '에게 한번 더!' : '에게도 물어볼까?'}</span>
+          <span>{theme === 'mara' ? t('answer_retry') : t('answer_opposite')}</span>
         </button>
       </div>
     </>

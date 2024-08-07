@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { cva } from 'class-variance-authority';
 import getCssByTheme from '@/app/_utils/getCssByTheme';
 import { Theme } from '@/feature/question/ThemeContext';
+import { useTranslation } from '@/app/_hooks/useTranslation';
 
 type TextFeedbackProps = {
   theme: Theme;
@@ -23,6 +24,7 @@ const TextFeedbackButtonClassName = cva(`text-white font-14-title-140 p-2 rounde
 export default function TextFeedback({ theme }: TextFeedbackProps) {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [feedBack, setFeedBack] = useState<string>('');
+  const [{ t }] = useTranslation('answer');
 
   const handleSetFeedBack = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setFeedBack(e.target.value);
@@ -49,7 +51,7 @@ export default function TextFeedback({ theme }: TextFeedbackProps) {
           ref={textareaRef}
           onChange={handleSetFeedBack}
           id="input"
-          placeholder={`${bigTheme}에게 바라는 점 / 하고싶은 \n 얘기가 있다면 작성해주세요`}
+          placeholder={t(`answer_opinion_placeholder_${theme}`)}
           value={feedBack}
           rows={2}
           className="question-base-input-text-left resize-none font-14-medium-140 p-[24px] border-b-[1px] border-gray-100 overflow-hidden"
@@ -61,7 +63,7 @@ export default function TextFeedback({ theme }: TextFeedbackProps) {
             disabled={feedBack.length === 0}
             className={TextFeedbackButtonClassName({ state: buttonState })}
           >
-            의견 보내기
+            {t('answer_opinion_submit')}
           </button>
         </div>
       </div>
