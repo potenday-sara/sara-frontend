@@ -7,6 +7,7 @@ import { Tab } from '@/app/[lang]/lounge/page';
 import Logo from '@/components/atoms/Logo/Logo';
 import QuestionCard from '@/app/[lang]/lounge/_components/QuestionCard';
 import useQuestionList, { LIMIT } from '@/app/[lang]/lounge/_hooks/useInfinityQuestion';
+import { useTranslation } from '@/app/_hooks/useTranslation';
 
 type Props = {
   tab: Tab;
@@ -138,6 +139,8 @@ export default function QuestionList({ tab }: Props) {
     router.push(`/lounge/${questionId}`);
   }, []);
 
+  const [{ t }] = useTranslation('lounge');
+
   if (status === 'pending') return <p>Loading...</p>;
   if (status === 'error') return <p>Error: {error.message}</p>;
 
@@ -149,7 +152,7 @@ export default function QuestionList({ tab }: Props) {
           onClick={() => handleClickFilter('전체')}
           className={TypeButtonClassNames({ 전체: activeFilter === '전체' })}
         >
-          전체
+          {t('lounge_tab_all')}
         </button>
         <button
           type="button"

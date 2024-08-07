@@ -4,6 +4,7 @@ import { cva } from 'class-variance-authority';
 import React from 'react';
 import Share from '@/app/[lang]/lounge/[questionId]/_asset/share.svg';
 import LinkShare from '@/app/[lang]/question/answer/_asset/share/share.svg';
+import { useTranslation } from '@/app/_hooks/useTranslation';
 
 type Prps = {
   type?: 'ONLY_LOGO' | 'HYBRID';
@@ -19,6 +20,8 @@ export default function AnswerShare({ type = 'HYBRID' }: Prps) {
     await navigator.clipboard.writeText(url);
     alert('링크가 복사되었습니다.');
   };
+
+  const [{ t }] = useTranslation('lounge');
   return (
     <div>
       {type === 'ONLY_LOGO' ? (
@@ -32,7 +35,7 @@ export default function AnswerShare({ type = 'HYBRID' }: Prps) {
       ) : (
         <button className={ShareButtonClassName()} onClick={handleClickShare} type="button">
           <Share fill="#fff" />
-          <span className="font-12-medium-100">공유하기</span>
+          <span className="font-12-medium-100">{t('general_share_title')}</span>
         </button>
       )}
     </div>

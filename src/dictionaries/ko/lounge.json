@@ -1,0 +1,15 @@
+{
+  "lounge_title": "사라마라 라운지",
+  "lounge_tab_latest": "최신",
+  "lounge_tab_best": "베스트",
+  "lounge_tab_all": "전체",
+  "detail_reply_title": "댓글",
+  "detail_reply_placeholder": "댓글을 입력해주세요.",
+  "detail_empty": "댓글이 하나도 없샤... 반응 좀 해달라샤...!!",
+  "detail_trendQuestion": "인기 질문",
+  "general_share_title": "공유하기",
+  "general_share_copyLink": "링크 복사",
+  "general_share_kakao": "카카오톡",
+  "answer_retry" : "에게 한 번 더!",
+  "answer_opposite" : "에게도 물어볼까?"
+}

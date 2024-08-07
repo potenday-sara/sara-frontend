@@ -1,0 +1,15 @@
+{
+  "lounge_title": "サラマラ ラウンジ",
+  "lounge_tab_latest": "最新",
+  "lounge_tab_best": "ベスト",
+  "lounge_tab_all": "全体",
+  "detail_reply_title": "コメント",
+  "detail_reply_placeholder": "コメントを書いてください",
+  "detail_empty": "コメントが一つもない... 反応してほしいって...!!",
+  "detail_trendQuestion": "人気",
+  "general_share_title": "共有する",
+  "general_share_copyLink": "リンク コピー",
+  "general_share_kakao": "カカオトーク",
+  "answer_retry" : " にもう一度！",
+  "answer_opposite" : "にも聞いてみる？"
+}

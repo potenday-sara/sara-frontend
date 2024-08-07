@@ -9,6 +9,7 @@ import getCssByTheme from '@/app/_utils/getCssByTheme';
 import useComment from '@/app/[lang]/lounge/[questionId]/_hooks/useComment';
 import SaraEmpty from '@/app/[lang]/lounge/[questionId]/_asset/empty-sara.svg';
 import MaraEmpty from '@/app/[lang]/lounge/[questionId]/_asset/empty-mara.svg';
+import { useTranslation } from '@/app/_hooks/useTranslation';
 
 interface Props {
   type: Theme;
@@ -27,6 +28,7 @@ export default function AnswerCommentList({ type, commentList, questionId }: Pro
     page,
   } = useComment(questionId, commentList);
   const [value, setValue] = useState('');
+  const [{ t }] = useTranslation('lounge');
   const adjustTextareaHeight = () => {
     const textarea = textareaRef.current;
 
@@ -51,7 +53,9 @@ export default function AnswerCommentList({ type, commentList, questionId }: Pro
 
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="font-14-medium-140">댓글 {commentListState.length}</h2>
+      <h2 className="font-14-medium-140">
+        {t('detail_reply_title')} {commentListState.length}
+      </h2>
       <div className="flex flex-col gap-[6px]">
         <div className="min-h-[140px] flex flex-col gap-5">
           {commentListState.length === 0 && (

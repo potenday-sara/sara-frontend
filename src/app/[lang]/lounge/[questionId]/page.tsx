@@ -19,11 +19,13 @@ import PopularAnswerList from '@/app/[lang]/lounge/[questionId]/_components/Popu
 interface Props {
   params: {
     questionId: string;
+    lang: 'ko' | 'en' | 'jp';
   };
 }
 
 export default async function page({ params }: Props) {
   const { questionId } = params;
+  const { lang } = params;
 
   const handleGetQuestion = async () => {
     const question = await getQuestion({ id: questionId });
@@ -34,6 +36,16 @@ export default async function page({ params }: Props) {
   };
 
   const answer = await handleGetQuestion();
+
+  const dictionary = {
+    ko: () => import('@/dictionaries/ko/lounge.json').then((module) => module.default),
+    jp: () => import('@/dictionaries/jp/lounge.json').then((module) => module.default),
+    en: () => import('@/dictionaries/en/lounge.json').then((module) => module.default),
+  };
+
+  const getDict = async (l: 'ko' | 'en' | 'jp') => dictionary[l]();
+
+  const dict = await getDict(lang);
 
   return (
     <div className="p-4 flex flex-col gap-5">
@@ -61,15 +73,19 @@ export default async function page({ params }: Props) {
           type="button"
           className="text-sara-primary rounded-[10px] font-14-title-100 flex-1 bg-sara-secondary rounded-10 flex flex-col items-center justify-center gap-[6px]"
         >
-          <Logo logo="sara" />
-          <span>{answer.type === 'sara' ? '에게 나도 질문하기' : '에게 물어볼까?'}</span>
+          <div className="w-[64px]">
+            <Logo logo="sara" />
+          </div>
+          <span>{answer.type === 'sara' ? dict.answer_retry : dict.answer_opposite}</span>
         </button>
         <button
           type="button"
           className="text-mara-primary rounded-[10px] font-14-title-100 flex-1 bg-mara-secondary rounded-10 flex flex-col items-center justify-center gap-[6px]"
         >
-          <Logo logo="mara" />
-          <span>{answer.type === 'mara' ? '에게 나도 질문하기' : '에게 물어볼까?'}</span>
+          <div className="w-[64px]">
+            <Logo logo="mara" />
+          </div>
+          <span>{answer.type === 'mara' ? dict.answer_retry : dict.answer_opposite}</span>
         </button>
       </div>
       <div className="divider" />

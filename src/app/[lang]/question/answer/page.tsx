@@ -51,7 +51,7 @@ export default async function page({ searchParams, params }: Props) {
     en: () => import('@/dictionaries/en/answer.json').then((module) => module.default),
   };
 
-  const getDict = async (lang: 'ko' | 'en' | 'jp') => dictionary[lang]();
+  const getDict = async (l: 'ko' | 'en' | 'jp') => dictionary[l]();
 
   const dict = await getDict(lang);
 

@@ -1,0 +1,15 @@
+{
+  "lounge_title": "SaraMara Lounge",
+  "lounge_tab_latest": "Latest",
+  "lounge_tab_best": "Best",
+  "lounge_tab_all": "All",
+  "detail_reply_title": "Comments",
+  "detail_reply_placeholder": "Please write the comment",
+  "detail_empty": "There is no comment... Please write something here!",
+  "detail_trendQuestion": "HOT",
+  "general_share_title": "Share",
+  "general_share_copyLink": "Copy Link",
+  "general_share_kakao": "KakaoTalk",
+  "answer_retry" : "One more ask to Sara",
+  "answer_opposite" : "Let's ask toSara"
+}

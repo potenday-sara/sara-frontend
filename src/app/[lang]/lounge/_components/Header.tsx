@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import LeftArrow from '@/asset/svg/left-arrow.svg';
+import { useTranslation } from '@/app/_hooks/useTranslation';
 
 export default function Header() {
   const router = useRouter();
@@ -14,6 +15,8 @@ export default function Header() {
     router.push('/lounge');
   };
 
+  const [{ t }] = useTranslation('lounge');
+
   return (
     <nav className="sticky w-full flex justify-center items-center py-2 h-[56px] bg-white top-0">
       <button
@@ -25,7 +28,7 @@ export default function Header() {
       </button>
       <h1 className="font-14-title-100">
         <span onClick={handleClickLounge} className="cursor-pointer">
-          사라마라 라운지
+          {t('lounge_title')}
         </span>
       </h1>
     </nav>

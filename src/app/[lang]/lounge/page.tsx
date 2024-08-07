@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import QuestionList from '@/app/[lang]/lounge/_components/QuestionList';
+import { useTranslation } from '@/app/_hooks/useTranslation';
 
 export type Tab = '최신' | '베스트';
 
@@ -11,6 +12,8 @@ export default function page() {
   const handleClickTab = (tab: Tab) => {
     setActiveTab(tab);
   };
+
+  const [{ t }] = useTranslation('lounge');
 
   return (
     <main className="flex flex-col flex-1 h-full">
@@ -23,7 +26,7 @@ export default function page() {
               activeTab === '최신' ? 'border-b-2 border-black-#333' : 'border-b-2 border-transparent'
             }`}
           >
-            최신
+            {t('lounge_tab_latest')}
           </button>
           <button
             type="button"
@@ -32,7 +35,7 @@ export default function page() {
               activeTab === '베스트' ? 'border-b-2 border-black-#333' : 'border-b-2 border-transparent '
             }`}
           >
-            베스트
+            {t('lounge_tab_best')}
           </button>
         </nav>
       </div>
