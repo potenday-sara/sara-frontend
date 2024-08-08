@@ -1,0 +1,22 @@
+{
+  "answer_retry" : "One more ask to Sara",
+  "answer_opposite" : "Let's ask toSara",
+  "stucked_question_label": "My question",
+  "answer_answer_title_sara": "",
+  "answer_answer_title_mara": "",
+  "answer_feedback_title_sara": "Was it helpful?",
+  "answer_feedback_title_mara": "Was it helpful?",
+  "answer_feedback_good": "It was great!",
+  "answer_feedback_normal": "Quite well.",
+  "answer_feedback_bad": "Not at all.",
+  "answer_feedback_toast":"The evaluation has reflected!" ,
+  "answer_opinion_placeholder_sara": "Please share us any opinion about Sara.",
+  "answer_opinion_placeholder_mara": "Please share us any opinion about Sara.",
+  "answer_opinion_submit": "Send feedback",
+  "answer_opinion_done_sara": "Thanks for sharing your opinion to Sara!",
+  "answer_opinion_done_mara": "Thanks for sharing your opinion to Mara!",
+  "answer_opinion_resubmit": "Rewrite the feedback",
+  "general_share_title": "Share",
+  "general_share_copyLink": "Copy Link",
+  "general_share_kakao": "KakaoTalk"
+}

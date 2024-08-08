@@ -3,12 +3,15 @@
 import { cva } from 'class-variance-authority';
 import { useState, memo } from 'react';
 import { useRouter } from 'next/navigation';
+import { descriptions } from 'jest-config';
 import MainSara from '@/asset/character/MainSara.svg';
 import MainMara from '@/asset/character/MainMara.svg';
 import { Theme } from '@/feature/main/hooks/useSaraMara';
 import Button from '@/components/atoms/Button';
 import Logo from '@/components/atoms/Logo/Logo';
 import getCssByTheme from '@/app/_utils/getCssByTheme';
+import { Locale } from '@/app/i18n/i18n.config';
+import { useTranslation } from '@/app/_hooks/useTranslation';
 
 type MainCharacterProps = {
   type: Theme;
@@ -35,9 +38,10 @@ const MainButtonClassNames = cva('py-4 flex justify-center bg-white w-[360px] ro
 
 function MainCharacter({ type, theme }: MainCharacterProps) {
   const router = useRouter();
+  const [{ t }, lang] = useTranslation('main');
 
   const handleClick = () => {
-    router.push(`/question?theme=${type}`);
+    router.push(`/${lang}/question?theme=${type}`);
   };
 
   return (
@@ -65,7 +69,7 @@ function MainCharacter({ type, theme }: MainCharacterProps) {
             <div className="w-[64px]">
               <Logo logo={type} />
             </div>
-            <div>에게 물어보기</div>
+            <div>{t('home_sara_button')}</div>
           </div>
         }
       />

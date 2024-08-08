@@ -1,0 +1,648 @@
+{
+  "home_sara_button": "에게 물어보기",
+  "home_mara_button": "에게 물어보기",
+  "home_trends": "실시간 트렌드",
+  "question_item_label_sara": "어떤 걸 사고 싶샤?",
+  "question_item_label_mara": "뭔데 사고 싶먀?",
+
+
+  "question_item_placeholder": {
+    "common": {
+      "ko": "사고 싶은 물건을 입력해주세요.",
+      "en": "Enter something you want to buy.",
+      "jp": "買いたい物を書いてください。"
+    }
+  },
+  "question_reason_label": {
+    "sara": {
+      "ko": "왜 때문에 망설이고 있샤?",
+      "en": "Why are you hesitating?",
+      "jp": "なぜ悩んでいるの？"
+    },
+    "mara": {
+      "ko": "근데 뭘 고민하고 있먀?",
+      "en": "Why are you hesitating?",
+      "jp": "何んで悩んでるんだ？"
+    }
+  },
+  "question_reason_placeholder": {
+    "common": {
+      "ko": "고민하고 있는 이유를 알려주세요.",
+      "en": "Please tell me why you're hesitating.",
+      "jp": "悩む理由を教えてください。"
+    }
+  },
+  "question_submit": {
+    "sara": {
+      "ko": "${item} 사면 어떨까, 샤?",
+      "en": "Wanna buy ${item}?",
+      "jp": "${item}を買いたいの？"
+    },
+    "mara": {
+      "ko": "${item} 사도 될 거 같먀?",
+      "en": "Do you think you can buy ${item}?",
+      "jp": "${item}を買っても良いかと?"
+    }
+  },
+  "question_recommedation": {
+    "common": {
+      "ko": "추천",
+      "en": "Recommended",
+      "jp": "推薦"
+    }
+  },
+  "question_carousel_title": {
+    "common": {
+      "ko": "라운지",
+      "en": "Lounge",
+      "jp": "ラウンジ"
+    }
+  },
+  "question_carousel_button": {
+    "common": {
+      "ko": "바로가기",
+      "en": "Go",
+      "jp": ""
+    }
+  },
+  "question_carousel_tooltip": {
+    "common": {
+      "ko": "다른 사람들의 질문 더 보러가기",
+      "en": "See more questions from others",
+      "jp": "他の人々の質問"
+    }
+  },
+  "tutorial_item_title": {
+    "common": {
+      "ko": "구매를 고민하고 있는 상품을 적어주세요.",
+      "en": "Please write down the product you're considering to buy.",
+      "jp": "買うか悩んでいる商品を書いてください。"
+    }
+  },
+  "tutorial_reason_title": {
+    "common": {
+      "ko": "구매를 망설이고 있는 이유를 적어주세요.",
+      "en": "Please write down the reason you're hesitating to buy it.",
+      "jp": "買うか迷っている理由を書いてください。"
+    }
+  },
+  "tutorial_reason_content": {
+    "common": {
+      "ko": "고민을 자세히 적을수록\n좋은 답변을 받을 확률이 높아요!",
+      "en": "The more details you write, the better your chances of getting a good answer.",
+      "jp": "悩みを詳しく書くほど良い答えをもらう確率が高いです！"
+    }
+  },
+  "tutorial_action_title": {
+    "common": {
+      "ko": "모두 적었다면, '사라'에게 물어보세요.",
+      "en": "When you've written everything down, ask 'Sara'.",
+      "jp": "全て書かなかったら、「サラ」に聞いてみてください。"
+    }
+  },
+  "tutorial_action_content": {
+    "common": {
+      "ko": "사야하는 물건을 걱정없이 살 수 있도록\n합당한 이유를 만들어 줄 거에요!",
+      "en": "She'll give you good reasons so you can buy it without worries!",
+      "jp": "買わなければならない物を心配なく買えるように適当な理由を作ってくれるんです！"
+    }
+  },
+  "tutorial_cs_title": {
+    "common": {
+      "ko": "모르는 것이 있으면,\n여기 있는 '사라'를 눌러주세요!",
+      "en": "If you have any questions, please click on 'Sara' here!",
+      "jp": "分からない事があったら、ここにあるサラを押してください！"
+    }
+  },
+  "tutorial_cs_content": {
+    "common": {
+      "ko": "이 튜토리얼을 다시 볼 수도 있고\n다른 도움을 받을 수도 있어요!",
+      "en": "You can view this tutorial again or get other helps too!",
+      "jp": ""
+    }
+  },
+  "tutorial_button_next": {
+    "common": {
+      "ko": "다음",
+      "en": "Next",
+      "jp": "以前"
+    }
+  },
+  "tutorial_button_previos": {
+    "common": {
+      "ko": "이전",
+      "en": "Prev.",
+      "jp": "次"
+    }
+  },
+  "tutorial_button_done": {
+    "common": {
+      "ko": "완료",
+      "en": "Done",
+      "jp": "完了"
+    }
+  },
+  "tutorial_askingTip_open": {
+    "common": {
+      "ko": "이렇게 질문해보세요!",
+      "en": "Try asking like this!",
+      "jp": "このように質問してみてください！"
+    }
+  },
+  "tutorial_askingTip_close": {
+    "common": {
+      "ko": "질문 팁 닫기",
+      "en": "Close tip",
+      "jp": "閉じる"
+    }
+  },
+  "tutorial_askingTip_content": {
+    "common": {
+      "ko": "아래 예시를 참고하여 자세히 질문해보세요!\n더 만족스러운 답변을 받을 수 있을 거예요!",
+      "en": "Check out the examples below and ask in detail. You'll get more satisfying answers!",
+      "jp": "下記の例を参考にして詳しく質問してみてください！もっといい答えがもらえると思います！"
+    }
+  },
+  "tutorial_askingTip_titleGood": {
+    "common": {
+      "ko": "✅ 이렇게 질문하면 좋아요!",
+      "en": "✅ Good to ask like below!",
+      "jp": "✅ こう質問するといいですよ！"
+    }
+  },
+  "tutorial_askingTip_contentGood": {
+    "common": {
+      "ko": "어떤 이유로 고민하게 되었는지, 고민의 원인을 자세히 적어주세요.(장/단점 등)\n예시) 집에서 일하는 시간이 많아져서 좋은 의자를 살까 고민 중이야. 지금 쓰는 의자도 괜찮긴 한데, 인체공학적인 의자를 쓰면 허리도 덜 아프고 일할 때 더 편할 것 같아.",
+      "en": "Please describe in detail why you are hesitating, including the reasons and any pros or cons in your mind.\nEx) I'm working from home a lot these days, thinking about getting a better chair.\nMy current one is okay, but a comfy ergonomic chair might just make working a lot nicer.",
+      "jp": "どんな理由で悩むようになったのか、悩みの原因を詳しく書いてください。(長所/短所など)\n家で働く時間が多くなっていい椅子を買おうか悩んでいるよ。 今使っている椅子もいいけど、人間工学的な椅子を使えば腰も痛くなく、仕事の時にもっと楽だと思う"
+    }
+  },
+  "tutorial_askingTip_titleBad": {
+    "common": {
+      "ko": "❌ 이렇게 질문하는 건 피해주세요!",
+      "en": "❌ Please avoid asking like this!",
+      "jp": "❌ このように質問するのは避けてください！"
+    }
+  },
+  "tutorial_askingTip_contentBad": {
+    "common": {
+      "ko": "- 너무 간단한 질문: \"너무 비싸서\", \"잘 안 쓸 것 같아\" \n- 구매할 수 없는 항목: \"손흥민\", \"피타고라스 정리\"\n- 구매와 관련이 없는 질문: \"오늘 운세를 알려줘.\"",
+      "en": "- Too simple questions: \"It's too expensive,\" \"I won't use it often.\"\n- Unbuyable items: \"Tony Stark\" \"Pythagorean theorem.\"\nQuestions unrelated to purchase: \"Tell me today's horoscope.\"",
+      "jp": "- あまりにも簡単な質問:「高すぎるから」、「あまり使わないと思う」\n- 購入できない項目: 「海賊王」、 「ピタゴラス整理」\n- 購入に関連のない質問: 「今日の運勢を教えて」"
+    }
+  },
+  "loading_tips_label": {
+    "common": {
+      "ko": "질문 팁",
+      "en": "Question tips",
+      "jp": "質問チップ"
+    }
+  },
+  "loading_tips_content1": {
+    "common": {
+      "ko": "질문 내용을 자세하게 물어보면 더 좋은 답변을 받을 수 있을 거예요! 😎",
+      "en": "If you ask with more details, you would get better answer! 😎",
+      "jp": "質問の内容を詳しく尋ねると、より良い答えが得られます！ 😎"
+    }
+  },
+  "loading_tips_content2": {
+    "common": {
+      "ko": "어떤 상품은 Sara가 잘 모를 수도 있어요...! 예를 들면... \"비트겐슈타인 그란데 사이즈 3종 세트\"... 같은 거? 😂",
+      "en": "Sara might not be familiar with some products... Something like \"Wittgenstein Grande Pork\"? It's not even a word. 😂",
+      "jp": "どんな商品はサラがよく分からないかもしれません.例えば... 「ヴィトゲンシュタイン グランデ」のようなものとか？ 😂"
+    }
+  },
+  "loading_tips_content3": {
+    "common": {
+      "ko": "사라의 답변이 마음에 드신다면, 하단의 평가 버튼을 눌러주세요! 더 좋은 조언을 주는 데에 힘이 될 거예요! 😉",
+      "en": "Hit the rating buttons below the result! It would be a big contruibution for giving better advice! 😉",
+      "jp": "サラの回答が気に入ったら、下の評価ボタンを押してください！より良いアドバイスを提供する力になります！ 😉"
+    }
+  },
+  "loading_tips_content4": {
+    "common": {
+      "ko": "여기 어딘가에 정말 멋진 상품들이 있는 거 같아요! 클릭하면 대체 어떤 좋은 일이 일어날까요? (엇, 너무 속 보였나...!?)",
+      "en": "It seems like there are some cool stuffs somewhere! What good things would happen when we click them? (Oops, was I too cheesy...?)",
+      "jp": "ここのどこかに素晴らしい商品がありそう！クリックするとどんな良いことが起こるのか？（あっ、バレバレだったかも笑）"
+    }
+  },
+  "loading_question_label": {
+    "common": {
+      "ko": "나의 질문",
+      "en": "My question",
+      "jp": "私の質問"
+    }
+  },
+  "stucked_character": {
+    "common": {
+      "ko": "10초만 더 주샤...",
+      "en": "Just 10 more seconds...",
+      "jp": "あと10秒だけちょうだい..."
+    }
+  },
+  "stucked_tips_try1-1": {
+    "sara": {
+      "ko": "이번엔 진짜로 답을 줄 거예요...!",
+      "en": "This time you're really getting a answer, I promise!",
+      "jp": "今回は本当に答えますよ...!"
+    },
+    "mara": {
+      "ko": "이번엔 진짜로 답을 줄 거예요...!",
+      "en": "This time you're really getting a answer, I promise!",
+      "jp": "今回は本当に答えますよ...!"
+    }
+  },
+  "stucked_tips_try1-2": {
+    "sara": {
+      "ko": "딱 10초면 정말 답을 줄 거예요...!",
+      "en": "Just give me 10 more seconds!",
+      "jp": "10秒で本当に答えます...!"
+    },
+    "mara": {
+      "ko": "딱 10초면 정말 답을 줄 거예요...!",
+      "en": "Just give me 10 more seconds!",
+      "jp": "10秒で本当に答えます...!"
+    }
+  },
+  "stucked_tips_try1-3": {
+    "sara": {
+      "ko": "(샤피셜)사라에게 10초를 더 줬을 때, 답변을 받을 확률은 97%!",
+      "en": "Safficial) Giving Sara another 10 seconds, the chance for getting answer is 97%!",
+      "jp": "(サラ曰く)サラに10秒与えたら、回答を得られる確率は97%!"
+    },
+    "mara": {
+      "ko": "(먀피셜)마라에게 10초를 더 줬을 때, 답변을 받을 확률은 97%!",
+      "en": "Mafficial) Giving Mara another 10 seconds, the chance for getting answer is 97%!",
+      "jp": "(マラ曰く)マラに10秒与えたら、回答を得られる確率は97%!"
+    }
+  },
+  "stucked_tips_try2": {
+    "sara": {
+      "ko": "어라라...? 뭔가 이상한 거 같기도...?",
+      "en": "Oh what...? Something feels off...?",
+      "jp": "あれれ...? 何か変な感じがするかも...?"
+    },
+    "mara": {
+      "ko": "어라라...? 뭔가 이상한 거 같기도...?",
+      "en": "Oh what...? Something feels off...?",
+      "jp": "あれれ...? 何か変な感じがするかも...?"
+    }
+  },
+  "stucked_tips_try3": {
+    "sara": {
+      "ko": "사라에게 무슨 일이 있나봐요ㅠ 다시 질문해주실래요...?",
+      "en": "Seems like something happened to Sara... Could you ask the question again? 🥲",
+      "jp": ""
+    },
+    "mara": {
+      "ko": "마라에게 무슨 일이 있나봐요ㅠ 다시 질문해주실래요...?",
+      "en": "Seems like something happened to Mara... Could you ask the question again? 🥲",
+      "jp": "サラに何かあったようです。もう一度質問してくれませんか?"
+    }
+  },
+  "stucked_giveMoreTime": {
+    "common": {
+      "ko": "10초 더 주기",
+      "en": "10 more seconds",
+      "jp": "10秒追加する"
+    }
+  },
+  "stucked_retry": {
+    "common": {
+      "ko": "질문 다시하기",
+      "en": "Retry",
+      "jp": "もう一度質問する"
+    }
+  },
+  "stucked_question_label": {
+    "common": {
+      "ko": "나의 질문",
+      "en": "My question",
+      "jp": "私の質問"
+    }
+  },
+  "answer_question_label": {
+    "sara": {
+      "ko": "어떤 걸 사고 싶샤?",
+      "en": "What do you wanna buy?",
+      "jp": "何が買いたいの?"
+    },
+    "mara": {
+      "ko": "뭔데 사고 싶먀?",
+      "en": "What do you wanna buy?",
+      "jp": "何が買いたいんだ？"
+    }
+  },
+  "answer_answer_title": {
+    "sara": {
+      "ko": "Sara 는 것이샤",
+      "en": "Just Sara",
+      "jp": "Sara の見解は"
+    },
+    "mara": {
+      "ko": "사지 말라면 Mara ",
+      "en": "You must Mara",
+      "jp": "Mara しろ"
+    }
+  },
+  "answer_feedback_title": {
+    "sara": {
+      "ko": "도움 됐샤?",
+      "en": "Was it helpful?",
+      "jp": "役に立った？"
+    },
+    "mara": {
+      "ko": "도움 됐먀?",
+      "en": "Was it helpful?",
+      "jp": "役に立ったか？"
+    }
+  },
+  "answer_feedback_good": {
+    "common": {
+      "ko": "도움이 됐어요",
+      "en": "It was great!",
+      "jp": "役に立ったよ！"
+    }
+  },
+  "answer_feedback_normal": {
+    "common": {
+      "ko": "그럭저럭..?!",
+      "en": "Quite well.",
+      "jp": "まあまあ..?!"
+    }
+  },
+  "answer_feedback_bad": {
+    "common": {
+      "ko": "영 별로에요",
+      "en": "Not at all.",
+      "jp": "全然ダメです。"
+    }
+  },
+  "answer_feedback_toast": {
+    "common": {
+      "ko": "평가가 반영되었어요!",
+      "en": "The evaluation has reflected!",
+      "jp": "評価が反映されました！"
+    }
+  },
+  "answer_retry_same": {
+    "common": {
+      "ko": "Sara 에게 한 번 더!",
+      "en": "One more ask to Sara",
+      "jp": "Sara にもう一度！"
+    }
+  },
+  "answer_retry_opposite": {
+    "common": {
+      "ko": "Sara 에게도 물어볼까?",
+      "en": "Let's ask toSara ",
+      "jp": "Sara にも聞いてみる？"
+    }
+  },
+  "answer_opinion_placeholder": {
+    "sara": {
+      "ko": "사라에게 바라는 점, 하고 싶은 얘기가 있다면 작성해주세요.",
+      "en": "Please share us any opinion about Sara.",
+      "jp": "サラに期待することや伝えたいことがあれば書いてください"
+    },
+    "mara": {
+      "ko": "마라에게 바라는 점, 하고 싶은 얘기가 있다면 작성해주세요.",
+      "en": "Please share us any opinion about Mara.",
+      "jp": "マラに期待することや伝えたいことがあれば書いてください"
+    }
+  },
+  "answer_opinion_submit": {
+    "common": {
+      "ko": "의견 보내기",
+      "en": "Send feedback",
+      "jp": "意見送り"
+    }
+  },
+  "answer_opinion_done": {
+    "sara": {
+      "ko": "사라에게 의견 보내줘서 고맙샤!",
+      "en": "Thanks for sharing your opinion to Sara!",
+      "jp": "サラに意見を送ってくれてありがとうね！"
+    },
+    "mara": {
+      "ko": "마라에게 의견 보내줘서 고맙다 먀!",
+      "en": "Thanks for sharing your opinion to Mara!",
+      "jp": "マラに意見を送ってくれてありがとうな！"
+    }
+  },
+  "answer_opinion_resubmit": {
+    "common": {
+      "ko": "의견 다시 쓰기",
+      "en": "Rewrite the feedback",
+      "jp": "意見を再送"
+    }
+  },
+  "lounge_title": {
+    "common": {
+      "ko": "사라마라 라운지",
+      "en": "SaraMara Lounge",
+      "jp": "サラマラ ラウンジ"
+    }
+  },
+  "lounge_tab_latest": {
+    "common": {
+      "ko": "최신",
+      "en": "Latest",
+      "jp": "最新"
+    }
+  },
+  "lounge_tab_best": {
+    "common": {
+      "ko": "베스트",
+      "en": "Best",
+      "jp": "ベスト"
+    }
+  },
+  "lounge_tab_all": {
+    "common": {
+      "ko": "전체",
+      "en": "All",
+      "jp": "全体"
+    }
+  },
+  "detail_reply_title": {
+    "common": {
+      "ko": "댓글",
+      "en": "Comments",
+      "jp": "コメント"
+    }
+  },
+  "detail_reply_placeholder": {
+    "common": {
+      "ko": "댓글을 입력해주세요.",
+      "en": "Please write the comment",
+      "jp": "コメントを書いてください。"
+    }
+  },
+  "detail_empty": {
+    "common": {
+      "ko": "댓글이 하나도 없샤... 반응 좀 해달라샤...!!",
+      "en": "There is no comment... Please write something here!",
+      "jp": "コメントが一つもない... 反応してほしいって...!!"
+    }
+  },
+  "detail_trendQuestion": {
+    "common": {
+      "ko": "인기 질문",
+      "en": "HOT",
+      "jp": "人気"
+    }
+  },
+  "general_date": {
+    "common": {
+      "ko": "지금, n분 전, n시간 전, n일 전",
+      "en": "Just now, nminute(s) ago, nhour(s) ago, nday(s) ago",
+      "jp": "今, n分前, n時間前, n日前"
+    }
+  },
+  "general_share_title": {
+    "common": {
+      "ko": "공유하기",
+      "en": "Share",
+      "jp": "共有する"
+    }
+  },
+  "general_share_copyLink": {
+    "common": {
+      "ko": "링크 복사",
+      "en": "Copy Link",
+      "jp": "リンク コピー"
+    }
+  },
+  "general_share_kakao": {
+    "common": {
+      "ko": "카카오톡",
+      "en": "KakaoTalk",
+      "jp": "カカオトーク"
+    }
+  },
+  "floating_rotate_text1": {
+    "sara": {
+      "ko": "Sara 써보니 어때?",
+      "en": "How was Sara?",
+      "jp": "サラを使ってみてどう?"
+    },
+    "mara": {
+      "ko": "Mara 써보니 어때?",
+      "en": "How was Mara?",
+      "jp": "マラを使ってみてどう?"
+    }
+  },
+  "floating_rotate_text2": {
+    "sara": {
+      "ko": "어떻게 써야 할지 알려줄게, 샤!",
+      "en": "I'll tell you how to use it!",
+      "jp": "どう書けばいいか教えてあげるよ、シャ!"
+    },
+    "mara": {
+      "ko": "어떻게 써야 할지 알려줄게, 먀!",
+      "en": "I'll tell you how to use it!",
+      "jp": "どう書けばいいか教えてあげるよ、ミャ!"
+    }
+  },
+  "floating_rotate_text3": {
+    "sara": {
+      "ko": "하고 싶은 말이 있샤?",
+      "en": "Do you have something to say?",
+      "jp": "言いたいことがあるの?"
+    },
+    "mara": {
+      "ko": "하고 싶은 말이 있먀?",
+      "en": "Do you have something to say?",
+      "jp": "言いたいことがあるのか?"
+    }
+  },
+  "floating_rotate_text4": {
+    "sara": {
+      "ko": "피드백 부탁해, 샤!",
+      "en": "Please give me feedback!",
+      "jp": "フィードバックをお願い、シャ!"
+    },
+    "mara": {
+      "ko": "피드백 부탁해, 먀!",
+      "en": "Please give me feedback!",
+      "jp": "フィードバックをお願い、ミャ!"
+    }
+  },
+  "floating_rotate_text5": {
+    "sara": {
+      "ko": "문제가 생겼샤?",
+      "en": "Is there any problem?",
+      "jp": "何か問題でもあったの？"
+    },
+    "mara": {
+      "ko": "문제가 생겼먀?",
+      "en": "Is there any problem?",
+      "jp": "何か問題でもあったか？"
+    }
+  },
+  "floating_help_title": {
+    "sara": {
+      "ko": "무엇이 궁금하샤?",
+      "en": "Could I help you?",
+      "jp": "何が気になるの?"
+    },
+    "mara": {
+      "ko": "무엇이 궁금하먀?",
+      "en": "Could I help you?",
+      "jp": "何が気になるのんだ?"
+    }
+  },
+  "floating_help_tutorial": {
+    "common": {
+      "ko": "문제가 있어 / 하고 싶은 말이 있어!",
+      "en": "There's a problem / I have something to say!",
+      "jp": "問題がある / 言いたいことがある!"
+    }
+  },
+  "floating_help_survey": {
+    "common": {
+      "ko": "사용 방법을 알려줘!",
+      "en": "Let me know how to use it.",
+      "jp": "使い方を教えて！"
+    }
+  },
+  "floating_help_introduction": {
+    "common": {
+      "ko": "",
+      "en": "Tell me about yourselves.",
+      "jp": "サラマラって何？"
+    }
+  },
+  "shopping_title": {
+    "sara": {
+      "ko": "바로 Sara",
+      "en": "Just Sara",
+      "jp": "Sara して"
+    },
+    "mara": {
+      "ko": "사지 Mara",
+      "en": "You must Mara",
+      "jp": "Mara しろ"
+    }
+  },
+  "shopping_coupangRegulate": {
+    "common": {
+      "ko": "*위 컨텐츠는 쿠팡 파트너스 활동의 일원으로 금전적 대가를 취할 수 있습니다",
+      "en": "",
+      "jp": ""
+    }
+  },
+  "shopping_search": {
+    "sara": {
+      "ko": "방금 물어본 거 바로 Sara",
+      "en": "Sara it right away",
+      "jp": "すぐに Sara"
+    },
+    "mara": {
+      "ko": "방금 물어본 거 사지 Mara",
+      "en": "Mara it ever",
+      "jp": "Mara しろ"
+    }
+  }
+}
