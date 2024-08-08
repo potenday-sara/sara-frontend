@@ -4,6 +4,7 @@ import { Fragment, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import QuestionCard from '@/app/[lang]/lounge/_components/QuestionCard';
 import useQuestionList from '@/app/[lang]/lounge/_hooks/useInfinityQuestion';
+import { useTranslation } from '@/app/_hooks/useTranslation';
 
 export default function PopularAnswerList() {
   const router = useRouter();
@@ -18,6 +19,7 @@ export default function PopularAnswerList() {
     limit: 5,
   });
 
+  const [{ t }] = useTranslation('lounge');
   const handleScroll = async () => {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
       await fetchNextPage();
