@@ -1,5 +1,6 @@
 import { Theme } from '@/feature/question/ThemeContext';
 import { ClientQuestionAPI } from '@/apis/question/index';
+import { API_LOCALE } from '@/app/_hooks/useTranslation';
 
 export interface POSTQuestionResponseTypes {
   id: string;
@@ -15,9 +16,10 @@ export interface POSTQuestionRequestTypes {
   content: string;
   product: string;
   type: Theme;
+  language: API_LOCALE;
 }
 
-const postQuestion = ({ content, product, type }: POSTQuestionRequestTypes) =>
-  ClientQuestionAPI.post('/').data({ content, product, type }).build().call<POSTQuestionResponseTypes>();
+const postQuestion = ({ content, product, type, language }: POSTQuestionRequestTypes) =>
+  ClientQuestionAPI.post('/').data({ content, product, type, language }).build().call<POSTQuestionResponseTypes>();
 
 export default postQuestion;

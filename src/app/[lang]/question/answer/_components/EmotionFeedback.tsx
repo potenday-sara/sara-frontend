@@ -30,7 +30,7 @@ type Props = {
 };
 
 export default function EmotionFeedback({ theme, questionId }: Props) {
-  const [{ t }] = useTranslation('answer');
+  const [{ t }, lang] = useTranslation('answer');
 
   const [selectValue, setSelectValue] = React.useState(1);
   const { isToast, handleToastOpen } = useToast(800);
@@ -103,7 +103,7 @@ export default function EmotionFeedback({ theme, questionId }: Props) {
       <div className="flex gap-1 h-[70px] w-full">
         <button
           type="button"
-          onClick={() => router.push('/question/?theme=sara')}
+          onClick={() => router.push(`/${lang}/question/?theme=sara`)}
           className="text-sara-primary rounded-[10px] font-14-title-100 flex-1 bg-sara-secondary rounded-10 flex flex-col items-center justify-center gap-1"
         >
           <div className="w-[64px]">
@@ -113,7 +113,7 @@ export default function EmotionFeedback({ theme, questionId }: Props) {
         </button>
         <button
           type="button"
-          onClick={() => router.push('/question/?theme=mara')}
+          onClick={() => router.push(`/${lang}/question/?theme=mara`)}
           className="text-mara-primary rounded-[10px] font-14-title-100 flex-1 bg-mara-secondary rounded-10 flex flex-col items-center justify-center gap-1"
         >
           <div className="w-[64px]">

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useCategory, useItemsByCategory, useItemsByKeyword } from '@/app/[lang]/question/_query/useShopQuery';
 import { useQuestion } from '@/app/[lang]/question/_context/QuestionContext';
+import { getLocale, useTranslation } from '@/app/_hooks/useTranslation';
 
 const usePage = (arr: unknown[]) => {
   const [nowPage, setNowPage] = useState(1);
@@ -34,16 +35,17 @@ const useShop = () => {
   });
   const [items, setItems] = useState([]);
   const [itemLoading, setItemLoading] = useState({});
+  const [_, lang] = useTranslation('common');
 
   const searchParams = useSearchParams();
   const keyword = searchParams?.get('keyword') || '';
 
-  const { data: categories, isLoading: categoryLoading } = useCategory();
+  const { data: categories, isLoading: categoryLoading } = useCategory(getLocale(lang));
   const { data: categoryItems, isLoading: categoryItemLoading } = useItemsByCategory({
     id: nowCategory.id,
-    language: 'KO',
+    language: getLocale(lang),
   });
-  const { data: keywordItem, isLoading: keywordLoading } = useItemsByKeyword({ keyword, language: 'KO' });
+  const { data: keywordItem, isLoading: keywordLoading } = useItemsByKeyword({ keyword, language: getLocale(lang) });
 
   const nowShowing = useMemo(() => keywordItem || categoryItems || [], [keywordItem, categoryItems]);
 
