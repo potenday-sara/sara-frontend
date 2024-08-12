@@ -183,7 +183,7 @@ export default function QuestionList({ tab }: Props) {
         {TAB_MAP[tab] === 'like' && (
           <>
             {questionList.pages.map((page, index) => (
-              <Fragment key={`${index} 123`}>
+              <Fragment key={`${Math.random()} 123`}>
                 {page.data.results.map((question, idx) => (
                   <QuestionCard
                     onClick={handleClickCard}
@@ -212,7 +212,7 @@ export default function QuestionList({ tab }: Props) {
         {TAB_MAP[tab] === 'time' && (
           <>
             {questionList.pages.map((page, index) => (
-              <Fragment key={`${index} 123`}>
+              <Fragment key={`${Math.random()} 123`}>
                 {page.data.results.map((question, idx) => (
                   <QuestionCard
                     onClick={handleClickCard}
