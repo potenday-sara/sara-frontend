@@ -4,8 +4,9 @@ import { initReactI18next } from 'react-i18next/initReactI18next';
 import { FallbackNs } from 'react-i18next';
 
 import { getOptions } from '@/app/i18n/setting';
+import { Locale } from '@/app/i18n/i18n.config';
 
-const initI18next = async (lng: string, ns: string | string[]) => {
+const initI18next = async (lng: Locale, ns: string | string[]) => {
   const i18nInstance = createInstance();
   await i18nInstance
     .use(initReactI18next)
@@ -15,7 +16,7 @@ const initI18next = async (lng: string, ns: string | string[]) => {
 };
 
 export async function useTranslation<Ns extends FlatNamespace, KPrefix extends KeyPrefix<FallbackNs<Ns>> = undefined>(
-  lng: string,
+  lng: Locale,
   ns?: Ns,
   options: { keyPrefix?: KPrefix } = {},
 ) {
