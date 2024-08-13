@@ -113,7 +113,7 @@ export default function EmotionFeedback({ theme, questionId }: Props) {
         </button>
         <button
           type="button"
-          onClick={() => router.push(`/${lang}/question/?theme=mara`)}
+          onClick={() => router.push(`${lang}/question/?theme=mara`)}
           className="text-mara-primary rounded-[10px] font-14-title-100 flex-1 bg-mara-secondary rounded-10 flex flex-col items-center justify-center gap-1"
         >
           <div className="w-[64px]">

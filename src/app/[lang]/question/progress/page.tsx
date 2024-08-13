@@ -12,6 +12,10 @@ import { useQuestion } from '@/app/[lang]/question/_context/QuestionContext';
 import useQuestionLoading from '@/app/[lang]/question/progress/_hooks/useQuestionLoading';
 import QuestionProgress from '@/app/[lang]/question/progress/_components/QuestionProgress';
 import { useTranslation } from '@/app/_hooks/useTranslation';
+import SaraCircleJP from '@/asset/logo/sara-jp.svg';
+import MaraCircleJP from '@/asset/logo/mara-jp.svg';
+import SaraCircleEN from '@/asset/logo/sara-en.svg';
+import MaraCircleEN from '@/asset/logo/mara-en.svg';
 
 const saraRandomTextArray = [
   '질문 내용을 자세하게 물어보면\n더 좋은 답변을 받을 수 있을 거예요!',
@@ -61,7 +65,11 @@ export default function page({ searchParams }: { searchParams: { theme: Theme } 
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className="w-full pt-8 px-4 pb-4 bg-white rounded-[20px] flex flex-col gap-4 items-center">
-        <div className="logo h-[64px]">{theme === 'sara' ? <SaraCircle /> : <MaraCircle />}</div>
+        <div className="logo cursor-pointer w-[130px]">
+          {lang === 'jp' && (theme === 'sara' ? <SaraCircleJP /> : <MaraCircleJP />)}
+          {lang === 'en' && (theme === 'sara' ? <SaraCircleEN /> : <MaraCircleEN />)}
+          {lang === 'ko' && (theme === 'sara' ? <SaraCircle /> : <MaraCircle />)}
+        </div>
         <div className="character w-[148px] flex gap-4 flex-col">
           <LoadingLottie theme={theme} />
           <QuestionProgress questionId={questionId} theme={theme} />
