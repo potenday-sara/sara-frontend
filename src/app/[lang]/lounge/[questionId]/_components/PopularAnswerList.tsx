@@ -4,9 +4,10 @@ import { Fragment, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import QuestionCard from '@/app/[lang]/lounge/_components/QuestionCard';
 import useQuestionList from '@/app/[lang]/lounge/_hooks/useInfinityQuestion';
-import { useTranslation } from '@/app/_hooks/useTranslation';
+import { getLocale, useTranslation } from '@/app/_hooks/useTranslation';
 
 export default function PopularAnswerList() {
+  const [{ t }, lang] = useTranslation('lounge');
   const router = useRouter();
   const {
     data: questionList,
@@ -17,9 +18,9 @@ export default function PopularAnswerList() {
     order: 'like',
     type: 'all',
     limit: 5,
+    language: getLocale(lang),
   });
 
-  const [{ t }] = useTranslation('lounge');
   const handleScroll = async () => {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
       await fetchNextPage();
@@ -42,9 +43,9 @@ export default function PopularAnswerList() {
 
   return (
     <div className="flex-1 h-[full] flex flex-col gap-2 overflow-hidden">
-      <h3 className="font-14-title-100">인기 질문</h3>
+      <h3 className="font-14-title-100">{t('detail_trendQuestion')}</h3>
       {questionList.pages.map((page, index) => (
-        <Fragment key={`popular ${index}`}>
+        <Fragment key={`popular-${Math.random()}`}>
           {page.data.results.map((question, idx) => (
             <QuestionCard
               onClick={handleClickCard}

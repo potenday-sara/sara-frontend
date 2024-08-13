@@ -1,5 +1,6 @@
 import { ClientShopAPI } from '@/apis/shop/index';
 import { Language } from '@/types/lang';
+import { API_LOCALE } from '@/app/_hooks/useTranslation';
 
 export interface GetCategoriesResponseTypes {
   is_rocket: boolean; // Is rocket
@@ -14,7 +15,7 @@ export interface GetCategoriesResponseTypes {
 }
 export interface GetCategoriesRequestTypes {
   id: string;
-  language: Language;
+  language: API_LOCALE;
 }
 
 const getItemByCategory = async ({ id, language }: GetCategoriesRequestTypes) => {

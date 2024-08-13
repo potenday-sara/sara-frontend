@@ -9,6 +9,7 @@ import Shop from '@/app/[lang]/question/_components/Shop';
 import getCssByTheme from '@/app/_utils/getCssByTheme';
 import Slider from '@/app/[lang]/question/_components/Slider';
 import { OnboardProvider } from '@/app/[lang]/question/_context/OnboardContext';
+import { Locale } from '@/app/i18n/i18n.config';
 
 export default function layout({ children }: { children: ReactNode; params: { theme: Theme } }) {
   const searchParams = useSearchParams();

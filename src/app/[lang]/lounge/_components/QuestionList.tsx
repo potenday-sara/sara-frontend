@@ -7,7 +7,7 @@ import { Tab } from '@/app/[lang]/lounge/page';
 import Logo from '@/components/atoms/Logo/Logo';
 import QuestionCard from '@/app/[lang]/lounge/_components/QuestionCard';
 import useQuestionList, { LIMIT } from '@/app/[lang]/lounge/_hooks/useInfinityQuestion';
-import { useTranslation } from '@/app/_hooks/useTranslation';
+import { getLocale, useTranslation } from '@/app/_hooks/useTranslation';
 
 type Props = {
   tab: Tab;
@@ -103,6 +103,8 @@ const TAB_MAP = {
 export default function QuestionList({ tab }: Props) {
   const [activeFilter, setActiveFilter] = useState<FilterButton>('전체');
   const router = useRouter();
+  const [{ t }, lang] = useTranslation('lounge');
+
   const {
     data: questionList,
     status,
@@ -112,6 +114,7 @@ export default function QuestionList({ tab }: Props) {
     order: TAB_MAP[tab],
     type: FILTER_MAP[activeFilter],
     limit: LIMIT,
+    language: getLocale(lang),
   });
 
   const handleScroll = async () => {
@@ -136,10 +139,8 @@ export default function QuestionList({ tab }: Props) {
   }, [tab]);
 
   const handleClickCard = useCallback((questionId: string) => {
-    router.push(`/lounge/${questionId}`);
+    router.push(`/${lang}/lounge/${questionId}`);
   }, []);
-
-  const [{ t }] = useTranslation('lounge');
 
   if (status === 'pending') return <p>Loading...</p>;
   if (status === 'error') return <p>Error: {error.message}</p>;
@@ -182,7 +183,7 @@ export default function QuestionList({ tab }: Props) {
         {TAB_MAP[tab] === 'like' && (
           <>
             {questionList.pages.map((page, index) => (
-              <Fragment key={`${index} 123`}>
+              <Fragment key={`${Math.random()} 123`}>
                 {page.data.results.map((question, idx) => (
                   <QuestionCard
                     onClick={handleClickCard}
@@ -211,7 +212,7 @@ export default function QuestionList({ tab }: Props) {
         {TAB_MAP[tab] === 'time' && (
           <>
             {questionList.pages.map((page, index) => (
-              <Fragment key={`${index} 123`}>
+              <Fragment key={`${Math.random()} 123`}>
                 {page.data.results.map((question, idx) => (
                   <QuestionCard
                     onClick={handleClickCard}

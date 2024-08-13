@@ -12,7 +12,7 @@ import postQuestion from '@/apis/question/mutateQuestion';
 import getCssByTheme from '@/app/_utils/getCssByTheme';
 import { useQuestion } from '@/app/[lang]/question/_context/QuestionContext';
 import { useOnboard } from '@/app/[lang]/question/_context/OnboardContext';
-import { useTranslation } from '@/app/_hooks/useTranslation';
+import { getLocale, useTranslation } from '@/app/_hooks/useTranslation';
 
 type QuestionFormProps = {
   descriptionPlaceHolder: { title: string; contents: string }[];
@@ -41,7 +41,12 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
 
   const handleSubmitQuestion = async () => {
     try {
-      const res = await postQuestion({ content: itemDescription, product: itemName, type: theme });
+      const res = await postQuestion({
+        content: itemDescription,
+        product: itemName,
+        type: theme,
+        language: getLocale(lang),
+      });
 
       handleSetItemDescription(res.data.content);
       handleSetItemName(res.data.product);

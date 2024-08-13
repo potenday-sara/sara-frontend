@@ -11,7 +11,8 @@ import { Theme } from '@/feature/question/ThemeContext';
 import { useRandomQuestion } from '@/app/[lang]/question/_query/useQuestion';
 import Balloon from '@/app/_components/balloon/Ballon';
 import Close from '@/app/_asset/close.svg';
-import { useTranslation } from '@/app/_hooks/useTranslation';
+import { getLocale, useTranslation } from '@/app/_hooks/useTranslation';
+import { Locale } from '@/app/i18n/i18n.config';
 
 interface Props {
   theme: Theme;
@@ -27,16 +28,15 @@ export default function LoungeSlider({ theme }: Props) {
     autoplaySpeed: 2000,
     cssEase: 'linear',
   };
+  const [{ t }, lang] = useTranslation('question');
 
   const router = useRouter();
-  const { data: questions, isLoading } = useRandomQuestion({ type: theme });
+  const { data: questions, isLoading } = useRandomQuestion({ type: theme, language: getLocale(lang) });
   const [isBalloonVisible, setIsBalloonVisible] = useState(true);
 
   const handleCloseBalloon = () => {
     setIsBalloonVisible(false);
   };
-
-  const [{ t }, lang] = useTranslation('question');
 
   return (
     <div className="relative w-full flex flex-col bg-white rounded-[10px] ">

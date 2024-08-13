@@ -32,6 +32,18 @@ i18next
     preload: runsOnServerSide ? languages : [],
   });
 
+export type API_LOCALE = 'KO' | 'EN' | 'JP';
+
+export const getLocale = (lang: Locale): API_LOCALE => {
+  const LANG_MAP = {
+    ko: 'KO',
+    en: 'EN',
+    jp: 'JA',
+  };
+
+  return LANG_MAP[lang] as API_LOCALE;
+};
+
 export function useTranslation<Ns extends FlatNamespace, KPrefix extends KeyPrefix<FallbackNs<Ns>> = undefined>(
   ns: Ns,
   options?: UseTranslationOptions<KPrefix>,

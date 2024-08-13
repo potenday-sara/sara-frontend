@@ -1,4 +1,5 @@
 import { GetQuestionListRequestTypes } from '@/apis/question/getQuestionList';
+import { API_LOCALE } from '@/app/_hooks/useTranslation';
 
 export const KEYS = {
   QUESTION: ({ limit, order, type }: Omit<GetQuestionListRequestTypes, 'offset'>) => {
@@ -10,8 +11,9 @@ export const KEYS = {
   SHOP: () => {
     const keys = ['SHOP'];
     return {
-      CATEGORIES() {
+      CATEGORIES(language: API_LOCALE) {
         keys.push('CATEGORIES');
+        keys.push(language);
         return {
           key: keys,
         };

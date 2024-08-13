@@ -1,6 +1,7 @@
 import { Theme } from '@/feature/question/ThemeContext';
 import { ClientQuestionAPI } from '@/apis/question/index';
 import { GetQuestionResponseTypes } from '@/apis/question/getQuestionState';
+import { API_LOCALE } from '@/app/_hooks/useTranslation';
 
 export interface GetQuestionListResponseTypes {
   count: string;
@@ -14,9 +15,13 @@ export interface GetQuestionListRequestTypes {
   offset: number;
   order: 'time' | 'like';
   type: 'all' | 'sara' | 'mara';
+  language: API_LOCALE;
 }
 
-const getQuestionState = ({ limit, offset, order, type }: GetQuestionListRequestTypes) =>
-  ClientQuestionAPI.get('/').params({ limit, offset, order, type }).build().call<GetQuestionListResponseTypes>();
+const getQuestionState = ({ limit, offset, order, type, language }: GetQuestionListRequestTypes) =>
+  ClientQuestionAPI.get('/')
+    .params({ limit, offset, order, type, language })
+    .build()
+    .call<GetQuestionListResponseTypes>();
 
 export default getQuestionState;
