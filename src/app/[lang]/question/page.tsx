@@ -5,6 +5,10 @@ import React, { Suspense } from 'react';
 import SaraCircle from '@/asset/logo/sara-circle.svg';
 import SaraCircleCharacter from '@/asset/logo/SaraCircleCharacter.svg';
 import MaraCircleCharacter from '@/asset/logo/MaraCircleCharacter.svg';
+import SaraCircleJP from '@/asset/logo/sara-jp.svg';
+import MaraCircleJP from '@/asset/logo/mara-jp.svg';
+import SaraCircleEN from '@/asset/logo/sara-en.svg';
+import MaraCircleEN from '@/asset/logo/mara-en.svg';
 import MaraCircle from '@/asset/logo/mara-circle.svg';
 import { DESCRIPTION_CONSTANT, PLACEHOLDER_CONSTANT } from '@/app/[lang]/question/_constant';
 import QuestionForm from '@/app/[lang]/question/_components/QuestionForm';
@@ -38,11 +42,11 @@ export default function page() {
       <div className="z-50 absolute mt-[20px] left-0" ref={forthItem}>
         <FloatingButton theme={theme} />
       </div>
-      <div className="w-full pt-8 px-4 pb-4 bg-white rounded-[20px] flex flex-col gap-2 items-center relative">
-        <div className="logo h-[64px]">
-          <span className="cursor-pointer" onClick={handleClickLogo}>
-            {theme === 'sara' ? <SaraCircle /> : <MaraCircle />}
-          </span>
+      <div className="w-full pt-8 px-4 pb-4 bg-white rounded-[20px] flex flex-col gap-3 items-center relative">
+        <div className="logo cursor-pointer w-[130px]" onClick={handleClickLogo}>
+          {lang === 'jp' && (theme === 'sara' ? <SaraCircleJP /> : <MaraCircleJP />)}
+          {lang === 'en' && (theme === 'sara' ? <SaraCircleEN /> : <MaraCircleEN />)}
+          {lang === 'ko' && (theme === 'sara' ? <SaraCircle /> : <MaraCircle />)}
         </div>
         <div className="character h-[120px] w-[120px]">
           {theme === 'sara' ? <SaraCircleCharacter /> : <MaraCircleCharacter />}

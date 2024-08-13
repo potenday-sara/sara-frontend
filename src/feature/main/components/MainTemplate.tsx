@@ -9,6 +9,7 @@ import { TrendData } from '@/feature/main/constants/trend';
 import { Locale } from '@/app/i18n/i18n.config';
 import Modal from '@/app/_components/modal';
 import LocaleOnboard from '@/app/[lang]/main/_components/LocaleOnboard';
+import { useTranslation } from '@/app/_hooks/useTranslation';
 
 type Props = {
   trend: TrendData;
@@ -17,7 +18,7 @@ type Props = {
 
 function MainTemplate({ trend, lang }: Props) {
   const { theme, progress, handleThemeAction } = useSaraMara();
-  const [isOnboardModalOpen, setIsOnboardModalOpen] = React.useState(true);
+  const [isOnboardModalOpen, setIsOnboardModalOpen] = React.useState(lang === 'en' || lang === 'jp');
 
   const handleCloseOnboard = () => {
     setIsOnboardModalOpen(false);
