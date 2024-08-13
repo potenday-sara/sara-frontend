@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import { redirect } from 'next/navigation';
+import Link from 'next/link';
 import getAnswer from '@/apis/answers/getAnswer';
 import SaraCircle from '@/asset/logo/sara-circle.svg';
 import MaraCircle from '@/asset/logo/mara-circle.svg';
@@ -18,6 +19,10 @@ import TextFeedback from '@/app/[lang]/question/answer/_components/TextFeedback'
 import shareKaKao from '@/app/_utils/shareKaKao';
 import AnswerKakaoShare from '@/app/[lang]/lounge/[questionId]/_components/AnswerKakaoShare';
 import AnswerShare from '@/app/[lang]/lounge/[questionId]/_components/AnswerShare';
+import SaraCircleJP from '@/asset/logo/sara-jp.svg';
+import MaraCircleJP from '@/asset/logo/mara-jp.svg';
+import SaraCircleEN from '@/asset/logo/sara-en.svg';
+import MaraCircleEN from '@/asset/logo/mara-en.svg';
 
 type Props = {
   searchParams: {
@@ -58,7 +63,13 @@ export default async function page({ searchParams, params }: Props) {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className="w-full pt-8 px-4 pb-4 bg-white rounded-[20px] flex flex-col gap-4 items-center relative">
-        <div className="logo h-[64px]">{theme === 'sara' ? <SaraCircle /> : <MaraCircle />}</div>
+        <div className="logo cursor-pointer w-[130px]">
+          <Link href={`/${lang}/main`}>
+            {lang === 'jp' && (theme === 'sara' ? <SaraCircleJP /> : <MaraCircleJP />)}
+            {lang === 'en' && (theme === 'sara' ? <SaraCircleEN /> : <MaraCircleEN />)}
+            {lang === 'ko' && (theme === 'sara' ? <SaraCircle /> : <MaraCircle />)}
+          </Link>
+        </div>
         <div className="flex flex-col justify-center items-center gap-2">
           <h3 className="font-14-title-100 text-black-#666">{dict.stucked_question_label}</h3>
           <h2 className={getCssByTheme(theme, ['text-sara-primary', 'text-mara-primary'], 'font-18-title-100')}>
