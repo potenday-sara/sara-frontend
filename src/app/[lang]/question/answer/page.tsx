@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import { redirect } from 'next/navigation';
+import Link from 'next/link';
 import getAnswer from '@/apis/answers/getAnswer';
 import SaraCircle from '@/asset/logo/sara-circle.svg';
 import MaraCircle from '@/asset/logo/mara-circle.svg';
@@ -63,9 +64,11 @@ export default async function page({ searchParams, params }: Props) {
     <Suspense fallback={<div>Loading...</div>}>
       <div className="w-full pt-8 px-4 pb-4 bg-white rounded-[20px] flex flex-col gap-4 items-center relative">
         <div className="logo cursor-pointer w-[130px]">
-          {lang === 'jp' && (theme === 'sara' ? <SaraCircleJP /> : <MaraCircleJP />)}
-          {lang === 'en' && (theme === 'sara' ? <SaraCircleEN /> : <MaraCircleEN />)}
-          {lang === 'ko' && (theme === 'sara' ? <SaraCircle /> : <MaraCircle />)}
+          <Link href={`/${lang}/main`}>
+            {lang === 'jp' && (theme === 'sara' ? <SaraCircleJP /> : <MaraCircleJP />)}
+            {lang === 'en' && (theme === 'sara' ? <SaraCircleEN /> : <MaraCircleEN />)}
+            {lang === 'ko' && (theme === 'sara' ? <SaraCircle /> : <MaraCircle />)}
+          </Link>
         </div>
         <div className="flex flex-col justify-center items-center gap-2">
           <h3 className="font-14-title-100 text-black-#666">{dict.stucked_question_label}</h3>
