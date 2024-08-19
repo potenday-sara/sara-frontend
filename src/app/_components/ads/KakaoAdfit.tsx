@@ -35,4 +35,4 @@ function KakaoAdFit({ unit, width, height, disabled }: KakaoAdFitProps) {
   );
 }
 
-export default KakaoAdFit;
+export default React.memo(KakaoAdFit);
