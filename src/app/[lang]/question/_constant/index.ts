@@ -1,119 +1,614 @@
 export type PLACEHOLDERTYPE = {
-  item: string;
-  description: string;
+  ko: string;
+  en: string;
+  jp: string;
 };
 
 export const PLACEHOLDER_CONSTANT: PLACEHOLDERTYPE[] = [
   {
-    item: '치킨',
-    description:
-      '주말 저녁, 치킨을 주문하고 싶은 마음이 굴뚝같아. 하지만, 최근에 외식 비용이 늘어난 걸 생각하면 망설여지네.',
+    ko: '일렉 기타',
+    en: 'Electric guitar',
+    jp: 'エレキギター',
   },
   {
-    item: '노트북',
-    description:
-      '노트북이 쓸만하긴한데, 화면에 멍이 살짝 들어서 새로 살까 고민 중이야. 그렇게 불편하진 않지만..새 거 갖고 싶어.',
+    ko: '단백질 보충제',
+    en: 'Protein supplement',
+    jp: 'プロテインサプリメント',
   },
   {
-    item: '선크림',
-    description:
-      '햇빛이 점점 강해져서 이제 슬슬 선크림을 새로 준비할 때가 된 것 같아. 좋은 선크림은 가격이 좀 나가는 편이라 예산을 생각하면 고민돼.',
+    ko: '애플 펜슬',
+    en: 'Apple Pencil',
+    jp: 'アップルペンシル',
   },
   {
-    item: '헤드셋',
-    description:
-      '온라인 회의가 많아져서 질 좋은 헤드셋을 찾고 있는데, 노이즈 캔슬링 기능이 있는 제품은 가격이 두 배 이상이라 망설여져.',
+    ko: '디퓨저',
+    en: 'Diffuser',
+    jp: 'ディフューザー',
   },
   {
-    item: '마우스',
-    description:
-      '프로젝트 때문에 컴퓨터 작업이 많아져서 고성능 마우스가 필요해졌어. 하지만 생각보다 가격이 쎄서 고민 중이야. 효율성과 손목 건강을 위해서 투자하는 게 좋겠지?',
+    ko: '물티슈',
+    en: 'Wet wipes',
+    jp: 'ウェットティッシュ',
   },
   {
-    item: '블루투스 이어폰',
-    description: '블루투스 이어폰이 있긴한데, 노이즈 캔슬링 기능이 있는 걸로 바꾸고 싶어.',
+    ko: '만년필',
+    en: 'Fountain pen',
+    jp: '万年筆',
   },
   {
-    item: '핸드크림',
-    description:
-      '날씨가 계속 건조하다보니 손도 너무 건조해서 핸드크림이 절실히 필요해. 좋은 제품은 가격이 만만치 않아서 고민이야. 하지만 손 피부 건강도 중요하고 향도 중요하니까 사는 게 좋겠지?',
+    ko: '무선 키보드',
+    en: 'Wireless keyboard',
+    jp: 'ワイヤレスキーボード',
   },
   {
-    item: '닌텐도',
-    description:
-      '친구들이랑 동물의 숲 같이 하고 싶어서 고민 중이야. 그런데 본체와 게임 다 구매하는 건 부담스럽기도 해. 그리고 요즘 바빠서 사면 할 시간도 없을 거 같긴 해.',
+    ko: '텀블러',
+    en: 'Tumbler',
+    jp: 'タンブラー',
   },
   {
-    item: '아우터',
-    description:
-      '봄이 왔으니 가볍게 걸칠 아우터를 새로 장만하고 싶어. 근데 요즘 봄 아우터 가격이 생각보다 더 올라서 고민이야.',
+    ko: '러닝화',
+    en: 'Running shoes',
+    jp: 'ランニングシューズ',
   },
   {
-    item: '신발',
-    description:
-      '스포츠를 더 열심히 하려고 새 운동화를 눈여겨보고 있는데, 정작 기존에 신던 거도 아직 괜찮아. 그런데 새 신발 갖고 싶다..',
+    ko: '전기 면도기',
+    en: 'Electric shaver',
+    jp: '電気シェーバー',
   },
   {
-    item: '넷플릭스',
-    description: '집에서 영화나 시리즈를 즐기려고 넷플릭스 구독을 고려 중인데, 매달 나가는 구독료가 부담되네.',
+    ko: '모니터 암',
+    en: 'Monitor arm',
+    jp: 'モニターアーム',
   },
   {
-    item: '운동복',
-    description: '멋지고 편한 운동복 갖고 싶어. 그런데 기능성 운동복은 가격대가 높아서 여러 벌 구비하기가 부담스러워.',
+    ko: '캡슐 커피머신',
+    en: 'Capsule coffee machine',
+    jp: 'カプセルコーヒーマシン',
   },
   {
-    item: '커피',
-    description:
-      '오늘따라 커피가 더욱 간절한데, 가격 대비 만족할만한 맛을 찾기가 쉽지 않아. 집에서 퀄리티 높은 커피를 즐길 방법은 없을까.',
+    ko: '매트리스',
+    en: 'Mattress',
+    jp: 'マットレス',
   },
   {
-    item: '건조기',
-    description:
-      '비 오는 날 빨래 건조의 번거로움을 생각하면 건조기가 참 좋을 것 같긴 한데, 그동안도 없이도 잘 지냈어서.. 쓸데없는 지출일 거 같긴 해.',
+    ko: '볼캡',
+    en: 'Ball cap',
+    jp: 'ボールキャップ',
   },
   {
-    item: '비타민',
-    description:
-      '최근 들어 건강을 위해 비타민을 추가하려고 하는데, 종류가 너무 많아서 선택장애가 오고 가격도 부담되네. 건강은 투자하는 게 맞겠지?',
+    ko: '래쉬가드',
+    en: 'Rash guard',
+    jp: 'ラッシュガード',
   },
   {
-    item: '향수',
-    description:
-      '기존에 쓰던 향수도 아직 많이 남았는데, 새로운 향수 테스트 해보고 나니까 이상하게 그 향이 계속 생각나. 사지 말아야 하는데...',
+    ko: '로봇 청소기',
+    en: 'Robot vacuum cleaner',
+    jp: 'ロボット掃除機',
   },
   {
-    item: '신발',
-    description:
-      '러닝을 시작해서 좋은 신발을 찾고 있는데, 품질 좋은 제품은 가격이 만만치 않아서 고민 중이야. 운동 효과를 위해서는 필요한 지출이 맞겠지?',
+    ko: '음식물쓰레기 처리기',
+    en: 'Food waste disposer',
+    jp: '生ごみ処理機',
   },
   {
-    item: '커피머신',
-    description:
-      '회사에서 내려 마시는 거도 괜찮긴 한데, 집에서 직접 내린 커피가 끌려. 내가 좋아하는 원두로 내려 마실 수 있잖아. 그런데 막상 출근 준비하면서 커피 내려가는 게 귀찮기도 하고..',
+    ko: '반팔 니트',
+    en: 'Short-sleeved knit',
+    jp: '半袖ニット',
   },
   {
-    item: '탈모샴푸',
-    description:
-      '최근 머리카락이 조금씩 빠지는 것 같아서 탈모샴푸를 알아보고 있는데, 효과가 있는 제품은 가격이 높아서 망설여지네.',
+    ko: '쿨토시',
+    en: 'Arm coolers',
+    jp: 'アームクーラー',
   },
   {
-    item: '무선 충전 패드',
-    description: '지금 핸드폰 충전기도 잘 작동하는데, 새로운 무선 충전 패드에 눈길이 가네.',
+    ko: '제습기',
+    en: 'Dehumidifier',
+    jp: '除湿機',
   },
   {
-    item: '레인부츠',
-    description:
-      '장마철에 신을 레인부츠 하나 있으면 좋겠어. 신발 젖는 거 진짜 싫긴한데, 좋은 품질의 방수 부츠는 가격이 만만치 않아서 조금 부담스럽긴 해.',
+    ko: '아디다스 슬리퍼',
+    en: 'Adidas slippers',
+    jp: 'アディダススリッパ',
   },
   {
-    item: '에어태그',
-    description:
-      '지갑을 잘 잃어버려서 에어태그를 살까하는데, 가격이 생각보다 부담스럽기도 하고 꼭 필요한 물건인지 고민이되네.',
+    ko: '스탠리 텀블러',
+    en: 'Stanley tumbler',
+    jp: 'スタンレータンブラー',
   },
   {
-    item: '이북리더기',
-    description:
-      '종이책도 많고 스마트폰으로도 책을 읽을 수 있는데, 이북리더기가 눈에 들어오기 시작했어. 필요한지는 모르겠는데, 뭔가 갖고 싶은 마음이 계속 들어.',
+    ko: '손 선풍기',
+    en: 'Handheld fan',
+    jp: 'ハンディファン',
+  },
+  {
+    ko: 'emis 모자',
+    en: 'EMIS cap',
+    jp: 'EMISキャップ',
+  },
+  {
+    ko: '메디힐 흔적 패드',
+    en: '-',
+    jp: '-',
+  },
+  {
+    ko: '강아지 옷',
+    en: 'Dog clothes',
+    jp: '犬の服',
+  },
+  {
+    ko: '선크림',
+    en: 'Sunscreen',
+    jp: '日焼け止め',
+  },
+  {
+    ko: '이케아 트롤리',
+    en: 'IKEA trolley',
+    jp: 'イケアトロリー',
+  },
+  {
+    ko: '샌들',
+    en: 'Sandals',
+    jp: 'サンダル',
+  },
+  {
+    ko: '안경',
+    en: 'Glasses',
+    jp: 'メガネ',
+  },
+  {
+    ko: '핸드워시',
+    en: 'Hand wash',
+    jp: 'ハンドウォッシュ',
+  },
+  {
+    ko: '섬유유연제',
+    en: 'Fabric softener',
+    jp: '柔軟剤',
+  },
+  {
+    ko: '2인 소파',
+    en: '2-seater sofa',
+    jp: '2人掛けソファ',
+  },
+  {
+    ko: '멀티비타민',
+    en: 'Multi-vitamin',
+    jp: 'マルチビタミン',
+  },
+  {
+    ko: '3단 우산',
+    en: '3-fold umbrella',
+    jp: '3段折りたたみ傘',
+  },
+  {
+    ko: '보조배터리',
+    en: 'Portable battery',
+    jp: 'モバイルバッテリー',
+  },
+  {
+    ko: '닭가슴살',
+    en: 'Chicken breast',
+    jp: '鶏胸肉',
+  },
+  {
+    ko: '차량용 방향제',
+    en: 'Car air freshener',
+    jp: '車用芳香剤',
+  },
+  {
+    ko: '카드지갑',
+    en: 'Card wallet',
+    jp: 'カードケース',
+  },
+  {
+    ko: '삼성 노트북',
+    en: 'Samsung laptop',
+    jp: 'サムスンノートパソコン',
+  },
+  {
+    ko: '에어컨',
+    en: 'Air conditioner',
+    jp: 'エアコン',
+  },
+  {
+    ko: '아이패드 케이스',
+    en: 'iPad case',
+    jp: 'iPadケース',
+  },
+  {
+    ko: '노트북 파우치',
+    en: 'Laptop pouch',
+    jp: 'ノートパソコンポーチ',
+  },
+  {
+    ko: '블러셔',
+    en: 'Blusher',
+    jp: 'チーク',
+  },
+  {
+    ko: '선스틱',
+    en: 'Sun stick',
+    jp: '日焼け止めスティック',
+  },
+  {
+    ko: '로지텍 키보드',
+    en: 'Logitech keyboard',
+    jp: 'ロジクールキーボード',
+  },
+  {
+    ko: '커튼',
+    en: 'Curtain',
+    jp: 'カーテン',
+  },
+  {
+    ko: '록시땅 핸드크림',
+    en: "L'Occitane hand cream",
+    jp: 'ロクシタンハンドクリーム',
+  },
+  {
+    ko: '러쉬 배쓰밤',
+    en: 'LUSH bath bomb',
+    jp: 'ラッシュバスボム',
+  },
+  {
+    ko: '레토로트 볶음밥',
+    en: 'Retort pouch fried rice',
+    jp: 'レトルトチャーハン',
+  },
+  {
+    ko: '제로 음료',
+    en: 'Zero-calorie drink',
+    jp: 'ゼロカロリー飲料',
+  },
+  {
+    ko: '선반',
+    en: 'Shelf',
+    jp: '棚',
+  },
+  {
+    ko: '무드등',
+    en: 'Mood light',
+    jp: 'ムードライト',
+  },
+  {
+    ko: '에어프라이어',
+    en: 'Air fryer',
+    jp: 'エアフライヤー',
+  },
+  {
+    ko: '찜기',
+    en: 'Steamer',
+    jp: '蒸し器',
+  },
+  {
+    ko: '여름 원피스',
+    en: 'Summer dress',
+    jp: '夏用ワンピース',
+  },
+  {
+    ko: '압력 밥솥',
+    en: 'Pressure rice cooker',
+    jp: '圧力炊飯器',
+  },
+  {
+    ko: '캣타워',
+    en: 'Cat tower',
+    jp: 'キャットタワー',
+  },
+  {
+    ko: '에어팟 맥스',
+    en: 'AirPods Max',
+    jp: 'AirPods Max',
+  },
+  {
+    ko: '아이폰 15',
+    en: 'iPhone 15',
+    jp: 'iPhone 15',
+  },
+  {
+    ko: '침대 프레임',
+    en: 'Bed frame',
+    jp: 'ベッドフレーム',
+  },
+  {
+    ko: '템퍼 매트리스',
+    en: 'Tempur mattress',
+    jp: 'テンピュールマットレス',
+  },
+  {
+    ko: '모니터 받침대',
+    en: 'Monitor stand',
+    jp: 'モニタースタンド',
+  },
+  {
+    ko: '미니 건조기',
+    en: 'Mini dryer',
+    jp: 'ミニ乾燥機',
+  },
+  {
+    ko: '스팀 청소기',
+    en: 'Steam cleaner',
+    jp: 'スチームクリーナー',
+  },
+  {
+    ko: '키크론 키보드',
+    en: 'Keychron keyboard',
+    jp: 'Keychronキーボード',
+  },
+  {
+    ko: 'MX master3 마우스',
+    en: 'MX Master 3 mouse',
+    jp: 'MX Master 3マウス',
+  },
+  {
+    ko: '향수',
+    en: 'Perfume',
+    jp: '香水',
+  },
+  {
+    ko: '선글라스',
+    en: 'Sunglasses',
+    jp: 'サングラス',
+  },
+  {
+    ko: '아르기닌',
+    en: 'Arginine',
+    jp: 'アルギニン',
+  },
+  {
+    ko: '프로틴',
+    en: 'Protein',
+    jp: 'プロテイン',
+  },
+  {
+    ko: '키링',
+    en: 'Key ring',
+    jp: 'キーリング',
+  },
+  {
+    ko: '딥디크 방향제',
+    en: 'Diptyque room spray',
+    jp: 'ディプティック ルームスプレー',
+  },
+  {
+    ko: '삼텐바이미',
+    en: '-',
+    jp: '-',
+  },
+  {
+    ko: '미니 모니터',
+    en: 'Mini monitor',
+    jp: 'ミニモニター',
+  },
+  {
+    ko: '러그',
+    en: 'Rug',
+    jp: 'ラグ',
+  },
+  {
+    ko: '닌텐도 스위치 oled',
+    en: 'Nintendo Switch OLED',
+    jp: 'Nintendo Switch OLED',
+  },
+  {
+    ko: '소니 헤드셋',
+    en: 'Sony headset',
+    jp: 'ソニーヘッドセット',
+  },
+  {
+    ko: '헤어 에센스',
+    en: 'Hair essence',
+    jp: 'ヘアエッセンス',
+  },
+  {
+    ko: '딥디크 향수',
+    en: 'Diptyque perfume',
+    jp: 'ディプティック香水',
+  },
+  {
+    ko: '프라이팬',
+    en: 'Frying pan',
+    jp: 'フライパン',
+  },
+  {
+    ko: '몰스킨 노트',
+    en: 'Moleskine notebook',
+    jp: 'モレスキンノート',
+  },
+  {
+    ko: '생수',
+    en: 'Bottled water',
+    jp: 'ミネラルウォーター',
+  },
+  {
+    ko: '즉석밥',
+    en: 'Instant rice',
+    jp: '即席ご飯',
+  },
+  {
+    ko: '루테인',
+    en: 'Lutein',
+    jp: 'ルテイン',
+  },
+  {
+    ko: '유산균',
+    en: 'Probiotic',
+    jp: 'プロバイオティクス',
+  },
+  {
+    ko: '폰 케이스',
+    en: 'Phone case',
+    jp: 'スマホケース',
+  },
+  {
+    ko: '3in1 무선충전기',
+    en: '3-in-1 wireless charger',
+    jp: '3in1ワイヤレス充電器',
+  },
+  {
+    ko: '바디로션',
+    en: 'Body lotion',
+    jp: 'ボディローション',
+  },
+  {
+    ko: '변기 크리너',
+    en: 'Toilet cleaner',
+    jp: 'トイレクリーナー',
+  },
+  {
+    ko: '커트러리',
+    en: 'Cutlery',
+    jp: 'カトラリー',
+  },
+  {
+    ko: '리스테린',
+    en: 'Listerine',
+    jp: 'リステリン',
+  },
+  {
+    ko: '배추김치',
+    en: 'Kimchi',
+    jp: '白菜キムチ',
+  },
+  {
+    ko: '부대찌개 밀키트',
+    en: 'Meal kit',
+    jp: 'ミールキット',
+  },
+  {
+    ko: '욕실청소 세정제',
+    en: 'Bathroom cleaner',
+    jp: 'お風呂用洗剤',
+  },
+  {
+    ko: '무선 전기주전자',
+    en: 'Electric kettle',
+    jp: '電気ケトル',
+  },
+  {
+    ko: '진라면 매운맛',
+    en: 'Instant ramen',
+    jp: 'インスタントラーメン',
+  },
+  {
+    ko: 'BBQ 치킨',
+    en: 'Chicken',
+    jp: 'チキン',
+  },
+  {
+    ko: '스타벅스',
+    en: 'Starbucks',
+    jp: 'スターバックス',
+  },
+  {
+    ko: '배스킨라빈스',
+    en: 'Baskin-Robbins',
+    jp: 'バスキンロビンス',
+  },
+  {
+    ko: '전기자전거',
+    en: 'Electric bicycle',
+    jp: '電動自転車',
+  },
+  {
+    ko: '의자',
+    en: 'Chair',
+    jp: '椅子',
+  },
+  {
+    ko: '호텔 수건',
+    en: 'Hotel towel',
+    jp: 'ホテルタオル',
+  },
+  {
+    ko: '헤어 집게핀',
+    en: 'Hair clip',
+    jp: 'ヘアクリップ',
+  },
+  {
+    ko: '룸 스프레이',
+    en: 'Room spray',
+    jp: 'ルームスプレー',
+  },
+  {
+    ko: '필름카메라',
+    en: 'Film camera',
+    jp: 'フィルムカメラ',
+  },
+  {
+    ko: '잠옷',
+    en: 'Pajamas',
+    jp: 'パジャマ',
+  },
+  {
+    ko: '포터블 램프',
+    en: 'Portable lamp',
+    jp: 'ポータブルランプ',
+  },
+  {
+    ko: '레인부츠',
+    en: 'Rain boots',
+    jp: 'レインブーツ',
+  },
+  {
+    ko: '런치박스 도시락',
+    en: 'Lunch box',
+    jp: 'お弁当箱',
+  },
+  {
+    ko: '가죽벨트',
+    en: 'Leather belt',
+    jp: 'レザーベルト',
+  },
+  {
+    ko: '이북리더기',
+    en: 'E-book reader',
+    jp: '電子書籍リーダー',
+  },
+  {
+    ko: '애플워치 스트랩',
+    en: 'Apple Watch strap',
+    jp: 'Apple Watchストラップ',
+  },
+  {
+    ko: '핸드폰 스트랩',
+    en: 'Phone strap',
+    jp: '携帯ストラップ',
+  },
+  {
+    ko: '그립톡',
+    en: 'Pop socket',
+    jp: 'ポップソケット',
+  },
+  {
+    ko: '플랜트 세트',
+    en: 'Plant set',
+    jp: '観葉植物セット',
+  },
+  {
+    ko: '인테리어 포스터',
+    en: 'Interior poster',
+    jp: 'インテリアポスター',
+  },
+  {
+    ko: '북커버',
+    en: 'Book cover',
+    jp: 'ブックカバー',
+  },
+  {
+    ko: '피크닉매트',
+    en: 'Picnic mat',
+    jp: 'ピクニックマット',
+  },
+  {
+    ko: '일회용수세미',
+    en: 'Disposable sponge',
+    jp: '使い捨てスポンジ',
+  },
+  {
+    ko: '드립백 세트',
+    en: 'Drip bag',
+    jp: 'ドリップバッグ',
   },
 ];
 
