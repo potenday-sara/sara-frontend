@@ -32,7 +32,7 @@ type Props = {
 export default function EmotionFeedback({ theme, questionId }: Props) {
   const [{ t }, lang] = useTranslation('answer');
 
-  const [selectValue, setSelectValue] = React.useState(1);
+  const [selectValue, setSelectValue] = React.useState(2);
   const { isToast, handleToastOpen } = useToast(800);
 
   const handleEmotionClick = async (value: 0 | 1 | -1) => {
