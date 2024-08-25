@@ -17,6 +17,7 @@ function KakaoAdFit({ unit, width, height, disabled }: KakaoAdFitProps) {
       scriptElementWrapper.current?.appendChild(script);
     }
     return () => {
+      // @ts-ignore
       const globalAdFit = window.adfit;
       if (globalAdFit) globalAdFit.destroy(unit);
     };
