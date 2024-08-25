@@ -7,7 +7,7 @@ import Refresh from '@/asset/svg/refresh.svg';
 import useInterval from '@/app/_hooks/useInterval';
 import { makeRandomNumber } from '@/app/[lang]/question/_utils';
 import { Theme } from '@/feature/main/hooks/useSaraMara';
-import { CONSTANTS_TEXT } from '@/app/[lang]/question/_constant';
+import { CONSTANTS_TEXT, PLACEHOLDERTYPE } from '@/app/[lang]/question/_constant';
 import postQuestion from '@/apis/question/mutateQuestion';
 import getCssByTheme from '@/app/_utils/getCssByTheme';
 import { useQuestion } from '@/app/[lang]/question/_context/QuestionContext';
@@ -16,7 +16,7 @@ import { getLocale, useTranslation } from '@/app/_hooks/useTranslation';
 
 type QuestionFormProps = {
   descriptionPlaceHolder: { title: string; contents: string }[];
-  itemPlaceHolder: { item: string; description: string }[];
+  itemPlaceHolder: PLACEHOLDERTYPE[];
   theme: Theme;
 };
 
@@ -83,9 +83,8 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
     ref.current.style.height = `${ref.current.scrollHeight}px`;
   }, [itemDescription]);
 
-  const handleClickPlaceHolder = (item: string, description: string) => {
+  const handleClickPlaceHolder = (item: string) => {
     setItemName(item);
-    setItemDescription(description);
     clearInterval(intervalId);
   };
 
@@ -159,13 +158,11 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
               <div className="flex flex-wrap flex-1 items-start gap-1 font-12-medium-100">
                 {selectedPlaceHolder.map((index) => (
                   <div
-                    onClick={() =>
-                      handleClickPlaceHolder(itemPlaceHolder[index].item, itemPlaceHolder[index].description)
-                    }
+                    onClick={() => handleClickPlaceHolder(itemPlaceHolder[index][lang])}
                     key={index}
-                    className="p-2 shrink-0 text-neutral-600 rounded-[8px] h-auto grow-0 bg-gray-#eaea border border-solid border-gray-#f6f6 bg-g"
+                    className="p-2 cursor-pointer shrink-0 text-neutral-600 rounded-[8px] h-auto grow-0 bg-gray-#eaea border border-solid border-gray-#f6f6 bg-g"
                   >
-                    {itemPlaceHolder[index].item}
+                    {itemPlaceHolder[index][lang]}
                   </div>
                 ))}
               </div>
