@@ -13,12 +13,17 @@ import getCssByTheme from '@/app/_utils/getCssByTheme';
 import { useQuestion } from '@/app/[lang]/question/_context/QuestionContext';
 import { useOnboard } from '@/app/[lang]/question/_context/OnboardContext';
 import { getLocale, useTranslation } from '@/app/_hooks/useTranslation';
+import BottomArrow from '@/app/_asset/bottom-arrow.svg';
+import TopArrow from '@/app/_asset/top-arrow.svg';
 
 type QuestionFormProps = {
   descriptionPlaceHolder: { title: string; contents: string }[];
   itemPlaceHolder: PLACEHOLDERTYPE[];
   theme: Theme;
 };
+
+type TIME = 10;
+const TIME: TIME = 10;
 
 export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, theme }: QuestionFormProps) {
   const router = useRouter();
@@ -35,9 +40,7 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
   // const { mutate: postSubmitQuestion } = useMutateQuestion();
 
   const [timer, setTimer] = useState<number>(5);
-  const [selectedPlaceHolder, setSelectedPlaceHolder] = useState<number[]>(
-    makeRandomNumber(11, itemPlaceHolder.length),
-  );
+  const [selectedPlaceHolder, setSelectedPlaceHolder] = useState<number[]>(makeRandomNumber(7, itemPlaceHolder.length));
 
   const handleSubmitQuestion = async () => {
     try {
@@ -61,8 +64,8 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
   const handleRunTimer = useCallback(() => {
     setTimer((prev) => {
       if (prev === 1) {
-        setSelectedPlaceHolder(makeRandomNumber(15, itemPlaceHolder.length));
-        return 5;
+        setSelectedPlaceHolder(makeRandomNumber(7, itemPlaceHolder.length));
+        return TIME;
       }
       return prev - 1;
     });
@@ -70,8 +73,8 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
 
   const { intervalId } = useInterval(handleRunTimer, 1000, timerFlag);
   const handleClickRefreshTimer = () => {
-    setTimer(5);
-    setSelectedPlaceHolder(makeRandomNumber(15, itemPlaceHolder.length));
+    setTimer(TIME);
+    setSelectedPlaceHolder(makeRandomNumber(7, itemPlaceHolder.length));
     setTimerFlag((prev) => !prev);
   };
 
@@ -112,14 +115,17 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
     },
   );
 
-  const DescriptionPlaceHolderClassName = cva('h-[36px] flex justify-center items-center font-14-title-100', {
-    variants: {
-      theme: {
-        sara: 'text-sara-primary bg-primary-100',
-        mara: 'text-mara-primary bg-secondary-100',
+  const DescriptionPlaceHolderClassName = cva(
+    'cursor-pointer h-[36px] flex justify-center gap-2 items-center font-14-title-100',
+    {
+      variants: {
+        theme: {
+          sara: 'text-sara-primary bg-primary-100',
+          mara: 'text-mara-primary bg-secondary-100',
+        },
       },
     },
-  });
+  );
 
   const { firstItem, secondItem, thirdItem } = useOnboard();
 
@@ -186,7 +192,8 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
             <div className="line w-full h-[1px] bg-gray-100" />
             <div className="flex flex-col w-full h-auto height-transition">
               <div onClick={handleChangeToggle} className={DescriptionPlaceHolderClassName({ theme })}>
-                {t(`tutorial_askingTip_open`)}
+                {t(isOpenToggle ? 'tutorial_askingTip_close' : 'tutorial_askingTip_open')}
+                {isOpenToggle ? <TopArrow /> : <BottomArrow />}
               </div>
               {isOpenToggle && (
                 <div className={getCssByTheme(theme, ['bg-primary-50', 'bg-secondary-50'], 'py-5 px-4')}>
@@ -239,7 +246,7 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
           'button h-[48px] rounded-[10px] text-white font-14-title-100 flex justify-center items-center',
         )}
       >
-        {t(`question_submit_${theme}`)}
+        {t(`question_submit_${theme}`)} {itemName}
       </button>
     </div>
   );

@@ -92,7 +92,7 @@ export default function LoungeSlider({ theme }: Props) {
           <h2 className="font-14-title-100">{t('question_carousel_title')}</h2>
         </div>
         <div
-          onClick={() => router.push(`/lounge/`)}
+          onClick={() => router.push(`/${lang}/lounge/`)}
           style={{
             zIndex: 999999999,
           }}

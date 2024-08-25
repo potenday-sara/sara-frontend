@@ -27,5 +27,6 @@
   "tutorial_askingTip_titleGood": "✅ Good to ask like below!",
   "tutorial_askingTip_contentGood": "Please describe in detail why you are hesitating, including the reasons and any pros or cons in your mind.\nEx) I'm working from home a lot these days, thinking about getting a better chair.\nMy current one is okay, but a comfy ergonomic chair might just make working a lot nicer.",
   "tutorial_askingTip_titleBad": "❌ Please avoid asking like this!",
-  "tutorial_askingTip_contentBad": "- Too simple questions: \"It's too expensive,\" \"I won't use it often.\"\n- Unbuyable items: \"Tony Stark\" \"Pythagorean theorem.\"\nQuestions unrelated to purchase: \"Tell me today's horoscope.\""
+  "tutorial_askingTip_contentBad": "- Too simple questions: \"It's too expensive,\" \"I won't use it often.\"\n- Unbuyable items: \"Tony Stark\" \"Pythagorean theorem.\"\nQuestions unrelated to purchase: \"Tell me today's horoscope.\"",
+  "money": "$"
 }
