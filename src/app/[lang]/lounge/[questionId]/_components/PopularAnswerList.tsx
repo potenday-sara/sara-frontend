@@ -1,10 +1,11 @@
 'use client';
 
-import { Fragment, useCallback, useEffect } from 'react';
+import React, { Fragment, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import QuestionCard from '@/app/[lang]/lounge/_components/QuestionCard';
 import useQuestionList from '@/app/[lang]/lounge/_hooks/useInfinityQuestion';
 import { getLocale, useTranslation } from '@/app/_hooks/useTranslation';
+import KakaoAdFit from '@/components/organisms/KaKaoAdfit.jsx';
 
 export default function PopularAnswerList() {
   const [{ t }, lang] = useTranslation('lounge');
@@ -47,16 +48,23 @@ export default function PopularAnswerList() {
       {questionList.pages.map((page, index) => (
         <Fragment key={`popular-${Math.random()}`}>
           {page.data.results.map((question, idx) => (
-            <QuestionCard
-              onClick={handleClickCard}
-              questionId={question.id}
-              title={<div className="font-14-title-100">{question.product}</div>}
-              content={<div className="font-14-medium-140 w-full truncate">{question.content}</div>}
-              likeCount={question.like_count}
-              commentCount={question.comment_count}
-              createdAt={question.created_at}
-              type={question.type}
-            />
+            <>
+              <QuestionCard
+                onClick={handleClickCard}
+                questionId={question.id}
+                title={<div className="font-14-title-100">{question.product}</div>}
+                content={<div className="font-14-medium-140 w-full truncate">{question.content}</div>}
+                likeCount={question.like_count}
+                commentCount={question.comment_count}
+                createdAt={question.created_at}
+                type={question.type}
+              />
+              {index === 0 && idx === 4 && (
+                <div className="w-full flex justify-center items-center">
+                  <KakaoAdFit disabled={false} height={100} width={320} unit="DAN-Q0AoHTzVm30ASBoA" />
+                </div>
+              )}
+            </>
           ))}
         </Fragment>
       ))}

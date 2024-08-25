@@ -1,13 +1,14 @@
 'use client';
 
 import { cva } from 'class-variance-authority';
-import { Fragment, useCallback, useEffect, useState } from 'react';
+import React, { Fragment, useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Tab } from '@/app/[lang]/lounge/page';
 import Logo from '@/components/atoms/Logo/Logo';
 import QuestionCard from '@/app/[lang]/lounge/_components/QuestionCard';
 import useQuestionList, { LIMIT } from '@/app/[lang]/lounge/_hooks/useInfinityQuestion';
 import { getLocale, useTranslation } from '@/app/_hooks/useTranslation';
+import KakaoAdFit from '@/components/organisms/KaKaoAdfit.jsx';
 
 type Props = {
   tab: Tab;
@@ -147,7 +148,7 @@ export default function QuestionList({ tab }: Props) {
 
   return (
     <div className="h-full flex flex-col flex-1">
-      <nav className="flex gap-1 px-4 py-[10px] sticky top-[56px] bg-white">
+      <nav className="flex gap-1 px-4 py-[10px] sticky top-[56px] bg-white z-50">
         <button
           type="button"
           onClick={() => handleClickFilter('전체')}
@@ -214,21 +215,31 @@ export default function QuestionList({ tab }: Props) {
             {questionList.pages.map((page, index) => (
               <Fragment key={`${Math.random()} 123`}>
                 {page.data.results.map((question, idx) => (
-                  <QuestionCard
-                    onClick={handleClickCard}
-                    questionId={question.id}
-                    title={<div className="font-14-title-100">{question.product}</div>}
-                    content={<div className="font-14-medium-140 w-full truncate">{question.content}</div>}
-                    likeCount={question.like_count}
-                    commentCount={question.comment_count}
-                    createdAt={question.created_at}
-                    type={question.type}
-                  />
+                  <>
+                    {index === 0 && idx === 5 && (
+                      <div className="w-full flex justify-center items-center -z-1 relative">
+                        <KakaoAdFit disabled={false} height={100} width={320} unit="DAN-cPT36Fzp7H9Xdqy6" />
+                      </div>
+                    )}
+                    <QuestionCard
+                      onClick={handleClickCard}
+                      questionId={question.id}
+                      title={<div className="font-14-title-100">{question.product}</div>}
+                      content={<div className="font-14-medium-140 w-full truncate">{question.content}</div>}
+                      likeCount={question.like_count}
+                      commentCount={question.comment_count}
+                      createdAt={question.created_at}
+                      type={question.type}
+                    />
+                  </>
                 ))}
               </Fragment>
             ))}
           </>
         )}
+        <div className="w-full flex justify-center items-center">
+          <KakaoAdFit disabled={false} height={250} width={300} unit="DAN-xrIcTzN2FX2eLeq3" />
+        </div>
       </div>
     </div>
   );

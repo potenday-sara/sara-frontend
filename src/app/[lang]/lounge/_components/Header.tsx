@@ -18,7 +18,7 @@ export default function Header() {
   const [{ t }] = useTranslation('lounge');
 
   return (
-    <nav className="sticky w-full flex justify-center items-center py-2 h-[56px] bg-white top-0">
+    <nav className="sticky w-full flex justify-center items-center py-2 h-[56px] bg-white top-0 z-50">
       <button
         onClick={handleClickBack}
         className="absolute left-5 top-2  border border-solid rounded-[8px] w-[40px] h-[40px] flex justify-center items-center"

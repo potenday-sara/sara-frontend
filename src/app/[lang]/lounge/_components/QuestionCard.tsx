@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { Theme } from '@/feature/question/ThemeContext';
 import SaraChip from '@/app/[lang]/lounge/_asset/SaraChip.svg';
 import MaraChip from '@/app/[lang]/lounge/_asset/MaraChip.svg';
@@ -18,7 +18,7 @@ interface Props {
   style?: React.CSSProperties;
 }
 
-export default function QuestionCard({
+function QuestionCard({
   rank,
   onClick,
   title,
@@ -60,3 +60,5 @@ export default function QuestionCard({
     </div>
   );
 }
+
+export default React.memo(QuestionCard);

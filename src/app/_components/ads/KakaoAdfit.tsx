@@ -1,10 +1,14 @@
-'use client';
-
 import React, { useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
 
-function KakaoAdFit({ unit, width, height, disabled }) {
-  const scriptElementWrapper = useRef(null);
+type KakaoAdFitProps = {
+  unit: string;
+  width: number;
+  height: number;
+  disabled: boolean;
+};
+
+function KakaoAdFit({ unit, width, height, disabled }: KakaoAdFitProps) {
+  const scriptElementWrapper = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!disabled && scriptElementWrapper.current) {
@@ -31,11 +35,4 @@ function KakaoAdFit({ unit, width, height, disabled }) {
   );
 }
 
-KakaoAdFit.propTypes = {
-  unit: PropTypes.string.isRequired,
-  width: PropTypes.number.isRequired,
-  height: PropTypes.number.isRequired,
-  disabled: PropTypes.bool.isRequired,
-};
-
-export default KakaoAdFit;
+export default React.memo(KakaoAdFit);

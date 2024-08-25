@@ -10,6 +10,7 @@ import { Locale } from '@/app/i18n/i18n.config';
 import Modal from '@/app/_components/modal';
 import LocaleOnboard from '@/app/[lang]/main/_components/LocaleOnboard';
 import { useTranslation } from '@/app/_hooks/useTranslation';
+import KakaoAdFit from '@/app/_components/ads/KakaoAdfit';
 
 type Props = {
   trend: TrendData;
@@ -35,6 +36,9 @@ function MainTemplate({ trend, lang }: Props) {
           <LocaleOnboard onRequestClose={handleCloseOnboard} />
         </Modal>
       )}
+      <div className="w-full flex items-center justify-center">
+        <KakaoAdFit disabled={false} height={250} width={300} unit="DAN-aWKDV8g54CO6nffE" />
+      </div>
     </main>
   );
 }

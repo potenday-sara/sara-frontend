@@ -4,6 +4,7 @@ import Button from '@/components/atoms/Button';
 import Logo from '@/components/atoms/Logo/Logo';
 import { Product, TrendData } from '@/feature/main/constants/trend';
 import { HandleThemeAction, Theme } from '@/feature/main/hooks/useSaraMara';
+import KakaoAdFit from '@/app/_components/ads/KakaoAdfit';
 
 type Props = {
   theme: 'sara' | 'mara';
@@ -71,6 +72,10 @@ function MainRank({ theme, trend, handleThemeAction }: Props) {
 
   return (
     <div className="w-full">
+      <div className="kakao-ad-a">
+        <KakaoAdFit disabled={false} height={50} width={320} unit="DAN-FK6YA47rI1C6QYtZ" />
+      </div>
+
       <div className="buttons flex w-full">
         <Button
           className={ThemeSelectButtonClassName({ defaultSara: theme !== 'sara', themeSara: theme === 'sara' })}

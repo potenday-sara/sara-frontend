@@ -15,6 +15,7 @@ import getCommentList from '@/apis/question/getCommentList';
 import { Comment } from '@/app/[lang]/lounge/[questionId]/_components/AnswerComment';
 import QueryProvider from '@/app/[lang]/lounge/[questionId]/_components/QueryProvider';
 import PopularAnswerList from '@/app/[lang]/lounge/[questionId]/_components/PopularAnswerList';
+import KakaoAdFit from '@/components/organisms/KaKaoAdfit.jsx';
 
 interface Props {
   params: {
@@ -87,6 +88,9 @@ export default async function page({ params }: Props) {
           </div>
           <span>{answer.type === 'mara' ? dict.answer_retry : dict.answer_opposite}</span>
         </button>
+      </div>
+      <div className="w-full flex justify-center items-center">
+        <KakaoAdFit disabled={false} height={50} width={320} unit="DAN-YhXsa3BBPzUc1OHF" />
       </div>
       <div className="divider" />
       <AnswerCommentList type={answer.type} commentList={answer.commentList} questionId={questionId} />

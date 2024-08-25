@@ -17,6 +17,7 @@ import Tag from '@/app/[lang]/question/_components/Tag';
 import FloatingButton from '@/app/[lang]/question/_components/FloatingButton';
 import { useOnboard } from '@/app/[lang]/question/_context/OnboardContext';
 import { useTranslation } from '@/app/_hooks/useTranslation';
+import KakaoAdFit from '@/components/organisms/KaKaoAdfit.jsx';
 // import useMutateQuestion from '@/query/question';
 
 export default function page() {
