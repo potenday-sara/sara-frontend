@@ -4,6 +4,7 @@ import SaraChip from '@/app/[lang]/lounge/_asset/SaraChip.svg';
 import MaraChip from '@/app/[lang]/lounge/_asset/MaraChip.svg';
 import Comment from '@/app/[lang]/lounge/_asset/QuestionComment.svg';
 import Heart from '@/app/[lang]/lounge/_asset/QuestionHeart.svg';
+import { formatDate } from '@/app/_utils/getTimeStamp';
 
 interface Props {
   title: ReactNode;
@@ -32,7 +33,7 @@ function QuestionCard({
 }: Props) {
   return (
     <div
-      className="w-full cursor-pointer h-[108px] flex flex-col p-4 rounded-[12px] border border-solid border-black-#ddd"
+      className="w-full bg-white cursor-pointer h-[108px] flex flex-col p-4 rounded-[12px] border border-solid border-black-#ddd"
       style={style}
       onClick={() => onClick(questionId)}
     >
@@ -54,7 +55,7 @@ function QuestionCard({
               <span className="font-12-medium-100 text-black-#333">{commentCount}</span>
             </div>
           </div>
-          <div className="created-at font-12-medium-100 text-black-#999">{createdAt}</div>
+          <div className="created-at font-12-medium-100 text-black-#999">{formatDate(createdAt)}</div>
         </div>
       </div>
     </div>
