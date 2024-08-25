@@ -11,11 +11,13 @@ import Pagination from '@/app/_components/pagination';
 import Rocket from '@/app/[lang]/question/_asset/rocket.png';
 import Logo from '@/components/atoms/Logo/Logo';
 import getCssByTheme from '@/app/_utils/getCssByTheme';
+import { useTranslation } from '@/app/_hooks/useTranslation';
 
 interface Props {}
 
 export default function Shop() {
   const { itemName } = useQuestion();
+  const [{ t }] = useTranslation('question');
   const { theme } = useSaraMara();
   const {
     categories,
@@ -85,7 +87,9 @@ export default function Shop() {
             />
             <div className="flex-1 flex flex-col gap-[6px]">
               <p className="font-14-title-100 text-black-#666 two-line-truncate">{item.product_name}</p>
-              <p className="font-14-title-100">{item.product_price.toLocaleString()}원</p>
+              <p className="font-14-title-100">
+                {item.product_price.toLocaleString()} {t('money')}
+              </p>
               {item.is_rocket && (
                 // <div
                 //   className="h-4 w-[60px]"
