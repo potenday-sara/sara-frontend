@@ -246,7 +246,7 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
           'button h-[48px] rounded-[10px] text-white font-14-title-100 flex justify-center items-center',
         )}
       >
-        {t(`question_submit_${theme}`)}
+        {t(`question_submit_${theme}`)} {itemName}
       </button>
     </div>
   );
