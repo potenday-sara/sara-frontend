@@ -22,6 +22,9 @@ type QuestionFormProps = {
   theme: Theme;
 };
 
+type TIME = 10;
+const TIME: TIME = 10;
+
 export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, theme }: QuestionFormProps) {
   const router = useRouter();
   const [{ t }, lang] = useTranslation('question');
@@ -37,9 +40,7 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
   // const { mutate: postSubmitQuestion } = useMutateQuestion();
 
   const [timer, setTimer] = useState<number>(5);
-  const [selectedPlaceHolder, setSelectedPlaceHolder] = useState<number[]>(
-    makeRandomNumber(11, itemPlaceHolder.length),
-  );
+  const [selectedPlaceHolder, setSelectedPlaceHolder] = useState<number[]>(makeRandomNumber(7, itemPlaceHolder.length));
 
   const handleSubmitQuestion = async () => {
     try {
@@ -63,8 +64,8 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
   const handleRunTimer = useCallback(() => {
     setTimer((prev) => {
       if (prev === 1) {
-        setSelectedPlaceHolder(makeRandomNumber(15, itemPlaceHolder.length));
-        return 5;
+        setSelectedPlaceHolder(makeRandomNumber(7, itemPlaceHolder.length));
+        return TIME;
       }
       return prev - 1;
     });
@@ -72,8 +73,8 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
 
   const { intervalId } = useInterval(handleRunTimer, 1000, timerFlag);
   const handleClickRefreshTimer = () => {
-    setTimer(5);
-    setSelectedPlaceHolder(makeRandomNumber(15, itemPlaceHolder.length));
+    setTimer(TIME);
+    setSelectedPlaceHolder(makeRandomNumber(7, itemPlaceHolder.length));
     setTimerFlag((prev) => !prev);
   };
 
