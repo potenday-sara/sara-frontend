@@ -34,7 +34,6 @@ const useShop = () => {
     code: '',
   });
   const [items, setItems] = useState([]);
-  const [itemLoading, setItemLoading] = useState({});
   const [_, lang] = useTranslation('common');
 
   const searchParams = useSearchParams();
@@ -85,6 +84,11 @@ const useShop = () => {
   //   queryFn: () => getItemsByKeyword(keyword, setMaxPage),
   //   staleTime: Infinity,
   // });
+
+  const itemLoading = useMemo(
+    () => categoryItemLoading || keywordLoading || categoryLoading,
+    [categoryItemLoading, keywordLoading, categoryLoading],
+  );
 
   const handleCategoryChange = (category: Category) => {
     setNowCategory(category);

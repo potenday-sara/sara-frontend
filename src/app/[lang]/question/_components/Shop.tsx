@@ -29,10 +29,58 @@ export default function Shop() {
     nowCategory,
     displayItems,
     keyword,
+    itemLoading,
   } = useShop();
 
-  if (!categories) {
-    return <div>로딩 중</div>;
+  if (itemLoading || !categories) {
+    return (
+      <div className="w-full relative bg-white rounded-[24px] pt-10 px-4 py-4 flex flex-col gap-2">
+        <div className="h-[98px] animate-pulse rounded-[16px] p-2.5 items-center border border-solid border-black-#eee flex gap-4">
+          <div className="bg-slate-200 w-[76px] h-full rounded-[8px]" />
+          <div className="flex-1 py-1 flex flex-col gap-3 pr-12">
+            <div className="h-2 bg-slate-200 rounded" />
+            <div className="grid grid-cols-3 gap-4">
+              <div className="h-2 bg-slate-200 rounded col-span-2" />
+              <div className="h-2 bg-slate-200 rounded col-span-1" />
+            </div>
+            <div className="h-2 bg-slate-200 rounded" />
+          </div>
+        </div>
+        <div className="h-[98px] animate-pulse rounded-[16px] p-2.5 items-center border border-solid border-black-#eee flex gap-4">
+          <div className="bg-slate-200 w-[76px] h-full rounded-[8px]" />
+          <div className="flex-1 py-1 flex flex-col gap-3 pr-12">
+            <div className="h-2 bg-slate-200 rounded" />
+            <div className="grid grid-cols-3 gap-4">
+              <div className="h-2 bg-slate-200 rounded col-span-2" />
+              <div className="h-2 bg-slate-200 rounded col-span-1" />
+            </div>
+            <div className="h-2 bg-slate-200 rounded" />
+          </div>
+        </div>
+        <div className="h-[98px] animate-pulse rounded-[16px] p-2.5 items-center border border-solid border-black-#eee flex gap-4">
+          <div className="bg-slate-200 w-[76px] h-full rounded-[8px]" />
+          <div className="flex-1 py-1 flex flex-col gap-3 pr-12">
+            <div className="h-2 bg-slate-200 rounded" />
+            <div className="grid grid-cols-3 gap-4">
+              <div className="h-2 bg-slate-200 rounded col-span-2" />
+              <div className="h-2 bg-slate-200 rounded col-span-1" />
+            </div>
+            <div className="h-2 bg-slate-200 rounded" />
+          </div>
+        </div>
+        <div className="h-[98px] animate-pulse rounded-[16px] p-2.5 items-center border border-solid border-black-#eee flex gap-4">
+          <div className="bg-slate-200 w-[76px] h-full rounded-[8px]" />
+          <div className="flex-1 py-1 flex flex-col gap-3 pr-12">
+            <div className="h-2 bg-slate-200 rounded" />
+            <div className="grid grid-cols-3 gap-4">
+              <div className="h-2 bg-slate-200 rounded col-span-2" />
+              <div className="h-2 bg-slate-200 rounded col-span-1" />
+            </div>
+            <div className="h-2 bg-slate-200 rounded" />
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (
