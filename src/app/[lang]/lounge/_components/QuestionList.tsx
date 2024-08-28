@@ -9,6 +9,7 @@ import QuestionCard from '@/app/[lang]/lounge/_components/QuestionCard';
 import useQuestionList, { LIMIT } from '@/app/[lang]/lounge/_hooks/useInfinityQuestion';
 import { getLocale, useTranslation } from '@/app/_hooks/useTranslation';
 import KakaoAdFit from '@/components/organisms/KaKaoAdfit.jsx';
+import QuestionCardSkeleton from '@/app/[lang]/lounge/_components/QuestionCardSkeleton';
 
 type Props = {
   tab: Tab;
@@ -143,7 +144,7 @@ export default function QuestionList({ tab }: Props) {
     router.push(`/${lang}/lounge/${questionId}`);
   }, []);
 
-  if (status === 'pending') return <p>Loading...</p>;
+  // if (status === 'pending') return <p>Loading...</p>;
   if (status === 'error') return <p>Error: {error.message}</p>;
 
   return (
@@ -175,68 +176,77 @@ export default function QuestionList({ tab }: Props) {
           </div>
         </button>
       </nav>
+
       <div
         className="flex-1 h-[full] px-4 flex flex-col gap-2 overflow-hidden"
         style={{
           backgroundImage: getBackColor(activeFilter),
         }}
       >
-        {TAB_MAP[tab] === 'like' && (
+        {status === 'pending' &&
+          new Array(10).fill(0).map((_, index) => <QuestionCardSkeleton key={`skeleton-${index}`} />)}
+
+        {status === 'success' && (
           <>
-            {questionList.pages.map((page, index) => (
-              <Fragment key={`${Math.random()} 123`}>
-                {page.data.results.map((question, idx) => (
-                  <QuestionCard
-                    onClick={handleClickCard}
-                    questionId={question.id}
-                    style={getCardStyle(idx + index * LIMIT + 1)}
-                    rank={
-                      <div
-                        style={getRankColor(idx + index * LIMIT + 1)}
-                        className="rounded-full w-[22px] h-[22px] flex justify-center items-center font-14-title-100 text-center"
-                      >
-                        {idx + index * LIMIT + 1}
-                      </div>
-                    }
-                    title={<div className="font-14-title-100">{question.product}</div>}
-                    content={<div className="font-14-medium-140 w-full truncate">{question.content}</div>}
-                    likeCount={question.like_count}
-                    commentCount={question.comment_count}
-                    createdAt={question.created_at}
-                    type={question.type}
-                  />
+            {TAB_MAP[tab] === 'like' && (
+              <>
+                {questionList.pages.map((page, index) => (
+                  <Fragment key={`${Math.random()} 123`}>
+                    {page.data.results.map((question, idx) => (
+                      <QuestionCard
+                        onClick={handleClickCard}
+                        questionId={question.id}
+                        style={getCardStyle(idx + index * LIMIT + 1)}
+                        rank={
+                          <div
+                            style={getRankColor(idx + index * LIMIT + 1)}
+                            className="rounded-full w-[22px] h-[22px] flex justify-center items-center font-14-title-100 text-center"
+                          >
+                            {idx + index * LIMIT + 1}
+                          </div>
+                        }
+                        title={<div className="font-14-title-100">{question.product}</div>}
+                        content={<div className="font-14-medium-140 w-full truncate">{question.content}</div>}
+                        likeCount={question.like_count}
+                        commentCount={question.comment_count}
+                        createdAt={question.created_at}
+                        type={question.type}
+                      />
+                    ))}
+                  </Fragment>
                 ))}
-              </Fragment>
-            ))}
+              </>
+            )}
+            {TAB_MAP[tab] === 'time' && (
+              <>
+                {questionList.pages.map((page, index) => (
+                  <Fragment key={`${Math.random()} 123`}>
+                    {page.data.results.map((question, idx) => (
+                      <>
+                        {index === 0 && idx === 5 && (
+                          <div className="w-full flex justify-center items-center -z-1 relative">
+                            <KakaoAdFit disabled={false} height={100} width={320} unit="DAN-cPT36Fzp7H9Xdqy6" />
+                          </div>
+                        )}
+                        <QuestionCard
+                          onClick={handleClickCard}
+                          questionId={question.id}
+                          title={<div className="font-14-title-100">{question.product}</div>}
+                          content={<div className="font-14-medium-140 w-full truncate">{question.content}</div>}
+                          likeCount={question.like_count}
+                          commentCount={question.comment_count}
+                          createdAt={question.created_at}
+                          type={question.type}
+                        />
+                      </>
+                    ))}
+                  </Fragment>
+                ))}
+              </>
+            )}
           </>
         )}
-        {TAB_MAP[tab] === 'time' && (
-          <>
-            {questionList.pages.map((page, index) => (
-              <Fragment key={`${Math.random()} 123`}>
-                {page.data.results.map((question, idx) => (
-                  <>
-                    {index === 0 && idx === 5 && (
-                      <div className="w-full flex justify-center items-center -z-1 relative">
-                        <KakaoAdFit disabled={false} height={100} width={320} unit="DAN-cPT36Fzp7H9Xdqy6" />
-                      </div>
-                    )}
-                    <QuestionCard
-                      onClick={handleClickCard}
-                      questionId={question.id}
-                      title={<div className="font-14-title-100">{question.product}</div>}
-                      content={<div className="font-14-medium-140 w-full truncate">{question.content}</div>}
-                      likeCount={question.like_count}
-                      commentCount={question.comment_count}
-                      createdAt={question.created_at}
-                      type={question.type}
-                    />
-                  </>
-                ))}
-              </Fragment>
-            ))}
-          </>
-        )}
+
         <div className="w-full flex justify-center items-center">
           <KakaoAdFit disabled={false} height={250} width={300} unit="DAN-xrIcTzN2FX2eLeq3" />
         </div>
