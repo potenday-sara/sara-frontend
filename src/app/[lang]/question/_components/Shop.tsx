@@ -46,7 +46,8 @@ export default function Shop() {
               'font-16-title-100 flex items-center gap-1.5 justify-center',
             )}
           >
-            방금 물어본거 바로 <Logo logo={theme} />
+            {/* 방금 물어본거 바로 <Logo logo={theme} /> */}
+            {t(`shopping_search_${theme}`)}
           </div>
           <div
             className={getCssByTheme(

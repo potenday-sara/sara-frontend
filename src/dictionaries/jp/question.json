@@ -28,5 +28,12 @@
   "tutorial_askingTip_contentGood": "どんな理由で悩むようになったのか、悩みの原因を詳しく書いてください。(長所/短所など)\n家で働く時間が多くなっていい椅子を買おうか悩んでいるよ。 今使っている椅子もいいけど、人間工学的な椅子を使えば腰も痛くなく、仕事の時にもっと楽だと思う",
   "tutorial_askingTip_titleBad": "❌ このように質問するのは避けてください！",
   "tutorial_askingTip_contentBad": "- あまりにも簡単な質問:「高すぎるから」、「あまり使わないと思う」\n- 購入できない項目: 「海賊王」、 「ピタゴラス整理」\n- 購入に関連のない質問: 「今日の運勢を教えて」",
-  "money": "円"
+  "money": "円",
+  "floating_help_title_sara": "何が気になるの?",
+  "floating_help_title_mara": "何が気になるのんだ?",
+  "floating_help_tutorial_common": "問題がある / 言いたいことがある!",
+  "floating_help_survey_common": "使い方を教えて！",
+  "floating_help_introduction_common": "サラマラって何？",
+  "shopping_search_sara": "すぐに Sara",
+  "shopping_search_mara": "Mara しろ"
 }
