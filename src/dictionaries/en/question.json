@@ -28,5 +28,13 @@
   "tutorial_askingTip_contentGood": "Please describe in detail why you are hesitating, including the reasons and any pros or cons in your mind.\nEx) I'm working from home a lot these days, thinking about getting a better chair.\nMy current one is okay, but a comfy ergonomic chair might just make working a lot nicer.",
   "tutorial_askingTip_titleBad": "❌ Please avoid asking like this!",
   "tutorial_askingTip_contentBad": "- Too simple questions: \"It's too expensive,\" \"I won't use it often.\"\n- Unbuyable items: \"Tony Stark\" \"Pythagorean theorem.\"\nQuestions unrelated to purchase: \"Tell me today's horoscope.\"",
-  "money": "$"
+  "money": "$",
+  "floating_help_title_sara": "Could I help you?",
+  "floating_help_title_mara": "Could I help you?",
+  "floating_help_tutorial_common": "There's a problem / I have something to say!",
+  "floating_help_survey_common": "Let me know how to use it.",
+  "floating_help_introduction_common": "Tell me about yourselves.",
+  "shopping_search_sara": "Sara it right away",
+  "shopping_search_mara": "Mara it ever"
+
 }

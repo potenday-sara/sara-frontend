@@ -28,5 +28,13 @@
   "tutorial_askingTip_contentGood": "어떤 이유로 고민하게 되었는지, 고민의 원인을 자세히 적어주세요.(장/단점 등)\n예시) 집에서 일하는 시간이 많아져서 좋은 의자를 살까 고민 중이야. 지금 쓰는 의자도 괜찮긴 한데, 인체공학적인 의자를 쓰면 허리도 덜 아프고 일할 때 더 편할 것 같아.",
   "tutorial_askingTip_titleBad": "❌ 이렇게 질문하는 건 피해주세요!",
   "tutorial_askingTip_contentBad": "- 너무 간단한 질문: \"너무 비싸서\", \"잘 안 쓸 것 같아\" \n- 구매할 수 없는 항목: \"손흥민\", \"피타고라스 정리\"\n- 구매와 관련이 없는 질문: \"오늘 운세를 알려줘.\"",
-  "money": "원"
+  "money": "원",
+  "floating_help_title_sara": "무엇이 궁금하샤?",
+  "floating_help_title_mara": "무엇이 궁금하먀?",
+  "floating_help_tutorial_common": "문제가 있어 / 하고 싶은 말이 있어!",
+  "floating_help_survey_common": "사용 방법을 알려줘!",
+  "floating_help_introduction_common": "",
+  "shopping_search_sara": "방금 물어본 거 바로 Sara",
+  "shopping_search_mara": "방금 물어본 거 사지 Mara"
+
 }

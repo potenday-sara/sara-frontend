@@ -68,7 +68,7 @@ function FloatingButton({ theme }: Props) {
             'mt-[10px]  p-4 border border-solid  rounded-tr-[10px] rounded-br-[10px]',
           )}
         >
-          <h3 className="font-14-title-100 mb-[10px]">무엇이 궁금하샤?</h3>
+          <h3 className="font-14-title-100 mb-[10px]">{t(`floating_help_title_${theme}`)}</h3>
           <div className="font-12-title-100 flex flex-col gap-1">
             <div
               className={getCssByTheme(
@@ -78,7 +78,7 @@ function FloatingButton({ theme }: Props) {
               )}
               onClick={() => window.open('https://forms.gle/wZ6r3Vo5E4vBLsGz7')}
             >
-              문제가 있어 / 하고 싶은 말이 있어!
+              {t('floating_help_tutorial_common')}
             </div>
             <div
               onClick={handleOnboardClick}
@@ -88,7 +88,7 @@ function FloatingButton({ theme }: Props) {
                 'py-[10px] pl-2 w-[180px] rounded-[6px] cursor-pointer',
               )}
             >
-              사용 방법을 알려줘!
+              {t('floating_help_introduction_common')}
             </div>
           </div>
         </div>
