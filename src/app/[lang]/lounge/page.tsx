@@ -1,19 +1,26 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { flushSync } from 'react-dom';
 import QuestionList from '@/app/[lang]/lounge/_components/QuestionList';
 import { useTranslation } from '@/app/_hooks/useTranslation';
 
 export type Tab = '최신' | '베스트';
 
 export default function page() {
-  const [activeTab, setActiveTab] = useState<Tab>('최신');
+  const [activeTab, setActiveTab] = useState<Tab>(() => {
+    return (sessionStorage.getItem('tab') as Tab) || '최신';
+  });
 
   const handleClickTab = (tab: Tab) => {
     setActiveTab(tab);
   };
 
   const [{ t }] = useTranslation('lounge');
+
+  useEffect(() => {
+    sessionStorage.setItem('tab', activeTab);
+  }, [activeTab]);
 
   return (
     <main className="flex flex-col flex-1 h-full">

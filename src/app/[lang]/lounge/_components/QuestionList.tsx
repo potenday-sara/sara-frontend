@@ -103,9 +103,15 @@ const TAB_MAP = {
 } as const;
 
 export default function QuestionList({ tab }: Props) {
-  const [activeFilter, setActiveFilter] = useState<FilterButton>('전체');
+  const [activeFilter, setActiveFilter] = useState<FilterButton>(() => {
+    return (sessionStorage.getItem('filter') as FilterButton) || '전체';
+  });
   const router = useRouter();
   const [{ t }, lang] = useTranslation('lounge');
+
+  useEffect(() => {
+    sessionStorage.setItem('filter', activeFilter);
+  }, [activeFilter]);
 
   const {
     data: questionList,
