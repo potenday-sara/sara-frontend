@@ -77,24 +77,23 @@ function MainRank({ theme, trend, handleThemeAction }: Props) {
       </div>
 
       <div className="buttons flex w-full">
-        <Button
+        <button
+          type="button"
           className={ThemeSelectButtonClassName({ defaultSara: theme !== 'sara', themeSara: theme === 'sara' })}
           onClick={() => handleClickThemeSelectButton('sara')}
-          label={
-            <div className="w-[64px]">
-              <Logo logo="sara" />
-            </div>
-          }
-        />
-        <Button
+        >
+          <div className="w-[64px]">
+            <Logo logo="sara" />
+          </div>
+        </button>
+        <button
           className={ThemeSelectButtonClassName({ defaultMara: theme !== 'mara', themeMara: theme === 'mara' })}
           onClick={() => handleClickThemeSelectButton('mara')}
-          label={
-            <div className="w-[64px]">
-              <Logo logo="mara" />
-            </div>
-          }
-        />
+        >
+          <div className="w-[64px]">
+            <Logo logo="mara" />
+          </div>
+        </button>
       </div>
       <div className="bg-black-#f4">
         <ul className="w-full flex px-[15px] py-2 overflow-auto gap-1 hide-scrollbar">
@@ -113,7 +112,7 @@ function MainRank({ theme, trend, handleThemeAction }: Props) {
         </ul>
         <ul className="flex flex-col gap-[1px]">
           {trend[theme][selectedIndex].contents.map((trend, index) => (
-            <li
+            <div
               onClick={() => handleClickTrend(trend)}
               key={trend.product}
               className="flex bg-white items-center h-[64px] gap-3 px-4 font-14-title-100 cursor-pointer"
@@ -126,7 +125,7 @@ function MainRank({ theme, trend, handleThemeAction }: Props) {
                 {index + 1}
               </div>
               <div>{trend.product}</div>
-            </li>
+            </div>
           ))}
         </ul>
       </div>

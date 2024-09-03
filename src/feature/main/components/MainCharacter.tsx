@@ -1,16 +1,13 @@
 'use client';
 
 import { cva } from 'class-variance-authority';
-import { useState, memo } from 'react';
+import { memo } from 'react';
 import { useRouter } from 'next/navigation';
-import { descriptions } from 'jest-config';
 import MainSara from '@/asset/character/MainSara.svg';
 import MainMara from '@/asset/character/MainMara.svg';
 import { Theme } from '@/feature/main/hooks/useSaraMara';
-import Button from '@/components/atoms/Button';
 import Logo from '@/components/atoms/Logo/Logo';
 import getCssByTheme from '@/app/_utils/getCssByTheme';
-import { Locale } from '@/app/i18n/i18n.config';
 import { useTranslation } from '@/app/_hooks/useTranslation';
 
 type MainCharacterProps = {
@@ -55,24 +52,20 @@ function MainCharacter({ type, theme }: MainCharacterProps) {
           <MainMara />
         </div>
       )}
-      <Button
-        className={MainButtonClassNames({ type })}
-        onClick={handleClick}
-        label={
-          <div
-            className={getCssByTheme(
-              type,
-              ['text-sara-primary', 'text-mara-primary'],
-              'flex items-baseline font-15-title-100 gap-1 op',
-            )}
-          >
-            <div className="w-[64px]">
-              <Logo logo={type} />
-            </div>
-            <div>{t('home_sara_button')}</div>
+      <button type="button" className={MainButtonClassNames({ type })} onClick={handleClick}>
+        <div
+          className={getCssByTheme(
+            type,
+            ['text-sara-primary', 'text-mara-primary'],
+            'flex items-baseline font-15-title-100 gap-1 op',
+          )}
+        >
+          <div className="w-[64px]">
+            <Logo logo={type} />
           </div>
-        }
-      />
+          <div>{t('home_sara_button')}</div>
+        </div>
+      </button>
     </div>
   );
 }

@@ -644,5 +644,16 @@
       "en": "Mara it ever",
       "jp": "Mara しろ"
     }
+  },
+
+  "title" : {
+    "ko": "살까 말까 할 땐, 사라",
+    "en": "Buy or Not, Sara",
+    "jp": "買うかどうか、サラ"
+  },
+  "description" : {
+    "ko": "살지 말지 고민될 때 구매 결정을 도와줄 AI 답정너. 살까 말까 할 땐, 사라",
+    "en": "AI helper who can make you decide to buy or not, Sara",
+    "jp": "買うかどうか迷った時。決定を助けるAIヘルパー、サラ"
   }
 }
