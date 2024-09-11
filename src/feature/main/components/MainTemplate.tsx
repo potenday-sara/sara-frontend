@@ -19,7 +19,7 @@ type Props = {
 
 function MainTemplate({ trend, lang }: Props) {
   const { theme, progress, handleThemeAction } = useSaraMara();
-  const [isOnboardModalOpen, setIsOnboardModalOpen] = React.useState(lang === 'en' || lang === 'jp');
+  const [isOnboardModalOpen, setIsOnboardModalOpen] = React.useState(lang === 'en');
 
   const handleCloseOnboard = () => {
     setIsOnboardModalOpen(false);
