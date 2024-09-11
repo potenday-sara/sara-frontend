@@ -3,13 +3,13 @@
 import { cva } from 'class-variance-authority';
 import React, { Fragment, useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Tab } from '@/app/[lang]/lounge/page';
 import Logo from '@/components/atoms/Logo/Logo';
 import QuestionCard from '@/app/[lang]/lounge/_components/QuestionCard';
 import useQuestionList, { LIMIT } from '@/app/[lang]/lounge/_hooks/useInfinityQuestion';
 import { getLocale, useTranslation } from '@/app/_hooks/useTranslation';
 import KakaoAdFit from '@/components/organisms/KaKaoAdfit.jsx';
 import QuestionCardSkeleton from '@/app/[lang]/lounge/_components/QuestionCardSkeleton';
+import { Tab } from '@/app/[lang]/lounge/_components/template';
 
 type Props = {
   tab: Tab;
