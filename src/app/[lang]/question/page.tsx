@@ -18,6 +18,7 @@ import FloatingButton from '@/app/[lang]/question/_components/FloatingButton';
 import { useOnboard } from '@/app/[lang]/question/_context/OnboardContext';
 import { useTranslation } from '@/app/_hooks/useTranslation';
 import KakaoAdFit from '@/components/organisms/KaKaoAdfit.jsx';
+import LanguageSelect from '@/app/[lang]/question/_components/LanguageSelect';
 // import useMutateQuestion from '@/query/question';
 
 export default function page() {
@@ -44,6 +45,9 @@ export default function page() {
         <FloatingButton theme={theme} />
       </div>
       <div className="w-full pt-8 px-4 pb-4 bg-white rounded-[20px] flex flex-col gap-3 items-center relative">
+        <div className="absolute left-[70px]">
+          <LanguageSelect lang={lang} />
+        </div>
         <div className="logo cursor-pointer w-[130px]" onClick={handleClickLogo}>
           {lang === 'jp' && (theme === 'sara' ? <SaraCircleJP /> : <MaraCircleJP />)}
           {lang === 'en' && (theme === 'sara' ? <SaraCircleEN /> : <MaraCircleEN />)}
