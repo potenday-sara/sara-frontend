@@ -45,7 +45,7 @@ export default function page() {
         <FloatingButton theme={theme} />
       </div>
       <div className="w-full pt-8 px-4 pb-4 bg-white rounded-[20px] flex flex-col gap-3 items-center relative">
-        <div>
+        <div className="absolute left-[70px]">
           <LanguageSelect lang={lang} />
         </div>
         <div className="logo cursor-pointer w-[130px]" onClick={handleClickLogo}>
