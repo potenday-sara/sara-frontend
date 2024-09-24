@@ -1,5 +1,10 @@
 {
   "home_sara_button": "Ask",
   "home_mara_button": "Ask",
-  "home_trends": "Trends Now"
+  "home_trends": "Trends Now",
+  "introduce_1": "Let me introduce our Characters and theme of this Service! Follow us!",
+  "introduce_2": "Sara(사라) means ‘Just buy it’ in Korean. She’s your AI shopping assistant, here to help you decide whether to purchase an item you’re considering.\nJust let her know what you want to buy and why you’re hesitating, and she’ll give you the best advice to make your purchase decision easier and more confident!",
+  "introduce_3": "Mara(마라) means ‘Don’t buy it’ in Korean.",
+  "next": "Next",
+  "prev": "Prev"
 }
