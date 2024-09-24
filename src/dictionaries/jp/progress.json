@@ -1,0 +1,25 @@
+{
+  "loading_tips_label": "質問チップ",
+  "loading_tips_content1": "質問の内容を詳しく尋ねると、より良い答えが得られます！ \uD83D\uDE0E",
+  "loading_tips_content2":"どんな商品はサラがよく分からないかもしれません.例えば... 「ヴィトゲンシュタイン グランデ」のようなものとか？ \uD83D\uDE02" ,
+  "loading_tips_content3": "サラの回答が気に入ったら、下の評価ボタンを押してください！より良いアドバイスを提供する力になります！ \uD83D\uDE09",
+  "loading_tips_content4": "ここのどこかに素晴らしい商品がありそう！クリックするとどんな良いことが起こるのか？（あっ、バレバレだったかも笑）",
+  "loading_question_label": "私の質問",
+  "stucked_character":"あと10秒だけちょうだい...",
+  "stucked_tips_try1-1_sara": "今回は本当に答えますよ...!",
+  "stucked_tips_try1-1_mara": "今回は本当に答えますよ...!",
+  "stucked_tips_try1-2_sara": "10秒で本当に答えます...!",
+  "stucked_tips_try1-2_mara": "10秒で本当に答えます...!",
+  "stucked_tips_try1-3_sara": "(サラ曰く)サラに10秒与えたら、回答を得られる確率は97%!",
+  "stucked_tips_try1-3_mara": "(マラ曰く)マラに10秒与えたら、回答を得られる確率は97%!",
+  "stucked_tips_try2_sara": "あれれ...? 何か変な感じがするかも...?",
+  "stucked_tips_try2_mara": "あれれ...? 何か変な感じがするかも...?",
+  "stucked_tips_try3_sara": "",
+  "stucked_tips_try3_mara": "サラに何かあったようです。もう一度質問してくれませんか?",
+
+  "stucked_giveMoreTime": "10秒追加する",
+  "stucked_retry": "もう一度質問する",
+  "stucked_question_label": "私の質問"
+
+
+}

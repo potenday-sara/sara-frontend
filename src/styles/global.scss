@@ -1,0 +1,331 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+@layer utilities {
+  @import "font";
+  @import "floating";
+
+  .default-shadow {
+    box-shadow: 4px 4px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .two-line-truncate {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .temp {
+    transform: translate(0%, 10px);
+  }
+
+  .hide-scrollbar {
+    @apply overflow-auto;
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+
+  @keyframes toast {
+    from {
+      transform: translate(-50%,50%);
+    }
+
+    to {
+      transform: translate(-50%,-50);
+    }
+  }
+
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .toast {
+    animation: toast 0.5s ease;
+  }
+
+  .carousel {
+    animation: slide 10s infinite linear;
+  }
+
+  .truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .divider {
+    @apply h-[1px];
+    @apply w-full;
+    @apply bg-black-#ddd;
+  }
+
+  .question-base-input {
+    @apply w-full;
+    @apply focus:outline-none;
+    @apply font-14-medium-140;
+
+    font-family: "Pretendard", sans-serif;
+    text-align: center;
+    &::placeholder {
+      font-family: "Pretendard", sans-serif;
+    }
+  }
+  .question-base-input-text-left {
+    @apply w-full;
+    @apply focus:outline-none;
+    @apply font-14-medium-140;
+
+    font-family: "Pretendard", sans-serif;
+    text-align: start;
+    transition: none;
+  ;
+    &::placeholder {
+      font-family: "Pretendard", sans-serif;
+    }
+  }
+
+  .height-transition {
+    transition: height 0.3s ease;
+  }
+
+  .border-x {
+    border-right: 1px solid #ddd;
+  }
+
+  .bubble-left-top,
+  .bubble-right-top,
+  .bubble-left-bottom,
+  .bubble-right-bottom {
+    position: relative;
+    border-radius: 10px !important;
+    padding: 10px;
+    z-index: 100;
+  }
+
+  .bubble-left-top::before,
+  .bubble-right-top::before,
+  .bubble-left-bottom::before,
+  .bubble-right-bottom::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: inherit;
+    transform: rotate(45deg);
+    z-index: -1;
+    border-color: inherit;
+
+  }
+
+  .bubble-left-top::before {
+    top: 2px;
+    left: 30px;
+    margin-left: -10px;
+    margin-top: -10px;
+    border-left-width: 1px;
+    border-top-width: 1px;
+  }
+
+  .blur-dark {
+    background-color: rgba(51, 51, 51, 51.9);
+  }
+
+  .bubble-right-top::after {
+    top: 0;
+    right: 30px;
+    border-bottom-color: inherit;
+    margin-right: -10px;
+
+    margin-top: -10px;
+  }
+
+  .bubble-left-bottom::before {
+    bottom: 2px;
+    left: 30px;
+    border-left-width: 1px;
+    border-top-width: 1px;
+    margin-left: -10px;
+    margin-bottom: -10px;
+  }
+
+  .bubble-right-bottom::after {
+    bottom: 0;
+    right: 30px;
+    border-top-color: inherit;
+    border-bottom: 0;
+    margin-right: -10px;
+    margin-bottom: -10px;
+  }
+
+  .slider-shadow-sara {
+    position: relative;
+    box-shadow: 0px 4px 24px 0px rgba(0, 123, 237, 0.1);
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      opacity: 0.15;
+    }
+  }
+  .tag-shadow-sara {
+    box-shadow: 0px 4px 12px 0px rgba(0, 123, 237, 0.2);
+  }
+  .tag-shadow-mara {
+    box-shadow: 0px 4px 12px 0px rgba(239, 43, 0, 0.2);
+  }
+
+  .floating-shadow-sara {
+    box-shadow: 6px 12px 12px 0 rgba(0, 123, 237, 0.2);
+  }
+  .floating-shadow-mara {
+    box-shadow: 6px 12px 12px 0px rgba(239, 43, 0, 0.2);
+  }
+
+  .slider-shadow-mara {
+    position: relative;
+    box-shadow: 0px 8px 12px 0px rgba( 239, 43, 0, 0.1);
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      opacity: 0.15;
+    }
+  }
+
+
+  html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed,
+  figure, figcaption, footer, header, hgroup,
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+  }
+
+  /* HTML5 display-role reset for older browsers */
+  article, aside, details, figcaption, figure,
+  footer, header, hgroup, menu, nav, section {
+    display: block;
+  }
+
+  body {
+    line-height: 1;
+  }
+
+  ol, ul {
+    list-style: none;
+  }
+
+  blockquote, q {
+    quotes: none;
+  }
+
+  blockquote:before, blockquote:after,
+  q:before, q:after {
+    content: '';
+    content: none;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  @layer base {
+    @font-face {
+      font-family: "Pretendard";
+      src: url("../font/Pretendard-ExtraLight.woff") format("woff");
+      font-weight: 100;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Pretendard";
+      src: url("../font/Pretendard-Light.woff") format("woff");
+      font-weight: 200;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Pretendard";
+      src: url("../font/Pretendard-Thin.woff") format("woff");
+      font-weight: 300;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Pretendard";
+      src: url("../font/Pretendard-Regular.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Pretendard";
+      src: url("../font/Pretendard-Medium.woff") format("woff");
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Pretendard";
+      src: url("../font/Pretendard-SemiBold.woff") format("woff");
+      font-weight: 600;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Pretendard";
+      src: url("../font/Pretendard-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Pretendard";
+      src: url("../font/Pretendard-ExtraBold.woff") format("woff");
+      font-weight: 800;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Pretendard";
+      src: url("../font/Pretendard-Black.woff") format("woff");
+      font-weight: 900;
+      font-style: normal;
+    }
+
+    html {
+      font-family: "Pretendard", sans-serif;
+    }
+  }
+}

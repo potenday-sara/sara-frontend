@@ -1,0 +1,25 @@
+{
+  "loading_tips_label": "Question tips",
+  "loading_tips_content1": "If you ask with more details, you would get better answer! 😎",
+  "loading_tips_content2":"Sara might not be familiar with some products... Something like \"Wittgenstein Grande Pork\"? It's not even a word. 😂" ,
+  "loading_tips_content3": "Hit the rating buttons below the result! It would be a big contruibution for giving better advice! \uD83D\uDE09",
+  "loading_tips_content4": "It seems like there are some cool stuffs somewhere! What good things would happen when we click them? (Oops, was I too cheesy...?)",
+  "loading_question_label": "My question",
+  "stucked_character":"Just 10 more seconds...",
+  "stucked_tips_try1-1_sara": "This time you're really getting a answer, I promise!",
+  "stucked_tips_try1-1_mara": "This time you're really getting a answer, I promise!",
+  "stucked_tips_try1-2_sara": "Just give me 10 more seconds!",
+  "stucked_tips_try1-2_mara": "Just give me 10 more seconds!",
+  "stucked_tips_try1-3_sara": "Safficial) Giving Sara another 10 seconds, the chance for getting answer is 97%!",
+  "stucked_tips_try1-3_mara": "Mafficial) Giving Mara another 10 seconds, the chance for getting answer is 97%!",
+  "stucked_tips_try2_sara": "Oh what...? Something feels off...?",
+  "stucked_tips_try2_mara": "Oh what...? Something feels off...?",
+  "stucked_tips_try3_sara": "Seems like something happened to Sara... Could you ask the question again? \uD83E\uDD72",
+  "stucked_tips_try3_mara": "Seems like something happened to Mara... Could you ask the question again? \uD83E\uDD72",
+
+  "stucked_giveMoreTime": "10 more seconds",
+  "stucked_retry": "Retry",
+  "stucked_question_label": "My question"
+
+
+}

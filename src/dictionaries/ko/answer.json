@@ -1,0 +1,22 @@
+{
+  "answer_retry" : "에게 한 번 더!",
+  "answer_opposite" : "에게도 물어볼까?",
+  "stucked_question_label": "나의 질문",
+  "answer_answer_title_sara": "는 것이샤",
+  "answer_answer_title_mara": "는 것이샤",
+  "answer_feedback_title_sara": "도움 됐샤?",
+  "answer_feedback_title_mara": "도움 됐먀?",
+  "answer_feedback_good": "도움이 됐어요",
+  "answer_feedback_normal": "그럭저럭..?!",
+  "answer_feedback_bad": "영 별로에요",
+  "answer_feedback_toast": "평가가 반영되었어요!",
+  "answer_opinion_placeholder_sara":"사라에게 바라는 점, 하고 싶은\n얘기가 있다면 작성해주세요." ,
+  "answer_opinion_placeholder_mara":"마라에게 바라는 점, 하고 싶은\n얘기가 있다면 작성해주세요." ,
+    "answer_opinion_submit": "의견 보내기",
+    "answer_opinion_done_sara": "사라에게 의견 보내줘서 고맙샤!",
+    "answer_opinion_done_mara": "마라에게 의견 보내줘서 고맙다 먀!",
+  "answer_opinion_resubmit": "의견 다시 쓰기",
+  "general_share_title": "공유하기",
+  "general_share_copyLink": "링크 복사",
+  "general_share_kakao": "카카오톡"
+}

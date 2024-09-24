@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ThemeProvider } from 'styled-components';
 import App from './App';
-import './Font.css';
+import './Font.scss';
 import { Theme } from './Styles';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

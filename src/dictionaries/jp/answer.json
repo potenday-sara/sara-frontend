@@ -1,0 +1,22 @@
+{
+  "answer_retry" : " にもう一度！",
+  "answer_opposite" : "にも聞いてみる？",
+  "stucked_question_label": "私の質問",
+  "answer_answer_title_sara": "の見解は",
+  "answer_answer_title_mara": "しろ",
+  "answer_feedback_title_sara": "役に立った？",
+  "answer_feedback_title_mara": "役に立ったか？",
+  "answer_feedback_good": "役に立ったよ！",
+  "answer_feedback_normal": "まあまあ..?!",
+  "answer_feedback_bad": "全然ダメです。" ,
+  "answer_feedback_toast": "評価が反映されました！" ,
+  "answer_opinion_placeholder_sara": "マラに期待することや伝えたいことがあれば書いてください",
+  "answer_opinion_placeholder_mara": "マラに期待することや伝えたいことがあれば書いてください",
+  "answer_opinion_submit": "意見送り",
+  "answer_opinion_done_sara": "サラに意見を送ってくれてありがとうね！",
+  "answer_opinion_done_mara": "マラに意見を送ってくれてありがとうな！",
+  "answer_opinion_resubmit": "意見を再送",
+  "general_share_title": "共有する",
+  "general_share_copyLink": "リンク コピー",
+  "general_share_kakao": "カカオトーク"
+}
