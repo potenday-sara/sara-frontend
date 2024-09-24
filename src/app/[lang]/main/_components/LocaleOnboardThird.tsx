@@ -3,13 +3,18 @@ import MaraCircleCharacter from '@/asset/logo/MaraCircleCharacter.svg';
 import YouKnow from '@/app/[lang]/main/_asset/you-know.svg';
 import HiMara from '@/app/[lang]/main/_asset/hi-mara.svg';
 import Dot from '@/app/_asset/dot.svg';
+import { Locale } from '@/app/i18n/i18n.config';
+import { useTranslation } from '@/app/_hooks/useTranslation';
 
 interface Props {
   onClickPrevButton: () => void;
   onClickCloseButton: () => void;
+  lang: Locale;
 }
 
-export default function LocaleOnboardThird({ onClickPrevButton, onClickCloseButton }: Props) {
+export default function LocaleOnboardThird({ lang, onClickPrevButton, onClickCloseButton }: Props) {
+  const [{ t }] = useTranslation('main');
+
   return (
     <>
       <div className="gap-2 h-[235px] bg-secondary-50 flex flex-col p-8 items-center ">
@@ -23,10 +28,7 @@ export default function LocaleOnboardThird({ onClickPrevButton, onClickCloseButt
           <HiMara />
         </div>
 
-        <p className="font-16-medium-140 text-neutral-700 ">
-          Mara(마라) means ‘Don’t buy it’ in Korean. Unlike Sara, he will give you the best advice to confidently decide
-          against a purchase and save your money.
-        </p>
+        <p className="font-16-medium-140 text-neutral-700 ">{t('introduce_3')}</p>
       </div>
       <div className="flex justify-between items-end px-2.5">
         <div className="flex gap-[3px]">
