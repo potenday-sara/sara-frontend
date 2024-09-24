@@ -41,11 +41,11 @@ export default function page() {
     <div>
       <Tag type="sara" isActive={theme === 'sara'} theme={theme} onClick={handleClickTag} />
       <Tag type="mara" isActive={theme === 'mara'} theme={theme} onClick={handleClickTag} />
-      <div className="z-50 absolute mt-[20px] left-0" ref={forthItem}>
+      <div className="z-50 absolute mt-[150px] left-0" ref={forthItem}>
         <FloatingButton theme={theme} />
       </div>
       <div className="w-full pt-8 px-4 pb-4 bg-white rounded-[20px] flex flex-col gap-3 items-center relative">
-        <div className="absolute left-[70px]">
+        <div className="absolute left-[10px]">
           <LanguageSelect lang={lang} />
         </div>
         <div className="logo cursor-pointer w-[130px]" onClick={handleClickLogo}>
