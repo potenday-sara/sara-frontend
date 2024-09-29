@@ -54,8 +54,6 @@ export default function page() {
   const theme = useSearchParams()?.get('theme') as Theme;
   const randomIndex = Math.floor(Math.random() * 4);
 
-  console.log('theme', theme);
-
   const [{ t }, lang] = useTranslation('progress');
   const { itemName, itemDescription, questionId } = useQuestion();
   const router = useRouter();

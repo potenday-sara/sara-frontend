@@ -84,7 +84,7 @@ export default async function page({ searchParams, params }: Props) {
           {theme === 'sara' ? <SaraAnswer /> : <MaraAnswer />}
         </div>
         <p className="font-14-medium-140 text-black-#333">
-          <ChatAnimation messages={data.content.split('\n')} />{' '}
+          <ChatAnimation messages={data.content.split('\n').filter((text) => text.length)} />{' '}
         </p>
         <EmotionFeedback theme={theme} questionId={questionId} />
 
