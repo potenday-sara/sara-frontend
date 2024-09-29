@@ -23,6 +23,7 @@ import SaraCircleJP from '@/asset/logo/sara-jp.svg';
 import MaraCircleJP from '@/asset/logo/mara-jp.svg';
 import SaraCircleEN from '@/asset/logo/sara-en.svg';
 import MaraCircleEN from '@/asset/logo/mara-en.svg';
+import ChatAnimation from '@/app/[lang]/question/answer/_components/ChatAnimation';
 
 type Props = {
   searchParams: {
@@ -82,7 +83,9 @@ export default async function page({ searchParams, params }: Props) {
           {theme === 'sara' ? <SaraCircleCharacter /> : <MaraCircleCharacter />}
           {theme === 'sara' ? <SaraAnswer /> : <MaraAnswer />}
         </div>
-        <p className="font-14-medium-140 text-black-#333">{data.content}</p>
+        <p className="font-14-medium-140 text-black-#333">
+          <ChatAnimation messages={data.content.split('\n')} />{' '}
+        </p>
         <EmotionFeedback theme={theme} questionId={questionId} />
 
         <div className="share flex flex-col items-center gap-3">

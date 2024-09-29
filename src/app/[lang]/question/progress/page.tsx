@@ -1,7 +1,7 @@
 'use client';
 
 import React, { Suspense } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import SaraCircle from '@/asset/logo/sara-circle.svg';
 import MaraCircle from '@/asset/logo/mara-circle.svg';
 import { Theme } from '@/feature/question/ThemeContext';
@@ -50,9 +50,11 @@ const getChipText = (index: number) => {
   return '사용 팁';
 };
 
-export default function page({ searchParams }: { searchParams: { theme: Theme } }) {
-  const theme = searchParams.theme || 'sara';
+export default function page() {
+  const theme = useSearchParams()?.get('theme') as Theme;
   const randomIndex = Math.floor(Math.random() * 4);
+
+  console.log('theme', theme);
 
   const [{ t }, lang] = useTranslation('progress');
   const { itemName, itemDescription, questionId } = useQuestion();
