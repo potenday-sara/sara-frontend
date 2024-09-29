@@ -29,6 +29,7 @@
     "react/require-default-props": "warn",
     "jsx-a11y/control-has-associated-label": "off",
     "consistent-return": "off",
+    "react/no-array-index-key": "off",
     "react/jsx-no-constructed-context-values": "off"
   },
   "plugins" : ["eslint-plugin-import", "@typescript-eslint"],
