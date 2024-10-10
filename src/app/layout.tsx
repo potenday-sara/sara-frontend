@@ -1,6 +1,7 @@
-import '../../styles/global.scss';
+import '../styles/global.scss';
 import Script from 'next/script';
 import { ReactNode } from 'react';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import Footer from '@/components/organisms/Footer/Footer';
 import { i18n, type Locale } from '@/app/i18n/i18n.config';
 import { getDictionary } from '@/getDictionary';
@@ -39,29 +40,15 @@ export default async function RootLayout({ children, params }: { children: React
           integrity="sha384-kDljxUXHaJ9xAb2AzRd59KxjrFjzHa5TAoFQ6GbYTCAG0bjM55XohjjDT7tDDC01"
           crossOrigin="anonymous"
         />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-G3W9N0F90R" />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3538415329975370"
-          crossOrigin="anonymous"
-        />
-
-        {/* <script> */}
-        {/*  window.dataLayer = window.dataLayer || []; */}
-        {/*  function gtag() { */}
-        {/*  dataLayer.push(arguments); */}
-        {/* } */}
-        {/*  gtag('js', new Date()); */}
-
-        {/*  gtag('config', 'G-G3W9N0F90R'); */}
-        {/* </script> */}
       </head>
+
       <body className="max-w-[600px] box-border m-auto overflow-auto">
         {children}
         <div className="footer">
           <Footer />
         </div>
       </body>
+      <GoogleAnalytics gaId="G-G3W9N0F90R" />
     </html>
   );
 }
