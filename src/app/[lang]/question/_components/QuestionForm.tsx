@@ -96,6 +96,8 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
   };
 
   const handleChangeItemName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // itemNamae이 30자 초과이면 입력이 안되도록 수정
+    if (e.target.value.length > 30) return;
     setItemName(e.target.value);
   };
 
