@@ -17,15 +17,6 @@ export interface GetQuestionListRequestTypes {
 }
 
 const getQuestion = ({ id }: GetQuestionListRequestTypes) =>
-  ServerQuestionAPI.get(`/${id}/`)
-    .options({
-      cache: 'no-store',
-      next: {
-        revalidate: 0,
-        tage: [],
-      },
-    })
-    .build()
-    .call<GetQuestionListResponseTypes>();
+  ServerQuestionAPI.get(`/${id}/`).build().call<GetQuestionListResponseTypes>();
 
 export default getQuestion;

@@ -4,10 +4,6 @@ import { HTTPHeaders, HTTPMethod, HTTPParams } from '@/libs/index';
 import API from '@/libs/fetch';
 
 export default class ClientAPI extends API {
-  constructor(method: HTTPMethod, url: string) {
-    super(method, url);
-  }
-
   call<T>(): AxiosPromise<T> {
     const http = axios.create();
 
