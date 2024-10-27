@@ -1,7 +1,7 @@
 'use client';
 
 import { cva } from 'class-variance-authority';
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import MainSara from '@/asset/character/MainSara.svg';
 import MainMara from '@/asset/character/MainMara.svg';
@@ -41,6 +41,27 @@ function MainCharacter({ type, theme }: MainCharacterProps) {
     router.push(`/${lang}/question?theme=${type}`);
   };
 
+  const generateLabel = useMemo(() => {
+    if (lang === 'en') {
+      return (
+        <div className="flex items-baseline gap-1">
+          <div>{t('home_sara_button')}</div>
+          <div className="w-[64px]">
+            <Logo logo={type} />
+          </div>
+        </div>
+      );
+    }
+    return (
+      <div className="flex items-baseline gap-1">
+        <div className="w-[64px]">
+          <Logo logo={type} />
+        </div>
+        <div>{t('home_sara_button')}</div>
+      </div>
+    );
+  }, [lang]);
+
   return (
     <div className={MainCharacterClassNames({ type })}>
       {type === 'sara' ? (
@@ -53,17 +74,8 @@ function MainCharacter({ type, theme }: MainCharacterProps) {
         </div>
       )}
       <button type="button" className={MainButtonClassNames({ type })} onClick={handleClick}>
-        <div
-          className={getCssByTheme(
-            type,
-            ['text-sara-primary', 'text-mara-primary'],
-            'flex items-baseline font-15-title-100 gap-1 op',
-          )}
-        >
-          <div className="w-[64px]">
-            <Logo logo={type} />
-          </div>
-          <div>{t('home_sara_button')}</div>
+        <div className={getCssByTheme(type, ['text-sara-primary', 'text-mara-primary'], 'font-15-title-100 op')}>
+          {generateLabel}
         </div>
       </button>
     </div>
