@@ -1,8 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
-import { useQuestion } from '@/app/[lang]/question/_context/QuestionContext';
 import BaroSara from '@/app/[lang]/question/_asset/baro-sara.svg';
 import BaroMara from '@/app/[lang]/question/_asset/bara-mara.svg';
+import BaraSaraJP from '@/app/[lang]/question/_asset/sara-jp.svg';
+import BaraMaraJP from '@/app/[lang]/question/_asset/mara-jp.svg';
+import BaraSaraEN from '@/app/[lang]/question/_asset/sara-en.svg';
+import BaraMaraEN from '@/app/[lang]/question/_asset/mara-en.svg';
+
 import { Theme, useSaraMara } from '@/feature/question/ThemeContext';
 import Dropdown from '@/app/_components/dropdown';
 import SelectInput from '@/app/_components/input/SelectInput';
@@ -13,11 +17,8 @@ import Logo from '@/components/atoms/Logo/Logo';
 import getCssByTheme from '@/app/_utils/getCssByTheme';
 import { useTranslation } from '@/app/_hooks/useTranslation';
 
-interface Props {}
-
 export default function Shop() {
-  const { itemName } = useQuestion();
-  const [{ t }] = useTranslation('question');
+  const [{ t }, lang] = useTranslation('question');
   const { theme } = useSaraMara();
   const {
     categories,
@@ -31,6 +32,16 @@ export default function Shop() {
     keyword,
     itemLoading,
   } = useShop();
+
+  const getIcon = () => {
+    if (lang === 'jp') {
+      return theme === 'sara' ? <BaraSaraJP /> : <BaraMaraJP />;
+    }
+    if (lang === 'en') {
+      return theme === 'sara' ? <BaraSaraEN /> : <BaraMaraEN />;
+    }
+    return theme === 'sara' ? <BaroSara /> : <BaroMara />;
+  };
 
   if (itemLoading || !categories) {
     return (
@@ -114,7 +125,7 @@ export default function Shop() {
             items={categories}
             trigger={<SelectInput theme={theme} value={nowCategory.label} />}
           />
-          <div className="mb-[9px]">{theme === 'sara' ? <BaroSara /> : <BaroMara />}</div>
+          <div className="mb-[9px]">{getIcon()}</div>
         </div>
       )}
 
