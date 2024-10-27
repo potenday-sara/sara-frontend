@@ -9,6 +9,7 @@ export default class ServerAPIBuilder {
     this._instance.data = data;
     this._instance.headers = {
       'Content-Type': 'application/json; charset=utf-8',
+      'Cache-Control': 'max-age=0, no-cache',
     };
     this._instance.timeout = 5000;
     this._instance.withCredentials = false;

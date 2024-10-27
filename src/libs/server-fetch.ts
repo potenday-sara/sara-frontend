@@ -4,19 +4,17 @@ import API from '@/libs/fetch';
 export default class ServerAPI extends API {
   options: HTTPServerOptions;
 
-  constructor(method: HTTPMethod, url: string) {
-    super(method, url);
-  }
-
   call<T>(): Promise<T> {
     const queryString = new URLSearchParams(this.params as string).toString();
     const URL = this.baseURL + this.url + (queryString ? `?${queryString}` : '');
-    console.log('URL', URL);
+    const { options, ...rest } = this;
     return fetch(URL, {
       body: JSON.stringify(this.data),
-      ...this,
+      ...options,
+      ...rest,
     })
       .then((res: Response) => {
+        console.log('Response', res);
         return res.json();
       })
       .catch((error) => {
