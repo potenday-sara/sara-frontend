@@ -72,7 +72,9 @@ export default async function page({ params }: Props) {
       <div className="flex gap-1 h-[70px] w-full">
         <button
           type="button"
-          className="text-sara-primary rounded-[10px] font-14-title-100 flex-1 bg-sara-secondary rounded-10 flex flex-col items-center justify-center gap-[6px]"
+          className={`text-sara-primary rounded-[10px] font-14-title-100 flex-1 bg-sara-secondary rounded-10 flex items-center justify-center gap-[6px] ${
+            lang === 'en' ? 'flex-col-reverse' : 'flex-col'
+          }`}
         >
           <div className="w-[64px]">
             <Logo logo="sara" />
@@ -81,7 +83,9 @@ export default async function page({ params }: Props) {
         </button>
         <button
           type="button"
-          className="text-mara-primary rounded-[10px] font-14-title-100 flex-1 bg-mara-secondary rounded-10 flex flex-col items-center justify-center gap-[6px]"
+          className={`text-mara-primary rounded-[10px] font-14-title-100 flex-1 bg-mara-secondary rounded-10 flex flex-col items-center justify-center gap-[6px]
+            ${lang === 'en' ? 'flex-col-reverse' : 'flex-col'}
+            `}
         >
           <div className="w-[64px]">
             <Logo logo="mara" />
