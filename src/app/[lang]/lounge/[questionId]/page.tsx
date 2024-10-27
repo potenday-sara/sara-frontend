@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import getQuestion from '@/apis/question/getQuestion';
 import SaraTitle from '@/app/[lang]/lounge/[questionId]/_asset/saratitle.svg';
 import MaraTitle from '@/app/[lang]/lounge/[questionId]/_asset/maratitle.svg';
@@ -70,7 +71,8 @@ export default async function page({ params }: Props) {
         </div>
       </div>
       <div className="flex gap-1 h-[70px] w-full">
-        <button
+        <Link
+          href={`/${lang}/question?theme=sara`}
           type="button"
           className="text-sara-primary rounded-[10px] font-14-title-100 flex-1 bg-sara-secondary rounded-10 flex flex-col items-center justify-center gap-[6px]"
         >
@@ -78,8 +80,9 @@ export default async function page({ params }: Props) {
             <Logo logo="sara" />
           </div>
           <span>{answer.type === 'sara' ? dict.answer_retry : dict.answer_opposite}</span>
-        </button>
-        <button
+        </Link>
+        <Link
+          href={`/${lang}/question?theme=mara`}
           type="button"
           className="text-mara-primary rounded-[10px] font-14-title-100 flex-1 bg-mara-secondary rounded-10 flex flex-col items-center justify-center gap-[6px]"
         >
@@ -87,7 +90,7 @@ export default async function page({ params }: Props) {
             <Logo logo="mara" />
           </div>
           <span>{answer.type === 'mara' ? dict.answer_retry : dict.answer_opposite}</span>
-        </button>
+        </Link>
       </div>
       <div className="w-full flex justify-center items-center">
         <KakaoAdFit disabled={false} height={50} width={320} unit="DAN-YhXsa3BBPzUc1OHF" />
