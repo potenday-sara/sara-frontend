@@ -49,6 +49,13 @@ export default function OnboardBalloon({
       onClickPrevButton();
     }
   };
+
+  const handleClickCloseButton = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    onClickCloseButton();
+  };
   return (
     <div
       style={{
@@ -67,7 +74,7 @@ export default function OnboardBalloon({
           <div className="flex flex-col gap-1.5">
             <div className="flex justify-between items-start">
               <h3 className="font-15-title-140 text-white whitespace-pre-wrap">{title}</h3>
-              <button className="mt-1" type="button">
+              <button className="mt-1" type="button" onClick={handleClickCloseButton}>
                 <X />
               </button>
             </div>

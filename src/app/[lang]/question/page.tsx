@@ -19,7 +19,6 @@ import { useOnboard } from '@/app/[lang]/question/_context/OnboardContext';
 import { useTranslation } from '@/app/_hooks/useTranslation';
 import KakaoAdFit from '@/components/organisms/KaKaoAdfit.jsx';
 import LanguageSelect from '@/app/[lang]/question/_components/LanguageSelect';
-// import useMutateQuestion from '@/query/question';
 
 export default function page() {
   const theme = useSearchParams()?.get('theme') as Theme;
