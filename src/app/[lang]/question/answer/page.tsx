@@ -8,6 +8,11 @@ import SaraCircleCharacter from '@/asset/logo/SaraCircleCharacter.svg';
 import MaraCircleCharacter from '@/asset/logo/MaraCircleCharacter.svg';
 import SaraAnswer from '@/app/[lang]/question/answer/_asset/sara-answer.svg';
 import MaraAnswer from '@/app/[lang]/question/answer/_asset/mara-answer.svg';
+import SaraAnswerEN from '@/app/[lang]/question/answer/_asset/sara-answer-en.svg';
+import MaraAnswerEN from '@/app/[lang]/question/answer/_asset/mara-answer-en.svg';
+import SaraAnswerJP from '@/app/[lang]/question/answer/_asset/sara-answer-jp.svg';
+import MaraAnswerJP from '@/app/[lang]/question/answer/_asset/mara-answer-jp.svg';
+
 import LinkShare from '@/app/[lang]/question/answer/_asset/share/share.svg';
 import KaKaoShare from '@/app/[lang]/question/answer/_asset/share/kakao-share.svg';
 
@@ -59,6 +64,15 @@ export default async function page({ searchParams, params }: Props) {
 
   const getDict = async (l: 'ko' | 'en' | 'jp') => dictionary[l]();
 
+  const getResultIcon = () => {
+    if (lang === 'jp') {
+      return theme === 'sara' ? <SaraAnswerJP /> : <MaraAnswerJP />;
+    }
+    if (lang === 'en') {
+      return theme === 'sara' ? <SaraAnswerEN /> : <MaraAnswerEN />;
+    }
+    return theme === 'sara' ? <SaraAnswer /> : <MaraAnswer />;
+  };
   const dict = await getDict(lang);
 
   return (
@@ -81,7 +95,7 @@ export default async function page({ searchParams, params }: Props) {
         <div className="divide h-[1px] w-full bg-black-#ddd" />
         <div className="character w-[148px] flex gap-4 flex-col items-center">
           {theme === 'sara' ? <SaraCircleCharacter /> : <MaraCircleCharacter />}
-          {theme === 'sara' ? <SaraAnswer /> : <MaraAnswer />}
+          {getResultIcon()}
         </div>
         <p className="font-14-medium-140 text-black-#333">
           <ChatAnimation messages={data.content.split('\n').filter((text) => text.length)} />{' '}
