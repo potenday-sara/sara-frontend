@@ -130,7 +130,7 @@ export default function Shop() {
       )}
 
       <div className="flex flex-col gap-2">
-        {displayItems?.map((item) => (
+        {displayItems.map((item) => (
           <div
             onClick={() => {
               window.open(item.product_url, '_blank');
@@ -148,7 +148,8 @@ export default function Shop() {
             <div className="flex-1 flex flex-col gap-[6px]">
               <p className="font-14-title-100 text-black-#666 two-line-truncate">{item.product_name}</p>
               <p className="font-14-title-100">
-                {item.product_price.toLocaleString()} {t('money')}
+                {Number(item.product_price).toLocaleString()}
+                {t('money')}
               </p>
               {item.is_rocket && (
                 // <div
