@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { cva } from 'class-variance-authority';
 import { useRouter } from 'next/navigation';
 import Refresh from '@/asset/svg/refresh.svg';
@@ -128,6 +128,13 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
   );
 
   const { firstItem, secondItem, thirdItem } = useOnboard();
+  const generateLabel = useMemo(() => {
+    if (lang === 'en') {
+      return `${t(`question_submit_${theme}`)} ${itemName}?`;
+    }
+
+    return `${itemName} ${t(`question_submit_${theme}`)}`;
+  }, [itemName, lang, theme, t]);
 
   return (
     <div className="question-form flex flex-col gap-3 w-full">
@@ -246,7 +253,7 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
           'button h-[48px] rounded-[10px] text-white font-14-title-100 flex justify-center items-center',
         )}
       >
-        {t(`question_submit_${theme}`)} {itemName}
+        {generateLabel}
       </button>
     </div>
   );
