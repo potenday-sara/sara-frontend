@@ -9,6 +9,10 @@ import getCssByTheme from '@/app/_utils/getCssByTheme';
 import useComment from '@/app/[lang]/lounge/[questionId]/_hooks/useComment';
 import SaraEmpty from '@/app/[lang]/lounge/[questionId]/_asset/empty-sara.svg';
 import MaraEmpty from '@/app/[lang]/lounge/[questionId]/_asset/empty-mara.svg';
+import SaraEmptyJP from '@/app/[lang]/lounge/[questionId]/_asset/empty-sara-jp.svg';
+import MaraEmptyJP from '@/app/[lang]/lounge/[questionId]/_asset/empty-mara-jp.svg';
+import SaraEmptyEN from '@/app/[lang]/lounge/[questionId]/_asset/empty-sara-en.svg';
+import MaraEmptyEN from '@/app/[lang]/lounge/[questionId]/_asset/empty-mara-en.svg';
 import { useTranslation } from '@/app/_hooks/useTranslation';
 
 interface Props {
@@ -28,7 +32,16 @@ export default function AnswerCommentList({ type, commentList, questionId }: Pro
     page,
   } = useComment(questionId, commentList);
   const [value, setValue] = useState('');
-  const [{ t }] = useTranslation('lounge');
+  const [{ t }, lang] = useTranslation('lounge');
+  const getEmptyIcons = () => {
+    if (lang === 'jp') {
+      return type === 'sara' ? <SaraEmptyJP /> : <MaraEmptyJP />;
+    }
+    if (lang === 'en') {
+      return type === 'sara' ? <SaraEmptyEN /> : <MaraEmptyEN />;
+    }
+    return type === 'sara' ? <SaraEmpty /> : <MaraEmpty />;
+  };
   const adjustTextareaHeight = () => {
     const textarea = textareaRef.current;
 
@@ -59,9 +72,7 @@ export default function AnswerCommentList({ type, commentList, questionId }: Pro
       <div className="flex flex-col gap-[6px]">
         <div className="min-h-[140px] flex flex-col gap-5">
           {commentListState.length === 0 && (
-            <div className="flex justify-center items-center h-full">
-              {type === 'sara' ? <SaraEmpty /> : <MaraEmpty />}
-            </div>
+            <div className="flex justify-center items-center h-full">{getEmptyIcons()}</div>
           )}
           {displayCommentList.map((comment) => (
             <AnswerComment key={comment.id} comment={comment} type={type} />
