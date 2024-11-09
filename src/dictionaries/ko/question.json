@@ -33,7 +33,7 @@
   "floating_help_title_mara": "무엇이 궁금하먀?",
   "floating_help_tutorial_common": "문제가 있어 / 하고 싶은 말이 있어!",
   "floating_help_survey_common": "사용 방법을 알려줘!",
-  "floating_help_introduction_common": "",
+  "floating_help_introduction_common": "어떻게 써야 할지 알려줄게, {{ theme }}!",
   "shopping_search_sara": "방금 물어본 거 바로 Sara",
   "shopping_search_mara": "방금 물어본 거 사지 Mara"
 

@@ -17,11 +17,17 @@ type Props = {
   theme: Theme;
 };
 
+const CS_LINK = {
+  ko: 'https://forms.gle/P9p5pNCKCFXpRANq5',
+  en: 'https://forms.gle/5TGYDsgcme1Dzm1u6',
+  jp: 'https://forms.gle/WgSFgRypndNbuv4X7',
+};
+
 function FloatingButton({ theme }: Props) {
   const [isOpened, setIsOpened] = React.useState(false);
   const { handleStartOnboard } = useOnboard();
 
-  const [{ t }] = useTranslation('question');
+  const [{ t }, lang] = useTranslation('question');
   const handleOnboardClick = () => {
     handleStartOnboard();
     setIsOpened(false);
@@ -76,7 +82,7 @@ function FloatingButton({ theme }: Props) {
                 ['bg-sara-25%', 'bg-mara-25%'],
                 'py-[10px] pl-2 w-[180px] rounded-[6px] cursor-pointer',
               )}
-              onClick={() => window.open('https://forms.gle/wZ6r3Vo5E4vBLsGz7')}
+              onClick={() => window.open(CS_LINK[lang])}
             >
               {t('floating_help_tutorial_common')}
             </div>
@@ -88,7 +94,7 @@ function FloatingButton({ theme }: Props) {
                 'py-[10px] pl-2 w-[180px] rounded-[6px] cursor-pointer',
               )}
             >
-              {t('floating_help_introduction_common')}
+              {t('floating_help_introduction_common', { theme: theme === 'sara' ? '샤' : '먀' })}
             </div>
           </div>
         </div>
