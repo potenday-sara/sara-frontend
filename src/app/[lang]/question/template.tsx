@@ -37,7 +37,6 @@ export default function template({ children }) {
     setCarouselItem((prev) => {
       if (prev.length === 0) return [] as Item[];
       const first = prev.shift() as Item;
-      console.log('first', first);
 
       return [...prev, first];
     });

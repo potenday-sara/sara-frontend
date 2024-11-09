@@ -6,7 +6,6 @@ import StyledSortButtons from './styles';
 export default function SortButtons() {
   const { sortType } = useContext(LoungeContext);
 
-  console.log('sortType', sortType);
   return (
     <StyledSortButtons>
       <SortButton type="time" text="최신" selected={sortType === 'time'} />
