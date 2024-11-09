@@ -40,6 +40,7 @@ export default async function RootLayout({ children, params }: { children: React
           integrity="sha384-kDljxUXHaJ9xAb2AzRd59KxjrFjzHa5TAoFQ6GbYTCAG0bjM55XohjjDT7tDDC01"
           crossOrigin="anonymous"
         />
+        <meta name="google-site-verification" content="Bu4H_khZoQleCHCPjTFFlPpwZNdxPF9WqeJzlqsg44A" />
       </head>
 
       <body className="max-w-[600px] box-border m-auto overflow-auto">
