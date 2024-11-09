@@ -8,8 +8,6 @@ const usePage = (arr: unknown[]) => {
   const [nowPage, setNowPage] = useState(1);
   const [maxPage, setMaxPage] = useState(Math.ceil(arr.length / 4));
 
-  console.log('maxPage', maxPage);
-
   const handleSetNextPage = () => {
     if (nowPage + 1 <= maxPage) setNowPage((prev) => prev + 1);
   };

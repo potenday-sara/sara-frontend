@@ -55,7 +55,6 @@ function MainRank({ theme, trend, handleThemeAction }: Props) {
   const [selectedIndex, setSelectedIndex] = React.useState<number>(0);
 
   const handleClickThemeSelectButton = (theme: Theme) => {
-    console.log('theme', theme);
     handleThemeAction.handleSetTheme(theme);
     handleThemeAction.handleStopInterval();
   };
