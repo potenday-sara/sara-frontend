@@ -43,12 +43,7 @@ export default async function RootLayout({ children, params }: { children: React
         <meta name="google-site-verification" content="Bu4H_khZoQleCHCPjTFFlPpwZNdxPF9WqeJzlqsg44A" />
       </head>
 
-      <body className="max-w-[600px] box-border m-auto overflow-auto">
-        {children}
-        <div className="footer">
-          <Footer />
-        </div>
-      </body>
+      <body className="max-w-[600px] box-border m-auto overflow-auto">{children}</body>
       <GoogleAnalytics gaId="G-G3W9N0F90R" />
     </html>
   );
