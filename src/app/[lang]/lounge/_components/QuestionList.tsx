@@ -143,6 +143,10 @@ export default function QuestionList({ tab }: Props) {
   };
 
   useEffect(() => {
+    router.refresh();
+  }, []);
+
+  useEffect(() => {
     setActiveFilter('전체');
   }, [tab]);
 
@@ -226,9 +230,9 @@ export default function QuestionList({ tab }: Props) {
               {TAB_MAP[tab] === 'time' && (
                 <>
                   {questionList.pages.map((page, index) => (
-                    <Fragment key={`${Math.random()} 123`}>
+                    <Fragment key={`question-list-${page}-${index}`}>
                       {page.data.results.map((question, idx) => (
-                        <>
+                        <Fragment key={question.id}>
                           {index === 0 && idx === 5 && (
                             <div className="w-full flex justify-center items-center -z-1 relative">
                               <KakaoAdFit disabled={false} height={100} width={320} unit="DAN-cPT36Fzp7H9Xdqy6" />
@@ -244,7 +248,7 @@ export default function QuestionList({ tab }: Props) {
                             createdAt={question.created_at}
                             type={question.type}
                           />
-                        </>
+                        </Fragment>
                       ))}
                     </Fragment>
                   ))}

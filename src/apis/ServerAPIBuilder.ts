@@ -15,10 +15,6 @@ export default class ServerAPIBuilder {
     this._instance.withCredentials = false;
     this._instance.options = {
       cache: 'no-store',
-      next: {
-        revalidate: false,
-        tage: [],
-      },
     };
   }
 
