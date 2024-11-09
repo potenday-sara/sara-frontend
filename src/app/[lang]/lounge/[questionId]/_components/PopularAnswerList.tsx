@@ -46,9 +46,9 @@ export default function PopularAnswerList() {
     <div className="flex-1 h-[full] flex flex-col gap-2 overflow-hidden">
       <h3 className="font-14-title-100">{t('detail_trendQuestion')}</h3>
       {questionList.pages.map((page, index) => (
-        <Fragment key={`popular-${Math.random()}`}>
+        <Fragment key={`popular-${page}-${index}`}>
           {page.data.results.map((question, idx) => (
-            <>
+            <Fragment key={question.id}>
               <QuestionCard
                 onClick={handleClickCard}
                 questionId={question.id}
@@ -64,7 +64,7 @@ export default function PopularAnswerList() {
                   <KakaoAdFit disabled={false} height={100} width={320} unit="DAN-Q0AoHTzVm30ASBoA" />
                 </div>
               )}
-            </>
+            </Fragment>
           ))}
         </Fragment>
       ))}

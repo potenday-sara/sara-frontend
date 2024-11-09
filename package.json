@@ -66,7 +66,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "dev": "next dev",
+    "dev": "NODE_OPTIONS='--inspect' next dev",
     "start:next": "next start",
     "build:next": "next build",
     "lint": "next lint",

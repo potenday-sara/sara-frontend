@@ -13,7 +13,6 @@ import AnswerKakaoShare from '@/app/[lang]/lounge/[questionId]/_components/Answe
 import Logo from '@/components/atoms/Logo/Logo';
 import AnswerCommentList from '@/app/[lang]/lounge/[questionId]/_components/AnswerCommentList';
 import getCommentList from '@/apis/question/getCommentList';
-import { Comment } from '@/app/[lang]/lounge/[questionId]/_components/AnswerComment';
 import QueryProvider from '@/app/[lang]/lounge/[questionId]/_components/QueryProvider';
 import PopularAnswerList from '@/app/[lang]/lounge/[questionId]/_components/PopularAnswerList';
 import KakaoAdFit from '@/components/organisms/KaKaoAdfit.jsx';
