@@ -116,7 +116,7 @@ export default function LoungeSlider({ theme }: Props) {
                   ['text-sara-primary', 'text-mara-primary'],
                   'border-x !flex flex-col gap-[6px] p-[10px] h-[56px] cursor-pointer relative z-50',
                 )}
-                onClick={() => router.push(`/lounge/${question.id}/`)}
+                onClick={() => router.push(`/${lang}/lounge/${question.id}/`)}
               >
                 <div className="font-14-title-100 truncate">{question.product}</div>
                 <div className="font-12-medium-100 truncate text-black-#666">{question.content}</div>
