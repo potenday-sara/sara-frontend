@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import getQuestion from '@/apis/question/getQuestion';
-import SaraTitle from '@/app/[lang]/lounge/[questionId]/_asset/saratitle.svg';
-import MaraTitle from '@/app/[lang]/lounge/[questionId]/_asset/maratitle.svg';
+import SaraTitle1 from '@/app/[lang]/lounge/[questionId]/_asset/saratitle1.svg';
+import MaraTitle1 from '@/app/[lang]/lounge/[questionId]/_asset/maratitle1.svg';
 import SaraCircleCharacter from '@/asset/logo/SaraCircleCharacter.svg';
 import MaraCircleCharacter from '@/asset/logo/MaraCircleCharacter.svg';
 import getAnswer from '@/apis/answers/getAnswer';
@@ -51,7 +51,7 @@ export default async function page({ params }: Props) {
   return (
     <div className="p-4 flex flex-col gap-5">
       <div className="flex flex-col gap-4">
-        <div>{answer.type === 'sara' ? <SaraTitle /> : <MaraTitle />}</div>
+        <div>{answer.type === 'sara' ? <SaraTitle1 /> : <MaraTitle1 />}</div>
         <h1 className="font-20-title-140">{answer.product}</h1>
         <p className="font-14-medium-140 text-black-#666">{answer.content}</p>
       </div>

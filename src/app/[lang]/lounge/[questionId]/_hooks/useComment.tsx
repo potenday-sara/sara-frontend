@@ -4,9 +4,10 @@ import { useCallback, useMemo, useState } from 'react';
 import { Comment } from '@/app/[lang]/lounge/[questionId]/_components/AnswerComment';
 import getNickname from '@/app/[lang]/lounge/[questionId]/_utils/getNickname';
 import postComment from '@/apis/question/postComment';
+import { Language } from '@/types/lang';
 
-const useComment = (questionId: string, commentList: Comment[]) => {
-  const nickname = getNickname('nickname') || '익명';
+const useComment = (questionId: string, commentList: Comment[], lang: 'ko' | 'en' | 'jp') => {
+  const nickname = getNickname(`nickname-${lang}`, lang) || '익명';
   const [commentListState, setCommentListState] = useState<Comment[]>(commentList);
   const [page, setPage] = useState(1);
 

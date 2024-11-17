@@ -7,7 +7,7 @@
   "question_reason_placeholder": "고민하고 있는 이유를 알려주세요.",
   "question_submit_sara": "사면 어떨까, 샤?",
   "question_submit_mara": "사도 될 거 같먀?",
-  "question_recommendation": "추천",
+  "question_recommendation": "추천 상품",
   "question_carousel_title":"라운지",
   "question_carousel_button": "바로가기",
   "question_carousel_tooltip": "다른 사람들의 질문 더 보러가기",
@@ -36,5 +36,4 @@
   "floating_help_introduction_common": "어떻게 써야 할지 알려줄게, {{ theme }}!",
   "shopping_search_sara": "방금 물어본 거 바로 Sara",
   "shopping_search_mara": "방금 물어본 거 사지 Mara"
-
 }

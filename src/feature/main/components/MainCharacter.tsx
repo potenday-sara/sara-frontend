@@ -5,6 +5,12 @@ import { memo, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import MainSara from '@/asset/character/MainSara.svg';
 import MainMara from '@/asset/character/MainMara.svg';
+import SaraKo from '@/asset/character/sara-ko.svg';
+import SaraEn from '@/asset/character/sara-en.svg';
+import MaraKo from '@/asset/character/mara-ko.svg';
+import MaraEn from '@/asset/character/mara-en.svg';
+import SaraJp from '@/asset/character/sara-jp.svg';
+import MaraJp from '@/asset/character/mara-jp.svg';
 import { Theme } from '@/feature/main/hooks/useSaraMara';
 import Logo from '@/components/atoms/Logo/Logo';
 import getCssByTheme from '@/app/_utils/getCssByTheme';
@@ -41,6 +47,16 @@ function MainCharacter({ type, theme }: MainCharacterProps) {
     router.push(`/${lang}/question?theme=${type}`);
   };
 
+  const getLogoByLang = (character: Theme) => {
+    if (lang === 'en') {
+      return character === 'sara' ? <SaraEn /> : <MaraEn />;
+    }
+    if (lang === 'jp') {
+      return character === 'sara' ? <SaraJp /> : <MaraJp />;
+    }
+    return character === 'sara' ? <SaraKo /> : <MaraKo />;
+  };
+
   const generateLabel = useMemo(() => {
     if (lang === 'en') {
       return (
@@ -60,16 +76,18 @@ function MainCharacter({ type, theme }: MainCharacterProps) {
         <div>{t('home_sara_button')}</div>
       </div>
     );
-  }, [lang]);
+  }, [lang, t]);
 
   return (
     <div className={MainCharacterClassNames({ type })}>
       {type === 'sara' ? (
-        <div style={{ opacity: theme === type ? 1 : 0.5 }}>
+        <div style={{ opacity: theme === type ? 1 : 0.5 }} className="flex flex-col items-center">
+          {getLogoByLang('sara')}
           <MainSara />
         </div>
       ) : (
-        <div style={{ opacity: theme === type ? 1 : 0.5 }}>
+        <div style={{ opacity: theme === type ? 1 : 0.5 }} className="flex flex-col items-center">
+          {getLogoByLang('mara')}
           <MainMara />
         </div>
       )}
@@ -82,4 +100,4 @@ function MainCharacter({ type, theme }: MainCharacterProps) {
   );
 }
 
-export default memo(MainCharacter);
+export default MainCharacter;
