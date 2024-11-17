@@ -182,14 +182,164 @@ const 명사 = [
   '레모네이드',
   '모래성',
 ];
+const 영어_형용사 = [
+  'Sophisticated',
+  'Brave',
+  'Cheerful',
+  'Chic',
+  'Silent',
+  'Practical',
+  'Solid',
+  'Reliable',
+  'Innovative',
+  'Unique',
+  'Luxurious',
+  'Patient',
+  'Glamorous',
+  'Future-forward',
+  'Exclusive',
+  'Soft',
+  'Smart',
+  'Wise',
+  'Charming',
+  'Thrifty',
+  'Calm',
+  'Beautiful',
+  'Joyful',
+  'Cute',
+  'Cool',
+  'Stylish',
+  'Mysterious',
+  'Customized',
+  'Classy',
+  'Professional',
+  'Rare',
+];
 
-const generateRandomNickname = () => {
-  const randomAdjective = 형용사[Math.floor(Math.random() * 형용사.length)];
-  const randomNoun = 명사[Math.floor(Math.random() * 명사.length)];
-  return `${randomAdjective} ${randomNoun}`;
+const 영어_명사 = [
+  'Bicycle',
+  'Bear',
+  'Snail',
+  'Owl',
+  'Deer',
+  'Sky',
+  'Sunshower',
+  'Chocolate',
+  'Penguin',
+  'Crescent',
+  'Espresso',
+  'Pineapple',
+  'Elephant',
+  'Kangaroo',
+  'Champagne',
+  'ApricotTree',
+  'Parrot',
+  'IceCream',
+  'Wind',
+  'Butterfly',
+  'CoffeeCup',
+  'Lavender',
+  'Swan',
+  'Cat',
+  'Fish',
+  'Frog',
+  'Cloud',
+  'AppleOrchard',
+  'Angel',
+  'Giraffe',
+  'Eagle',
+  'Squirrel',
+  'Clover',
+];
+
+const 일본어_형용사 = [
+  '神秘的な',
+  '洗練された',
+  '冷静な',
+  '柔らかい',
+  '革新的な',
+  '鮮やかな',
+  '元気な',
+  'シックな',
+  'ユニークな',
+  '忍耐力のある',
+  'シンプルな',
+  'かわいい',
+  '環境に優しい',
+  '勇敢な',
+  '信頼できる',
+  '甘い',
+  '賢い',
+  '安定した',
+  '愛らしい',
+  '聡明な',
+  '忍耐強い',
+  '実用的な',
+  '静かな',
+  '新鮮な',
+  '節約家の',
+  '未来志向',
+  'プロフェッショナル',
+  '徹底的な',
+  'プレミアム',
+  '無言の',
+  'トレンディ',
+  'エレガントな',
+  '平和な',
+];
+
+const 일본어_명사 = [
+  'トラ',
+  '蝶々',
+  'コーヒーカップ',
+  'パイナップル',
+  'カプチーノ',
+  'リス',
+  '雲',
+  'クローバー',
+  '猫',
+  '虹',
+  'ペンギン',
+  'アイスクリーム',
+  '天使',
+  'チョコレート',
+  '象',
+  'イルカ',
+  'エスプレッソ',
+  'カエル',
+  'モヒート',
+  'アンズ',
+  'ラベンダー',
+  '魚',
+  'ワシ',
+  'マカロン',
+  'リンゴの木',
+  'カタツムリ',
+  'マティーニ',
+  'オウム',
+  'パンダ',
+];
+
+const generateRandomNickname = (lang: 'ko' | 'en' | 'jp') => {
+  if (lang === 'ko') {
+    const randomAdjective = 형용사[Math.floor(Math.random() * 형용사.length)];
+    const randomNoun = 명사[Math.floor(Math.random() * 명사.length)];
+    return `${randomAdjective} ${randomNoun}`.slice(0, 20);
+  }
+  if (lang === 'en') {
+    const randomAdjective = 영어_형용사[Math.floor(Math.random() * 영어_형용사.length)];
+    const randomNoun = 영어_명사[Math.floor(Math.random() * 영어_명사.length)];
+    return `${randomAdjective} ${randomNoun}`.slice(0, 20);
+  }
+  if (lang === 'jp') {
+    const randomAdjective = 일본어_형용사[Math.floor(Math.random() * 일본어_형용사.length)];
+    const randomNoun = 일본어_명사[Math.floor(Math.random() * 일본어_명사.length)];
+    return `${randomAdjective} ${randomNoun}`.slice(0, 20);
+  }
+  return '';
 };
 
-export default function getNickname(key: string) {
+export default function getNickname(key: string, lang: 'ko' | 'en' | 'jp') {
   // 형용사에서 단어 하나 명사에서 단어 하나를 꺼내 조합해서 반환하는 함수
 
   const nickName = () => {
@@ -198,7 +348,7 @@ export default function getNickname(key: string) {
       return localStorage.getItem(key);
     }
 
-    const newNickName = generateRandomNickname();
+    const newNickName = generateRandomNickname(lang);
     localStorage.setItem(key, newNickName);
 
     return newNickName;

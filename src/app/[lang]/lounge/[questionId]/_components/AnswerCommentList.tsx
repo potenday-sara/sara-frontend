@@ -23,6 +23,7 @@ interface Props {
 
 export default function AnswerCommentList({ type, commentList, questionId }: Props) {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const [{ t }, lang] = useTranslation('lounge');
   const {
     handleCreateComment,
     commentListState,
@@ -30,9 +31,8 @@ export default function AnswerCommentList({ type, commentList, questionId }: Pro
     maxPage,
     handlePageChange,
     page,
-  } = useComment(questionId, commentList);
+  } = useComment(questionId, commentList, lang);
   const [value, setValue] = useState('');
-  const [{ t }, lang] = useTranslation('lounge');
   const getEmptyIcons = () => {
     if (lang === 'jp') {
       return type === 'sara' ? <SaraEmptyJP /> : <MaraEmptyJP />;
