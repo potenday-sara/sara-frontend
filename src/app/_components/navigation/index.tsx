@@ -71,7 +71,10 @@ function Navigation() {
 
   isActive('/question/?theme=sara');
   return (
-    <div className="flex items-center w-full h-[58px] bg-neutral-50 sticky left-0 bottom-0 border-solid border-[1px] border-neutral-100">
+    <div
+      style={{ zIndex: 999999999 }}
+      className="flex items-center w-full h-[58px] bg-neutral-50 sticky left-0 bottom-0 border-solid border-[1px] border-neutral-100"
+    >
       {NAV.map(({ icon, text, path, activeColor }, index) => (
         <NavigationButton
           isActive={isActive(path)}
