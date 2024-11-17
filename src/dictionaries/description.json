@@ -46,7 +46,7 @@
   },
   "question_recommedation": {
     "common": {
-      "ko": "추천",
+      "ko": "추천 상품",
       "en": "Recommended",
       "jp": "推薦"
     }

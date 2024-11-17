@@ -106,7 +106,7 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
   };
 
   const RefreshButtonClassName = cva(
-    'flex flex-col gap-1 items-center p-[9px] justify-center w-[54px] grow-0  border border-blue-50 rounded-[8px] font-10-medium-100 ',
+    'flex flex-col gap-1 items-center p-[9px] justify-center w-auto grow-0  border border-blue-50 rounded-[8px] font-10-medium-100 ',
     {
       variants: {
         theme: {
@@ -158,7 +158,7 @@ export default function QuestionForm({ descriptionPlaceHolder, itemPlaceHolder, 
             <div className="line w-full h-[1px] bg-gray-100" />
             <div className="flex w-full h-auto p-2 gap-2">
               <div className={RefreshButtonClassName({ theme })}>
-                추천상품
+                {t('question_recommendation')}
                 <div
                   className="cursor-pointer relative flex justify-center items-center"
                   onClick={handleClickRefreshTimer}
